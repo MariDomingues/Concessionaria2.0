@@ -1,0 +1,1623 @@
+
+
+class function CoAccessForm.Create: _Form;
+begin
+  Result := CreateComObject(CLASS_AccessForm) as _Form;
+end;
+
+class function CoAccessForm.CreateRemote(const MachineName: string): _Form;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_AccessForm) as _Form;
+end;
+
+procedure TAccessForm.InitServerData;
+const
+  CServerData: TServerData = (
+    ClassID:   '{483615A0-74BE-101B-AF4E-00AA003F0F07}';
+    IntfIID:   '{E5135D80-8F8D-101B-AF4E-00AA003F0F07}';
+    EventIID:  '{331FDCFB-CF31-11CD-8701-00AA003F0F07}';
+    LicenseKey: nil;
+    Version: 500);
+begin
+  ServerData := @CServerData;
+end;
+
+procedure TAccessForm.Connect;
+var
+  punk: IUnknown;
+begin
+  if FIntf = nil then
+  begin
+    punk := GetServer;
+    ConnectEvents(punk);
+    Fintf:= punk as _Form;
+  end;
+end;
+
+procedure TAccessForm.ConnectTo(svrIntf: _Form);
+begin
+  Disconnect;
+  FIntf := svrIntf;
+  ConnectEvents(FIntf);
+end;
+
+procedure TAccessForm.DisConnect;
+begin
+  if Fintf <> nil then
+  begin
+    DisconnectEvents(FIntf);
+    FIntf := nil;
+  end;
+end;
+
+function TAccessForm.GetDefaultInterface: _Form;
+begin
+  if FIntf = nil then
+    Connect;
+  Assert(FIntf <> nil, 'DefaultInterface is NULL. Component is not connected to Server. You must call ''Connect'' or ''ConnectTo'' before this operation');
+  Result := FIntf;
+end;
+
+constructor TAccessForm.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps := TAccessFormProperties.Create(Self);
+{$ENDIF}
+end;
+
+destructor TAccessForm.Destroy;
+begin
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps.Free;
+{$ENDIF}
+  inherited Destroy;
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+function TAccessForm.GetServerProperties: TAccessFormProperties;
+begin
+  Result := FProps;
+end;
+{$ENDIF}
+
+procedure TAccessForm.InvokeEvent(DispID: TDispID; var Params: TVariantArray);
+begin
+  case DispID of
+    -1: Exit;  // DISPID_UNKNOWN
+    2067: if Assigned(FOnLoad) then
+         FOnLoad(Self);
+    2058: if Assigned(FOnCurrent) then
+         FOnCurrent(Self);
+    2059: if Assigned(FOnBeforeInsert) then
+         FOnBeforeInsert(Self, Smallint((TVarData(Params[0]).VPointer)^) {out Smallint});
+    2060: if Assigned(FOnAfterInsert) then
+         FOnAfterInsert(Self);
+    2061: if Assigned(FOnBeforeUpdate) then
+         FOnBeforeUpdate(Self, Smallint((TVarData(Params[0]).VPointer)^) {out Smallint});
+    2062: if Assigned(FOnAfterUpdate) then
+         FOnAfterUpdate(Self);
+    2063: if Assigned(FOnDelete) then
+         FOnDelete(Self, Smallint((TVarData(Params[0]).VPointer)^) {out Smallint});
+    2064: if Assigned(FOnBeforeDelConfirm) then
+         FOnBeforeDelConfirm(Self,
+                             Smallint((TVarData(Params[0]).VPointer)^) {out Smallint},
+                             Smallint((TVarData(Params[1]).VPointer)^) {out Smallint});
+    2065: if Assigned(FOnAfterDelConfirm) then
+         FOnAfterDelConfirm(Self, Smallint((TVarData(Params[0]).VPointer)^) {var Smallint});
+    2066: if Assigned(FOnOpen) then
+         FOnOpen(Self, Smallint((TVarData(Params[0]).VPointer)^) {out Smallint});
+    2068: if Assigned(FOnResize) then
+         FOnResize(Self);
+    2069: if Assigned(FOnUnload) then
+         FOnUnload(Self, Smallint((TVarData(Params[0]).VPointer)^) {out Smallint});
+    2070: if Assigned(FOnClose) then
+         FOnClose(Self);
+    2071: if Assigned(FOnActivate) then
+         FOnActivate(Self);
+    2072: if Assigned(FOnDeactivate) then
+         FOnDeactivate(Self);
+    2073: if Assigned(FOnGotFocus) then
+         FOnGotFocus(Self);
+    2074: if Assigned(FOnLostFocus) then
+         FOnLostFocus(Self);
+    -600: if Assigned(FOnClick) then
+         FOnClick(Self);
+    -601: if Assigned(FOnDblClick) then
+         FOnDblClick(Self, Smallint((TVarData(Params[0]).VPointer)^) {out Smallint});
+    -605: if Assigned(FOnMouseDown) then
+         FOnMouseDown(Self,
+                      Smallint((TVarData(Params[0]).VPointer)^) {var Smallint},
+                      Smallint((TVarData(Params[1]).VPointer)^) {var Smallint},
+                      Single((TVarData(Params[2]).VPointer)^) {var Single},
+                      Single((TVarData(Params[3]).VPointer)^) {var Single});
+    -606: if Assigned(FOnMouseMove) then
+         FOnMouseMove(Self,
+                      Smallint((TVarData(Params[0]).VPointer)^) {var Smallint},
+                      Smallint((TVarData(Params[1]).VPointer)^) {var Smallint},
+                      Single((TVarData(Params[2]).VPointer)^) {var Single},
+                      Single((TVarData(Params[3]).VPointer)^) {var Single});
+    -607: if Assigned(FOnMouseUp) then
+         FOnMouseUp(Self,
+                    Smallint((TVarData(Params[0]).VPointer)^) {var Smallint},
+                    Smallint((TVarData(Params[1]).VPointer)^) {var Smallint},
+                    Single((TVarData(Params[2]).VPointer)^) {var Single},
+                    Single((TVarData(Params[3]).VPointer)^) {var Single});
+    -602: if Assigned(FOnKeyDown) then
+         FOnKeyDown(Self,
+                    Smallint((TVarData(Params[0]).VPointer)^) {var Smallint},
+                    Smallint((TVarData(Params[1]).VPointer)^) {var Smallint});
+    -603: if Assigned(FOnKeyPress) then
+         FOnKeyPress(Self, Smallint((TVarData(Params[0]).VPointer)^) {var Smallint});
+    -604: if Assigned(FOnKeyUp) then
+         FOnKeyUp(Self,
+                  Smallint((TVarData(Params[0]).VPointer)^) {var Smallint},
+                  Smallint((TVarData(Params[1]).VPointer)^) {var Smallint});
+    2083: if Assigned(FOnError) then
+         FOnError(Self,
+                  Smallint((TVarData(Params[0]).VPointer)^) {var Smallint},
+                  Smallint((TVarData(Params[1]).VPointer)^) {out Smallint});
+    2084: if Assigned(FOnTimer) then
+         FOnTimer(Self);
+    2155: if Assigned(FOnFilter) then
+         FOnFilter(Self,
+                   Smallint((TVarData(Params[0]).VPointer)^) {out Smallint},
+                   Smallint((TVarData(Params[1]).VPointer)^) {var Smallint});
+    2156: if Assigned(FOnApplyFilter) then
+         FOnApplyFilter(Self,
+                        Smallint((TVarData(Params[0]).VPointer)^) {out Smallint},
+                        Smallint((TVarData(Params[1]).VPointer)^) {var Smallint});
+  end; {case DispID}
+end;
+
+function TAccessForm.Get_FormName: WideString;
+begin
+    Result := DefaultInterface.FormName;
+end;
+
+procedure TAccessForm.Set_FormName(const pRet: WideString);
+  { Warning: The property FormName has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.FormName := pRet;
+end;
+
+function TAccessForm.Get_RecordSource: WideString;
+begin
+    Result := DefaultInterface.RecordSource;
+end;
+
+procedure TAccessForm.Set_RecordSource(const pRet: WideString);
+  { Warning: The property RecordSource has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.RecordSource := pRet;
+end;
+
+function TAccessForm.Get_Filter: WideString;
+begin
+    Result := DefaultInterface.Filter;
+end;
+
+procedure TAccessForm.Set_Filter(const pRet: WideString);
+  { Warning: The property Filter has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Filter := pRet;
+end;
+
+function TAccessForm.Get_FilterOn: WordBool;
+begin
+    Result := DefaultInterface.FilterOn;
+end;
+
+procedure TAccessForm.Set_FilterOn(pRet: WordBool);
+begin
+  DefaultInterface.Set_FilterOn(pRet);
+end;
+
+function TAccessForm.Get_OrderBy: WideString;
+begin
+    Result := DefaultInterface.OrderBy;
+end;
+
+procedure TAccessForm.Set_OrderBy(const pRet: WideString);
+  { Warning: The property OrderBy has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OrderBy := pRet;
+end;
+
+function TAccessForm.Get_OrderByOn: WordBool;
+begin
+    Result := DefaultInterface.OrderByOn;
+end;
+
+procedure TAccessForm.Set_OrderByOn(pRet: WordBool);
+begin
+  DefaultInterface.Set_OrderByOn(pRet);
+end;
+
+function TAccessForm.Get_AllowFilters: WordBool;
+begin
+    Result := DefaultInterface.AllowFilters;
+end;
+
+procedure TAccessForm.Set_AllowFilters(pRet: WordBool);
+begin
+  DefaultInterface.Set_AllowFilters(pRet);
+end;
+
+function TAccessForm.Get_Caption: WideString;
+begin
+    Result := DefaultInterface.Caption;
+end;
+
+procedure TAccessForm.Set_Caption(const pRet: WideString);
+  { Warning: The property Caption has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Caption := pRet;
+end;
+
+function TAccessForm.Get_DefaultView: Byte;
+begin
+    Result := DefaultInterface.DefaultView;
+end;
+
+procedure TAccessForm.Set_DefaultView(pRet: Byte);
+begin
+  DefaultInterface.Set_DefaultView(pRet);
+end;
+
+function TAccessForm.Get_ViewsAllowed: Byte;
+begin
+    Result := DefaultInterface.ViewsAllowed;
+end;
+
+procedure TAccessForm.Set_ViewsAllowed(pRet: Byte);
+begin
+  DefaultInterface.Set_ViewsAllowed(pRet);
+end;
+
+function TAccessForm.Get_AllowEditing: WordBool;
+begin
+    Result := DefaultInterface.AllowEditing;
+end;
+
+procedure TAccessForm.Set_AllowEditing(pRet: WordBool);
+begin
+  DefaultInterface.Set_AllowEditing(pRet);
+end;
+
+function TAccessForm.Get_DefaultEditing: Smallint;
+begin
+    Result := DefaultInterface.DefaultEditing;
+end;
+
+procedure TAccessForm.Set_DefaultEditing(pRet: Smallint);
+begin
+  DefaultInterface.Set_DefaultEditing(pRet);
+end;
+
+function TAccessForm.Get_AllowEdits: WordBool;
+begin
+    Result := DefaultInterface.AllowEdits;
+end;
+
+procedure TAccessForm.Set_AllowEdits(pRet: WordBool);
+begin
+  DefaultInterface.Set_AllowEdits(pRet);
+end;
+
+function TAccessForm.Get_AllowDeletions: WordBool;
+begin
+    Result := DefaultInterface.AllowDeletions;
+end;
+
+procedure TAccessForm.Set_AllowDeletions(pRet: WordBool);
+begin
+  DefaultInterface.Set_AllowDeletions(pRet);
+end;
+
+function TAccessForm.Get_AllowAdditions: WordBool;
+begin
+    Result := DefaultInterface.AllowAdditions;
+end;
+
+procedure TAccessForm.Set_AllowAdditions(pRet: WordBool);
+begin
+  DefaultInterface.Set_AllowAdditions(pRet);
+end;
+
+function TAccessForm.Get_DataEntry: WordBool;
+begin
+    Result := DefaultInterface.DataEntry;
+end;
+
+procedure TAccessForm.Set_DataEntry(pRet: WordBool);
+begin
+  DefaultInterface.Set_DataEntry(pRet);
+end;
+
+function TAccessForm.Get_AllowUpdating: Byte;
+begin
+    Result := DefaultInterface.AllowUpdating;
+end;
+
+procedure TAccessForm.Set_AllowUpdating(pRet: Byte);
+begin
+  DefaultInterface.Set_AllowUpdating(pRet);
+end;
+
+function TAccessForm.Get_RecordsetType: Byte;
+begin
+    Result := DefaultInterface.RecordsetType;
+end;
+
+procedure TAccessForm.Set_RecordsetType(pRet: Byte);
+begin
+  DefaultInterface.Set_RecordsetType(pRet);
+end;
+
+function TAccessForm.Get_RecordLocks: Byte;
+begin
+    Result := DefaultInterface.RecordLocks;
+end;
+
+procedure TAccessForm.Set_RecordLocks(pRet: Byte);
+begin
+  DefaultInterface.Set_RecordLocks(pRet);
+end;
+
+function TAccessForm.Get_ScrollBars: Byte;
+begin
+    Result := DefaultInterface.ScrollBars;
+end;
+
+procedure TAccessForm.Set_ScrollBars(pRet: Byte);
+begin
+  DefaultInterface.Set_ScrollBars(pRet);
+end;
+
+function TAccessForm.Get_RecordSelectors: WordBool;
+begin
+    Result := DefaultInterface.RecordSelectors;
+end;
+
+procedure TAccessForm.Set_RecordSelectors(pRet: WordBool);
+begin
+  DefaultInterface.Set_RecordSelectors(pRet);
+end;
+
+function TAccessForm.Get_NavigationButtons: WordBool;
+begin
+    Result := DefaultInterface.NavigationButtons;
+end;
+
+procedure TAccessForm.Set_NavigationButtons(pRet: WordBool);
+begin
+  DefaultInterface.Set_NavigationButtons(pRet);
+end;
+
+function TAccessForm.Get_DividingLines: WordBool;
+begin
+    Result := DefaultInterface.DividingLines;
+end;
+
+procedure TAccessForm.Set_DividingLines(pRet: WordBool);
+begin
+  DefaultInterface.Set_DividingLines(pRet);
+end;
+
+function TAccessForm.Get_AutoResize: WordBool;
+begin
+    Result := DefaultInterface.AutoResize;
+end;
+
+procedure TAccessForm.Set_AutoResize(pRet: WordBool);
+begin
+  DefaultInterface.Set_AutoResize(pRet);
+end;
+
+function TAccessForm.Get_AutoCenter: WordBool;
+begin
+    Result := DefaultInterface.AutoCenter;
+end;
+
+procedure TAccessForm.Set_AutoCenter(pRet: WordBool);
+begin
+  DefaultInterface.Set_AutoCenter(pRet);
+end;
+
+function TAccessForm.Get_PopUp: WordBool;
+begin
+    Result := DefaultInterface.PopUp;
+end;
+
+procedure TAccessForm.Set_PopUp(pRet: WordBool);
+begin
+  DefaultInterface.Set_PopUp(pRet);
+end;
+
+function TAccessForm.Get_Modal: WordBool;
+begin
+    Result := DefaultInterface.Modal;
+end;
+
+procedure TAccessForm.Set_Modal(pRet: WordBool);
+begin
+  DefaultInterface.Set_Modal(pRet);
+end;
+
+function TAccessForm.Get_BorderStyle: Byte;
+begin
+    Result := DefaultInterface.BorderStyle;
+end;
+
+procedure TAccessForm.Set_BorderStyle(pRet: Byte);
+begin
+  DefaultInterface.Set_BorderStyle(pRet);
+end;
+
+function TAccessForm.Get_ControlBox: WordBool;
+begin
+    Result := DefaultInterface.ControlBox;
+end;
+
+procedure TAccessForm.Set_ControlBox(pRet: WordBool);
+begin
+  DefaultInterface.Set_ControlBox(pRet);
+end;
+
+function TAccessForm.Get_MinButton: WordBool;
+begin
+    Result := DefaultInterface.MinButton;
+end;
+
+procedure TAccessForm.Set_MinButton(pRet: WordBool);
+begin
+  DefaultInterface.Set_MinButton(pRet);
+end;
+
+function TAccessForm.Get_MaxButton: WordBool;
+begin
+    Result := DefaultInterface.MaxButton;
+end;
+
+procedure TAccessForm.Set_MaxButton(pRet: WordBool);
+begin
+  DefaultInterface.Set_MaxButton(pRet);
+end;
+
+function TAccessForm.Get_MinMaxButtons: Byte;
+begin
+    Result := DefaultInterface.MinMaxButtons;
+end;
+
+procedure TAccessForm.Set_MinMaxButtons(pRet: Byte);
+begin
+  DefaultInterface.Set_MinMaxButtons(pRet);
+end;
+
+function TAccessForm.Get_CloseButton: WordBool;
+begin
+    Result := DefaultInterface.CloseButton;
+end;
+
+procedure TAccessForm.Set_CloseButton(pRet: WordBool);
+begin
+  DefaultInterface.Set_CloseButton(pRet);
+end;
+
+function TAccessForm.Get_WhatsThisButton: WordBool;
+begin
+    Result := DefaultInterface.WhatsThisButton;
+end;
+
+procedure TAccessForm.Set_WhatsThisButton(pRet: WordBool);
+begin
+  DefaultInterface.Set_WhatsThisButton(pRet);
+end;
+
+function TAccessForm.Get_Width: Smallint;
+begin
+    Result := DefaultInterface.Width;
+end;
+
+procedure TAccessForm.Set_Width(pRet: Smallint);
+begin
+  DefaultInterface.Set_Width(pRet);
+end;
+
+function TAccessForm.Get_Picture: WideString;
+begin
+    Result := DefaultInterface.Picture;
+end;
+
+procedure TAccessForm.Set_Picture(const pRet: WideString);
+  { Warning: The property Picture has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Picture := pRet;
+end;
+
+function TAccessForm.Get_PictureType: Byte;
+begin
+    Result := DefaultInterface.PictureType;
+end;
+
+procedure TAccessForm.Set_PictureType(pRet: Byte);
+begin
+  DefaultInterface.Set_PictureType(pRet);
+end;
+
+function TAccessForm.Get_PictureSizeMode: Byte;
+begin
+    Result := DefaultInterface.PictureSizeMode;
+end;
+
+procedure TAccessForm.Set_PictureSizeMode(pRet: Byte);
+begin
+  DefaultInterface.Set_PictureSizeMode(pRet);
+end;
+
+function TAccessForm.Get_PictureAlignment: Byte;
+begin
+    Result := DefaultInterface.PictureAlignment;
+end;
+
+procedure TAccessForm.Set_PictureAlignment(pRet: Byte);
+begin
+  DefaultInterface.Set_PictureAlignment(pRet);
+end;
+
+function TAccessForm.Get_PictureTiling: WordBool;
+begin
+    Result := DefaultInterface.PictureTiling;
+end;
+
+procedure TAccessForm.Set_PictureTiling(pRet: WordBool);
+begin
+  DefaultInterface.Set_PictureTiling(pRet);
+end;
+
+function TAccessForm.Get_Cycle: Byte;
+begin
+    Result := DefaultInterface.Cycle;
+end;
+
+procedure TAccessForm.Set_Cycle(pRet: Byte);
+begin
+  DefaultInterface.Set_Cycle(pRet);
+end;
+
+function TAccessForm.Get_MenuBar: WideString;
+begin
+    Result := DefaultInterface.MenuBar;
+end;
+
+procedure TAccessForm.Set_MenuBar(const pRet: WideString);
+  { Warning: The property MenuBar has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.MenuBar := pRet;
+end;
+
+function TAccessForm.Get_Toolbar: WideString;
+begin
+    Result := DefaultInterface.Toolbar;
+end;
+
+procedure TAccessForm.Set_Toolbar(const pRet: WideString);
+  { Warning: The property Toolbar has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Toolbar := pRet;
+end;
+
+function TAccessForm.Get_ShortcutMenu: WordBool;
+begin
+    Result := DefaultInterface.ShortcutMenu;
+end;
+
+procedure TAccessForm.Set_ShortcutMenu(pRet: WordBool);
+begin
+  DefaultInterface.Set_ShortcutMenu(pRet);
+end;
+
+function TAccessForm.Get_ShortcutMenuBar: WideString;
+begin
+    Result := DefaultInterface.ShortcutMenuBar;
+end;
+
+procedure TAccessForm.Set_ShortcutMenuBar(const pRet: WideString);
+  { Warning: The property ShortcutMenuBar has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.ShortcutMenuBar := pRet;
+end;
+
+function TAccessForm.Get_GridX: Smallint;
+begin
+    Result := DefaultInterface.GridX;
+end;
+
+procedure TAccessForm.Set_GridX(pRet: Smallint);
+begin
+  DefaultInterface.Set_GridX(pRet);
+end;
+
+function TAccessForm.Get_GridY: Smallint;
+begin
+    Result := DefaultInterface.GridY;
+end;
+
+procedure TAccessForm.Set_GridY(pRet: Smallint);
+begin
+  DefaultInterface.Set_GridY(pRet);
+end;
+
+function TAccessForm.Get_LayoutForPrint: WordBool;
+begin
+    Result := DefaultInterface.LayoutForPrint;
+end;
+
+procedure TAccessForm.Set_LayoutForPrint(pRet: WordBool);
+begin
+  DefaultInterface.Set_LayoutForPrint(pRet);
+end;
+
+function TAccessForm.Get_FastLaserPrinting: WordBool;
+begin
+    Result := DefaultInterface.FastLaserPrinting;
+end;
+
+procedure TAccessForm.Set_FastLaserPrinting(pRet: WordBool);
+begin
+  DefaultInterface.Set_FastLaserPrinting(pRet);
+end;
+
+function TAccessForm.Get_HelpFile: WideString;
+begin
+    Result := DefaultInterface.HelpFile;
+end;
+
+procedure TAccessForm.Set_HelpFile(const pRet: WideString);
+  { Warning: The property HelpFile has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.HelpFile := pRet;
+end;
+
+function TAccessForm.Get_HelpContextId: Integer;
+begin
+    Result := DefaultInterface.HelpContextId;
+end;
+
+procedure TAccessForm.Set_HelpContextId(pRet: Integer);
+begin
+  DefaultInterface.Set_HelpContextId(pRet);
+end;
+
+function TAccessForm.Get_RowHeight: Smallint;
+begin
+    Result := DefaultInterface.RowHeight;
+end;
+
+procedure TAccessForm.Set_RowHeight(pRet: Smallint);
+begin
+  DefaultInterface.Set_RowHeight(pRet);
+end;
+
+function TAccessForm.Get_DatasheetFontName: WideString;
+begin
+    Result := DefaultInterface.DatasheetFontName;
+end;
+
+procedure TAccessForm.Set_DatasheetFontName(const pRet: WideString);
+  { Warning: The property DatasheetFontName has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.DatasheetFontName := pRet;
+end;
+
+function TAccessForm.Get_DatasheetFontHeight: Smallint;
+begin
+    Result := DefaultInterface.DatasheetFontHeight;
+end;
+
+procedure TAccessForm.Set_DatasheetFontHeight(pRet: Smallint);
+begin
+  DefaultInterface.Set_DatasheetFontHeight(pRet);
+end;
+
+function TAccessForm.Get_DatasheetFontWeight: Smallint;
+begin
+    Result := DefaultInterface.DatasheetFontWeight;
+end;
+
+procedure TAccessForm.Set_DatasheetFontWeight(pRet: Smallint);
+begin
+  DefaultInterface.Set_DatasheetFontWeight(pRet);
+end;
+
+function TAccessForm.Get_DatasheetFontItalic: WordBool;
+begin
+    Result := DefaultInterface.DatasheetFontItalic;
+end;
+
+procedure TAccessForm.Set_DatasheetFontItalic(pRet: WordBool);
+begin
+  DefaultInterface.Set_DatasheetFontItalic(pRet);
+end;
+
+function TAccessForm.Get_DatasheetFontUnderline: WordBool;
+begin
+    Result := DefaultInterface.DatasheetFontUnderline;
+end;
+
+procedure TAccessForm.Set_DatasheetFontUnderline(pRet: WordBool);
+begin
+  DefaultInterface.Set_DatasheetFontUnderline(pRet);
+end;
+
+function TAccessForm.Get_TabularCharSet: Byte;
+begin
+    Result := DefaultInterface.TabularCharSet;
+end;
+
+procedure TAccessForm.Set_TabularCharSet(pRet: Byte);
+begin
+  DefaultInterface.Set_TabularCharSet(pRet);
+end;
+
+function TAccessForm.Get_DatasheetGridlinesBehavior: Byte;
+begin
+    Result := DefaultInterface.DatasheetGridlinesBehavior;
+end;
+
+procedure TAccessForm.Set_DatasheetGridlinesBehavior(pRet: Byte);
+begin
+  DefaultInterface.Set_DatasheetGridlinesBehavior(pRet);
+end;
+
+function TAccessForm.Get_DatasheetGridlinesColor: Integer;
+begin
+    Result := DefaultInterface.DatasheetGridlinesColor;
+end;
+
+procedure TAccessForm.Set_DatasheetGridlinesColor(pRet: Integer);
+begin
+  DefaultInterface.Set_DatasheetGridlinesColor(pRet);
+end;
+
+function TAccessForm.Get_DatasheetCellsEffect: Byte;
+begin
+    Result := DefaultInterface.DatasheetCellsEffect;
+end;
+
+procedure TAccessForm.Set_DatasheetCellsEffect(pRet: Byte);
+begin
+  DefaultInterface.Set_DatasheetCellsEffect(pRet);
+end;
+
+function TAccessForm.Get_DatasheetForeColor: Integer;
+begin
+    Result := DefaultInterface.DatasheetForeColor;
+end;
+
+procedure TAccessForm.Set_DatasheetForeColor(pRet: Integer);
+begin
+  DefaultInterface.Set_DatasheetForeColor(pRet);
+end;
+
+function TAccessForm.Get_ShowGrid: WordBool;
+begin
+    Result := DefaultInterface.ShowGrid;
+end;
+
+procedure TAccessForm.Set_ShowGrid(pRet: WordBool);
+begin
+  DefaultInterface.Set_ShowGrid(pRet);
+end;
+
+function TAccessForm.Get_DatasheetBackColor: Integer;
+begin
+    Result := DefaultInterface.DatasheetBackColor;
+end;
+
+procedure TAccessForm.Set_DatasheetBackColor(pRet: Integer);
+begin
+  DefaultInterface.Set_DatasheetBackColor(pRet);
+end;
+
+function TAccessForm.Get_Hwnd: Integer;
+begin
+    Result := DefaultInterface.Hwnd;
+end;
+
+procedure TAccessForm.Set_Hwnd(pRet: Integer);
+begin
+  DefaultInterface.Set_Hwnd(pRet);
+end;
+
+function TAccessForm.Get_Count: Smallint;
+begin
+    Result := DefaultInterface.Count;
+end;
+
+procedure TAccessForm.Set_Count(pRet: Smallint);
+begin
+  DefaultInterface.Set_Count(pRet);
+end;
+
+function TAccessForm.Get_Page: Integer;
+begin
+    Result := DefaultInterface.Page;
+end;
+
+procedure TAccessForm.Set_Page(pRet: Integer);
+begin
+  DefaultInterface.Set_Page(pRet);
+end;
+
+function TAccessForm.Get_Pages: Smallint;
+begin
+    Result := DefaultInterface.Pages;
+end;
+
+procedure TAccessForm.Set_Pages(pRet: Smallint);
+begin
+  DefaultInterface.Set_Pages(pRet);
+end;
+
+function TAccessForm.Get_LogicalPageWidth: Integer;
+begin
+    Result := DefaultInterface.LogicalPageWidth;
+end;
+
+procedure TAccessForm.Set_LogicalPageWidth(pRet: Integer);
+begin
+  DefaultInterface.Set_LogicalPageWidth(pRet);
+end;
+
+function TAccessForm.Get_LogicalPageHeight: Integer;
+begin
+    Result := DefaultInterface.LogicalPageHeight;
+end;
+
+procedure TAccessForm.Set_LogicalPageHeight(pRet: Integer);
+begin
+  DefaultInterface.Set_LogicalPageHeight(pRet);
+end;
+
+function TAccessForm.Get_ZoomControl: Integer;
+begin
+    Result := DefaultInterface.ZoomControl;
+end;
+
+procedure TAccessForm.Set_ZoomControl(pRet: Integer);
+begin
+  DefaultInterface.Set_ZoomControl(pRet);
+end;
+
+function TAccessForm.Get_Visible: WordBool;
+begin
+    Result := DefaultInterface.Visible;
+end;
+
+procedure TAccessForm.Set_Visible(pRet: WordBool);
+begin
+  DefaultInterface.Set_Visible(pRet);
+end;
+
+function TAccessForm.Get_Painting: WordBool;
+begin
+    Result := DefaultInterface.Painting;
+end;
+
+procedure TAccessForm.Set_Painting(pRet: WordBool);
+begin
+  DefaultInterface.Set_Painting(pRet);
+end;
+
+function TAccessForm.Get_PrtMip: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PrtMip;
+end;
+
+procedure TAccessForm.Set_PrtMip(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PrtMip(pRet);
+end;
+
+function TAccessForm.Get_PrtDevMode: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PrtDevMode;
+end;
+
+procedure TAccessForm.Set_PrtDevMode(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PrtDevMode(pRet);
+end;
+
+function TAccessForm.Get_PrtDevNames: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PrtDevNames;
+end;
+
+procedure TAccessForm.Set_PrtDevNames(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PrtDevNames(pRet);
+end;
+
+function TAccessForm.Get_FrozenColumns: Smallint;
+begin
+    Result := DefaultInterface.FrozenColumns;
+end;
+
+procedure TAccessForm.Set_FrozenColumns(pRet: Smallint);
+begin
+  DefaultInterface.Set_FrozenColumns(pRet);
+end;
+
+function TAccessForm.Get_Bookmark: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Bookmark;
+end;
+
+procedure TAccessForm.Set_Bookmark(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Bookmark(pRet);
+end;
+
+function TAccessForm.Get_TabularFamily: Byte;
+begin
+    Result := DefaultInterface.TabularFamily;
+end;
+
+procedure TAccessForm.Set_TabularFamily(pRet: Byte);
+begin
+  DefaultInterface.Set_TabularFamily(pRet);
+end;
+
+function TAccessForm.Get_Name: WideString;
+begin
+    Result := DefaultInterface.Name;
+end;
+
+procedure TAccessForm.Set_Name(const pRet: WideString);
+  { Warning: The property Name has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Name := pRet;
+end;
+
+function TAccessForm.Get_PaletteSource: WideString;
+begin
+    Result := DefaultInterface.PaletteSource;
+end;
+
+procedure TAccessForm.Set_PaletteSource(const pRet: WideString);
+  { Warning: The property PaletteSource has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.PaletteSource := pRet;
+end;
+
+function TAccessForm.Get_Tag: WideString;
+begin
+    Result := DefaultInterface.Tag;
+end;
+
+procedure TAccessForm.Set_Tag(const pRet: WideString);
+  { Warning: The property Tag has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Tag := pRet;
+end;
+
+function TAccessForm.Get_PaintPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PaintPalette;
+end;
+
+procedure TAccessForm.Set_PaintPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PaintPalette(pRet);
+end;
+
+function TAccessForm.Get_OnMenu: WideString;
+begin
+    Result := DefaultInterface.OnMenu;
+end;
+
+procedure TAccessForm.Set_OnMenu(const pRet: WideString);
+  { Warning: The property OnMenu has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnMenu := pRet;
+end;
+
+function TAccessForm.Get_OpenArgs: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OpenArgs;
+end;
+
+procedure TAccessForm.Set_OpenArgs(pRet: OleVariant);
+begin
+  DefaultInterface.Set_OpenArgs(pRet);
+end;
+
+function TAccessForm.Get_ConnectSynch: Smallint;
+begin
+    Result := DefaultInterface.ConnectSynch;
+end;
+
+procedure TAccessForm.Set_ConnectSynch(pRet: Smallint);
+begin
+  DefaultInterface.Set_ConnectSynch(pRet);
+end;
+
+function TAccessForm.Get_OnCurrent: WideString;
+begin
+    Result := DefaultInterface.OnCurrent;
+end;
+
+procedure TAccessForm.Set_OnCurrent(const pRet: WideString);
+  { Warning: The property OnCurrent has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnCurrent := pRet;
+end;
+
+function TAccessForm.Get_OnInsert: WideString;
+begin
+    Result := DefaultInterface.OnInsert;
+end;
+
+procedure TAccessForm.Set_OnInsert(const pRet: WideString);
+  { Warning: The property OnInsert has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnInsert := pRet;
+end;
+
+function TAccessForm.Get_BeforeInsert: WideString;
+begin
+    Result := DefaultInterface.BeforeInsert;
+end;
+
+procedure TAccessForm.Set_BeforeInsert(const pRet: WideString);
+  { Warning: The property BeforeInsert has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.BeforeInsert := pRet;
+end;
+
+function TAccessForm.Get_AfterInsert: WideString;
+begin
+    Result := DefaultInterface.AfterInsert;
+end;
+
+procedure TAccessForm.Set_AfterInsert(const pRet: WideString);
+  { Warning: The property AfterInsert has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.AfterInsert := pRet;
+end;
+
+function TAccessForm.Get_BeforeUpdate: WideString;
+begin
+    Result := DefaultInterface.BeforeUpdate;
+end;
+
+procedure TAccessForm.Set_BeforeUpdate(const pRet: WideString);
+  { Warning: The property BeforeUpdate has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.BeforeUpdate := pRet;
+end;
+
+function TAccessForm.Get_AfterUpdate: WideString;
+begin
+    Result := DefaultInterface.AfterUpdate;
+end;
+
+procedure TAccessForm.Set_AfterUpdate(const pRet: WideString);
+  { Warning: The property AfterUpdate has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.AfterUpdate := pRet;
+end;
+
+function TAccessForm.Get_OnDelete: WideString;
+begin
+    Result := DefaultInterface.OnDelete;
+end;
+
+procedure TAccessForm.Set_OnDelete(const pRet: WideString);
+  { Warning: The property OnDelete has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnDelete := pRet;
+end;
+
+function TAccessForm.Get_BeforeDelConfirm: WideString;
+begin
+    Result := DefaultInterface.BeforeDelConfirm;
+end;
+
+procedure TAccessForm.Set_BeforeDelConfirm(const pRet: WideString);
+  { Warning: The property BeforeDelConfirm has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.BeforeDelConfirm := pRet;
+end;
+
+function TAccessForm.Get_AfterDelConfirm: WideString;
+begin
+    Result := DefaultInterface.AfterDelConfirm;
+end;
+
+procedure TAccessForm.Set_AfterDelConfirm(const pRet: WideString);
+  { Warning: The property AfterDelConfirm has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.AfterDelConfirm := pRet;
+end;
+
+function TAccessForm.Get_OnOpen: WideString;
+begin
+    Result := DefaultInterface.OnOpen;
+end;
+
+procedure TAccessForm.Set_OnOpen(const pRet: WideString);
+  { Warning: The property OnOpen has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnOpen := pRet;
+end;
+
+function TAccessForm.Get_OnLoad: WideString;
+begin
+    Result := DefaultInterface.OnLoad;
+end;
+
+procedure TAccessForm.Set_OnLoad(const pRet: WideString);
+  { Warning: The property OnLoad has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnLoad := pRet;
+end;
+
+function TAccessForm.Get_OnResize: WideString;
+begin
+    Result := DefaultInterface.OnResize;
+end;
+
+procedure TAccessForm.Set_OnResize(const pRet: WideString);
+  { Warning: The property OnResize has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnResize := pRet;
+end;
+
+function TAccessForm.Get_OnUnload: WideString;
+begin
+    Result := DefaultInterface.OnUnload;
+end;
+
+procedure TAccessForm.Set_OnUnload(const pRet: WideString);
+  { Warning: The property OnUnload has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnUnload := pRet;
+end;
+
+function TAccessForm.Get_OnClose: WideString;
+begin
+    Result := DefaultInterface.OnClose;
+end;
+
+procedure TAccessForm.Set_OnClose(const pRet: WideString);
+  { Warning: The property OnClose has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnClose := pRet;
+end;
+
+function TAccessForm.Get_OnActivate: WideString;
+begin
+    Result := DefaultInterface.OnActivate;
+end;
+
+procedure TAccessForm.Set_OnActivate(const pRet: WideString);
+  { Warning: The property OnActivate has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnActivate := pRet;
+end;
+
+function TAccessForm.Get_OnDeactivate: WideString;
+begin
+    Result := DefaultInterface.OnDeactivate;
+end;
+
+procedure TAccessForm.Set_OnDeactivate(const pRet: WideString);
+  { Warning: The property OnDeactivate has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnDeactivate := pRet;
+end;
+
+function TAccessForm.Get_OnGotFocus: WideString;
+begin
+    Result := DefaultInterface.OnGotFocus;
+end;
+
+procedure TAccessForm.Set_OnGotFocus(const pRet: WideString);
+  { Warning: The property OnGotFocus has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnGotFocus := pRet;
+end;
+
+function TAccessForm.Get_OnLostFocus: WideString;
+begin
+    Result := DefaultInterface.OnLostFocus;
+end;
+
+procedure TAccessForm.Set_OnLostFocus(const pRet: WideString);
+  { Warning: The property OnLostFocus has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnLostFocus := pRet;
+end;
+
+function TAccessForm.Get_OnClick: WideString;
+begin
+    Result := DefaultInterface.OnClick;
+end;
+
+procedure TAccessForm.Set_OnClick(const pRet: WideString);
+  { Warning: The property OnClick has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnClick := pRet;
+end;
+
+function TAccessForm.Get_OnDblClick: WideString;
+begin
+    Result := DefaultInterface.OnDblClick;
+end;
+
+procedure TAccessForm.Set_OnDblClick(const pRet: WideString);
+  { Warning: The property OnDblClick has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnDblClick := pRet;
+end;
+
+function TAccessForm.Get_OnMouseDown: WideString;
+begin
+    Result := DefaultInterface.OnMouseDown;
+end;
+
+procedure TAccessForm.Set_OnMouseDown(const pRet: WideString);
+  { Warning: The property OnMouseDown has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnMouseDown := pRet;
+end;
+
+function TAccessForm.Get_OnMouseMove: WideString;
+begin
+    Result := DefaultInterface.OnMouseMove;
+end;
+
+procedure TAccessForm.Set_OnMouseMove(const pRet: WideString);
+  { Warning: The property OnMouseMove has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnMouseMove := pRet;
+end;
+
+function TAccessForm.Get_OnMouseUp: WideString;
+begin
+    Result := DefaultInterface.OnMouseUp;
+end;
+
+procedure TAccessForm.Set_OnMouseUp(const pRet: WideString);
+  { Warning: The property OnMouseUp has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnMouseUp := pRet;
+end;
+
+function TAccessForm.Get_OnKeyDown: WideString;
+begin
+    Result := DefaultInterface.OnKeyDown;
+end;
+
+procedure TAccessForm.Set_OnKeyDown(const pRet: WideString);
+  { Warning: The property OnKeyDown has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnKeyDown := pRet;
+end;
+
+function TAccessForm.Get_OnKeyUp: WideString;
+begin
+    Result := DefaultInterface.OnKeyUp;
+end;
+
+procedure TAccessForm.Set_OnKeyUp(const pRet: WideString);
+  { Warning: The property OnKeyUp has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnKeyUp := pRet;
+end;
+
+function TAccessForm.Get_OnKeyPress: WideString;
+begin
+    Result := DefaultInterface.OnKeyPress;
+end;
+
+procedure TAccessForm.Set_OnKeyPress(const pRet: WideString);
+  { Warning: The property OnKeyPress has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnKeyPress := pRet;
+end;
+
+function TAccessForm.Get_KeyPreview: WordBool;
+begin
+    Result := DefaultInterface.KeyPreview;
+end;
+
+procedure TAccessForm.Set_KeyPreview(pRet: WordBool);
+begin
+  DefaultInterface.Set_KeyPreview(pRet);
+end;
+
+function TAccessForm.Get_OnError: WideString;
+begin
+    Result := DefaultInterface.OnError;
+end;
+
+procedure TAccessForm.Set_OnError(const pRet: WideString);
+  { Warning: The property OnError has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnError := pRet;
+end;
+
+function TAccessForm.Get_OnFilter: WideString;
+begin
+    Result := DefaultInterface.OnFilter;
+end;
+
+procedure TAccessForm.Set_OnFilter(const pRet: WideString);
+  { Warning: The property OnFilter has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnFilter := pRet;
+end;
+
+function TAccessForm.Get_OnApplyFilter: WideString;
+begin
+    Result := DefaultInterface.OnApplyFilter;
+end;
+
+procedure TAccessForm.Set_OnApplyFilter(const pRet: WideString);
+  { Warning: The property OnApplyFilter has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnApplyFilter := pRet;
+end;
+
+function TAccessForm.Get_OnTimer: WideString;
+begin
+    Result := DefaultInterface.OnTimer;
+end;
+
+procedure TAccessForm.Set_OnTimer(const pRet: WideString);
+  { Warning: The property OnTimer has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthr
