@@ -17842,8 +17842,8 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
     ExplicitHeight = 105
   end
   object Image2: TImage
-    Left = 822
-    Top = 351
+    Left = 950
+    Top = 431
     Width = 127
     Height = 117
     Align = alCustom
@@ -18128,8 +18128,8 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
     Proportional = True
   end
   object Image3: TImage
-    Left = 528
-    Top = 351
+    Left = 656
+    Top = 431
     Width = 288
     Height = 117
     Align = alCustom
@@ -18293,7 +18293,6 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
         Page = RibbonPage5
       end>
     TabIndex = 4
-    ExplicitWidth = 807
     DesignSize = (
       989
       143)
@@ -18305,7 +18304,6 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       Height = 93
       Caption = 'Cadastro'
       Index = 0
-      ExplicitWidth = 806
       object RibbonGroup2: TRibbonGroup
         Left = 4
         Top = 3
@@ -18387,7 +18385,6 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       Height = 93
       Caption = 'Movimenta'#231#227'o'
       Index = 1
-      ExplicitWidth = 806
       object RibbonGroup9: TRibbonGroup
         Left = 4
         Top = 3
@@ -18406,7 +18403,6 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       Height = 93
       Caption = 'Relat'#243'rio'
       Index = 2
-      ExplicitWidth = 806
     end
     object RibbonPage4: TRibbonPage
       Left = 0
@@ -18415,7 +18411,6 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       Height = 93
       Caption = 'Gr'#225'fico'
       Index = 3
-      ExplicitWidth = 806
     end
     object RibbonPage5: TRibbonPage
       Left = 0
@@ -18426,7 +18421,6 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       Caption = 'Ferramentas'
       Index = 4
       ParentBiDiMode = False
-      ExplicitWidth = 806
       object RibbonGroup1: TRibbonGroup
         Left = 4
         Top = 3
@@ -18470,8 +18464,6 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       item
         Width = 50
       end>
-    ExplicitTop = 346
-    ExplicitWidth = 807
   end
   object QueryLogin: TFDQuery
     Connection = DM.FDConnection1
@@ -18830,7 +18822,7 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
     Left = 304
     Top = 208
     Bitmap = {
-      494C01010A00C800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010A00C800940018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000060000000480000000100200000000000006C
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

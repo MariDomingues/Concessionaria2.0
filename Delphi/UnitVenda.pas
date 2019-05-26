@@ -43,23 +43,9 @@ type
     DataSource2: TDataSource;
     DS_Delete: TDataSource;
     DS_Vendedor: TDataSource;
-    DS_CodVen: TDataSource;
     DS_Veiculo: TDataSource;
     DS_Cliente: TDataSource;
-    FDTabelaItens: TFDTable;
     DSItens: TDataSource;
-    FDTabelaItensCodigo: TFDAutoIncField;
-    FDTabelaItensVeiculo: TIntegerField;
-    FDTabelaItensValTotVei: TBCDField;
-    FDTabelaItensDescUnit: TBCDField;
-    FDTabelaCodigo: TFDAutoIncField;
-    FDTabelaCliente: TIntegerField;
-    FDTabelaFuncionario: TIntegerField;
-    FDTabelaDtVen: TSQLTimeStampField;
-    FDTabelaValTotal: TBCDField;
-    FDTabelaQtdParcela: TIntegerField;
-    FDTabelaStatus: TStringField;
-    FDQRY_CodVen: TFDQuery;
     FDQRY_Veiculo: TFDQuery;
     FDQRY_Geral: TFDQuery;
     FDQRY_Vendedor: TFDQuery;
@@ -83,6 +69,20 @@ type
     FDQuery1Email: TStringField;
     FDQuery1Nome_1: TStringField;
     FDAtualiza: TFDCommand;
+    FDTabelaCodigo: TFDAutoIncField;
+    FDTabelaCliente: TIntegerField;
+    FDTabelaFuncionario: TIntegerField;
+    FDTabelaDtVen: TSQLTimeStampField;
+    FDTabelaValTotal: TBCDField;
+    FDTabelaQtdParcela: TIntegerField;
+    FDTabelaStatus: TStringField;
+    FDTabelaItens: TFDTable;
+    FDTabelaItensVenda: TIntegerField;
+    FDTabelaItensVeiculo: TIntegerField;
+    FDTabelaItensValTotVei: TBCDField;
+    FDTabelaItensDescUnit: TBCDField;
+    FDTabelaItensPlaca: TStringField;
+    FDTabelaItensValorUnit: TFloatField;
     procedure Bbt_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -92,8 +92,11 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FDTabelaClienteValidate(Sender: TField);
     procedure FDTabelaFuncionarioValidate(Sender: TField);
-    procedure FDTabelaItensVeiculoValidate(Sender: TField);
     procedure btn_InserirClick(Sender: TObject);
+    procedure DBLookupComboBox3Exit(Sender: TObject);
+    procedure btn_CancelarClick(Sender: TObject);
+    procedure DBEdit2Exit(Sender: TObject);
+    procedure btn_AlterarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -113,12 +116,14 @@ uses UnitDM, UnitMenuPrincipal;
 procedure TFrmVenda.Bbt_CancelarClick(Sender: TObject);
 begin
   inherited;
-  Bbt_Inserir.Enabled:= True;
-  Bbt_Cancelar.Enabled:= False;
-  Bbt_Confirma.Enabled:= False;
-  Bbt_Excluir.Enabled:= True;
+  Bbt_Inserir.Enabled  := True;
+  Bbt_Cancelar.Enabled := False;
+  Bbt_Confirma.Enabled := False;
+  Bbt_Excluir.Enabled  := True;
 
-  PnlItens.Enabled:= False;
+  PnlItens.Enabled := False;
+  MaskEdit1.Clear;
+  DBEdit1.Clear;
 
   FDTabelaItens.Cancel;
 end;
@@ -129,7 +134,7 @@ begin
   inherited;
   if DBLookupComboBox3.Text = '' then
     begin
-      Application.MessageBox('O campo [Veículo] não pode ficar em branco.','Aviso',MB_OK+MB_ICONWARNING);
+      Application.MessageBox('O campo "Veículo" não pode ficar em branco.','Aviso',MB_OK+MB_ICONWARNING);
       DBLookupComboBox3.SetFocus;
       Abort;
     end;
@@ -157,12 +162,12 @@ end;
 procedure TFrmVenda.Bbt_ExcluirClick(Sender: TObject);
 begin
   inherited;
-  Bbt_Inserir.Enabled:= True;
-  Bbt_Cancelar.Enabled:= False;
-  Bbt_Confirma.Enabled:= False;
-  Bbt_Excluir.Enabled:= True;
+  Bbt_Inserir.Enabled  := True;
+  Bbt_Cancelar.Enabled := False;
+  Bbt_Confirma.Enabled := False;
+  Bbt_Excluir.Enabled  := True;
 
-  PnlItens.Enabled:= False;
+  PnlItens.Enabled := False;
 
   FDTabelaItens.Delete;
 end;
@@ -170,16 +175,34 @@ end;
 procedure TFrmVenda.Bbt_InserirClick(Sender: TObject);
 begin
   inherited;
-  Bbt_Inserir.Enabled:= False;
-  Bbt_Cancelar.Enabled:= True;
-  Bbt_Confirma.Enabled:= True;
-  Bbt_Excluir.Enabled:= False;
+  Bbt_Inserir.Enabled  := False;
+  Bbt_Cancelar.Enabled := True;
+  Bbt_Confirma.Enabled := True;
+  Bbt_Excluir.Enabled  := False;
 
-  PnlItens.Enabled:= True;
+  PnlItens.Enabled := True;
 
   FDTabelaItens.Insert;
-  FDTabelaItensCodigo.AsInteger := FDTabelaCodigo.AsInteger;
   DBLookupComboBox3.SetFocus;
+end;
+
+procedure TFrmVenda.btn_AlterarClick(Sender: TObject);
+begin
+  inherited;
+  PnlItens.Enabled     := False;
+  Bbt_Confirma.Enabled := False;
+  Bbt_Cancelar.Enabled := False;
+
+  if FDTabelaItens.RecordCount > 0 then
+    Bbt_Excluir.Enabled := True
+  else
+    Bbt_Excluir.Enabled := False;
+end;
+
+procedure TFrmVenda.btn_CancelarClick(Sender: TObject);
+begin
+  inherited;
+  MaskEdit1.Clear;
 end;
 
 procedure TFrmVenda.btn_ExcluirClick(Sender: TObject);
@@ -209,6 +232,25 @@ begin
   PnlItens.Enabled := False;
 end;
 
+procedure TFrmVenda.DBEdit2Exit(Sender: TObject);
+var Desconto : real;
+begin
+  if DBEdit2.Text <> '' then
+    begin
+      Desconto := StrToFloat(DBEdit2.Text);
+      DBEdit3.Text := FloatToStr(FDQRY_VeiculoValor.AsFloat - ((Desconto / 100) * FDQRY_VeiculoValor.AsFloat));
+    end
+  else
+    DBEdit3.Text := FloatToStr(FDQRY_VeiculoValor.AsFloat);
+  inherited;
+end;
+
+procedure TFrmVenda.DBLookupComboBox3Exit(Sender: TObject);
+begin
+  inherited;
+  MaskEdit1.Text := FloatToStr(FDQRY_VeiculoValor.AsFloat);
+end;
+
 procedure TFrmVenda.FDTabelaClienteValidate(Sender: TField);
 begin
   inherited;
@@ -231,16 +273,6 @@ begin
     end;
 end;
 
-procedure TFrmVenda.FDTabelaItensVeiculoValidate(Sender: TField);
-begin
-  inherited;
-  if DBLookupComboBox3.Text = '' then
-    begin
-      Application.MessageBox('O campo [Veículo] não pode ficar em branco.','Aviso',MB_OK+MB_ICONWARNING);
-      DBLookupComboBox3.SetFocus;
-      Abort;
-    end;
-end;
 
 procedure TFrmVenda.FormActivate(Sender: TObject);
 begin
