@@ -1,11 +1,21 @@
 ﻿inherited FrmCadPerfil: TFrmCadPerfil
   Caption = 'Configura'#231#245'es do Cadastro de Perfil'
   ClientHeight = 281
+  ExplicitWidth = 849
   ExplicitHeight = 312
   PixelsPerInch = 96
   TextHeight = 13
+  inherited ToolBar1: TToolBar
+    inherited btn_Pesquisar: TToolButton
+      ExplicitWidth = 74
+    end
+    inherited btn_Ordenar: TToolButton
+      ExplicitWidth = 74
+    end
+  end
   inherited StatusBar1: TStatusBar
     Top = 262
+    ExplicitTop = 262
   end
   inherited PanelEntrada: TPanel
     inherited CheckHabilita: TDBCheckBox
@@ -14,6 +24,7 @@
   end
   inherited PnlFicha: TPanel
     Height = 164
+    ExplicitHeight = 164
     object PanelSup: TPanel
       Left = 1
       Top = 1
@@ -58,30 +69,512 @@
       ActivePage = TabSheet3
       Align = alClient
       TabOrder = 1
-      ExplicitHeight = 244
       object TabSheet1: TTabSheet
         Caption = 'Cadastro'
-        ExplicitHeight = 216
+        object Label11: TLabel
+          Left = 46
+          Top = 25
+          Width = 46
+          Height = 13
+          Caption = 'Usu'#225'rio:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label12: TLabel
+          Left = 60
+          Top = 56
+          Width = 32
+          Height = 13
+          Caption = 'Perfil:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object DBCheckBox18: TDBCheckBox
+          Left = 153
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Usuario'
+          DataSource = DataSource1
+          TabOrder = 0
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox19: TDBCheckBox
+          Left = 153
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Perfil'
+          DataSource = DataSource1
+          TabOrder = 1
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox20: TDBCheckBox
+          Left = 323
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'PerfilI'
+          DataSource = DataSource1
+          TabOrder = 2
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox21: TDBCheckBox
+          Left = 323
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'UsuarioI'
+          DataSource = DataSource1
+          TabOrder = 3
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox22: TDBCheckBox
+          Left = 441
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'UsuarioA'
+          DataSource = DataSource1
+          TabOrder = 4
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox23: TDBCheckBox
+          Left = 441
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'PerfilA'
+          DataSource = DataSource1
+          TabOrder = 5
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox24: TDBCheckBox
+          Left = 552
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'PerfilE'
+          DataSource = DataSource1
+          TabOrder = 6
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox25: TDBCheckBox
+          Left = 552
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'UsuarioE'
+          DataSource = DataSource1
+          TabOrder = 7
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
       end
       object Movimentação: TTabSheet
         Caption = 'Movimenta'#231#227'o'
         ImageIndex = 1
-        ExplicitHeight = 216
+        object Label9: TLabel
+          Left = 43
+          Top = 25
+          Width = 46
+          Height = 13
+          Caption = 'Usu'#225'rio:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label10: TLabel
+          Left = 57
+          Top = 57
+          Width = 32
+          Height = 13
+          Caption = 'Perfil:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object DBCheckBox26: TDBCheckBox
+          Left = 145
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Usuario'
+          DataSource = DataSource1
+          TabOrder = 0
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox27: TDBCheckBox
+          Left = 145
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Perfil'
+          DataSource = DataSource1
+          TabOrder = 1
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox28: TDBCheckBox
+          Left = 315
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'PerfilI'
+          DataSource = DataSource1
+          TabOrder = 2
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox29: TDBCheckBox
+          Left = 315
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'UsuarioI'
+          DataSource = DataSource1
+          TabOrder = 3
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox30: TDBCheckBox
+          Left = 433
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'UsuarioA'
+          DataSource = DataSource1
+          TabOrder = 4
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox31: TDBCheckBox
+          Left = 433
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'PerfilA'
+          DataSource = DataSource1
+          TabOrder = 5
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox32: TDBCheckBox
+          Left = 544
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'PerfilE'
+          DataSource = DataSource1
+          TabOrder = 6
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox33: TDBCheckBox
+          Left = 544
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'UsuarioE'
+          DataSource = DataSource1
+          TabOrder = 7
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
       end
       object Relatório: TTabSheet
         Caption = 'Relat'#243'rio'
         ImageIndex = 2
-        ExplicitHeight = 216
+        object Label7: TLabel
+          Left = 43
+          Top = 25
+          Width = 46
+          Height = 13
+          Caption = 'Usu'#225'rio:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label8: TLabel
+          Left = 57
+          Top = 57
+          Width = 32
+          Height = 13
+          Caption = 'Perfil:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object DBCheckBox34: TDBCheckBox
+          Left = 153
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Usuario'
+          DataSource = DataSource1
+          TabOrder = 0
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox35: TDBCheckBox
+          Left = 153
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Perfil'
+          DataSource = DataSource1
+          TabOrder = 1
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox36: TDBCheckBox
+          Left = 323
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'PerfilI'
+          DataSource = DataSource1
+          TabOrder = 2
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox37: TDBCheckBox
+          Left = 323
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'UsuarioI'
+          DataSource = DataSource1
+          TabOrder = 3
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox38: TDBCheckBox
+          Left = 441
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'UsuarioA'
+          DataSource = DataSource1
+          TabOrder = 4
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox39: TDBCheckBox
+          Left = 441
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'PerfilA'
+          DataSource = DataSource1
+          TabOrder = 5
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox40: TDBCheckBox
+          Left = 552
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'PerfilE'
+          DataSource = DataSource1
+          TabOrder = 6
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox41: TDBCheckBox
+          Left = 552
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'UsuarioE'
+          DataSource = DataSource1
+          TabOrder = 7
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
       end
       object TabSheet2: TTabSheet
         Caption = 'Gr'#225'fico'
         ImageIndex = 3
-        ExplicitHeight = 216
+        object Label5: TLabel
+          Left = 38
+          Top = 25
+          Width = 46
+          Height = 13
+          Caption = 'Usu'#225'rio:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label6: TLabel
+          Left = 52
+          Top = 57
+          Width = 32
+          Height = 13
+          Caption = 'Perfil:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object DBCheckBox6: TDBCheckBox
+          Left = 153
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Usuario'
+          DataSource = DataSource1
+          TabOrder = 0
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox7: TDBCheckBox
+          Left = 153
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Habilita Menu'
+          DataField = 'Perfil'
+          DataSource = DataSource1
+          TabOrder = 1
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox8: TDBCheckBox
+          Left = 323
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'PerfilI'
+          DataSource = DataSource1
+          TabOrder = 2
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox13: TDBCheckBox
+          Left = 323
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Inserir'
+          DataField = 'UsuarioI'
+          DataSource = DataSource1
+          TabOrder = 3
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox14: TDBCheckBox
+          Left = 441
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'UsuarioA'
+          DataSource = DataSource1
+          TabOrder = 4
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox15: TDBCheckBox
+          Left = 441
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Alterar'
+          DataField = 'PerfilA'
+          DataSource = DataSource1
+          TabOrder = 5
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox16: TDBCheckBox
+          Left = 552
+          Top = 56
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'PerfilE'
+          DataSource = DataSource1
+          TabOrder = 6
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox17: TDBCheckBox
+          Left = 552
+          Top = 24
+          Width = 97
+          Height = 17
+          Caption = 'Excluir'
+          DataField = 'UsuarioE'
+          DataSource = DataSource1
+          TabOrder = 7
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
       end
       object TabSheet3: TTabSheet
         Caption = 'Ferramentas'
         ImageIndex = 4
-        ExplicitHeight = 216
         object Label3: TLabel
           Left = 44
           Top = 49
@@ -211,7 +704,7 @@
     Left = 184
     Top = 333
     Bitmap = {
-      494C010104000800400010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000800440010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -486,7 +979,7 @@
     Left = 152
     Top = 336
     Bitmap = {
-      494C01010D001800480018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0018004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000824B
@@ -1685,7 +2178,7 @@
     Left = 120
     Top = 336
     Bitmap = {
-      494C01010D001800480018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0018004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000008080
@@ -2884,7 +3377,7 @@
     Left = 88
     Top = 336
     Bitmap = {
-      494C01010D001800480018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D0018004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000009A66
@@ -4083,12 +4576,16 @@
     Left = 240
     Top = 333
   end
+  inherited FDStatus: TFDCommand
+    Left = 752
+    Top = 106
+  end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'Codigo'
     UpdateOptions.UpdateTableName = 'ConcessionariaII.dbo.Perfil'
     TableName = 'ConcessionariaII.dbo.Perfil'
-    Left = 656
-    Top = 152
+    Left = 776
+    Top = 104
   end
   inherited DataSource1: TDataSource
     Left = 216

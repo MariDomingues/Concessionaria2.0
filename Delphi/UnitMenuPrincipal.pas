@@ -178,7 +178,8 @@ procedure TFrmMenuPrincipal.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
   StatusBar1.Panels[1].Text := FormatDateTime(' dddd ", " dd " de " mmmm " de " yyyy', Now);
-  //FrmLogin.ShowModal;
+  FrmLogin.ShowModal;
+  FrmLogin.Free;
 end;
 
 procedure TFrmMenuPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

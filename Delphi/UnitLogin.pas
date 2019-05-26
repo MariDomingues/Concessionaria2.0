@@ -5,7 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons;
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TFrmLogin = class(TForm)
@@ -13,13 +16,13 @@ type
     BitBtn2: TBitBtn;
     Panel1: TPanel;
     Panel2: TPanel;
-    Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     ValorNome: TEdit;
     ValorSenha: TEdit;
     StatusBar1: TStatusBar;
+    FDQuery1: TFDQuery;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -37,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitMenuPrincipal;
+uses UnitMenuPrincipal, UnitDM;
 
 procedure TFrmLogin.BitBtn1Click(Sender: TObject);
 begin
@@ -87,21 +90,13 @@ begin
 
   if FrmMenuPrincipal.QueryLogin.RecordCount = 1 then
     begin
-      StrSql := 'SELECT Login.*, Perfil.*, Funcionario.Cargo, Cargo.Descricao as DescricaoCargo FROM Login ' +
-                'INNER JOIN Perfil ON Login.Perfil = Perfil.Codigo ' +
-                'INNER JOIN Funcionario ON Login.Funcionario = Funcionario.Codigo ' +
-                'INNER JOIN Cargo ON Funcionario.Cargo = Cargo.Codigo ' +
-                'WHERE Login.Usuario = ' + #39 + ValorNome.Text  + #39 +
-                ' AND Login.Senha = '  + #39 + ValorSenha.Text + #39;
-
-      FrmMenuPrincipal.QueryLogin.Close;
-      FrmMenuPrincipal.QueryLogin.SQL.Clear;
-      FrmMenuPrincipal.QueryLogin.SQL.Add(StrSql);
-      FrmMenuPrincipal.QueryLogin.Open;
+      FDQuery1.Close;
+      FDQuery1.Params[0].Value := (ValorNome.Text);
+      FDQuery1.Params[1].Value := (ValorSenha.Text);
+      FDQuery1.Open;
 
       FrmMenuPrincipal.StatusBar1.Panels[2].Text := 'Usuário: ' + FrmLogin.ValorNome.Text + ' - ' +
-                                                    FrmMenuPrincipal.QueryLogin.FieldByName('DescricaoCargo').AsString;
-      FrmLogin.Close;
+                                                    FrmLogin.FDQuery1.FieldByName('DescricaoCargo').AsString;
     end
   else
     if FrmMenuPrincipal.QueryLogin.RecordCount = 0 then

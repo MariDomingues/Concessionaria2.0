@@ -33,6 +33,46 @@ type
     DBCheckBox10: TDBCheckBox;
     DBCheckBox11: TDBCheckBox;
     DBCheckBox12: TDBCheckBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    DBCheckBox6: TDBCheckBox;
+    DBCheckBox7: TDBCheckBox;
+    DBCheckBox8: TDBCheckBox;
+    DBCheckBox13: TDBCheckBox;
+    DBCheckBox14: TDBCheckBox;
+    DBCheckBox15: TDBCheckBox;
+    DBCheckBox16: TDBCheckBox;
+    DBCheckBox17: TDBCheckBox;
+    DBCheckBox18: TDBCheckBox;
+    DBCheckBox19: TDBCheckBox;
+    DBCheckBox20: TDBCheckBox;
+    DBCheckBox21: TDBCheckBox;
+    DBCheckBox22: TDBCheckBox;
+    DBCheckBox23: TDBCheckBox;
+    DBCheckBox24: TDBCheckBox;
+    DBCheckBox25: TDBCheckBox;
+    DBCheckBox26: TDBCheckBox;
+    DBCheckBox27: TDBCheckBox;
+    DBCheckBox28: TDBCheckBox;
+    DBCheckBox29: TDBCheckBox;
+    DBCheckBox30: TDBCheckBox;
+    DBCheckBox31: TDBCheckBox;
+    DBCheckBox32: TDBCheckBox;
+    DBCheckBox33: TDBCheckBox;
+    DBCheckBox34: TDBCheckBox;
+    DBCheckBox35: TDBCheckBox;
+    DBCheckBox36: TDBCheckBox;
+    DBCheckBox37: TDBCheckBox;
+    DBCheckBox38: TDBCheckBox;
+    DBCheckBox39: TDBCheckBox;
+    DBCheckBox40: TDBCheckBox;
+    DBCheckBox41: TDBCheckBox;
   private
     { Private declarations }
   public

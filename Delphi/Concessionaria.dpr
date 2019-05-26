@@ -16,7 +16,9 @@ uses
   UnitModelo in 'UnitModelo.pas' {FrmModelo},
   UnitVeiculo in 'UnitVeiculo.pas' {FrmVeiculo},
   UnitVenda in 'UnitVenda.pas' {FrmVenda},
-  UntPesqString in 'UntPesqString.pas' {PesqString};
+  UntPesqString in 'UntPesqString.pas' {PesqString},
+  UnitPadrao2 in 'UnitPadrao2.pas' {FrmPadrao2},
+  UnitConsultaVenda in 'UnitConsultaVenda.pas' {FrmConsultaVenda};
 
 {$R *.res}
 
@@ -38,5 +40,7 @@ begin
   Application.CreateForm(TFrmVeiculo, FrmVeiculo);
   Application.CreateForm(TFrmVenda, FrmVenda);
   Application.CreateForm(TPesqString, PesqString);
+  Application.CreateForm(TFrmPadrao2, FrmPadrao2);
+  Application.CreateForm(TFrmConsultaVenda, FrmConsultaVenda);
   Application.Run;
 end.

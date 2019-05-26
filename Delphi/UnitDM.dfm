@@ -11,7 +11,6 @@ object DM: TDM
       'DATABASE=ConcessionariaII'
       'MARS=yes'
       'DriverID=MSSQL')
-    Connected = True
     LoginPrompt = False
     Transaction = Trans
     Left = 88

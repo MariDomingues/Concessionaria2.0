@@ -331,6 +331,7 @@ inherited FrmVenda: TFrmVenda
             Font.Height = -12
             Font.Name = 'Yu Gothic UI Semilight'
             Font.Style = []
+            Title.Alignment = taCenter
             Title.Font.Charset = ANSI_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -12
@@ -359,19 +360,24 @@ inherited FrmVenda: TFrmVenda
             Visible = True
           end
           item
+            Alignment = taCenter
             Expanded = False
             FieldName = 'DescUnit'
+            Title.Alignment = taCenter
             Title.Caption = 'Desconto'
             Title.Font.Charset = ANSI_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -12
             Title.Font.Name = 'Yu Gothic UI'
             Title.Font.Style = [fsBold]
+            Width = 60
             Visible = True
           end
           item
+            Alignment = taCenter
             Expanded = False
             FieldName = 'ValTotVei'
+            Title.Alignment = taCenter
             Title.Caption = 'Valor Total'
             Title.Font.Charset = ANSI_CHARSET
             Title.Font.Color = clWindowText
@@ -4291,6 +4297,8 @@ inherited FrmVenda: TFrmVenda
     object FDTabelaValTotal: TBCDField
       FieldName = 'ValTotal'
       Origin = 'ValTotal'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -4340,6 +4348,7 @@ inherited FrmVenda: TFrmVenda
     Top = 170
   end
   object FDQRY_Veiculo: TFDQuery
+    Active = True
     Connection = DM.FDConnection1
     SQL.Strings = (
       'SELECT Codigo, Placa, Valor FROM Veiculo WHERE Status = '#39'A'#39';')
@@ -4489,8 +4498,8 @@ inherited FrmVenda: TFrmVenda
     MasterFields = 'Codigo'
     DetailFields = 'Venda'
     Connection = DM.FDConnection1
-    UpdateOptions.UpdateTableName = 'ConcessionariaII.dbo.Venda_Itens'
-    TableName = 'ConcessionariaII.dbo.Venda_Itens'
+    UpdateOptions.UpdateTableName = 'Venda_Itens'
+    TableName = 'Venda_Itens'
     Left = 760
     Top = 170
     object FDTabelaItensVenda: TIntegerField
@@ -4508,6 +4517,8 @@ inherited FrmVenda: TFrmVenda
     object FDTabelaItensValTotVei: TBCDField
       FieldName = 'ValTotVei'
       Origin = 'ValTotVei'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -4533,6 +4544,8 @@ inherited FrmVenda: TFrmVenda
       LookupKeyFields = 'Codigo'
       LookupResultField = 'Valor'
       KeyFields = 'Veiculo'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Lookup = True
     end
     object FDTabelaItensCodigo: TFDAutoIncField
