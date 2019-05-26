@@ -22,7 +22,6 @@ type
     FDTabelaCor: TStringField;
     FDTabelaKm: TBCDField;
     FDTabelaStatus: TStringField;
-    FDTabelaDocum: TStringField;
     FDTabelaPlaca: TStringField;
     FDTabelaAno: TIntegerField;
     FDTabelaTpVei: TStringField;
@@ -53,7 +52,6 @@ type
     DBLookupComboBox4: TDBLookupComboBox;
     DSCombustivel: TDataSource;
     FDQueryCombustivel: TFDQuery;
-    DBCheckBox1: TDBCheckBox;
     DBComboBox2: TDBComboBox;
     procedure btn_InserirClick(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);

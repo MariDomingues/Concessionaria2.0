@@ -2,18 +2,9 @@ inherited FrmVenda: TFrmVenda
   Caption = 'Venda Ve'#237'culos'
   ClientHeight = 488
   OnClose = FormClose
-  ExplicitWidth = 849
   ExplicitHeight = 519
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ToolBar1: TToolBar
-    inherited btn_Pesquisar: TToolButton
-      ExplicitWidth = 74
-    end
-    inherited btn_Ordenar: TToolButton
-      ExplicitWidth = 74
-    end
-  end
   inherited StatusBar1: TStatusBar
     Top = 469
     ExplicitTop = 469
@@ -39,6 +30,7 @@ inherited FrmVenda: TFrmVenda
       Width = 65
       Height = 17
       DataField = 'Codigo'
+      DataSource = DataSource1
     end
     object Label3: TLabel
       Left = 556
@@ -53,6 +45,7 @@ inherited FrmVenda: TFrmVenda
       Width = 65
       Height = 17
       DataField = 'DtVen'
+      DataSource = DataSource1
     end
     object Label4: TLabel
       Left = 47
@@ -81,6 +74,7 @@ inherited FrmVenda: TFrmVenda
       Width = 65
       Height = 17
       DataField = 'ValTotal'
+      DataSource = DataSource1
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 87
@@ -4478,6 +4472,12 @@ inherited FrmVenda: TFrmVenda
       LookupResultField = 'Valor'
       KeyFields = 'Veiculo'
       Lookup = True
+    end
+    object FDTabelaItensCodigo: TFDAutoIncField
+      FieldName = 'Codigo'
+      Origin = 'Codigo'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
   end
 end

@@ -83,6 +83,7 @@ type
     FDTabelaItensDescUnit: TBCDField;
     FDTabelaItensPlaca: TStringField;
     FDTabelaItensValorUnit: TFloatField;
+    FDTabelaItensCodigo: TFDAutoIncField;
     procedure Bbt_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -210,7 +211,7 @@ var confExc : integer;
 begin
   FDQRY_Geral.Close;
   FDQRY_Geral.SQL.Clear;
-  FDQRY_Geral.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(FDTabelaCodigo.AsInteger));
+  FDQRY_Geral.SQL.Add('select count (*) as Total from Venda_Itens where Venda = ' + IntToStr(FDTabelaCodigo.AsInteger));
   FDQRY_Geral.Open;
 
   if FDQRY_Geral.FieldByName('Total').AsInteger > 0 then

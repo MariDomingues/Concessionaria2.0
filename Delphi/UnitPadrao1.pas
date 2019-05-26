@@ -166,6 +166,8 @@ begin
     lblStatus.Visible := True
   else
     lblStatus.Visible := False;
+
+  StatusBar1.Panels[2].Text := '';
 end;
 
 procedure TFrmPadrao1.btn_ExcluirClick(Sender: TObject);
@@ -281,18 +283,21 @@ end;
 
 procedure TFrmPadrao1.CheckHabilitaClick(Sender: TObject);
 begin
-  FDStatus.Close;
-  if CheckHabilita.Checked then
+  if FDTabela.FieldByName('Codigo').AsString <> '' then
     begin
-      FDStatus.CommandText.Text := 'update ' + FDTabela.TableName + ' set Status = ''A'' where Codigo = ' + FDTabela.FieldByName('Codigo').AsString + ';';
-      lblStatus.Visible := False;
-    end
-  else
-    begin
-      FDStatus.CommandText.Text := 'update ' + FDTabela.TableName + ' set Status = ''I'' where Codigo = ' + FDTabela.FieldByName('Codigo').AsString + ';';
-      lblStatus.Visible := True;
+      FDStatus.Close;
+      if CheckHabilita.Checked then
+        begin
+          FDStatus.CommandText.Text := 'update ' + FDTabela.TableName + ' set Status = ''A'' where Codigo = ' + FDTabela.FieldByName('Codigo').AsString;
+          lblStatus.Visible := False;
+        end
+      else
+        begin
+          FDStatus.CommandText.Text := 'update ' + FDTabela.TableName + ' set Status = ''I'' where Codigo = ' + FDTabela.FieldByName('Codigo').AsString;
+          lblStatus.Visible := True;
+        end;
+      FDStatus.Open;
     end;
-  FDStatus.Open;
 end;
 
 procedure TFrmPadrao1.FormActivate(Sender: TObject);

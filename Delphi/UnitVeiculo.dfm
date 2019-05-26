@@ -1,20 +1,12 @@
 inherited FrmVeiculo: TFrmVeiculo
   Caption = 'Manuten'#231#227'o no Cadastro de Ve'#237'culo'
   ClientHeight = 280
-  ExplicitHeight = 310
+  ExplicitHeight = 311
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ToolBar1: TToolBar
-    inherited btn_Pesquisar: TToolButton
-      ExplicitWidth = 74
-    end
-    inherited btn_Ordenar: TToolButton
-      ExplicitWidth = 74
-    end
-  end
   inherited StatusBar1: TStatusBar
     Top = 261
-    ExplicitTop = 246
+    ExplicitTop = 261
   end
   inherited PanelEntrada: TPanel
     inherited LblStatus: TLabel
@@ -28,9 +20,7 @@ inherited FrmVeiculo: TFrmVeiculo
   end
   inherited PnlFicha: TPanel
     Height = 163
-    ExplicitLeft = -81
-    ExplicitTop = 89
-    ExplicitHeight = 359
+    ExplicitHeight = 163
     object Label1: TLabel
       Left = 37
       Top = 40
@@ -209,16 +199,6 @@ inherited FrmVeiculo: TFrmVeiculo
       TabOrder = 4
       OnExit = DBLookupComboBox4Exit
     end
-    object DBCheckBox1: TDBCheckBox
-      Left = 320
-      Top = 126
-      Width = 129
-      Height = 17
-      Caption = 'Possui Documenta'#231#227'o'
-      DataField = 'Docum'
-      DataSource = DataSource1
-      TabOrder = 10
-    end
     object DBComboBox2: TDBComboBox
       Left = 78
       Top = 124
@@ -248,7 +228,7 @@ inherited FrmVeiculo: TFrmVeiculo
   end
   inherited ImageList4: TImageList
     Bitmap = {
-      494C010104000800680010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000800700010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -523,7 +503,7 @@ inherited FrmVeiculo: TFrmVeiculo
     Left = 608
     Top = 344
     Bitmap = {
-      494C01010D001800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000824B
@@ -1722,7 +1702,7 @@ inherited FrmVeiculo: TFrmVeiculo
     Left = 576
     Top = 344
     Bitmap = {
-      494C01010D001800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000008080
@@ -2920,7 +2900,7 @@ inherited FrmVeiculo: TFrmVeiculo
   inherited ImageList1: TImageList
     Top = 344
     Bitmap = {
-      494C01010D001800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000009A66
@@ -4176,12 +4156,6 @@ inherited FrmVeiculo: TFrmVeiculo
     object FDTabelaStatus: TStringField
       FieldName = 'Status'
       Origin = 'Status'
-      FixedChar = True
-      Size = 1
-    end
-    object FDTabelaDocum: TStringField
-      FieldName = 'Docum'
-      Origin = 'Docum'
       FixedChar = True
       Size = 1
     end
