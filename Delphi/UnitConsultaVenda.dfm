@@ -1,22 +1,26 @@
 inherited FrmConsultaVenda: TFrmConsultaVenda
   Caption = 'Consulta Venda'
-  ClientWidth = 1076
-  ExplicitWidth = 1084
+  ClientHeight = 285
+  ClientWidth = 945
+  ExplicitWidth = 953
+  ExplicitHeight = 316
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    Width = 1076
+    Width = 945
     inherited Label1: TLabel
-      Left = 483
-      ExplicitLeft = 483
+      Left = 411
+      ExplicitLeft = 411
     end
   end
   inherited DBGrid: TDBGrid
-    Width = 1076
+    Width = 945
     Columns = <
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'Codigo'
+        Title.Alignment = taCenter
         Title.Caption = 'C'#243'digo'
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
@@ -50,44 +54,52 @@ inherited FrmConsultaVenda: TFrmConsultaVenda
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'DtVen'
+        Title.Alignment = taCenter
         Title.Caption = 'Data Venda'
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -12
         Title.Font.Name = 'Yu Gothic UI'
         Title.Font.Style = [fsBold]
-        Width = 100
+        Width = 70
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'QtdParcela'
+        Title.Alignment = taCenter
         Title.Caption = 'Qtd. Parcela'
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -12
         Title.Font.Name = 'Yu Gothic UI'
         Title.Font.Style = [fsBold]
-        Width = 150
+        Width = 70
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'ValTotal'
+        Title.Alignment = taCenter
         Title.Caption = 'Valor Total'
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -12
         Title.Font.Name = 'Yu Gothic UI'
         Title.Font.Style = [fsBold]
-        Width = 100
+        Width = 80
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'Status'
+        Title.Alignment = taCenter
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -12
@@ -97,7 +109,8 @@ inherited FrmConsultaVenda: TFrmConsultaVenda
       end>
   end
   inherited StatusBar1: TStatusBar
-    Width = 1076
+    Top = 266
+    Width = 945
     Panels = <
       item
         Width = 50
@@ -135,6 +148,8 @@ inherited FrmConsultaVenda: TFrmConsultaVenda
     object FDTabelaConsultaValTotal: TBCDField
       FieldName = 'ValTotal'
       Origin = 'ValTotal'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end

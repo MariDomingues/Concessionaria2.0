@@ -77,11 +77,11 @@ inherited FrmVenda: TFrmVenda
       DataSource = DataSource1
     end
     object SpeedButton2: TSpeedButton
-      Left = 718
+      Left = 729
       Top = 6
-      Width = 122
+      Width = 104
       Height = 42
-      Caption = '&Exibir &Registros'
+      Caption = '&Exibir &Vendas'
       Flat = True
       Glyph.Data = {
         76060000424D7606000000000000360400002800000018000000180000000100
