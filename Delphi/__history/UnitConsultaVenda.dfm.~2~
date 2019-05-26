@@ -1,0 +1,5 @@
+inherited FrmConsultaVenda: TFrmConsultaVenda
+  Caption = 'FrmConsultaVenda'
+  PixelsPerInch = 96
+  TextHeight = 13
+end
