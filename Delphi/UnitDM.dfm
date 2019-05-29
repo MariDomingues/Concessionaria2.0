@@ -4,13 +4,14 @@ object DM: TDM
   Width = 367
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'SERVER=DESKTOP-P4PLOC8\MSSQLSERVER1'
+      'SERVER=DESKTOP-A6VV89B\SQLEXPRESS'
       'OSAuthent=Yes'
       'ApplicationName=Enterprise/Architect/Ultimate'
-      'Workstation=DESKTOP-P4PLOC8\MSSQLSERVER1'
+      'Workstation=DESKTOP-A6VV89B\SQLEXPRESS'
       'DATABASE=ConcessionariaII'
       'MARS=yes'
       'DriverID=MSSQL')
+    Connected = True
     LoginPrompt = False
     Transaction = Trans
     Left = 88
