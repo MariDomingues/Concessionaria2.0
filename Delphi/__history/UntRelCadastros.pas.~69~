@@ -66,6 +66,7 @@ begin
       1: tab := 'Cliente';
       2:
       begin
+        tab := 'Perfil';
         FDQryDetalhe.SQL.Add('Select L.*, F.Nome, C.Descricao From Login L'
             +' inner Join Funcionario F on L.Funcionario = F.Codigo'
             +' inner Join Cargo C on F.Cargo = C.Codigo'
@@ -119,13 +120,16 @@ begin
 
     end;
 
-
   FDQuery1.Open();
-  FDQryDetalhe.Open();
+
   case RadioGroup2.ItemIndex of
       0: tab := 'Funcionario';
       1: RelClientes.ShowReport();
-      2: RelUsuarios.ShowReport();
+      2:
+      begin
+        FDQryDetalhe.Open();
+        RelUsuarios.ShowReport();
+      end;
       3: tab := 'Fabricante';
       4: tab := 'Veiculo';
       5: tab := 'Vendas';

@@ -25,6 +25,7 @@ type
     DataSource1: TDataSource;
     FDQryDetalhe: TFDQuery;
     frxDBDSDetalhe: TfrxDBDataset;
+    RelFuncionarios: TfrxReport;
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
   private
@@ -120,13 +121,16 @@ begin
 
     end;
 
-
   FDQuery1.Open();
-  FDQryDetalhe.Open();
+
   case RadioGroup2.ItemIndex of
       0: tab := 'Funcionario';
       1: RelClientes.ShowReport();
-      2: RelUsuarios.ShowReport();
+      2:
+      begin
+        FDQryDetalhe.Open();
+        RelUsuarios.ShowReport();
+      end;
       3: tab := 'Fabricante';
       4: tab := 'Veiculo';
       5: tab := 'Vendas';
