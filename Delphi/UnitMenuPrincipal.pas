@@ -73,6 +73,7 @@ type
     Image1: TImage;
     Image2: TImage;
     Image3: TImage;
+    RibbonGroup11: TRibbonGroup;
     procedure FormActivate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -87,6 +88,7 @@ type
     procedure Action11Execute(Sender: TObject);
     procedure Action12Execute(Sender: TObject);
     procedure Action2Execute(Sender: TObject);
+    procedure Action3Execute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -102,7 +104,7 @@ implementation
 
 uses UnitDM, UnitUsuario, UnitCadPerfil, UnitLogin, UnitCargo, UnitCliente,
   UnitCombustivel, UnitFabricante, UnitFuncionario, UnitModelo, UnitVeiculo,
-  UnitVenda;
+  UnitVenda, UntRelCadastros;
 
 procedure TFrmMenuPrincipal.Action10Execute(Sender: TObject);
 begin
@@ -137,6 +139,12 @@ begin
   Application.CreateForm(TFrmVenda, FrmVenda);
   FrmVenda.ShowModal;
   FrmVenda.Free;
+end;
+
+procedure TFrmMenuPrincipal.Action3Execute(Sender: TObject);
+begin
+  Application.CreateForm(TFrmRelCadastros, FrmRelCadastros);
+  FrmRelCadastros.ShowModal;
 end;
 
 procedure TFrmMenuPrincipal.Action5Execute(Sender: TObject);

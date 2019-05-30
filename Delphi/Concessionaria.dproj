@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{6327A164-EDB4-446A-83E7-A5306AB435C9}</ProjectGuid>
+        <ProjectGuid>{0DCEC971-36F1-410A-B13F-1BBBFD8EF668}</ProjectGuid>
         <ProjectVersion>18.4</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <MainSource>Concessionaria.dpr</MainSource>
@@ -158,6 +158,18 @@
         </DCCReference>
         <DCCReference Include="UnitConsultaVenda.pas">
             <Form>FrmConsultaVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UntPadraoRel.pas">
+            <Form>FrmPadraoRel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UntRelCadastros.pas">
+            <Form>FrmRelCadastros</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UntRelVenda.pas">
+            <Form>FrmRelVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
