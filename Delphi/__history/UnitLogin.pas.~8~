@@ -59,11 +59,11 @@ begin
 
   Sleep(3000);
 
-  StrSql := 'SELECT L.*, P.* '+
-            'FROM LOGIN L INNER JOIN PERFIL P '+
-            'ON L.PERFIL = P.CODIGO '+
-            'WHERE L.USUARIO = ' + #39 + ValorNome.Text  + #39 +
-            ' AND L.SENHA = '  + #39 + ValorSenha.Text + #39;
+  StrSql:= 'SELECT L.*, P.* '+
+           'FROM LOGIN L INNER JOIN PERFIL P '+
+           'ON L.PERFIL = P.CODIGO '+
+           'WHERE L.USUARIO = ' + #39 + ValorNome.Text  + #39 +
+           ' AND L.SENHA = '  + #39 + ValorSenha.Text + #39;
 
   FrmMenuPrincipal.QueryLogin.Close;
   FrmMenuPrincipal.QueryLogin.SQL.Clear;
@@ -97,7 +97,6 @@ begin
 
       FrmMenuPrincipal.StatusBar1.Panels[2].Text := 'Usuário: ' + FrmLogin.ValorNome.Text + ' - ' +
                                                     FrmLogin.FDQuery1.FieldByName('DescricaoCargo').AsString;
-      FrmLogin.Close;
     end
   else
     if FrmMenuPrincipal.QueryLogin.RecordCount = 0 then
@@ -116,6 +115,7 @@ begin
         ValorNome.SetFocus;
         StatusBar1.Panels[0].Text:= 'Login não autorizado... ' + 'Tente novamente.';
       end;
+
 end;
 
 procedure TFrmLogin.FormActivate(Sender: TObject);

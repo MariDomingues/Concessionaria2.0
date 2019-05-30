@@ -2,9 +2,18 @@ inherited FrmVenda: TFrmVenda
   Caption = 'Venda Ve'#237'culos'
   ClientHeight = 488
   OnClose = FormClose
+  ExplicitWidth = 849
   ExplicitHeight = 519
   PixelsPerInch = 96
   TextHeight = 13
+  inherited ToolBar1: TToolBar
+    inherited btn_Pesquisar: TToolButton
+      ExplicitWidth = 74
+    end
+    inherited btn_Ordenar: TToolButton
+      ExplicitWidth = 74
+    end
+  end
   inherited StatusBar1: TStatusBar
     Top = 469
     ExplicitTop = 469
@@ -77,11 +86,11 @@ inherited FrmVenda: TFrmVenda
       DataSource = DataSource1
     end
     object SpeedButton2: TSpeedButton
-      Left = 718
+      Left = 729
       Top = 6
-      Width = 122
+      Width = 104
       Height = 42
-      Caption = '&Exibir &Registros'
+      Caption = '&Exibir &Vendas'
       Flat = True
       Glyph.Data = {
         76060000424D7606000000000000360400002800000018000000180000000100
@@ -136,6 +145,7 @@ inherited FrmVenda: TFrmVenda
         5656560F505E5E3F1C0B101C3242460E5656565656565656565656561F4F5448
         3C33333C4240165656565656565656565656565656062A404242424030155656
         565656565656565656565656565656080F222216565656565656}
+      OnClick = SpeedButton2Click
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 87
@@ -330,6 +340,7 @@ inherited FrmVenda: TFrmVenda
             Font.Height = -12
             Font.Name = 'Yu Gothic UI Semilight'
             Font.Style = []
+            Title.Alignment = taCenter
             Title.Font.Charset = ANSI_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -12
@@ -358,19 +369,24 @@ inherited FrmVenda: TFrmVenda
             Visible = True
           end
           item
+            Alignment = taCenter
             Expanded = False
             FieldName = 'DescUnit'
+            Title.Alignment = taCenter
             Title.Caption = 'Desconto'
             Title.Font.Charset = ANSI_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -12
             Title.Font.Name = 'Yu Gothic UI'
             Title.Font.Style = [fsBold]
+            Width = 60
             Visible = True
           end
           item
+            Alignment = taCenter
             Expanded = False
             FieldName = 'ValTotVei'
+            Title.Alignment = taCenter
             Title.Caption = 'Valor Total'
             Title.Font.Charset = ANSI_CHARSET
             Title.Font.Color = clWindowText
@@ -387,7 +403,7 @@ inherited FrmVenda: TFrmVenda
     Left = 104
     Top = 397
     Bitmap = {
-      494C010104000800740010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101040008007C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -662,7 +678,7 @@ inherited FrmVenda: TFrmVenda
     Left = 80
     Top = 400
     Bitmap = {
-      494C01010D0018007C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800840018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000824B
@@ -1861,7 +1877,7 @@ inherited FrmVenda: TFrmVenda
     Left = 48
     Top = 400
     Bitmap = {
-      494C01010D0018007C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800840018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000008080
@@ -3060,7 +3076,7 @@ inherited FrmVenda: TFrmVenda
     Left = 16
     Top = 400
     Bitmap = {
-      494C01010D0018007C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800840018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000009A66
@@ -4290,6 +4306,8 @@ inherited FrmVenda: TFrmVenda
     object FDTabelaValTotal: TBCDField
       FieldName = 'ValTotal'
       Origin = 'ValTotal'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -4377,6 +4395,7 @@ inherited FrmVenda: TFrmVenda
     Top = 293
   end
   object FDQuery1: TFDQuery
+    Active = True
     Connection = DM.FDConnection1
     SQL.Strings = (
       
@@ -4488,8 +4507,8 @@ inherited FrmVenda: TFrmVenda
     MasterFields = 'Codigo'
     DetailFields = 'Venda'
     Connection = DM.FDConnection1
-    UpdateOptions.UpdateTableName = 'ConcessionariaII.dbo.Venda_Itens'
-    TableName = 'ConcessionariaII.dbo.Venda_Itens'
+    UpdateOptions.UpdateTableName = 'Venda_Itens'
+    TableName = 'Venda_Itens'
     Left = 760
     Top = 170
     object FDTabelaItensVenda: TIntegerField
@@ -4507,6 +4526,8 @@ inherited FrmVenda: TFrmVenda
     object FDTabelaItensValTotVei: TBCDField
       FieldName = 'ValTotVei'
       Origin = 'ValTotVei'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -4532,6 +4553,8 @@ inherited FrmVenda: TFrmVenda
       LookupKeyFields = 'Codigo'
       LookupResultField = 'Valor'
       KeyFields = 'Veiculo'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Lookup = True
     end
     object FDTabelaItensCodigo: TFDAutoIncField
