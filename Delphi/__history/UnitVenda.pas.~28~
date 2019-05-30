@@ -83,6 +83,8 @@ type
     FDTabelaItensDescUnit: TBCDField;
     FDTabelaItensPlaca: TStringField;
     FDTabelaItensValorUnit: TFloatField;
+    FDTabelaItensCodigo: TFDAutoIncField;
+    SpeedButton2: TSpeedButton;
     procedure Bbt_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -97,6 +99,7 @@ type
     procedure btn_CancelarClick(Sender: TObject);
     procedure DBEdit2Exit(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -111,7 +114,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitMenuPrincipal;
+uses UnitDM, UnitMenuPrincipal, UnitConsultaVenda;
 
 procedure TFrmVenda.Bbt_CancelarClick(Sender: TObject);
 begin
@@ -129,10 +132,9 @@ begin
 end;
 
 procedure TFrmVenda.Bbt_ConfirmaClick(Sender: TObject);
-var cod : integer;
 begin
   inherited;
-  if DBLookupComboBox3.Text = '' then
+   if DBLookupComboBox3.Text = '' then
     begin
       Application.MessageBox('O campo "Veículo" não pode ficar em branco.','Aviso',MB_OK+MB_ICONWARNING);
       DBLookupComboBox3.SetFocus;
@@ -146,9 +148,19 @@ begin
 
   PnlItens.Enabled := False;
 
+  FDQRY_Geral.Close;
+  FDQRY_Geral.SQL.Text := '';
+  FDQRY_Geral.SQL.Text := 'select * from Venda order by Codigo desc;';
+  FDQRY_Geral.Open;
+
+  if FDQRY_Geral.RecordCount = 0 then
+    FDTabelaItens.FieldByName('Codigo').AsInteger := 1
+  else
+    FDTabelaItensCodigo.AsInteger := FDQRY_Geral.FieldByName('Codigo').AsInteger + 1;
+
   FDTabelaItens.Post;
   FDAtualiza.CommandText.Clear;
-  FDAtualiza.CommandText.Text := 'update Veiculo set Status = ''V'' where Codigo = ' + IntToStr(FDTabelaItensVeiculo.Value) + ';';
+  FDAtualiza.CommandText.Text := 'update Veiculo set Status = ''I'' where Codigo = ' + IntToStr(FDTabelaItensVeiculo.Value) + ';';
   FDAtualiza.Execute;
 
   FDQRY_Geral.Close;
@@ -168,6 +180,10 @@ begin
   Bbt_Excluir.Enabled  := True;
 
   PnlItens.Enabled := False;
+
+  FDAtualiza.CommandText.Clear;
+  FDAtualiza.CommandText.Text := 'update Veiculo set Status = ''A'' where Codigo = ' + IntToStr(FDTabelaItensVeiculo.Value) + ';';
+  FDAtualiza.Execute;
 
   FDTabelaItens.Delete;
 end;
@@ -206,7 +222,6 @@ begin
 end;
 
 procedure TFrmVenda.btn_ExcluirClick(Sender: TObject);
-var confExc : integer;
 begin
   FDQRY_Geral.Close;
   FDQRY_Geral.SQL.Clear;
@@ -218,6 +233,7 @@ begin
       Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
       Operacao:= 1;
       //Botoes(True);
+      exit;
     end;
   inherited;
 end;
@@ -225,9 +241,10 @@ end;
 procedure TFrmVenda.btn_InserirClick(Sender: TObject);
 begin
   inherited;
-  FDTabela.Post;
-  FDTabela.Edit;
+//  FDTabela.Post;
+//  FDTabela.Edit;
   Executar := exibePanels;
+//  FDTabela.FieldByName('DtVen').AsString := formatdatetime('dd\mm\yyyy', now);
 
   PnlItens.Enabled := False;
 end;
@@ -317,6 +334,12 @@ begin
   FDQRY_Veiculo.Close;
   FDQRY_Vendedor.Close;
   FDQRY_Geral.Close;
+end;
+
+procedure TFrmVenda.SpeedButton2Click(Sender: TObject);
+begin
+  inherited;
+  FrmConsultaVenda.ShowModal;
 end;
 
 end.

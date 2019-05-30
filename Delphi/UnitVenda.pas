@@ -153,10 +153,7 @@ begin
   FDQRY_Geral.SQL.Text := 'select * from Venda order by Codigo desc;';
   FDQRY_Geral.Open;
 
-  if FDQRY_Geral.RecordCount = 0 then
-    FDTabelaItens.FieldByName('Codigo').AsInteger := 1
-  else
-    FDTabelaItensCodigo.AsInteger := FDQRY_Geral.FieldByName('Codigo').AsInteger + 1;
+  FDTabelaItens.FieldByName('Venda').AsInteger := FDQRY_Geral.FieldByName('Codigo').AsInteger + 1;
 
   FDTabelaItens.Post;
   FDAtualiza.CommandText.Clear;
@@ -241,8 +238,6 @@ end;
 procedure TFrmVenda.btn_InserirClick(Sender: TObject);
 begin
   inherited;
-//  FDTabela.Post;
-//  FDTabela.Edit;
   Executar := exibePanels;
 //  FDTabela.FieldByName('DtVen').AsString := formatdatetime('dd\mm\yyyy', now);
 
@@ -294,6 +289,8 @@ end;
 procedure TFrmVenda.FormActivate(Sender: TObject);
 begin
   FDTabela.TableName := 'Venda';
+  FDTabela.Open();
+  FDTabelaItens.Open();
   tipoID := 0;
 
   modoEdicao := FrmMenuPrincipal.QueryLogin.FieldByName('VendaI').AsString +
