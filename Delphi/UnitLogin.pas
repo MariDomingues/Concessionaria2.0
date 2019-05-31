@@ -88,7 +88,7 @@ begin
       Abort;
     end;
 
-  if FrmMenuPrincipal.QueryLogin.RecordCount = 1 then
+    if FrmMenuPrincipal.QueryLogin.RecordCount = 1 then
     begin
       FDQuery1.Close;
       FDQuery1.Params[0].Value := (ValorNome.Text);
@@ -97,7 +97,8 @@ begin
 
       FrmMenuPrincipal.StatusBar1.Panels[2].Text := 'Usuário: ' + FrmLogin.ValorNome.Text + ' - ' +
                                                     FrmLogin.FDQuery1.FieldByName('DescricaoCargo').AsString;
-      FrmLogin.Close;
+      ModalResult := mrOk;
+      FrmMenuPrincipal.ShowModal();
     end
   else
     if FrmMenuPrincipal.QueryLogin.RecordCount = 0 then
@@ -125,7 +126,7 @@ end;
 
 procedure TFrmLogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Application.Terminate;
+  //Application.Terminate;
 end;
 
 end.

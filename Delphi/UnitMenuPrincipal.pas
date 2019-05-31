@@ -87,6 +87,7 @@ type
     procedure Action11Execute(Sender: TObject);
     procedure Action12Execute(Sender: TObject);
     procedure Action2Execute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -177,9 +178,7 @@ end;
 procedure TFrmMenuPrincipal.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
-  QueryLogin.Open();
   StatusBar1.Panels[1].Text := FormatDateTime(' dddd ", " dd " de " mmmm " de " yyyy', Now);
-  FrmLogin.ShowModal;
 end;
 
 procedure TFrmMenuPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -195,6 +194,13 @@ begin
     Application.Terminate
   else
     CanClose := False;
+end;
+
+procedure TFrmMenuPrincipal.FormCreate(Sender: TObject);
+begin
+      QueryLogin.Open();
+      //
+      FrmLogin.ShowModal;
 end;
 
 Procedure TFrmMenuPrincipal.Timer1Timer(Sender: TObject);

@@ -100,6 +100,7 @@ type
     procedure DBEdit2Exit(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure btn_SalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -238,10 +239,16 @@ end;
 procedure TFrmVenda.btn_InserirClick(Sender: TObject);
 begin
   inherited;
-  Executar := exibePanels;
+//  Executar := exibePanels;
 //  FDTabela.FieldByName('DtVen').AsString := formatdatetime('dd\mm\yyyy', now);
-
+  ShowMessage(FDTabela.FieldByName('codigo').AsString);
   PnlItens.Enabled := False;
+end;
+
+procedure TFrmVenda.btn_SalvarClick(Sender: TObject);
+begin
+  inherited;
+  FDTabela.Post;
 end;
 
 procedure TFrmVenda.DBEdit2Exit(Sender: TObject);

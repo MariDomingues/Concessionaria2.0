@@ -25,10 +25,10 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFrmMenuPrincipal, FrmMenuPrincipal);
-  Application.CreateForm(TFrmPadrao1, FrmPadrao1);
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TFrmMenuPrincipal, FrmMenuPrincipal);
+  Application.CreateForm(TFrmPadrao1, FrmPadrao1);
   Application.CreateForm(TFrmUsuario, FrmUsuario);
   Application.CreateForm(TFrmCadPerfil, FrmCadPerfil);
   Application.CreateForm(TFrmCargo, FrmCargo);
