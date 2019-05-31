@@ -1,0 +1,813 @@
+ = interface;
+  _AccessFieldDisp = dispinterface;
+  __Help = interface;
+  _Hyperlink = interface;
+  _HyperlinkDisp = dispinterface;
+  _Page = interface;
+  _PageDisp = dispinterface;
+  Pages = interface;
+  PagesDisp = dispinterface;
+  _Control = interface;
+  _ControlDisp = dispinterface;
+  __ControlInReportEvents = interface;
+  Controls = interface;
+  ControlsDisp = dispinterface;
+  _Label = interface;
+  _LabelDisp = dispinterface;
+  _LabelEvents = interface;
+  _ChildLabelEvents = interface;
+  _Rectangle = interface;
+  _RectangleDisp = dispinterface;
+  _RectangleEvents = interface;
+  _Line = interface;
+  _LineDisp = dispinterface;
+  _LineEvents = interface;
+  _Image = interface;
+  _ImageDisp = dispinterface;
+  _ImageEvents = interface;
+  _CommandButton = interface;
+  _CommandButtonDisp = dispinterface;
+  _CommandButtonEvents = interface;
+  _OptionButton = interface;
+  _OptionButtonDisp = dispinterface;
+  _OptionButtonEvents = interface;
+  _OptionButtonInOptionEvents = interface;
+  _Checkbox = interface;
+  _CheckboxDisp = dispinterface;
+  _CheckBoxEvents = interface;
+  _CheckBoxInOptionEvents = interface;
+  _OptionGroup = interface;
+  _OptionGroupDisp = dispinterface;
+  _OptionGroupEvents = interface;
+  _BoundObjectFrame = interface;
+  _BoundObjectFrameDisp = dispinterface;
+  _BoundObjectFrameEvents = interface;
+  _Textbox = interface;
+  _TextboxDisp = dispinterface;
+  _TextBoxEvents = interface;
+  _ListBox = interface;
+  _ListBoxDisp = dispinterface;
+  _ListBoxEvents = interface;
+  _Combobox = interface;
+  _ComboboxDisp = dispinterface;
+  _ComboBoxEvents = interface;
+  _ObjectFrame = interface;
+  _ObjectFrameDisp = dispinterface;
+  _ObjectFrameEvents = interface;
+  _PageBreak = interface;
+  _PageBreakDisp = dispinterface;
+  _PageBreakEvents = interface;
+  _ToggleButton = interface;
+  _ToggleButtonDisp = dispinterface;
+  _ToggleButtonEvents = interface;
+  _ToggleButtonInOptionEvents = interface;
+  _PaletteButton = interface;
+  _PaletteButtonDisp = dispinterface;
+  _PaletteButtonEvents = interface;
+  _SubForm = interface;
+  _SubFormDisp = dispinterface;
+  _SubFormEvents = interface;
+  _SubReport = interface;
+  _SubReportDisp = dispinterface;
+  _SubReportEvents = interface;
+  _CustomControl = interface;
+  _CustomControlDisp = dispinterface;
+  _CustomControlEvents = interface;
+  _CustomControlInReportEvents = interface;
+  _TabControl = interface;
+  _TabControlDisp = dispinterface;
+  _TabControlEvents = interface;
+  _PageEvents = interface;
+  _Section = interface;
+  _SectionDisp = dispinterface;
+  _SectionEvents = interface;
+  _GroupLevel = interface;
+  _GroupLevelDisp = dispinterface;
+  _SectionInReportEvents = interface;
+  _PageHdrFtrInReportEvents = interface;
+  Module = interface;
+  ModuleDisp = dispinterface;
+  Modules = interface;
+  ModulesDisp = dispinterface;
+  _Form = interface;
+  _FormDisp = dispinterface;
+  _FormEvents = interface;
+  Forms = interface;
+  FormsDisp = dispinterface;
+  _Report = interface;
+  _ReportDisp = dispinterface;
+  _ReportEvents = interface;
+  Reports = interface;
+  ReportsDisp = dispinterface;
+  Screen = interface;
+  ScreenDisp = dispinterface;
+  _Application = interface;
+  _ApplicationDisp = dispinterface;
+  Reference = interface;
+  ReferenceDisp = dispinterface;
+  _References = interface;
+  _ReferencesDisp = dispinterface;
+  _References_Events = dispinterface;
+  _Dummy = interface;
+  _DummyDisp = dispinterface;
+  _DataAccessPage = interface;
+  _DataAccessPageDisp = dispinterface;
+  DataAccessPages = interface;
+  DataAccessPagesDisp = dispinterface;
+  AllObjects = interface;
+  AllObjectsDisp = dispinterface;
+  AccessObjectProperty = interface;
+  AccessObjectPropertyDisp = dispinterface;
+  AccessObjectProperties = interface;
+  AccessObjectPropertiesDisp = dispinterface;
+  _CurrentProject = interface;
+  _CurrentProjectDisp = dispinterface;
+  _CurrentData = interface;
+  _CurrentDataDisp = dispinterface;
+  AccessObject = interface;
+  AccessObjectDisp = dispinterface;
+  _WizHook = interface;
+  _WizHookDisp = dispinterface;
+  _DefaultWebOptions = interface;
+  _DefaultWebOptionsDisp = dispinterface;
+  _WebOptions = interface;
+  _WebOptionsDisp = dispinterface;
+  _DummyEvents = interface;
+  _Printer = interface;
+  _PrinterDisp = dispinterface;
+  Printers = interface;
+  PrintersDisp = dispinterface;
+  _Form2 = interface;
+  _Form2Disp = dispinterface;
+  _Report2 = interface;
+  _Report2Disp = dispinterface;
+
+// *********************************************************************//
+// Declaration of CoClasses defined in Type Library                       
+// (NOTE: Here we map each CoClass to its Default Interface)              
+// *********************************************************************//
+  FormatCondition = _FormatCondition;
+  AccessField = _AccessField;
+  AccessHyperlink = _Hyperlink;
+  AccessControl = _Control;
+  _ControlInReportEvents = _Control;
+  AccessLabel = _Label;
+  _ChildLabel = _Label;
+  AccessRectangle = _Rectangle;
+  AccessLine = _Line;
+  AccessImage = _Image;
+  AccessCommandButton = _CommandButton;
+  AccessOptionButton = _OptionButton;
+  _OptionButtonInOption = _OptionButton;
+  AccessCheckBox = _Checkbox;
+  _CheckBoxInOption = _Checkbox;
+  AccessOptionGroup = _OptionGroup;
+  AccessBoundObjectFrame = _BoundObjectFrame;
+  AccessTextBox = _Textbox;
+  AccessListBox = _ListBox;
+  AccessComboBox = _Combobox;
+  AccessObjectFrame = _ObjectFrame;
+  AccessPageBreak = _PageBreak;
+  AccessToggleButton = _ToggleButton;
+  _ToggleButtonInOption = _ToggleButton;
+  AccessPaletteButton = _PaletteButton;
+  AccessSubForm = _SubForm;
+  AccessSubReport = _SubReport;
+  AccessCustomControl = _CustomControl;
+  _CustomControlInReport = _CustomControl;
+  AccessTabControl = _TabControl;
+  AccessPage = _Page;
+  AccessSection = _Section;
+  AccessGroupLevel = _GroupLevel;
+  _SectionInReport = _Section;
+  _PageHdrFtrInReport = _Section;
+  FormOld = _Form;
+  ReportOld = _Report;
+  AccessApplication = _Application;
+  AccessReferences = _References;
+  DataAccessPage = _DataAccessPage;
+  AllForms = AllObjects;
+  AllReports = AllObjects;
+  AllMacros = AllObjects;
+  AllModules = AllObjects;
+  AllDataAccessPages = AllObjects;
+  AllTables = AllObjects;
+  AllQueries = AllObjects;
+  AllViews = AllObjects;
+  AllStoredProcedures = AllObjects;
+  AllDatabaseDiagrams = AllObjects;
+  CurrentProject = _CurrentProject;
+  CurrentData = _CurrentData;
+  CodeProject = _CurrentProject;
+  CodeData = _CurrentData;
+  WizHook = _WizHook;
+  DefaultWebOptions = _DefaultWebOptions;
+  AccessWebOptions = _WebOptions;
+  Class_ = _Dummy;
+  Printer = _Printer;
+  AccessForm = _Form2;
+  AccessReport = _Report2;
+  AllFunctions = AllObjects;
+
+
+// *********************************************************************//
+// Declaration of structures, unions and aliases.                         
+// *********************************************************************//
+  POleVariant1 = ^OleVariant; {*}
+  PPSafeArray1 = ^PSafeArray; {*}
+  PPUserType1 = ^Connection; {*}
+
+
+// *********************************************************************//
+// Interface: DoCmd
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {C547E760-9658-101B-81EE-00AA004750E2}
+// *********************************************************************//
+  DoCmd = interface(IDispatch)
+    ['{C547E760-9658-101B-81EE-00AA004750E2}']
+    procedure AddMenu(MenuName: OleVariant; MenuMacroName: OleVariant; StatusBarText: OleVariant); safecall;
+    procedure ApplyFilter(FilterName: OleVariant; WhereCondition: OleVariant); safecall;
+    procedure Beep; safecall;
+    procedure CancelEvent; safecall;
+    procedure Close(ObjectType: AcObjectType; ObjectName: OleVariant; Save: AcCloseSave); safecall;
+    procedure CopyObject(DestinationDatabase: OleVariant; NewName: OleVariant; 
+                         SourceObjectType: AcObjectType; SourceObjectName: OleVariant); safecall;
+    procedure DoMenuItem(MenuBar: OleVariant; MenuName: OleVariant; Command: OleVariant; 
+                         Subcommand: OleVariant; Version: OleVariant); safecall;
+    procedure Echo(EchoOn: OleVariant; StatusBarText: OleVariant); safecall;
+    procedure FindNext; safecall;
+    procedure FindRecord(FindWhat: OleVariant; Match: AcFindMatch; MatchCase: OleVariant; 
+                         Search: AcSearchDirection; SearchAsFormatted: OleVariant; 
+                         OnlyCurrentField: AcFindField; FindFirst: OleVariant); safecall;
+    procedure GoToControl(ControlName: OleVariant); safecall;
+    procedure GoToPage(PageNumber: OleVariant; Right: OleVariant; Down: OleVariant); safecall;
+    procedure GoToRecord(ObjectType: AcDataObjectType; ObjectName: OleVariant; Record_: AcRecord; 
+                         Offset: OleVariant); safecall;
+    procedure Hourglass(HourglassOn: OleVariant); safecall;
+    procedure Maximize; safecall;
+    procedure Minimize; safecall;
+    procedure MoveSize(Right: OleVariant; Down: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    procedure OpenForm(FormName: OleVariant; View: AcFormView; FilterName: OleVariant; 
+                       WhereCondition: OleVariant; DataMode: AcFormOpenDataMode; 
+                       WindowMode: AcWindowMode; OpenArgs: OleVariant); safecall;
+    procedure OpenQuery(QueryName: OleVariant; View: AcView; DataMode: AcOpenDataMode); safecall;
+    procedure OpenTable(TableName: OleVariant; View: AcView; DataMode: AcOpenDataMode); safecall;
+    procedure PrintOut(PrintRange: AcPrintRange; PageFrom: OleVariant; PageTo: OleVariant; 
+                       PrintQuality: AcPrintQuality; Copies: OleVariant; CollateCopies: OleVariant); safecall;
+    procedure Quit(Options: AcQuitOption); safecall;
+    procedure Requery(ControlName: OleVariant); safecall;
+    procedure RepaintObject(ObjectType: AcObjectType; ObjectName: OleVariant); safecall;
+    procedure Rename(NewName: OleVariant; ObjectType: AcObjectType; OldName: OleVariant); safecall;
+    procedure Restore; safecall;
+    procedure RunMacro(MacroName: OleVariant; RepeatCount: OleVariant; RepeatExpression: OleVariant); safecall;
+    procedure RunSQL(SQLStatement: OleVariant; UseTransaction: OleVariant); safecall;
+    procedure SelectObject(ObjectType: AcObjectType; ObjectName: OleVariant; 
+                           InDatabaseWindow: OleVariant); safecall;
+    procedure SetWarnings(WarningsOn: OleVariant); safecall;
+    procedure ShowAllRecords; safecall;
+    procedure OpenReportOld0(ReportName: OleVariant; View: AcView; FilterName: OleVariant; 
+                             WhereCondition: OleVariant); safecall;
+    procedure TransferDatabase(TransferType: AcDataTransferType; DatabaseType: OleVariant; 
+                               DatabaseName: OleVariant; ObjectType: AcObjectType; 
+                               Source: OleVariant; Destination: OleVariant; 
+                               StructureOnly: OleVariant; StoreLogin: OleVariant); safecall;
+    procedure TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                  SpreadsheetType: AcSpreadSheetType; TableName: OleVariant; 
+                                  FileName: OleVariant; HasFieldNames: OleVariant; 
+                                  Range: OleVariant; UseOA: OleVariant); safecall;
+    procedure TransferText(TransferType: AcTextTransferType; SpecificationName: OleVariant; 
+                           TableName: OleVariant; FileName: OleVariant; HasFieldNames: OleVariant; 
+                           HTMLTableName: OleVariant; CodePage: OleVariant); safecall;
+    procedure OutputToOld0(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                           OutputFormat: OleVariant; OutputFile: OleVariant; AutoStart: OleVariant; 
+                           TemplateFile: OleVariant); safecall;
+    procedure DeleteObject(ObjectType: AcObjectType; ObjectName: OleVariant); safecall;
+    procedure OpenModule(ModuleName: OleVariant; ProcedureName: OleVariant); safecall;
+    procedure SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                         OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant; 
+                         Bcc: OleVariant; Subject: OleVariant; MessageText: OleVariant; 
+                         EditMessage: OleVariant; TemplateFile: OleVariant); safecall;
+    procedure ShowToolbar(ToolbarName: OleVariant; Show: AcShowToolbar); safecall;
+    procedure Save(ObjectType: AcObjectType; ObjectName: OleVariant); safecall;
+    procedure SetMenuItem(MenuIndex: OleVariant; CommandIndex: OleVariant; 
+                          SubcommandIndex: OleVariant; Flag: OleVariant); safecall;
+    procedure RunCommand(Command: AcCommand); safecall;
+    procedure OpenDataAccessPage(DataAccessPageName: OleVariant; View: AcDataAccessPageView); safecall;
+    procedure OpenView(ViewName: OleVariant; View: AcView; DataMode: AcOpenDataMode); safecall;
+    procedure OpenDiagram(DiagramName: OleVariant); safecall;
+    procedure OpenStoredProcedure(ProcedureName: OleVariant; View: AcView; DataMode: AcOpenDataMode); safecall;
+    procedure OpenReport(ReportName: OleVariant; View: AcView; FilterName: OleVariant; 
+                         WhereCondition: OleVariant; WindowMode: AcWindowMode; OpenArgs: OleVariant); safecall;
+    procedure OutputTo(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                       OutputFormat: OleVariant; OutputFile: OleVariant; AutoStart: OleVariant; 
+                       TemplateFile: OleVariant; Encoding: OleVariant); safecall;
+    procedure TransferSQLDatabase(Server: OleVariant; Database: OleVariant; 
+                                  UseTrustedConnection: OleVariant; Login: OleVariant; 
+                                  Password: OleVariant; TransferCopyData: OleVariant); safecall;
+    procedure CopyDatabaseFile(DatabaseFileName: OleVariant; OverwriteExistingFile: OleVariant; 
+                               DisconnectAllUsers: OleVariant); safecall;
+    procedure OpenFunction(FunctionName: OleVariant; View: AcView; DataMode: AcOpenDataMode); safecall;
+  end;
+
+// *********************************************************************//
+// DispIntf:  DoCmdDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {C547E760-9658-101B-81EE-00AA004750E2}
+// *********************************************************************//
+  DoCmdDisp = dispinterface
+    ['{C547E760-9658-101B-81EE-00AA004750E2}']
+    procedure AddMenu(MenuName: OleVariant; MenuMacroName: OleVariant; StatusBarText: OleVariant); dispid 1001;
+    procedure ApplyFilter(FilterName: OleVariant; WhereCondition: OleVariant); dispid 1002;
+    procedure Beep; dispid 1003;
+    procedure CancelEvent; dispid 1004;
+    procedure Close(ObjectType: AcObjectType; ObjectName: OleVariant; Save: AcCloseSave); dispid 1005;
+    procedure CopyObject(DestinationDatabase: OleVariant; NewName: OleVariant; 
+                         SourceObjectType: AcObjectType; SourceObjectName: OleVariant); dispid 1006;
+    procedure DoMenuItem(MenuBar: OleVariant; MenuName: OleVariant; Command: OleVariant; 
+                         Subcommand: OleVariant; Version: OleVariant); dispid 1007;
+    procedure Echo(EchoOn: OleVariant; StatusBarText: OleVariant); dispid 1008;
+    procedure FindNext; dispid 1009;
+    procedure FindRecord(FindWhat: OleVariant; Match: AcFindMatch; MatchCase: OleVariant; 
+                         Search: AcSearchDirection; SearchAsFormatted: OleVariant; 
+                         OnlyCurrentField: AcFindField; FindFirst: OleVariant); dispid 1010;
+    procedure GoToControl(ControlName: OleVariant); dispid 1011;
+    procedure GoToPage(PageNumber: OleVariant; Right: OleVariant; Down: OleVariant); dispid 1012;
+    procedure GoToRecord(ObjectType: AcDataObjectType; ObjectName: OleVariant; Record_: AcRecord; 
+                         Offset: OleVariant); dispid 1013;
+    procedure Hourglass(HourglassOn: OleVariant); dispid 1014;
+    procedure Maximize; dispid 1015;
+    procedure Minimize; dispid 1016;
+    procedure MoveSize(Right: OleVariant; Down: OleVariant; Width: OleVariant; Height: OleVariant); dispid 1017;
+    procedure OpenForm(FormName: OleVariant; View: AcFormView; FilterName: OleVariant; 
+                       WhereCondition: OleVariant; DataMode: AcFormOpenDataMode; 
+                       WindowMode: AcWindowMode; OpenArgs: OleVariant); dispid 1019;
+    procedure OpenQuery(QueryName: OleVariant; View: AcView; DataMode: AcOpenDataMode); dispid 1020;
+    procedure OpenTable(TableName: OleVariant; View: AcView; DataMode: AcOpenDataMode); dispid 1021;
+    procedure PrintOut(PrintRange: AcPrintRange; PageFrom: OleVariant; PageTo: OleVariant; 
+                       PrintQuality: AcPrintQuality; Copies: OleVariant; CollateCopies: OleVariant); dispid 1022;
+    procedure Quit(Options: AcQuitOption); dispid 1023;
+    procedure Requery(ControlName: OleVariant); dispid 1024;
+    procedure RepaintObject(ObjectType: AcObjectType; ObjectName: OleVariant); dispid 1025;
+    procedure Rename(NewName: OleVariant; ObjectType: AcObjectType; OldName: OleVariant); dispid 1026;
+    procedure Restore; dispid 1027;
+    procedure RunMacro(MacroName: OleVariant; RepeatCount: OleVariant; RepeatExpression: OleVariant); dispid 1030;
+    procedure RunSQL(SQLStatement: OleVariant; UseTransaction: OleVariant); dispid 1031;
+    procedure SelectObject(ObjectType: AcObjectType; ObjectName: OleVariant; 
+                           InDatabaseWindow: OleVariant); dispid 1032;
+    procedure SetWarnings(WarningsOn: OleVariant); dispid 1035;
+    procedure ShowAllRecords; dispid 1036;
+    procedure OpenReportOld0(ReportName: OleVariant; View: AcView; FilterName: OleVariant; 
+                             WhereCondition: OleVariant); dispid 1039;
+    procedure TransferDatabase(TransferType: AcDataTransferType; DatabaseType: OleVariant; 
+                               DatabaseName: OleVariant; ObjectType: AcObjectType; 
+                               Source: OleVariant; Destination: OleVariant; 
+                               StructureOnly: OleVariant; StoreLogin: OleVariant); dispid 1040;
+    procedure TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                  SpreadsheetType: AcSpreadSheetType; TableName: OleVariant; 
+                                  FileName: OleVariant; HasFieldNames: OleVariant; 
+                                  Range: OleVariant; UseOA: OleVariant); dispid 1041;
+    procedure TransferText(TransferType: AcTextTransferType; SpecificationName: OleVariant; 
+                           TableName: OleVariant; FileName: OleVariant; HasFieldNames: OleVariant; 
+                           HTMLTableName: OleVariant; CodePage: OleVariant); dispid 1042;
+    procedure OutputToOld0(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                           OutputFormat: OleVariant; OutputFile: OleVariant; AutoStart: OleVariant; 
+                           TemplateFile: OleVariant); dispid 1341;
+    procedure DeleteObject(ObjectType: AcObjectType; ObjectName: OleVariant); dispid 1372;
+    procedure OpenModule(ModuleName: OleVariant; ProcedureName: OleVariant); dispid 1374;
+    procedure SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                         OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant; 
+                         Bcc: OleVariant; Subject: OleVariant; MessageText: OleVariant; 
+                         EditMessage: OleVariant; TemplateFile: OleVariant); dispid 1377;
+    procedure ShowToolbar(ToolbarName: OleVariant; Show: AcShowToolbar); dispid 1394;
+    procedure Save(ObjectType: AcObjectType; ObjectName: OleVariant); dispid 1453;
+    procedure SetMenuItem(MenuIndex: OleVariant; CommandIndex: OleVariant; 
+                          SubcommandIndex: OleVariant; Flag: OleVariant); dispid 1454;
+    procedure RunCommand(Command: AcCommand); dispid 1602;
+    procedure OpenDataAccessPage(DataAccessPageName: OleVariant; View: AcDataAccessPageView); dispid 1771;
+    procedure OpenView(ViewName: OleVariant; View: AcView; DataMode: AcOpenDataMode); dispid 1793;
+    procedure OpenDiagram(DiagramName: OleVariant); dispid 1794;
+    procedure OpenStoredProcedure(ProcedureName: OleVariant; View: AcView; DataMode: AcOpenDataMode); dispid 1795;
+    procedure OpenReport(ReportName: OleVariant; View: AcView; FilterName: OleVariant; 
+                         WhereCondition: OleVariant; WindowMode: AcWindowMode; OpenArgs: OleVariant); dispid 2391;
+    procedure OutputTo(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                       OutputFormat: OleVariant; OutputFile: OleVariant; AutoStart: OleVariant; 
+                       TemplateFile: OleVariant; Encoding: OleVariant); dispid 5411;
+    procedure TransferSQLDatabase(Server: OleVariant; Database: OleVariant; 
+                                  UseTrustedConnection: OleVariant; Login: OleVariant; 
+                                  Password: OleVariant; TransferCopyData: OleVariant); dispid 1867;
+    procedure CopyDatabaseFile(DatabaseFileName: OleVariant; OverwriteExistingFile: OleVariant; 
+                               DisconnectAllUsers: OleVariant); dispid 1868;
+    procedure OpenFunction(FunctionName: OleVariant; View: AcView; DataMode: AcOpenDataMode); dispid 1869;
+  end;
+
+// *********************************************************************//
+// Interface: _RecordsetEvents
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {45165490-EF32-11D0-86FB-006097C9818C}
+// *********************************************************************//
+  _RecordsetEvents = interface(IDispatch)
+    ['{45165490-EF32-11D0-86FB-006097C9818C}']
+    procedure WillChangeField(cFields: Integer; Fields: OleVariant; var adStatus: EventStatusEnum; 
+                              const pRecordset: IUnknown); safecall;
+    procedure FieldChangeComplete(cFields: Integer; Fields: OleVariant; const pError: IUnknown; 
+                                  var adStatus: EventStatusEnum; const pRecordset: IUnknown); safecall;
+    procedure WillChangeRecord(adReason: EventReasonEnum; cRecords: Integer; 
+                               var adStatus: EventStatusEnum; const pRecordset: IUnknown); safecall;
+    procedure RecordChangeComplete(adReason: EventReasonEnum; cRecords: Integer; 
+                                   const pError: IUnknown; var adStatus: EventStatusEnum; 
+                                   const pRecordset: IUnknown); safecall;
+    procedure WillChangeRecordset(adReason: EventReasonEnum; var adStatus: EventStatusEnum; 
+                                  const pRecordset: IUnknown); safecall;
+    procedure RecordsetChangeComplete(adReason: EventReasonEnum; const pError: IUnknown; 
+                                      var adStatus: EventStatusEnum; const pRecordset: IUnknown); safecall;
+    procedure WillMove(adReason: EventReasonEnum; var adStatus: EventStatusEnum; 
+                       const pRecordset: IUnknown); safecall;
+    procedure MoveComplete(adReason: EventReasonEnum; const pError: IUnknown; 
+                           var adStatus: EventStatusEnum; const pRecordset: IUnknown); safecall;
+    procedure EndOfRecordset(var fMoreData: Smallint; var adStatus: EventStatusEnum; 
+                             const pRecordset: IUnknown); safecall;
+    procedure FetchProgress(Progress: Integer; MaxProgress: Integer; var adStatus: EventStatusEnum; 
+                            const pRecordset: IUnknown); safecall;
+    procedure FetchComplete(const pError: IUnknown; var adStatus: EventStatusEnum; 
+                            const pRecordset: IUnknown); safecall;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _RecordsetEventsDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {45165490-EF32-11D0-86FB-006097C9818C}
+// *********************************************************************//
+  _RecordsetEventsDisp = dispinterface
+    ['{45165490-EF32-11D0-86FB-006097C9818C}']
+    procedure WillChangeField(cFields: Integer; Fields: OleVariant; var adStatus: EventStatusEnum; 
+                              const pRecordset: IUnknown); dispid 9;
+    procedure FieldChangeComplete(cFields: Integer; Fields: OleVariant; const pError: IUnknown; 
+                                  var adStatus: EventStatusEnum; const pRecordset: IUnknown); dispid 10;
+    procedure WillChangeRecord(adReason: EventReasonEnum; cRecords: Integer; 
+                               var adStatus: EventStatusEnum; const pRecordset: IUnknown); dispid 11;
+    procedure RecordChangeComplete(adReason: EventReasonEnum; cRecords: Integer; 
+                                   const pError: IUnknown; var adStatus: EventStatusEnum; 
+                                   const pRecordset: IUnknown); dispid 12;
+    procedure WillChangeRecordset(adReason: EventReasonEnum; var adStatus: EventStatusEnum; 
+                                  const pRecordset: IUnknown); dispid 13;
+    procedure RecordsetChangeComplete(adReason: EventReasonEnum; const pError: IUnknown; 
+                                      var adStatus: EventStatusEnum; const pRecordset: IUnknown); dispid 14;
+    procedure WillMove(adReason: EventReasonEnum; var adStatus: EventStatusEnum; 
+                       const pRecordset: IUnknown); dispid 15;
+    procedure MoveComplete(adReason: EventReasonEnum; const pError: IUnknown; 
+                           var adStatus: EventStatusEnum; const pRecordset: IUnknown); dispid 16;
+    procedure EndOfRecordset(var fMoreData: Smallint; var adStatus: EventStatusEnum; 
+                             const pRecordset: IUnknown); dispid 17;
+    procedure FetchProgress(Progress: Integer; MaxProgress: Integer; var adStatus: EventStatusEnum; 
+                            const pRecordset: IUnknown); dispid 18;
+    procedure FetchComplete(const pError: IUnknown; var adStatus: EventStatusEnum; 
+                            const pRecordset: IUnknown); dispid 19;
+  end;
+
+// *********************************************************************//
+// Interface: _AccessProperty
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDD00-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _AccessProperty = interface(Property_)
+    ['{331FDD00-CF31-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Category: Smallint; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Category: Smallint read Get_Category;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _AccessPropertyDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDD00-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _AccessPropertyDisp = dispinterface
+    ['{331FDD00-CF31-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Category: Smallint readonly dispid 2096;
+    property Value: OleVariant dispid 0;
+    property Name: WideString readonly dispid 1610809346;
+    property type_: Smallint readonly dispid 1610809348;
+    property Inherited_: WordBool readonly dispid 1610809350;
+    property Properties: Properties readonly dispid 10;
+  end;
+
+// *********************************************************************//
+// Interface: Properties
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDD02-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  Properties = interface(IDispatch)
+    ['{331FDD02-CF31-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(Index: OleVariant): IDispatch; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[Index: OleVariant]: IDispatch read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  PropertiesDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDD02-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  PropertiesDisp = dispinterface
+    ['{331FDD02-CF31-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[Index: OleVariant]: IDispatch readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: _FormatCondition
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {E27A992C-A330-11D0-81DD-00C04FC2F51B}
+// *********************************************************************//
+  _FormatCondition = interface(IDispatch)
+    ['{E27A992C-A330-11D0-81DD-00C04FC2F51B}']
+    function Get_ForeColor: Integer; safecall;
+    procedure Set_ForeColor(plResult: Integer); safecall;
+    function Get_BackColor: Integer; safecall;
+    procedure Set_BackColor(plResult: Integer); safecall;
+    function Get_FontBold: WordBool; safecall;
+    procedure Set_FontBold(pfResult: WordBool); safecall;
+    function Get_FontItalic: WordBool; safecall;
+    procedure Set_FontItalic(pfResult: WordBool); safecall;
+    function Get_FontUnderline: WordBool; safecall;
+    procedure Set_FontUnderline(pfResult: WordBool); safecall;
+    function Get_Enabled: WordBool; safecall;
+    procedure Set_Enabled(pfResult: WordBool); safecall;
+    function Get_type_: AcFormatConditionType; safecall;
+    function Get_Operator: AcFormatConditionOperator; safecall;
+    function Get_Expression1: WideString; safecall;
+    function Get_Expression2: WideString; safecall;
+    procedure Modify(Type_: AcFormatConditionType; Operator: AcFormatConditionOperator; 
+                     Expression1: OleVariant; Expression2: OleVariant); safecall;
+    procedure Delete; safecall;
+    property ForeColor: Integer read Get_ForeColor write Set_ForeColor;
+    property BackColor: Integer read Get_BackColor write Set_BackColor;
+    property FontBold: WordBool read Get_FontBold write Set_FontBold;
+    property FontItalic: WordBool read Get_FontItalic write Set_FontItalic;
+    property FontUnderline: WordBool read Get_FontUnderline write Set_FontUnderline;
+    property Enabled: WordBool read Get_Enabled write Set_Enabled;
+    property type_: AcFormatConditionType read Get_type_;
+    property Operator: AcFormatConditionOperator read Get_Operator;
+    property Expression1: WideString read Get_Expression1;
+    property Expression2: WideString read Get_Expression2;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _FormatConditionDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {E27A992C-A330-11D0-81DD-00C04FC2F51B}
+// *********************************************************************//
+  _FormatConditionDisp = dispinterface
+    ['{E27A992C-A330-11D0-81DD-00C04FC2F51B}']
+    property ForeColor: Integer dispid -513;
+    property BackColor: Integer dispid -501;
+    property FontBold: WordBool dispid 2127;
+    property FontItalic: WordBool dispid 2128;
+    property FontUnderline: WordBool dispid 2131;
+    property Enabled: WordBool dispid -514;
+    property type_: AcFormatConditionType readonly dispid 2095;
+    property Operator: AcFormatConditionOperator readonly dispid 2199;
+    property Expression1: WideString readonly dispid 2200;
+    property Expression2: WideString readonly dispid 2201;
+    procedure Modify(Type_: AcFormatConditionType; Operator: AcFormatConditionOperator; 
+                     Expression1: OleVariant; Expression2: OleVariant); dispid 2202;
+    procedure Delete; dispid 2063;
+  end;
+
+// *********************************************************************//
+// Interface: FormatConditions
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {E27A992E-A330-11D0-81DD-00C04FC2F51B}
+// *********************************************************************//
+  FormatConditions = interface(IDispatch)
+    ['{E27A992E-A330-11D0-81DD-00C04FC2F51B}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(Index: OleVariant): _FormatCondition; safecall;
+    function Get_Count: Integer; safecall;
+    function Add(Type_: AcFormatConditionType; Operator: AcFormatConditionOperator; 
+                 Expression1: OleVariant; Expression2: OleVariant): _FormatCondition; safecall;
+    procedure Delete; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[Index: OleVariant]: _FormatCondition read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  FormatConditionsDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {E27A992E-A330-11D0-81DD-00C04FC2F51B}
+// *********************************************************************//
+  FormatConditionsDisp = dispinterface
+    ['{E27A992E-A330-11D0-81DD-00C04FC2F51B}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[Index: OleVariant]: _FormatCondition readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function Add(Type_: AcFormatConditionType; Operator: AcFormatConditionOperator; 
+                 Expression1: OleVariant; Expression2: OleVariant): _FormatCondition; dispid 2191;
+    procedure Delete; dispid 2063;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: _ItemsSelected
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {31B09710-EADC-11CD-B9F7-00AA004753B5}
+// *********************************************************************//
+  _ItemsSelected = interface(IDispatch)
+    ['{31B09710-EADC-11CD-B9F7-00AA004753B5}']
+    function Get_Item(Index: OleVariant): Integer; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Item[Index: OleVariant]: Integer read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _ItemsSelectedDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {31B09710-EADC-11CD-B9F7-00AA004753B5}
+// *********************************************************************//
+  _ItemsSelectedDisp = dispinterface
+    ['{31B09710-EADC-11CD-B9F7-00AA004753B5}']
+    property Item[Index: OleVariant]: Integer readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: Children
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E977-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  Children = interface(IDispatch)
+    ['{3B06E977-E47C-11CD-8701-00AA003F0F07}']
+    function Get_Item(Index: OleVariant): IDispatch; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Item[Index: OleVariant]: IDispatch read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  ChildrenDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E977-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  ChildrenDisp = dispinterface
+    ['{3B06E977-E47C-11CD-8701-00AA003F0F07}']
+    property Item[Index: OleVariant]: IDispatch readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: _AccessField
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {B1C1EAC1-486F-11CE-A65D-00AA003F0F07}
+// *********************************************************************//
+  _AccessField = interface(IDispatch)
+    ['{B1C1EAC1-486F-11CE-A65D-00AA003F0F07}']
+    function Get_Value: OleVariant; safecall;
+    procedure Set_Value(pRet: OleVariant); safecall;
+    property Value: OleVariant read Get_Value write Set_Value;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _AccessFieldDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {B1C1EAC1-486F-11CE-A65D-00AA003F0F07}
+// *********************************************************************//
+  _AccessFieldDisp = dispinterface
+    ['{B1C1EAC1-486F-11CE-A65D-00AA003F0F07}']
+    property Value: OleVariant dispid 0;
+  end;
+
+// *********************************************************************//
+// Interface: __Help
+// Flags:     (16) Hidden
+// GUID:      {9CD4A761-A6A9-11CE-A686-00AA003F0F07}
+// *********************************************************************//
+  __Help = interface(IUnknown)
+    ['{9CD4A761-A6A9-11CE-A686-00AA003F0F07}']
+    function Get_FieldName(out pRet: OleVariant): HResult; stdcall;
+    function Set_FieldName(pRet: OleVariant): HResult; stdcall;
+    function Get_DataType(out pRet: OleVariant): HResult; stdcall;
+    function Set_DataType(pRet: OleVariant): HResult; stdcall;
+    function Get_Description(out pRet: OleVariant): HResult; stdcall;
+    function Set_Description(pRet: OleVariant): HResult; stdcall;
+    function Get_FieldSize(out pRet: OleVariant): HResult; stdcall;
+    function Set_FieldSize(pRet: OleVariant): HResult; stdcall;
+    function Get_NewValues(out pRet: OleVariant): HResult; stdcall;
+    function Set_NewValues(pRet: OleVariant): HResult; stdcall;
+    function Get_Required(out pRet: OleVariant): HResult; stdcall;
+    function Set_Required(pRet: OleVariant): HResult; stdcall;
+    function Get_AllowZeroLength(out pRet: OleVariant): HResult; stdcall;
+    function Set_AllowZeroLength(pRet: OleVariant): HResult; stdcall;
+    function Get_Indexed(out pRet: OleVariant): HResult; stdcall;
+    function Set_Indexed(pRet: OleVariant): HResult; stdcall;
+    function Get_DisplayControl(out pRet: OleVariant): HResult; stdcall;
+    function Set_DisplayControl(pRet: OleVariant): HResult; stdcall;
+    function Get_ReplicationConflictFunction(out pRet: OleVariant): HResult; stdcall;
+    function Set_ReplicationConflictFunction(pRet: POleVariant1): HResult; stdcall;
+    function Get_ProjectName(out pRet: OleVariant): HResult; stdcall;
+    function Set_ProjectName(pRet: POleVariant1): HResult; stdcall;
+    function Get_MDE(out pRet: OleVariant): HResult; stdcall;
+    function Set_MDE(pRet: POleVariant1): HResult; stdcall;
+    function Get_AllowBreakIntoCode(out pRet: OleVariant): HResult; stdcall;
+    function Set_AllowBreakIntoCode(pRet: OleVariant): HResult; stdcall;
+    function Get_AllowBuiltInToolbars(out pRet: OleVariant): HResult; stdcall;
+    function Set_AllowBuiltInToolbars(pRet: OleVariant): HResult; stdcall;
+    function Get_AllowBypassKey(out pRet: OleVariant): HResult; stdcall;
+    function Set_AllowBypassKey(pRet: OleVariant): HResult; stdcall;
+    function Get_AllowFullMenus(out pRet: OleVariant): HResult; stdcall;
+    function Set_AllowFullMenus(pRet: OleVariant): HResult; stdcall;
+    function Get_AllowSpecialKeys(out pRet: OleVariant): HResult; stdcall;
+    function Set_AllowSpecialKeys(pRet: OleVariant): HResult; stdcall;
+    function Get_AllowToolbarChanges(out pRet: OleVariant): HResult; stdcall;
+    function Set_AllowToolbarChanges(pRet: OleVariant): HResult; stdcall;
+    function Get_StartUpForm(out pRet: OleVariant): HResult; stdcall;
+    function Set_StartUpForm(pRet: OleVariant): HResult; stdcall;
+    function Get_StartUpMenuBar(out pRet: OleVariant): HResult; stdcall;
+    function Set_StartUpMenuBar(pRet: OleVariant): HResult; stdcall;
+    function Get_StartUpShortcutMenuBar(out pRet: OleVariant): HResult; stdcall;
+    function Set_StartUpShortcutMenuBar(pRet: OleVariant): HResult; stdcall;
+    function Get_StartUpShowDBWindow(out pRet: OleVariant): HResult; stdcall;
+    function Set_StartUpShowDBWindow(pRet: OleVariant): HResult; stdcall;
+    function Get_StartUpShowStatusBar(out pRet: OleVariant): HResult; stdcall;
+    function Set_StartUpShowStatusBar(pRet: OleVariant): HResult; stdcall;
+    function Get_AppIcon(out pRet: OleVariant): HResult; stdcall;
+    function Set_AppIcon(pRet: OleVariant): HResult; stdcall;
+    function Get_AppTitle(out pRet: OleVariant): HResult; stdcall;
+    function Set_AppTitle(pRet: OleVariant): HResult; stdcall;
+    function Get_ODBCConnectStr(out pRet: OleVariant): HResult; stdcall;
+    function Set_ODBCConnectStr(pRet: OleVariant): HResult; stdcall;
+    function Get_LogMessages(out pRet: OleVariant): HResult; stdcall;
+    function Set_LogMessages(var pRet: OleVariant): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _Hyperlink
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {50D56611-60AC-11CF-82C9-00AA004B9FE6}
+// *********************************************************************//
+  _Hyperlink = interface(IDispatch)
+    ['{50D56611-60AC-11CF-82C9-00AA004B9FE6}']
+    function Get_SubAddress: WideString; safecall;
+    procedure Set_SubAddress(pbstrResult: OleVariant); safecall;
+    function Get_Address: WideString; safecall;
+    procedure Set_Address(pbstrResult: OleVariant); safecall;
+    procedure AddToFavorites; safecall;
+    procedure Follow(NewWindow: WordBool; AddHistory: WordBool; ExtraInfo: OleVariant; 
+                     Method: MsoExtraInfoMethod; const HeaderInfo: WideString); safecall;
+    function Get_EmailSubject: WideString; safecall;
+    procedure Set_EmailSubject(pbstrResult: OleVariant); safecall;
+    function Get_ScreenTip: WideString; safecall;
+    procedure Set_ScreenTip(pbstrResult: OleVariant); safecall;
+    function Get_TextToDisplay: WideString; safecall;
+    procedure Set_TextToDisplay(pbstrResult: OleVariant); safecall;
+    procedure CreateNewDocument(const FileName: WideString; EditNow: WordBool; Overwrite: WordBool); safecall;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _HyperlinkDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {50D56611-60AC-11CF-82C9-00AA004B9FE6}
+// *********************************************************************//
+  _HyperlinkDisp = dispinterface
+    ['{50D56611-60AC-11CF-82C9-00AA004B9FE6}']
+    function SubAddress: WideString; dispid 2182;
+    function Address: WideString; dispid 2183;
+    procedure AddToFavorites; dispid 2184;
+    procedure Follow(NewWindow: WordBool; AddHistory: WordBool; ExtraInfo: OleVariant; 
+                     Method: MsoExtraInfoMethod; const HeaderInfo: WideString); dispid 2185;
+    function EmailSubject: WideString; dispid 2209;
+    function ScreenTip: WideString; dispid 2211;
+    function TextToDisplay: WideString; dispid 2231;
+    procedure CreateNewDocument(const FileName: WideString; EditNow: WordBool; Overwrite: WordBool); dispid 2232;
+  end;
+
+// *********************************************************************//
+// Interface: _Page
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E974-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _Page = interface(IAccessible)
+    ['{3B06E974-E47C-11CD-8701-00AA003F0F07

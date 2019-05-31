@@ -1,0 +1,856 @@
+id -5001;
+    property accChild[varChild: OleVariant]: IDispatch readonly dispid -5002;
+    property accName[varChild: OleVariant]: WideString dispid -5003;
+    property accValue[varChild: OleVariant]: WideString dispid -5004;
+    property accDescription[varChild: OleVariant]: WideString readonly dispid -5005;
+    property accRole[varChild: OleVariant]: OleVariant readonly dispid -5006;
+    property accState[varChild: OleVariant]: OleVariant readonly dispid -5007;
+    property accHelp[varChild: OleVariant]: WideString readonly dispid -5008;
+    property accHelpTopic[out pszHelpFile: WideString; varChild: OleVariant]: Integer readonly dispid -5009;
+    property accKeyboardShortcut[varChild: OleVariant]: WideString readonly dispid -5010;
+    property accFocus: OleVariant readonly dispid -5011;
+    property accSelection: OleVariant readonly dispid -5012;
+    property accDefaultAction[varChild: OleVariant]: WideString readonly dispid -5013;
+    procedure accSelect(flagsSelect: Integer; varChild: OleVariant); dispid -5014;
+    procedure accLocation(out pxLeft: Integer; out pyTop: Integer; out pcxWidth: Integer; 
+                          out pcyHeight: Integer; varChild: OleVariant); dispid -5015;
+    function accNavigate(navDir: Integer; varStart: OleVariant): OleVariant; dispid -5016;
+    function accHitTest(xLeft: Integer; yTop: Integer): OleVariant; dispid -5017;
+    procedure accDoDefaultAction(varChild: OleVariant); dispid -5018;
+  end;
+
+// *********************************************************************//
+// Interface: _Report2
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {32A1C62A-D374-11D3-8D21-0050048383FB}
+// *********************************************************************//
+  _Report2 = interface(IDispatch)
+    ['{32A1C62A-D374-11D3-8D21-0050048383FB}']
+    function Get_FormName: WideString; safecall;
+    procedure Set_FormName(const pRet: WideString); safecall;
+    function Get_RecordSource: WideString; safecall;
+    procedure Set_RecordSource(const pRet: WideString); safecall;
+    function Get_Filter: WideString; safecall;
+    procedure Set_Filter(const pRet: WideString); safecall;
+    function Get_FilterOn: WordBool; safecall;
+    procedure Set_FilterOn(pRet: WordBool); safecall;
+    function Get_OrderBy: WideString; safecall;
+    procedure Set_OrderBy(const pRet: WideString); safecall;
+    function Get_OrderByOn: WordBool; safecall;
+    procedure Set_OrderByOn(pRet: WordBool); safecall;
+    function Get_ServerFilter: WideString; safecall;
+    procedure Set_ServerFilter(const pRet: WideString); safecall;
+    function Get_Caption: WideString; safecall;
+    procedure Set_Caption(const pRet: WideString); safecall;
+    function Get_RecordLocks: Byte; safecall;
+    procedure Set_RecordLocks(pRet: Byte); safecall;
+    function Get_PageHeader: Byte; safecall;
+    procedure Set_PageHeader(pRet: Byte); safecall;
+    function Get_PageFooter: Byte; safecall;
+    procedure Set_PageFooter(pRet: Byte); safecall;
+    function Get_DateGrouping: Byte; safecall;
+    procedure Set_DateGrouping(pRet: Byte); safecall;
+    function Get_GrpKeepTogether: Byte; safecall;
+    procedure Set_GrpKeepTogether(pRet: Byte); safecall;
+    function Get_MinButton: WordBool; safecall;
+    procedure Set_MinButton(pRet: WordBool); safecall;
+    function Get_MaxButton: WordBool; safecall;
+    procedure Set_MaxButton(pRet: WordBool); safecall;
+    function Get_Width: Smallint; safecall;
+    procedure Set_Width(pRet: Smallint); safecall;
+    function Get_Picture: WideString; safecall;
+    procedure Set_Picture(const pRet: WideString); safecall;
+    function Get_PictureType: Byte; safecall;
+    procedure Set_PictureType(pRet: Byte); safecall;
+    function Get_PictureSizeMode: Byte; safecall;
+    procedure Set_PictureSizeMode(pRet: Byte); safecall;
+    function Get_PictureAlignment: Byte; safecall;
+    procedure Set_PictureAlignment(pRet: Byte); safecall;
+    function Get_PictureTiling: WordBool; safecall;
+    procedure Set_PictureTiling(pRet: WordBool); safecall;
+    function Get_PicturePages: Byte; safecall;
+    procedure Set_PicturePages(pRet: Byte); safecall;
+    function Get_MenuBar: WideString; safecall;
+    procedure Set_MenuBar(const pRet: WideString); safecall;
+    function Get_Toolbar: WideString; safecall;
+    procedure Set_Toolbar(const pRet: WideString); safecall;
+    function Get_ShortcutMenuBar: WideString; safecall;
+    procedure Set_ShortcutMenuBar(const pRet: WideString); safecall;
+    function Get_GridX: Smallint; safecall;
+    procedure Set_GridX(pRet: Smallint); safecall;
+    function Get_GridY: Smallint; safecall;
+    procedure Set_GridY(pRet: Smallint); safecall;
+    function Get_LayoutForPrint: WordBool; safecall;
+    procedure Set_LayoutForPrint(pRet: WordBool); safecall;
+    function Get_FastLaserPrinting: WordBool; safecall;
+    procedure Set_FastLaserPrinting(pRet: WordBool); safecall;
+    function Get_HelpFile: WideString; safecall;
+    procedure Set_HelpFile(const pRet: WideString); safecall;
+    function Get_HelpContextId: Integer; safecall;
+    procedure Set_HelpContextId(pRet: Integer); safecall;
+    function Get_Hwnd: Integer; safecall;
+    procedure Set_Hwnd(pRet: Integer); safecall;
+    function Get_Count: Smallint; safecall;
+    procedure Set_Count(pRet: Smallint); safecall;
+    function Get_Page: Integer; safecall;
+    procedure Set_Page(pRet: Integer); safecall;
+    function Get_Pages: Smallint; safecall;
+    procedure Set_Pages(pRet: Smallint); safecall;
+    function Get_LogicalPageWidth: Integer; safecall;
+    procedure Set_LogicalPageWidth(pRet: Integer); safecall;
+    function Get_LogicalPageHeight: Integer; safecall;
+    procedure Set_LogicalPageHeight(pRet: Integer); safecall;
+    function Get_ZoomControl: Integer; safecall;
+    procedure Set_ZoomControl(pRet: Integer); safecall;
+    function Get_HasData: Integer; safecall;
+    procedure Set_HasData(pRet: Integer); safecall;
+    function Get_Left: Integer; safecall;
+    procedure Set_Left(pRet: Integer); safecall;
+    function Get_Top: Integer; safecall;
+    procedure Set_Top(pRet: Integer); safecall;
+    function Get_Height: Integer; safecall;
+    procedure Set_Height(pRet: Integer); safecall;
+    function Get_PrintSection: WordBool; safecall;
+    procedure Set_PrintSection(pRet: WordBool); safecall;
+    function Get_NextRecord: WordBool; safecall;
+    procedure Set_NextRecord(pRet: WordBool); safecall;
+    function Get_MoveLayout: WordBool; safecall;
+    procedure Set_MoveLayout(pRet: WordBool); safecall;
+    function Get_FormatCount: Smallint; safecall;
+    procedure Set_FormatCount(pRet: Smallint); safecall;
+    function Get_PrintCount: Smallint; safecall;
+    procedure Set_PrintCount(pRet: Smallint); safecall;
+    function Get_Visible: WordBool; safecall;
+    procedure Set_Visible(pRet: WordBool); safecall;
+    function Get_Painting: WordBool; safecall;
+    procedure Set_Painting(pRet: WordBool); safecall;
+    function Get_PrtMip: OleVariant; safecall;
+    procedure Set_PrtMip(pRet: OleVariant); safecall;
+    function Get_PrtDevMode: OleVariant; safecall;
+    procedure Set_PrtDevMode(pRet: OleVariant); safecall;
+    function Get_PrtDevNames: OleVariant; safecall;
+    procedure Set_PrtDevNames(pRet: OleVariant); safecall;
+    function Get_ForeColor: Integer; safecall;
+    procedure Set_ForeColor(pRet: Integer); safecall;
+    function Get_CurrentX: Single; safecall;
+    procedure Set_CurrentX(pRet: Single); safecall;
+    function Get_CurrentY: Single; safecall;
+    procedure Set_CurrentY(pRet: Single); safecall;
+    function Get_ScaleHeight: Single; safecall;
+    procedure Set_ScaleHeight(pRet: Single); safecall;
+    function Get_ScaleLeft: Single; safecall;
+    procedure Set_ScaleLeft(pRet: Single); safecall;
+    function Get_ScaleMode: Smallint; safecall;
+    procedure Set_ScaleMode(pRet: Smallint); safecall;
+    function Get_ScaleTop: Single; safecall;
+    procedure Set_ScaleTop(pRet: Single); safecall;
+    function Get_ScaleWidth: Single; safecall;
+    procedure Set_ScaleWidth(pRet: Single); safecall;
+    function Get_FontBold: Smallint; safecall;
+    procedure Set_FontBold(pRet: Smallint); safecall;
+    function Get_FontItalic: Smallint; safecall;
+    procedure Set_FontItalic(pRet: Smallint); safecall;
+    function Get_FontName: WideString; safecall;
+    procedure Set_FontName(const pRet: WideString); safecall;
+    function Get_FontSize: Smallint; safecall;
+    procedure Set_FontSize(pRet: Smallint); safecall;
+    function Get_FontUnderline: Smallint; safecall;
+    procedure Set_FontUnderline(pRet: Smallint); safecall;
+    function Get_DrawMode: Smallint; safecall;
+    procedure Set_DrawMode(pRet: Smallint); safecall;
+    function Get_DrawStyle: Smallint; safecall;
+    procedure Set_DrawStyle(pRet: Smallint); safecall;
+    function Get_DrawWidth: Smallint; safecall;
+    procedure Set_DrawWidth(pRet: Smallint); safecall;
+    function Get_FillColor: Integer; safecall;
+    procedure Set_FillColor(pRet: Integer); safecall;
+    function Get_FillStyle: Smallint; safecall;
+    procedure Set_FillStyle(pRet: Smallint); safecall;
+    function Get__Name: WideString; safecall;
+    procedure Set__Name(const pRet: WideString); safecall;
+    function Get_PaletteSource: WideString; safecall;
+    procedure Set_PaletteSource(const pRet: WideString); safecall;
+    function Get_Tag: WideString; safecall;
+    procedure Set_Tag(const pRet: WideString); safecall;
+    function Get_PaintPalette: OleVariant; safecall;
+    procedure Set_PaintPalette(pRet: OleVariant); safecall;
+    function Get_OnMenu: WideString; safecall;
+    procedure Set_OnMenu(const pRet: WideString); safecall;
+    function Get_OnOpen: WideString; safecall;
+    procedure Set_OnOpen(const pRet: WideString); safecall;
+    function Get_OnClose: WideString; safecall;
+    procedure Set_OnClose(const pRet: WideString); safecall;
+    function Get_OnActivate: WideString; safecall;
+    procedure Set_OnActivate(const pRet: WideString); safecall;
+    function Get_OnDeactivate: WideString; safecall;
+    procedure Set_OnDeactivate(const pRet: WideString); safecall;
+    function Get_OnNoData: WideString; safecall;
+    procedure Set_OnNoData(const pRet: WideString); safecall;
+    function Get_OnPage: WideString; safecall;
+    procedure Set_OnPage(const pRet: WideString); safecall;
+    function Get_OnError: WideString; safecall;
+    procedure Set_OnError(const pRet: WideString); safecall;
+    function Get_Dirty: WordBool; safecall;
+    procedure Set_Dirty(pRet: WordBool); safecall;
+    function Get_CurrentRecord: Integer; safecall;
+    procedure Set_CurrentRecord(pRet: Integer); safecall;
+    function Get_PictureData: OleVariant; safecall;
+    procedure Set_PictureData(pRet: OleVariant); safecall;
+    function Get_PicturePalette: OleVariant; safecall;
+    procedure Set_PicturePalette(pRet: OleVariant); safecall;
+    function Get_HasModule: WordBool; safecall;
+    procedure Set_HasModule(pRet: WordBool); safecall;
+    function Get_acHiddenCurrentPage: Integer; safecall;
+    procedure Set_acHiddenCurrentPage(pRet: Integer); safecall;
+    function Get_Orientation: Byte; safecall;
+    procedure Set_Orientation(pRet: Byte); safecall;
+    function Get_InputParameters: WideString; safecall;
+    procedure Set_InputParameters(const pRet: WideString); safecall;
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_ActiveControl: AccessControl; safecall;
+    function Get_DefaultControl(ControlType: Integer): AccessControl; safecall;
+    procedure Circle(flags: Smallint; X: Single; Y: Single; radius: Single; color: Integer; 
+                     start: Single; end_: Single; aspect: Single); safecall;
+    procedure Line(flags: Smallint; x1: Single; y1: Single; x2: Single; y2: Single; color: Integer); safecall;
+    procedure PSet(flags: Smallint; X: Single; Y: Single; color: Integer); safecall;
+    procedure Scale(flags: Smallint; x1: Single; y1: Single; x2: Single; y2: Single); safecall;
+    function TextWidth(const Expr: WideString): Single; safecall;
+    function TextHeight(const Expr: WideString): Single; safecall;
+    procedure Print(const Expr: WideString); safecall;
+    function Get_Section(Index: OleVariant): AccessSection; safecall;
+    function Get_GroupLevel(Index: Integer): AccessGroupLevel; safecall;
+    function Get_Report: AccessReport; safecall;
+    function Get_Module: Module; safecall;
+    function Get_Properties: Properties; safecall;
+    function Get_Controls: Controls; safecall;
+    function _NewEnum: IUnknown; safecall;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant; safecall;
+    function Get_Name: WideString; safecall;
+    procedure Set_Name(const pbstrName: WideString); safecall;
+    function Get_AutoResize: WordBool; safecall;
+    procedure Set_AutoResize(pRet: WordBool); safecall;
+    function Get_AutoCenter: WordBool; safecall;
+    procedure Set_AutoCenter(pRet: WordBool); safecall;
+    function Get_PopUp: WordBool; safecall;
+    procedure Set_PopUp(pRet: WordBool); safecall;
+    function Get_Modal: WordBool; safecall;
+    procedure Set_Modal(pRet: WordBool); safecall;
+    function Get_BorderStyle: Byte; safecall;
+    procedure Set_BorderStyle(pRet: Byte); safecall;
+    function Get_ControlBox: WordBool; safecall;
+    procedure Set_ControlBox(pRet: WordBool); safecall;
+    function Get_MinMaxButtons: Byte; safecall;
+    procedure Set_MinMaxButtons(pRet: Byte); safecall;
+    function Get_CloseButton: WordBool; safecall;
+    procedure Set_CloseButton(pRet: WordBool); safecall;
+    function Get_WindowWidth: Smallint; safecall;
+    procedure Set_WindowWidth(pRet: Smallint); safecall;
+    function Get_WindowHeight: Smallint; safecall;
+    procedure Set_WindowHeight(pRet: Smallint); safecall;
+    function Get_WindowTop: Smallint; safecall;
+    function Get_WindowLeft: Smallint; safecall;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    function Get_OpenArgs: OleVariant; safecall;
+    procedure Set_OpenArgs(pRet: OleVariant); safecall;
+    function Get_Printer: _Printer; safecall;
+    procedure Set_Printer(const pRet: _Printer); safecall;
+    procedure _Set_Printer(const pRet: _Printer); safecall;
+    function Get_Moveable: WordBool; safecall;
+    procedure Set_Moveable(pRet: WordBool); safecall;
+    function Get_UseDefaultPrinter: WordBool; safecall;
+    procedure Set_UseDefaultPrinter(pRet: WordBool); safecall;
+    function Get_Recordset: IDispatch; safecall;
+    procedure _Set_Recordset(const pRet: IDispatch); safecall;
+    function Get_RecordSourceQualifier: WideString; safecall;
+    procedure Set_RecordSourceQualifier(const pRet: WideString); safecall;
+    function Get_Shape: WideString; safecall;
+    property FormName: WideString read Get_FormName write Set_FormName;
+    property RecordSource: WideString read Get_RecordSource write Set_RecordSource;
+    property Filter: WideString read Get_Filter write Set_Filter;
+    property FilterOn: WordBool read Get_FilterOn write Set_FilterOn;
+    property OrderBy: WideString read Get_OrderBy write Set_OrderBy;
+    property OrderByOn: WordBool read Get_OrderByOn write Set_OrderByOn;
+    property ServerFilter: WideString read Get_ServerFilter write Set_ServerFilter;
+    property Caption: WideString read Get_Caption write Set_Caption;
+    property RecordLocks: Byte read Get_RecordLocks write Set_RecordLocks;
+    property PageHeader: Byte read Get_PageHeader write Set_PageHeader;
+    property PageFooter: Byte read Get_PageFooter write Set_PageFooter;
+    property DateGrouping: Byte read Get_DateGrouping write Set_DateGrouping;
+    property GrpKeepTogether: Byte read Get_GrpKeepTogether write Set_GrpKeepTogether;
+    property MinButton: WordBool read Get_MinButton write Set_MinButton;
+    property MaxButton: WordBool read Get_MaxButton write Set_MaxButton;
+    property Width: Smallint read Get_Width write Set_Width;
+    property Picture: WideString read Get_Picture write Set_Picture;
+    property PictureType: Byte read Get_PictureType write Set_PictureType;
+    property PictureSizeMode: Byte read Get_PictureSizeMode write Set_PictureSizeMode;
+    property PictureAlignment: Byte read Get_PictureAlignment write Set_PictureAlignment;
+    property PictureTiling: WordBool read Get_PictureTiling write Set_PictureTiling;
+    property PicturePages: Byte read Get_PicturePages write Set_PicturePages;
+    property MenuBar: WideString read Get_MenuBar write Set_MenuBar;
+    property Toolbar: WideString read Get_Toolbar write Set_Toolbar;
+    property ShortcutMenuBar: WideString read Get_ShortcutMenuBar write Set_ShortcutMenuBar;
+    property GridX: Smallint read Get_GridX write Set_GridX;
+    property GridY: Smallint read Get_GridY write Set_GridY;
+    property LayoutForPrint: WordBool read Get_LayoutForPrint write Set_LayoutForPrint;
+    property FastLaserPrinting: WordBool read Get_FastLaserPrinting write Set_FastLaserPrinting;
+    property HelpFile: WideString read Get_HelpFile write Set_HelpFile;
+    property HelpContextId: Integer read Get_HelpContextId write Set_HelpContextId;
+    property Hwnd: Integer read Get_Hwnd write Set_Hwnd;
+    property Count: Smallint read Get_Count write Set_Count;
+    property Page: Integer read Get_Page write Set_Page;
+    property Pages: Smallint read Get_Pages write Set_Pages;
+    property LogicalPageWidth: Integer read Get_LogicalPageWidth write Set_LogicalPageWidth;
+    property LogicalPageHeight: Integer read Get_LogicalPageHeight write Set_LogicalPageHeight;
+    property ZoomControl: Integer read Get_ZoomControl write Set_ZoomControl;
+    property HasData: Integer read Get_HasData write Set_HasData;
+    property Left: Integer read Get_Left write Set_Left;
+    property Top: Integer read Get_Top write Set_Top;
+    property Height: Integer read Get_Height write Set_Height;
+    property PrintSection: WordBool read Get_PrintSection write Set_PrintSection;
+    property NextRecord: WordBool read Get_NextRecord write Set_NextRecord;
+    property MoveLayout: WordBool read Get_MoveLayout write Set_MoveLayout;
+    property FormatCount: Smallint read Get_FormatCount write Set_FormatCount;
+    property PrintCount: Smallint read Get_PrintCount write Set_PrintCount;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property Painting: WordBool read Get_Painting write Set_Painting;
+    property PrtMip: OleVariant read Get_PrtMip write Set_PrtMip;
+    property PrtDevMode: OleVariant read Get_PrtDevMode write Set_PrtDevMode;
+    property PrtDevNames: OleVariant read Get_PrtDevNames write Set_PrtDevNames;
+    property ForeColor: Integer read Get_ForeColor write Set_ForeColor;
+    property CurrentX: Single read Get_CurrentX write Set_CurrentX;
+    property CurrentY: Single read Get_CurrentY write Set_CurrentY;
+    property ScaleHeight: Single read Get_ScaleHeight write Set_ScaleHeight;
+    property ScaleLeft: Single read Get_ScaleLeft write Set_ScaleLeft;
+    property ScaleMode: Smallint read Get_ScaleMode write Set_ScaleMode;
+    property ScaleTop: Single read Get_ScaleTop write Set_ScaleTop;
+    property ScaleWidth: Single read Get_ScaleWidth write Set_ScaleWidth;
+    property FontBold: Smallint read Get_FontBold write Set_FontBold;
+    property FontItalic: Smallint read Get_FontItalic write Set_FontItalic;
+    property FontName: WideString read Get_FontName write Set_FontName;
+    property FontSize: Smallint read Get_FontSize write Set_FontSize;
+    property FontUnderline: Smallint read Get_FontUnderline write Set_FontUnderline;
+    property DrawMode: Smallint read Get_DrawMode write Set_DrawMode;
+    property DrawStyle: Smallint read Get_DrawStyle write Set_DrawStyle;
+    property DrawWidth: Smallint read Get_DrawWidth write Set_DrawWidth;
+    property FillColor: Integer read Get_FillColor write Set_FillColor;
+    property FillStyle: Smallint read Get_FillStyle write Set_FillStyle;
+    property _Name: WideString read Get__Name write Set__Name;
+    property PaletteSource: WideString read Get_PaletteSource write Set_PaletteSource;
+    property Tag: WideString read Get_Tag write Set_Tag;
+    property PaintPalette: OleVariant read Get_PaintPalette write Set_PaintPalette;
+    property OnMenu: WideString read Get_OnMenu write Set_OnMenu;
+    property OnOpen: WideString read Get_OnOpen write Set_OnOpen;
+    property OnClose: WideString read Get_OnClose write Set_OnClose;
+    property OnActivate: WideString read Get_OnActivate write Set_OnActivate;
+    property OnDeactivate: WideString read Get_OnDeactivate write Set_OnDeactivate;
+    property OnNoData: WideString read Get_OnNoData write Set_OnNoData;
+    property OnPage: WideString read Get_OnPage write Set_OnPage;
+    property OnError: WideString read Get_OnError write Set_OnError;
+    property Dirty: WordBool read Get_Dirty write Set_Dirty;
+    property CurrentRecord: Integer read Get_CurrentRecord write Set_CurrentRecord;
+    property PictureData: OleVariant read Get_PictureData write Set_PictureData;
+    property PicturePalette: OleVariant read Get_PicturePalette write Set_PicturePalette;
+    property HasModule: WordBool read Get_HasModule write Set_HasModule;
+    property acHiddenCurrentPage: Integer read Get_acHiddenCurrentPage write Set_acHiddenCurrentPage;
+    property Orientation: Byte read Get_Orientation write Set_Orientation;
+    property InputParameters: WideString read Get_InputParameters write Set_InputParameters;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property ActiveControl: AccessControl read Get_ActiveControl;
+    property DefaultControl[ControlType: Integer]: AccessControl read Get_DefaultControl;
+    property Section[Index: OleVariant]: AccessSection read Get_Section;
+    property GroupLevel[Index: Integer]: AccessGroupLevel read Get_GroupLevel;
+    property Report: AccessReport read Get_Report;
+    property Module: Module read Get_Module;
+    property Properties: Properties read Get_Properties;
+    property Controls: Controls read Get_Controls;
+    property Name: WideString read Get_Name write Set_Name;
+    property AutoResize: WordBool read Get_AutoResize write Set_AutoResize;
+    property AutoCenter: WordBool read Get_AutoCenter write Set_AutoCenter;
+    property PopUp: WordBool read Get_PopUp write Set_PopUp;
+    property Modal: WordBool read Get_Modal write Set_Modal;
+    property BorderStyle: Byte read Get_BorderStyle write Set_BorderStyle;
+    property ControlBox: WordBool read Get_ControlBox write Set_ControlBox;
+    property MinMaxButtons: Byte read Get_MinMaxButtons write Set_MinMaxButtons;
+    property CloseButton: WordBool read Get_CloseButton write Set_CloseButton;
+    property WindowWidth: Smallint read Get_WindowWidth write Set_WindowWidth;
+    property WindowHeight: Smallint read Get_WindowHeight write Set_WindowHeight;
+    property WindowTop: Smallint read Get_WindowTop;
+    property WindowLeft: Smallint read Get_WindowLeft;
+    property OpenArgs: OleVariant read Get_OpenArgs write Set_OpenArgs;
+    property Printer: _Printer read Get_Printer write Set_Printer;
+    property Moveable: WordBool read Get_Moveable write Set_Moveable;
+    property UseDefaultPrinter: WordBool read Get_UseDefaultPrinter write Set_UseDefaultPrinter;
+    property Recordset: IDispatch read Get_Recordset write _Set_Recordset;
+    property RecordSourceQualifier: WideString read Get_RecordSourceQualifier write Set_RecordSourceQualifier;
+    property Shape: WideString read Get_Shape;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _Report2Disp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {32A1C62A-D374-11D3-8D21-0050048383FB}
+// *********************************************************************//
+  _Report2Disp = dispinterface
+    ['{32A1C62A-D374-11D3-8D21-0050048383FB}']
+    property FormName: WideString dispid 39;
+    property RecordSource: WideString dispid 156;
+    property Filter: WideString dispid 245;
+    property FilterOn: WordBool dispid 332;
+    property OrderBy: WideString dispid 331;
+    property OrderByOn: WordBool dispid 336;
+    property ServerFilter: WideString dispid 246;
+    property Caption: WideString dispid 17;
+    property RecordLocks: Byte dispid 26;
+    property PageHeader: Byte dispid 43;
+    property PageFooter: Byte dispid 40;
+    property DateGrouping: Byte dispid 282;
+    property GrpKeepTogether: Byte dispid 283;
+    property MinButton: WordBool dispid 95;
+    property MaxButton: WordBool dispid 94;
+    property Width: Smallint dispid 150;
+    property Picture: WideString dispid 7;
+    property PictureType: Byte dispid 341;
+    property PictureSizeMode: Byte dispid 312;
+    property PictureAlignment: Byte dispid 309;
+    property PictureTiling: WordBool dispid 313;
+    property PicturePages: Byte dispid 310;
+    property MenuBar: WideString dispid 240;
+    property Toolbar: WideString dispid 353;
+    property ShortcutMenuBar: WideString dispid 304;
+    property GridX: Smallint dispid 41;
+    property GridY: Smallint dispid 42;
+    property LayoutForPrint: WordBool dispid 143;
+    property FastLaserPrinting: WordBool dispid 144;
+    property HelpFile: WideString dispid 218;
+    property HelpContextId: Integer dispid 219;
+    property Hwnd: Integer dispid 192;
+    property Count: Smallint dispid 195;
+    property Page: Integer dispid 196;
+    property Pages: Smallint dispid 197;
+    property LogicalPageWidth: Integer dispid 198;
+    property LogicalPageHeight: Integer dispid 199;
+    property ZoomControl: Integer dispid 217;
+    property HasData: Integer dispid 202;
+    property Left: Integer dispid 54;
+    property Top: Integer dispid 141;
+    property Height: Integer dispid 44;
+    property PrintSection: WordBool dispid 225;
+    property NextRecord: WordBool dispid 226;
+    property MoveLayout: WordBool dispid 227;
+    property FormatCount: Smallint dispid 228;
+    property PrintCount: Smallint dispid 229;
+    property Visible: WordBool dispid 148;
+    property Painting: WordBool dispid 241;
+    property PrtMip: OleVariant dispid 189;
+    property PrtDevMode: OleVariant dispid 190;
+    property PrtDevNames: OleVariant dispid 191;
+    property ForeColor: Integer dispid 204;
+    property CurrentX: Single dispid 205;
+    property CurrentY: Single dispid 206;
+    property ScaleHeight: Single dispid 207;
+    property ScaleLeft: Single dispid 208;
+    property ScaleMode: Smallint dispid 209;
+    property ScaleTop: Single dispid 210;
+    property ScaleWidth: Single dispid 211;
+    property FontBold: Smallint dispid 32;
+    property FontItalic: Smallint dispid 33;
+    property FontName: WideString dispid 34;
+    property FontSize: Smallint dispid 35;
+    property FontUnderline: Smallint dispid 36;
+    property DrawMode: Smallint dispid 212;
+    property DrawStyle: Smallint dispid 213;
+    property DrawWidth: Smallint dispid 214;
+    property FillColor: Integer dispid 216;
+    property FillStyle: Smallint dispid 215;
+    property _Name: WideString dispid 20;
+    property PaletteSource: WideString dispid 98;
+    property Tag: WideString dispid 266;
+    property PaintPalette: OleVariant dispid 100;
+    property OnMenu: WideString dispid 60;
+    property OnOpen: WideString dispid 77;
+    property OnClose: WideString dispid 78;
+    property OnActivate: WideString dispid 112;
+    property OnDeactivate: WideString dispid 113;
+    property OnNoData: WideString dispid 121;
+    property OnPage: WideString dispid 83;
+    property OnError: WideString dispid 119;
+    property Dirty: WordBool dispid 286;
+    property CurrentRecord: Integer dispid 302;
+    property PictureData: OleVariant dispid 188;
+    property PicturePalette: OleVariant dispid 311;
+    property HasModule: WordBool dispid 342;
+    property acHiddenCurrentPage: Integer dispid 365;
+    property Orientation: Byte dispid 370;
+    property InputParameters: WideString dispid 66;
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property ActiveControl: AccessControl readonly dispid 2006;
+    property DefaultControl[ControlType: Integer]: AccessControl readonly dispid 2150;
+    procedure Circle(flags: Smallint; X: Single; Y: Single; radius: Single; color: Integer; 
+                     start: Single; end_: Single; aspect: Single); dispid 2118;
+    procedure Line(flags: Smallint; x1: Single; y1: Single; x2: Single; y2: Single; color: Integer); dispid 2152;
+    procedure PSet(flags: Smallint; X: Single; Y: Single; color: Integer); dispid 2117;
+    procedure Scale(flags: Smallint; x1: Single; y1: Single; x2: Single; y2: Single); dispid 2116;
+    function TextWidth(const Expr: WideString): Single; dispid 2114;
+    function TextHeight(const Expr: WideString): Single; dispid 2115;
+    procedure Print(const Expr: WideString); dispid 2153;
+    property Section[Index: OleVariant]: AccessSection readonly dispid 2088;
+    property GroupLevel[Index: Integer]: AccessGroupLevel readonly dispid 2098;
+    property Report: AccessReport readonly dispid 2097;
+    property Module: Module readonly dispid 2090;
+    property Properties: Properties readonly dispid 2091;
+    property Controls: Controls readonly dispid 0;
+    function _NewEnum: IUnknown; dispid -4;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: {??PSafeArray}OleVariant): OleVariant; dispid -5;
+    property Name: WideString dispid -2147418112;
+    property AutoResize: WordBool dispid 6;
+    property AutoCenter: WordBool dispid 278;
+    property PopUp: WordBool dispid 90;
+    property Modal: WordBool dispid 62;
+    property BorderStyle: Byte dispid 9;
+    property ControlBox: WordBool dispid 97;
+    property MinMaxButtons: Byte dispid 328;
+    property CloseButton: WordBool dispid 303;
+    property WindowWidth: Smallint dispid 287;
+    property WindowHeight: Smallint dispid 288;
+    property WindowTop: Smallint readonly dispid 402;
+    property WindowLeft: Smallint readonly dispid 403;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); dispid 2328;
+    property OpenArgs: OleVariant dispid 284;
+    property Printer: _Printer dispid 2365;
+    property Moveable: WordBool dispid 410;
+    property UseDefaultPrinter: WordBool dispid 2418;
+    property Recordset: IDispatch dispid 2196;
+    property RecordSourceQualifier: WideString dispid 445;
+    property Shape: WideString readonly dispid 2423;
+  end;
+
+// *********************************************************************//
+// The Class CoFormatCondition provides a Create and CreateRemote method to          
+// create instances of the default interface _FormatCondition exposed by              
+// the CoClass FormatCondition. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoFormatCondition = class
+    class function Create: _FormatCondition;
+    class function CreateRemote(const MachineName: string): _FormatCondition;
+  end;
+
+
+// *********************************************************************//
+// OLE Server Proxy class declaration
+// Server Object    : TFormatCondition
+// Help String      : 
+// Default Interface: _FormatCondition
+// Def. Intf. DISP? : No
+// Event   Interface: 
+// TypeFlags        : (2) CanCreate
+// *********************************************************************//
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  TFormatConditionProperties= class;
+{$ENDIF}
+  TFormatCondition = class(TOleServer)
+  private
+    FIntf:        _FormatCondition;
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    FProps:       TFormatConditionProperties;
+    function      GetServerProperties: TFormatConditionProperties;
+{$ENDIF}
+    function      GetDefaultInterface: _FormatCondition;
+  protected
+    procedure InitServerData; override;
+    function Get_ForeColor: Integer;
+    procedure Set_ForeColor(plResult: Integer);
+    function Get_BackColor: Integer;
+    procedure Set_BackColor(plResult: Integer);
+    function Get_FontBold: WordBool;
+    procedure Set_FontBold(pfResult: WordBool);
+    function Get_FontItalic: WordBool;
+    procedure Set_FontItalic(pfResult: WordBool);
+    function Get_FontUnderline: WordBool;
+    procedure Set_FontUnderline(pfResult: WordBool);
+    function Get_Enabled: WordBool;
+    procedure Set_Enabled(pfResult: WordBool);
+    function Get_type_: AcFormatConditionType;
+    function Get_Operator: AcFormatConditionOperator;
+    function Get_Expression1: WideString;
+    function Get_Expression2: WideString;
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor  Destroy; override;
+    procedure Connect; override;
+    procedure ConnectTo(svrIntf: _FormatCondition);
+    procedure Disconnect; override;
+    procedure Modify(Type_: AcFormatConditionType; Operator: AcFormatConditionOperator); overload;
+    procedure Modify(Type_: AcFormatConditionType; Operator: AcFormatConditionOperator; 
+                     Expression1: OleVariant); overload;
+    procedure Modify(Type_: AcFormatConditionType; Operator: AcFormatConditionOperator; 
+                     Expression1: OleVariant; Expression2: OleVariant); overload;
+    procedure Delete;
+    property DefaultInterface: _FormatCondition read GetDefaultInterface;
+    property type_: AcFormatConditionType read Get_type_;
+    property Operator: AcFormatConditionOperator read Get_Operator;
+    property Expression1: WideString read Get_Expression1;
+    property Expression2: WideString read Get_Expression2;
+    property ForeColor: Integer read Get_ForeColor write Set_ForeColor;
+    property BackColor: Integer read Get_BackColor write Set_BackColor;
+    property FontBold: WordBool read Get_FontBold write Set_FontBold;
+    property FontItalic: WordBool read Get_FontItalic write Set_FontItalic;
+    property FontUnderline: WordBool read Get_FontUnderline write Set_FontUnderline;
+    property Enabled: WordBool read Get_Enabled write Set_Enabled;
+  published
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    property Server: TFormatConditionProperties read GetServerProperties;
+{$ENDIF}
+  end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+// *********************************************************************//
+// OLE Server Properties Proxy Class
+// Server Object    : TFormatCondition
+// (This object is used by the IDE's Property Inspector to allow editing
+//  of the properties of this server)
+// *********************************************************************//
+ TFormatConditionProperties = class(TPersistent)
+  private
+    FServer:    TFormatCondition;
+    function    GetDefaultInterface: _FormatCondition;
+    constructor Create(AServer: TFormatCondition);
+  protected
+    function Get_ForeColor: Integer;
+    procedure Set_ForeColor(plResult: Integer);
+    function Get_BackColor: Integer;
+    procedure Set_BackColor(plResult: Integer);
+    function Get_FontBold: WordBool;
+    procedure Set_FontBold(pfResult: WordBool);
+    function Get_FontItalic: WordBool;
+    procedure Set_FontItalic(pfResult: WordBool);
+    function Get_FontUnderline: WordBool;
+    procedure Set_FontUnderline(pfResult: WordBool);
+    function Get_Enabled: WordBool;
+    procedure Set_Enabled(pfResult: WordBool);
+    function Get_type_: AcFormatConditionType;
+    function Get_Operator: AcFormatConditionOperator;
+    function Get_Expression1: WideString;
+    function Get_Expression2: WideString;
+  public
+    property DefaultInterface: _FormatCondition read GetDefaultInterface;
+  published
+    property ForeColor: Integer read Get_ForeColor write Set_ForeColor;
+    property BackColor: Integer read Get_BackColor write Set_BackColor;
+    property FontBold: WordBool read Get_FontBold write Set_FontBold;
+    property FontItalic: WordBool read Get_FontItalic write Set_FontItalic;
+    property FontUnderline: WordBool read Get_FontUnderline write Set_FontUnderline;
+    property Enabled: WordBool read Get_Enabled write Set_Enabled;
+  end;
+{$ENDIF}
+
+
+
+// *********************************************************************//
+// OLE Control Proxy class declaration
+// Control Name     : TAccessField
+// Help String      : 
+// Default Interface: _AccessField
+// Def. Intf. DISP? : No
+// Event   Interface: 
+// TypeFlags        : (50) CanCreate Hidden Control
+// *********************************************************************//
+  TAccessField = class(TOleControl)
+  private
+    FIntf: _AccessField;
+    function  GetControlInterface: _AccessField;
+  protected
+    procedure CreateControl;
+    procedure InitControlData; override;
+    function Get_Value: OleVariant;
+    procedure Set_Value(pRet: OleVariant);
+  public
+    property  ControlInterface: _AccessField read GetControlInterface;
+    property  DefaultInterface: _AccessField read GetControlInterface;
+    property Value: OleVariant index 0 read GetOleVariantProp write SetOleVariantProp;
+  published
+  end;
+
+// *********************************************************************//
+// The Class CoAccessHyperlink provides a Create and CreateRemote method to          
+// create instances of the default interface _Hyperlink exposed by              
+// the CoClass AccessHyperlink. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoAccessHyperlink = class
+    class function Create: _Hyperlink;
+    class function CreateRemote(const MachineName: string): _Hyperlink;
+  end;
+
+
+// *********************************************************************//
+// OLE Server Proxy class declaration
+// Server Object    : TAccessHyperlink
+// Help String      : 
+// Default Interface: _Hyperlink
+// Def. Intf. DISP? : No
+// Event   Interface: 
+// TypeFlags        : (2) CanCreate
+// *********************************************************************//
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  TAccessHyperlinkProperties= class;
+{$ENDIF}
+  TAccessHyperlink = class(TOleServer)
+  private
+    FIntf:        _Hyperlink;
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    FProps:       TAccessHyperlinkProperties;
+    function      GetServerProperties: TAccessHyperlinkProperties;
+{$ENDIF}
+    function      GetDefaultInterface: _Hyperlink;
+  protected
+    procedure InitServerData; override;
+    function Get_SubAddress: WideString;
+    procedure Set_SubAddress(pbstrResult: OleVariant);
+    function Get_Address: WideString;
+    procedure Set_Address(pbstrResult: OleVariant);
+    function Get_EmailSubject: WideString;
+    procedure Set_EmailSubject(pbstrResult: OleVariant);
+    function Get_ScreenTip: WideString;
+    procedure Set_ScreenTip(pbstrResult: OleVariant);
+    function Get_TextToDisplay: WideString;
+    procedure Set_TextToDisplay(pbstrResult: OleVariant);
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor  Destroy; override;
+    procedure Connect; override;
+    procedure ConnectTo(svrIntf: _Hyperlink);
+    procedure Disconnect; override;
+    procedure AddToFavorites;
+    procedure Follow(NewWindow: WordBool; AddHistory: WordBool; ExtraInfo: OleVariant; 
+                     Method: MsoExtraInfoMethod; const HeaderInfo: WideString);
+    procedure CreateNewDocument(const FileName: WideString; EditNow: WordBool; Overwrite: WordBool);
+    property DefaultInterface: _Hyperlink read GetDefaultInterface;
+  published
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    property Server: TAccessHyperlinkProperties read GetServerProperties;
+{$ENDIF}
+  end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+// *********************************************************************//
+// OLE Server Properties Proxy Class
+// Server Object    : TAccessHyperlink
+// (This object is used by the IDE's Property Inspector to allow editing
+//  of the properties of this server)
+// *********************************************************************//
+ TAccessHyperlinkProperties = class(TPersistent)
+  private
+    FServer:    TAccessHyperlink;
+    function    GetDefaultInterface: _Hyperlink;
+    constructor Create(AServer: TAccessHyperlink);
+  protected
+    function Get_SubAddress: WideString;
+    procedure Set_SubAddress(pbstrResult: OleVariant);
+    function Get_Address: WideString;
+    procedure Set_Address(pbstrResult: OleVariant);
+    function Get_EmailSubject: WideString;
+    procedure Set_EmailSubject(pbstrResult: OleVariant);
+    function Get_ScreenTip: WideString;
+    procedure Set_ScreenTip(pbstrResult: OleVariant);
+    function Get_TextToDisplay: WideString;
+    procedure Set_TextToDisplay(pbstrResult: OleVariant);
+  public
+    property DefaultInterface: _Hyperlink read GetDefaultInterface;
+  published
+  end;
+{$ENDIF}
+
+
+
+// *********************************************************************//
+// OLE Control Proxy class declaration
+// Control Name     : TAccessControl
+// Help String      : 
+// Default Interface: _Control
+// Def. Intf. DISP? : No
+// Event   Interface: 
+// TypeFlags        : (34) CanCreate Control
+// *********************************************************************//
+  TAccessControl = class(TOleControl)
+  private
+    FIntf: _Control;
+    function  GetControlInterface: _Control;
+  protected
+    procedure CreateControl;
+    procedure InitControlData; override;
+    function Get_Application: AccessApplication;
+    function Get_Parent: IDispatch;
+    function Get_Column(Index: Integer; Row: OleVariant): OleVariant;
+    function Get_Selected(lRow: Integer): Integer;
+    procedure Set_Selected(lRow: Integer; pRet: Integer);
+    function Get_OldValue: OleVariant;
+    function Get_Form: AccessForm;
+    function Get_Report: AccessReport;
+    function Get_ItemData(Index: Integer): OleVariant;
+    function Get_Object_: IDispatch;
+    function Get_ObjectVerbs(Index: Integer): WideString;
+    function Get_Properties: Properties;
+    function Get_ItemsSelected: _ItemsSelected;
+    function Get_Pages: Pages;
+    function Get_Controls: Children;
+    function Get_Hyperlink: _Hyperlink;
+  public
+    procedure Undo;
+    procedure Dropdown;
+    procedure Requery;
+    procedure SizeToFit;
+    procedure Goto_;
+    procedure SetFocus;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+    procedure Move(Left: OleVariant); overload;
+    procedure Move(Left: OleVariant; Top: OleVariant); overload;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant); overload;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); overload;
+    property  ControlInterface: _Control read GetControlInterface;
+    property  DefaultInterface: _Control read GetControlInterface;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch index 2087 read GetIDispatchProp;
+    property Column[Index: Integer; Row: OleVariant]: OleVariant read Get_Column;
+    property Selected[lRow: Integer]: Integer read Get_Selected write Set_Selected;
+    property OldValue: OleVariant index 2102 read GetOleVariantProp;
+    property Form: AccessForm read Get_Form;
+    property Report: AccessReport read Get_Report;
+    property ItemData[Index: Integer]: OleVariant read Get_ItemData;
+    property Object_: IDispatch index 2104 read GetIDispatchProp;
+    property ObjectVerbs[Index: Integer]: WideString read Get_ObjectVerbs;
+    property Properties: Properties read Get_Properties;
+    property ItemsSelected: _ItemsSelected read Get_ItemsSelected;
+    property Pages: Pages read Get_Pages;
+    property Controls: Children read Get_Controls;
+    property Hyperlink: _Hyperlink read Get_Hyperlink;
+  published
+  end;
+
+
+// *********************************************************************//
+// OLE Control Proxy class declaration
+// Control Name     : TAccessLabel
+// Help String      : 
+// Default Interface: _Label
+// Def. Intf. DISP? : No
+// Event   Interface: _LabelEvents
+// TypeFlags        : (34) CanCreate Control
+// *********************************************************************//
+  TAccessLabel = class(TOleControl)
+  private
+    FIntf: _Label;
+    function  GetControlInterface: _Label;
+  protected
+    procedure CreateControl;
+    procedure InitControlData; override;
+    function Get_accParent: IDispatch;
+    function Get_accChild(varChild: OleVariant): IDispatch;
+    function Get_accName(varChild: OleVariant): WideString;
+    function Get_accValue(varChild: OleVariant): WideString;
+    funct

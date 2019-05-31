@@ -1,0 +1,35 @@
+unit UnitConsultaVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UnitPadrao2, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ComCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFrmConsultaVenda = class(TFrmPadrao2)
+    FDTabelaConsultaCodigo: TFDAutoIncField;
+    FDTabelaConsultaCliente: TIntegerField;
+    FDTabelaConsultaFuncionario: TIntegerField;
+    FDTabelaConsultaDtVen: TSQLTimeStampField;
+    FDTabelaConsultaValTotal: TBCDField;
+    FDTabelaConsultaQtdParcela: TIntegerField;
+    FDTabelaConsultaStatus: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmConsultaVenda: TFrmConsultaVenda;
+
+implementation
+
+{$R *.dfm}
+
+end.

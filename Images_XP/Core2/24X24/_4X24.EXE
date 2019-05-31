@@ -1,0 +1,759 @@
+
+    property Name: WideString readonly dispid -2147418112;
+    property Visible: WordBool dispid 148;
+    property Tag: WideString dispid 266;
+    property WindowWidth: Integer readonly dispid 287;
+    property WindowHeight: Integer readonly dispid 288;
+    property CurrentView: Smallint readonly dispid 289;
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Document: IDispatch readonly dispid 0;
+    procedure ApplyTheme(const ThemeName: WideString); dispid 2258;
+    property WebOptions: AccessWebOptions readonly dispid 2293;
+    property ConnectionString: WideString dispid 2268;
+    property FieldListConnection: IDispatch readonly dispid 2298;
+    property MailEnvelope: MsoEnvelope readonly dispid 2327;
+    property CurrentSelection: IDispatch readonly dispid 2336;
+    property MSODSC: IDataSourceControl readonly dispid 2379;
+    property RemovePersonalInformation: WordBool dispid 2367;
+  end;
+
+// *********************************************************************//
+// Interface: DataAccessPages
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {493D8A71-1DB1-11D1-98A2-006008197D41}
+// *********************************************************************//
+  DataAccessPages = interface(IDispatch)
+    ['{493D8A71-1DB1-11D1-98A2-006008197D41}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(var_: OleVariant): DataAccessPage; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[var_: OleVariant]: DataAccessPage read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  DataAccessPagesDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {493D8A71-1DB1-11D1-98A2-006008197D41}
+// *********************************************************************//
+  DataAccessPagesDisp = dispinterface
+    ['{493D8A71-1DB1-11D1-98A2-006008197D41}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[var_: OleVariant]: DataAccessPage readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: AllObjects
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DDBD4001-44D5-11D1-98C0-006008197D41}
+// *********************************************************************//
+  AllObjects = interface(IDispatch)
+    ['{DDBD4001-44D5-11D1-98C0-006008197D41}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(var_: OleVariant): AccessObject; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[var_: OleVariant]: AccessObject read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  AllObjectsDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DDBD4001-44D5-11D1-98C0-006008197D41}
+// *********************************************************************//
+  AllObjectsDisp = dispinterface
+    ['{DDBD4001-44D5-11D1-98C0-006008197D41}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[var_: OleVariant]: AccessObject readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: AccessObjectProperty
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {1FE3E471-A7D0-11D1-9944-006008197D41}
+// *********************************************************************//
+  AccessObjectProperty = interface(IDispatch)
+    ['{1FE3E471-A7D0-11D1-9944-006008197D41}']
+    function Get__Value: OleVariant; safecall;
+    function Get_Name: WideString; safecall;
+    function Get_Value: OleVariant; safecall;
+    procedure Set_Value(pRet: OleVariant); safecall;
+    property _Value: OleVariant read Get__Value;
+    property Name: WideString read Get_Name;
+    property Value: OleVariant read Get_Value write Set_Value;
+  end;
+
+// *********************************************************************//
+// DispIntf:  AccessObjectPropertyDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {1FE3E471-A7D0-11D1-9944-006008197D41}
+// *********************************************************************//
+  AccessObjectPropertyDisp = dispinterface
+    ['{1FE3E471-A7D0-11D1-9944-006008197D41}']
+    property _Value: OleVariant readonly dispid 2103;
+    property Name: WideString readonly dispid -2147418112;
+    property Value: OleVariant dispid 0;
+  end;
+
+// *********************************************************************//
+// Interface: AccessObjectProperties
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {0921F331-A7C9-11D1-9944-006008197D41}
+// *********************************************************************//
+  AccessObjectProperties = interface(IDispatch)
+    ['{0921F331-A7C9-11D1-9944-006008197D41}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(Index: OleVariant): AccessObjectProperty; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    procedure Add(const PropertyName: WideString; Value: OleVariant); safecall;
+    procedure Remove(Item: OleVariant); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[Index: OleVariant]: AccessObjectProperty read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  AccessObjectPropertiesDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {0921F331-A7C9-11D1-9944-006008197D41}
+// *********************************************************************//
+  AccessObjectPropertiesDisp = dispinterface
+    ['{0921F331-A7C9-11D1-9944-006008197D41}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[Index: OleVariant]: AccessObjectProperty readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+    procedure Add(const PropertyName: WideString; Value: OleVariant); dispid 2191;
+    procedure Remove(Item: OleVariant); dispid 2192;
+  end;
+
+// *********************************************************************//
+// Interface: _CurrentProject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9212BA71-3E79-11D1-98BD-006008197D41}
+// *********************************************************************//
+  _CurrentProject = interface(IDispatch)
+    ['{9212BA71-3E79-11D1-98BD-006008197D41}']
+    function Get_AllForms: AllForms; safecall;
+    function Get_AllReports: AllReports; safecall;
+    function Get_AllMacros: AllMacros; safecall;
+    function Get_AllModules: AllModules; safecall;
+    function Get_AllDataAccessPages: AllDataAccessPages; safecall;
+    function Get_ProjectType: AcProjectType; safecall;
+    function Get_BaseConnectionString: WideString; safecall;
+    function Get_IsConnected: WordBool; safecall;
+    procedure OpenConnection(BaseConnectionString: OleVariant; UserID: OleVariant; 
+                             Password: OleVariant); safecall;
+    procedure CloseConnection; safecall;
+    function Get_Name: WideString; safecall;
+    function Get_Path: WideString; safecall;
+    function Get_FullName: WideString; safecall;
+    function Get_Connection: Connection; safecall;
+    function Get_Properties: AccessObjectProperties; safecall;
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_RemovePersonalInformation: WordBool; safecall;
+    procedure Set_RemovePersonalInformation(pf: WordBool); safecall;
+    function Get_FileFormat: AcFileFormat; safecall;
+    function Get_AccessConnection: Connection; safecall;
+    property AllForms: AllForms read Get_AllForms;
+    property AllReports: AllReports read Get_AllReports;
+    property AllMacros: AllMacros read Get_AllMacros;
+    property AllModules: AllModules read Get_AllModules;
+    property AllDataAccessPages: AllDataAccessPages read Get_AllDataAccessPages;
+    property ProjectType: AcProjectType read Get_ProjectType;
+    property BaseConnectionString: WideString read Get_BaseConnectionString;
+    property IsConnected: WordBool read Get_IsConnected;
+    property Name: WideString read Get_Name;
+    property Path: WideString read Get_Path;
+    property FullName: WideString read Get_FullName;
+    property Connection: Connection read Get_Connection;
+    property Properties: AccessObjectProperties read Get_Properties;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property RemovePersonalInformation: WordBool read Get_RemovePersonalInformation write Set_RemovePersonalInformation;
+    property FileFormat: AcFileFormat read Get_FileFormat;
+    property AccessConnection: Connection read Get_AccessConnection;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _CurrentProjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9212BA71-3E79-11D1-98BD-006008197D41}
+// *********************************************************************//
+  _CurrentProjectDisp = dispinterface
+    ['{9212BA71-3E79-11D1-98BD-006008197D41}']
+    property AllForms: AllForms readonly dispid 2219;
+    property AllReports: AllReports readonly dispid 2220;
+    property AllMacros: AllMacros readonly dispid 2221;
+    property AllModules: AllModules readonly dispid 2222;
+    property AllDataAccessPages: AllDataAccessPages readonly dispid 2224;
+    property ProjectType: AcProjectType readonly dispid 2271;
+    property BaseConnectionString: WideString readonly dispid 2267;
+    property IsConnected: WordBool readonly dispid 2269;
+    procedure OpenConnection(BaseConnectionString: OleVariant; UserID: OleVariant; 
+                             Password: OleVariant); dispid 2272;
+    procedure CloseConnection; dispid 2270;
+    property Name: WideString readonly dispid 2094;
+    property Path: WideString readonly dispid 2275;
+    property FullName: WideString readonly dispid 2260;
+    property Connection: Connection readonly dispid 2274;
+    property Properties: AccessObjectProperties readonly dispid 2091;
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property RemovePersonalInformation: WordBool dispid 2367;
+    property FileFormat: AcFileFormat readonly dispid 2377;
+    property AccessConnection: Connection readonly dispid 2428;
+  end;
+
+// *********************************************************************//
+// Interface: _CurrentData
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9212BA73-3E79-11D1-98BD-006008197D41}
+// *********************************************************************//
+  _CurrentData = interface(IDispatch)
+    ['{9212BA73-3E79-11D1-98BD-006008197D41}']
+    function Get_AllTables: AllTables; safecall;
+    function Get_AllQueries: AllQueries; safecall;
+    function Get_AllViews: AllViews; safecall;
+    function Get_AllStoredProcedures: AllStoredProcedures; safecall;
+    function Get_AllDatabaseDiagrams: AllDatabaseDiagrams; safecall;
+    function Get_AllFunctions: AllFunctions; safecall;
+    property AllTables: AllTables read Get_AllTables;
+    property AllQueries: AllQueries read Get_AllQueries;
+    property AllViews: AllViews read Get_AllViews;
+    property AllStoredProcedures: AllStoredProcedures read Get_AllStoredProcedures;
+    property AllDatabaseDiagrams: AllDatabaseDiagrams read Get_AllDatabaseDiagrams;
+    property AllFunctions: AllFunctions read Get_AllFunctions;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _CurrentDataDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9212BA73-3E79-11D1-98BD-006008197D41}
+// *********************************************************************//
+  _CurrentDataDisp = dispinterface
+    ['{9212BA73-3E79-11D1-98BD-006008197D41}']
+    property AllTables: AllTables readonly dispid 2225;
+    property AllQueries: AllQueries readonly dispid 2226;
+    property AllViews: AllViews readonly dispid 2228;
+    property AllStoredProcedures: AllStoredProcedures readonly dispid 2229;
+    property AllDatabaseDiagrams: AllDatabaseDiagrams readonly dispid 2230;
+    property AllFunctions: AllFunctions readonly dispid 2422;
+  end;
+
+// *********************************************************************//
+// Interface: AccessObject
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ABE316B1-3FF6-11D1-98BD-006008197D41}
+// *********************************************************************//
+  AccessObject = interface(IDispatch)
+    ['{ABE316B1-3FF6-11D1-98BD-006008197D41}']
+    function Get_Parent: IDispatch; safecall;
+    function Get__Name: WideString; safecall;
+    function Get_Name: WideString; safecall;
+    function Get_type_: AcObjectType; safecall;
+    function Get_Attributes: Integer; safecall;
+    function Get_Properties: AccessObjectProperties; safecall;
+    function Get_IsLoaded: WordBool; safecall;
+    function Get_FullName: WideString; safecall;
+    procedure Set_FullName(const pbstrFullName: WideString); safecall;
+    function Get_DateCreated: TDateTime; safecall;
+    function Get_DateModified: TDateTime; safecall;
+    function Get_CurrentView: AcCurrentView; safecall;
+    property Parent: IDispatch read Get_Parent;
+    property _Name: WideString read Get__Name;
+    property Name: WideString read Get_Name;
+    property type_: AcObjectType read Get_type_;
+    property Attributes: Integer read Get_Attributes;
+    property Properties: AccessObjectProperties read Get_Properties;
+    property IsLoaded: WordBool read Get_IsLoaded;
+    property FullName: WideString read Get_FullName write Set_FullName;
+    property DateCreated: TDateTime read Get_DateCreated;
+    property DateModified: TDateTime read Get_DateModified;
+    property CurrentView: AcCurrentView read Get_CurrentView;
+  end;
+
+// *********************************************************************//
+// DispIntf:  AccessObjectDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ABE316B1-3FF6-11D1-98BD-006008197D41}
+// *********************************************************************//
+  AccessObjectDisp = dispinterface
+    ['{ABE316B1-3FF6-11D1-98BD-006008197D41}']
+    property Parent: IDispatch readonly dispid 2087;
+    property _Name: WideString readonly dispid 20;
+    property Name: WideString readonly dispid -2147418112;
+    property type_: AcObjectType readonly dispid 2095;
+    property Attributes: Integer readonly dispid 2257;
+    property Properties: AccessObjectProperties readonly dispid 2091;
+    property IsLoaded: WordBool readonly dispid 2276;
+    property FullName: WideString dispid 2260;
+    property DateCreated: TDateTime readonly dispid 2412;
+    property DateModified: TDateTime readonly dispid 2413;
+    property CurrentView: AcCurrentView readonly dispid 2414;
+  end;
+
+// *********************************************************************//
+// Interface: _WizHook
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CB9D3171-4728-11D1-8334-006008197CC8}
+// *********************************************************************//
+  _WizHook = interface(IDispatch)
+    ['{CB9D3171-4728-11D1-8334-006008197CC8}']
+    procedure Set_Key(Param1: SYSINT); safecall;
+    function NameFromActid(Actid: SYSINT): WideString; safecall;
+    function ArgsOfActid(Actid: SYSINT): SYSINT; safecall;
+    function OpenScript(const Script: WideString; const Label_: WideString; OpenMode: Integer; 
+                        var Extra: SYSINT; var Version: Integer): Integer; safecall;
+    function GetScriptString(HScr: Integer; ScriptColumn: Integer; var Value: WideString): WordBool; safecall;
+    function SaveScriptString(HScr: Integer; ScriptColumn: Integer; const Value: WideString): WordBool; safecall;
+    function GlobalProcExists(const Name: WideString): WordBool; safecall;
+    function TableFieldHasUniqueIndex(const Table: WideString; const Columns: WideString): WordBool; safecall;
+    function BracketString(var String_: WideString; flags: Integer): WordBool; safecall;
+    function WizHelp(const HelpFile: WideString; wCmd: Integer; ContextID: Integer): WordBool; safecall;
+    function OpenPictureFile(var File_: WideString; var Cancelled: WordBool): WordBool; safecall;
+    function EnglishPictToLocal(const In_: WideString; var Out: WideString): WordBool; safecall;
+    function TranslateExpression(const In_: WideString; var Out: WideString; ParseFlags: Integer; 
+                                 TranslateFlags: Integer): WordBool; safecall;
+    function FileExists(const File_: WideString): WordBool; safecall;
+    function FullPath(const RelativePath: WideString; var FullPath: WideString): Smallint; safecall;
+    procedure SplitPath(const Path: WideString; var Drive: WideString; var Dir: WideString; 
+                        var File_: WideString; var Ext: WideString); safecall;
+    function TwipsFromFont(const FontName: WideString; Size: Integer; Weight: Integer; 
+                           Italic: WordBool; Underline: WordBool; Cch: Integer; 
+                           const Caption: WideString; MaxWidthCch: Integer; var dx: Integer; 
+                           var dy: Integer): WordBool; safecall;
+    function ObjTypOfRecordSource(const RecordSource: WideString): Smallint; safecall;
+    function IsValidIdent(const Identifier: WideString): WordBool; safecall;
+    procedure SortStringArray(var Array_: PSafeArray); safecall;
+    function AnalyzeTable(const Workspace: Workspace; const Database: Database; 
+                          const Table: WideString; ReturnDebugInfo: WordBool; 
+                          var Results: WideString): Integer; safecall;
+    function AnalyzeQuery(const Workspace: Workspace; const Database: Database; 
+                          const Query: WideString; var Results: WideString): Integer; safecall;
+    function GetFileName(hwndOwner: Integer; const AppName: WideString; const DlgTitle: WideString; 
+                         const OpenTitle: WideString; var File_: WideString; 
+                         const InitialDir: WideString; const Filter: WideString; 
+                         FilterIndex: Integer; View: Integer; flags: Integer; fOpen: WordBool): Integer; safecall;
+    procedure CreateDataPageControl(const DpName: WideString; const CtlName: WideString; 
+                                    Typ: Integer; const Section: WideString; SectionType: Integer; 
+                                    const AppletCode: WideString; X: Integer; Y: Integer; 
+                                    dx: Integer; dy: Integer); safecall;
+    procedure KnownWizLeaks(fStart: WordBool); safecall;
+    function SetVbaPassword(const bstrDbName: WideString; const bstrConnect: WideString; 
+                            const bstrPasswd: WideString): WordBool; safecall;
+    function LocalFont: WideString; safecall;
+    procedure SaveObject(const bstrName: WideString; objtyp: Smallint); safecall;
+    function CurrentLangID: Integer; safecall;
+    function KeyboardLangID: Integer; safecall;
+    function AccessUserDataDir: WideString; safecall;
+    function OfficeAddInDir: WideString; safecall;
+    function EmbedFileOnDataPage(const DpName: WideString; const FileToInsert: WideString): WideString; safecall;
+    function Get_DbcVbProject: _VBProject; safecall;
+    procedure ReportLeaksToFile(fRptToFile: WordBool; const bstrFileOut: WideString); safecall;
+    function Get_IsMatchToDbcConnectString(const bstrConnectionString: WideString): WordBool; safecall;
+    procedure LoadImexSpecSolution(const bstrFilename: WideString); safecall;
+    procedure SetDpBlockKeyInput(fBlockKeys: WordBool); safecall;
+    function FirstDbcDataObject(var Name: WideString; var ObjType: AcObjectType; 
+                                var Attribs: Integer): WordBool; safecall;
+    function CloseCurrentDatabase: WordBool; safecall;
+    function AccessWizFilePath(const bstrWhich: WideString): WideString; safecall;
+    function HideDates: WordBool; safecall;
+    function GetColumns(const bstrBase: WideString): WideString; safecall;
+    function GetFileOdso(const bstrExt: WideString; var bstrFilename: WideString): Integer; safecall;
+    function GetInfoForColumns(const bstrBase: WideString): WideString; safecall;
+    function GetFileName2(hwndOwner: Integer; const AppName: WideString; 
+                          const DlgTitle: WideString; const OpenTitle: WideString; 
+                          var File_: WideString; const InitialDir: WideString; 
+                          const Filter: WideString; FilterIndex: Integer; View: Integer; 
+                          flags: Integer; fOpen: WordBool; fFileSystem: OleVariant): Integer; safecall;
+    function FGetMSDE(fBlockKeys: WordBool): WordBool; safecall;
+    function WizMsgBox(const bstrText: WideString; const bstrCaption: WideString; wStyle: SYSINT; 
+                       idHelpID: SYSINT; const bstrHelpFileName: WideString): SYSINT; safecall;
+    function AdpUIDPwd(var pbstrUID: WideString; var pbstrPwd: WideString): WordBool; safecall;
+    procedure SetWizGlob(lWhich: Integer; vValue: OleVariant); safecall;
+    function GetWizGlob(lWhich: Integer): OleVariant; safecall;
+    procedure WizCopyCmdbars(const bstrADPName: WideString); safecall;
+    function GetCurrentView(const bstrTableName: WideString): SYSINT; safecall;
+    function FIsFEWch(wch: Integer): WordBool; safecall;
+    property Key: SYSINT write Set_Key;
+    property DbcVbProject: _VBProject read Get_DbcVbProject;
+    property IsMatchToDbcConnectString[const bstrConnectionString: WideString]: WordBool read Get_IsMatchToDbcConnectString;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _WizHookDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CB9D3171-4728-11D1-8334-006008197CC8}
+// *********************************************************************//
+  _WizHookDisp = dispinterface
+    ['{CB9D3171-4728-11D1-8334-006008197CC8}']
+    property Key: SYSINT writeonly dispid 2237;
+    function NameFromActid(Actid: SYSINT): WideString; dispid 2234;
+    function ArgsOfActid(Actid: SYSINT): SYSINT; dispid 2236;
+    function OpenScript(const Script: WideString; const Label_: WideString; OpenMode: Integer; 
+                        var Extra: SYSINT; var Version: Integer): Integer; dispid 2238;
+    function GetScriptString(HScr: Integer; ScriptColumn: Integer; var Value: WideString): WordBool; dispid 2239;
+    function SaveScriptString(HScr: Integer; ScriptColumn: Integer; const Value: WideString): WordBool; dispid 2240;
+    function GlobalProcExists(const Name: WideString): WordBool; dispid 2241;
+    function TableFieldHasUniqueIndex(const Table: WideString; const Columns: WideString): WordBool; dispid 2242;
+    function BracketString(var String_: WideString; flags: Integer): WordBool; dispid 2243;
+    function WizHelp(const HelpFile: WideString; wCmd: Integer; ContextID: Integer): WordBool; dispid 2244;
+    function OpenPictureFile(var File_: WideString; var Cancelled: WordBool): WordBool; dispid 2245;
+    function EnglishPictToLocal(const In_: WideString; var Out: WideString): WordBool; dispid 2246;
+    function TranslateExpression(const In_: WideString; var Out: WideString; ParseFlags: Integer; 
+                                 TranslateFlags: Integer): WordBool; dispid 2247;
+    function FileExists(const File_: WideString): WordBool; dispid 2248;
+    function FullPath(const RelativePath: WideString; var FullPath: WideString): Smallint; dispid 2249;
+    procedure SplitPath(const Path: WideString; var Drive: WideString; var Dir: WideString; 
+                        var File_: WideString; var Ext: WideString); dispid 2250;
+    function TwipsFromFont(const FontName: WideString; Size: Integer; Weight: Integer; 
+                           Italic: WordBool; Underline: WordBool; Cch: Integer; 
+                           const Caption: WideString; MaxWidthCch: Integer; var dx: Integer; 
+                           var dy: Integer): WordBool; dispid 2251;
+    function ObjTypOfRecordSource(const RecordSource: WideString): Smallint; dispid 2252;
+    function IsValidIdent(const Identifier: WideString): WordBool; dispid 2253;
+    procedure SortStringArray(var Array_: {??PSafeArray}OleVariant); dispid 2254;
+    function AnalyzeTable(const Workspace: Workspace; const Database: Database; 
+                          const Table: WideString; ReturnDebugInfo: WordBool; 
+                          var Results: WideString): Integer; dispid 2255;
+    function AnalyzeQuery(const Workspace: Workspace; const Database: Database; 
+                          const Query: WideString; var Results: WideString): Integer; dispid 2256;
+    function GetFileName(hwndOwner: Integer; const AppName: WideString; const DlgTitle: WideString; 
+                         const OpenTitle: WideString; var File_: WideString; 
+                         const InitialDir: WideString; const Filter: WideString; 
+                         FilterIndex: Integer; View: Integer; flags: Integer; fOpen: WordBool): Integer; dispid 2261;
+    procedure CreateDataPageControl(const DpName: WideString; const CtlName: WideString; 
+                                    Typ: Integer; const Section: WideString; SectionType: Integer; 
+                                    const AppletCode: WideString; X: Integer; Y: Integer; 
+                                    dx: Integer; dy: Integer); dispid 2265;
+    procedure KnownWizLeaks(fStart: WordBool); dispid 2273;
+    function SetVbaPassword(const bstrDbName: WideString; const bstrConnect: WideString; 
+                            const bstrPasswd: WideString): WordBool; dispid 2294;
+    function LocalFont: WideString; dispid 2295;
+    procedure SaveObject(const bstrName: WideString; objtyp: Smallint); dispid 2296;
+    function CurrentLangID: Integer; dispid 2299;
+    function KeyboardLangID: Integer; dispid 2300;
+    function AccessUserDataDir: WideString; dispid 2302;
+    function OfficeAddInDir: WideString; dispid 2303;
+    function EmbedFileOnDataPage(const DpName: WideString; const FileToInsert: WideString): WideString; dispid 2305;
+    property DbcVbProject: _VBProject readonly dispid 2306;
+    procedure ReportLeaksToFile(fRptToFile: WordBool; const bstrFileOut: WideString); dispid 2292;
+    property IsMatchToDbcConnectString[const bstrConnectionString: WideString]: WordBool readonly dispid 2291;
+    procedure LoadImexSpecSolution(const bstrFilename: WideString); dispid 2282;
+    procedure SetDpBlockKeyInput(fBlockKeys: WordBool); dispid 2283;
+    function FirstDbcDataObject(var Name: WideString; var ObjType: AcObjectType; 
+                                var Attribs: Integer): WordBool; dispid 2323;
+    function CloseCurrentDatabase: WordBool; dispid 2324;
+    function AccessWizFilePath(const bstrWhich: WideString): WideString; dispid 2330;
+    function HideDates: WordBool; dispid 2333;
+    function GetColumns(const bstrBase: WideString): WideString; dispid 2338;
+    function GetFileOdso(const bstrExt: WideString; var bstrFilename: WideString): Integer; dispid 2339;
+    function GetInfoForColumns(const bstrBase: WideString): WideString; dispid 2366;
+    function GetFileName2(hwndOwner: Integer; const AppName: WideString; 
+                          const DlgTitle: WideString; const OpenTitle: WideString; 
+                          var File_: WideString; const InitialDir: WideString; 
+                          const Filter: WideString; FilterIndex: Integer; View: Integer; 
+                          flags: Integer; fOpen: WordBool; fFileSystem: OleVariant): Integer; dispid 2368;
+    function FGetMSDE(fBlockKeys: WordBool): WordBool; dispid 2411;
+    function WizMsgBox(const bstrText: WideString; const bstrCaption: WideString; wStyle: SYSINT; 
+                       idHelpID: SYSINT; const bstrHelpFileName: WideString): SYSINT; dispid 2416;
+    function AdpUIDPwd(var pbstrUID: WideString; var pbstrPwd: WideString): WordBool; dispid 2417;
+    procedure SetWizGlob(lWhich: Integer; vValue: OleVariant); dispid 2419;
+    function GetWizGlob(lWhich: Integer): OleVariant; dispid 2420;
+    procedure WizCopyCmdbars(const bstrADPName: WideString); dispid 2421;
+    function GetCurrentView(const bstrTableName: WideString): SYSINT; dispid 2426;
+    function FIsFEWch(wch: Integer): WordBool; dispid 2427;
+  end;
+
+// *********************************************************************//
+// Interface: _DefaultWebOptions
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {416ED4F0-AB31-11D1-BF72-0060083E43CF}
+// *********************************************************************//
+  _DefaultWebOptions = interface(IDispatch)
+    ['{416ED4F0-AB31-11D1-BF72-0060083E43CF}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_HyperlinkColor: AcColorIndex; safecall;
+    procedure Set_HyperlinkColor(pl: AcColorIndex); safecall;
+    function Get_FollowedHyperlinkColor: AcColorIndex; safecall;
+    procedure Set_FollowedHyperlinkColor(pl: AcColorIndex); safecall;
+    function Get_UnderlineHyperlinks: WordBool; safecall;
+    procedure Set_UnderlineHyperlinks(pf: WordBool); safecall;
+    function Get_OrganizeInFolder: WordBool; safecall;
+    procedure Set_OrganizeInFolder(pf: WordBool); safecall;
+    function Get_UseLongFileNames: WordBool; safecall;
+    procedure Set_UseLongFileNames(pf: WordBool); safecall;
+    function Get_CheckIfOfficeIsHTMLEditor: WordBool; safecall;
+    procedure Set_CheckIfOfficeIsHTMLEditor(pf: WordBool); safecall;
+    function Get_DownloadComponents: WordBool; safecall;
+    procedure Set_DownloadComponents(pf: WordBool); safecall;
+    function Get_LocationOfComponents: WideString; safecall;
+    procedure Set_LocationOfComponents(const pstr: WideString); safecall;
+    function Get_Encoding: MsoEncoding; safecall;
+    procedure Set_Encoding(penc: MsoEncoding); safecall;
+    function Get_AlwaysSaveInDefaultEncoding: WordBool; safecall;
+    procedure Set_AlwaysSaveInDefaultEncoding(pf: WordBool); safecall;
+    function Get_FolderSuffix: WideString; safecall;
+    function Get_TargetBrowser: MsoTargetBrowser; safecall;
+    procedure Set_TargetBrowser(ptb: MsoTargetBrowser); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property HyperlinkColor: AcColorIndex read Get_HyperlinkColor write Set_HyperlinkColor;
+    property FollowedHyperlinkColor: AcColorIndex read Get_FollowedHyperlinkColor write Set_FollowedHyperlinkColor;
+    property UnderlineHyperlinks: WordBool read Get_UnderlineHyperlinks write Set_UnderlineHyperlinks;
+    property OrganizeInFolder: WordBool read Get_OrganizeInFolder write Set_OrganizeInFolder;
+    property UseLongFileNames: WordBool read Get_UseLongFileNames write Set_UseLongFileNames;
+    property CheckIfOfficeIsHTMLEditor: WordBool read Get_CheckIfOfficeIsHTMLEditor write Set_CheckIfOfficeIsHTMLEditor;
+    property DownloadComponents: WordBool read Get_DownloadComponents write Set_DownloadComponents;
+    property LocationOfComponents: WideString read Get_LocationOfComponents write Set_LocationOfComponents;
+    property Encoding: MsoEncoding read Get_Encoding write Set_Encoding;
+    property AlwaysSaveInDefaultEncoding: WordBool read Get_AlwaysSaveInDefaultEncoding write Set_AlwaysSaveInDefaultEncoding;
+    property FolderSuffix: WideString read Get_FolderSuffix;
+    property TargetBrowser: MsoTargetBrowser read Get_TargetBrowser write Set_TargetBrowser;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _DefaultWebOptionsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {416ED4F0-AB31-11D1-BF72-0060083E43CF}
+// *********************************************************************//
+  _DefaultWebOptionsDisp = dispinterface
+    ['{416ED4F0-AB31-11D1-BF72-0060083E43CF}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property HyperlinkColor: AcColorIndex dispid 2279;
+    property FollowedHyperlinkColor: AcColorIndex dispid 2280;
+    property UnderlineHyperlinks: WordBool dispid 2281;
+    property OrganizeInFolder: WordBool dispid 2284;
+    property UseLongFileNames: WordBool dispid 2285;
+    property CheckIfOfficeIsHTMLEditor: WordBool dispid 2286;
+    property DownloadComponents: WordBool dispid 2287;
+    property LocationOfComponents: WideString dispid 2288;
+    property Encoding: MsoEncoding dispid 2289;
+    property AlwaysSaveInDefaultEncoding: WordBool dispid 2290;
+    property FolderSuffix: WideString readonly dispid 2307;
+    property TargetBrowser: MsoTargetBrowser dispid 2331;
+  end;
+
+// *********************************************************************//
+// Interface: _WebOptions
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {416ED4F6-AB31-11D1-BF72-0060083E43CF}
+// *********************************************************************//
+  _WebOptions = interface(IDispatch)
+    ['{416ED4F6-AB31-11D1-BF72-0060083E43CF}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_OrganizeInFolder: WordBool; safecall;
+    procedure Set_OrganizeInFolder(pf: WordBool); safecall;
+    function Get_UseLongFileNames: WordBool; safecall;
+    procedure Set_UseLongFileNames(pf: WordBool); safecall;
+    function Get_DownloadComponents: WordBool; safecall;
+    procedure Set_DownloadComponents(pf: WordBool); safecall;
+    function Get_LocationOfComponents: WideString; safecall;
+    procedure Set_LocationOfComponents(const pstr: WideString); safecall;
+    function Get_Encoding: MsoEncoding; safecall;
+    procedure Set_Encoding(penc: MsoEncoding); safecall;
+    function Get_FolderSuffix: WideString; safecall;
+    procedure UseDefaultFolderSuffix; safecall;
+    function Get_TargetBrowser: MsoTargetBrowser; safecall;
+    procedure Set_TargetBrowser(ptb: MsoTargetBrowser); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property OrganizeInFolder: WordBool read Get_OrganizeInFolder write Set_OrganizeInFolder;
+    property UseLongFileNames: WordBool read Get_UseLongFileNames write Set_UseLongFileNames;
+    property DownloadComponents: WordBool read Get_DownloadComponents write Set_DownloadComponents;
+    property LocationOfComponents: WideString read Get_LocationOfComponents write Set_LocationOfComponents;
+    property Encoding: MsoEncoding read Get_Encoding write Set_Encoding;
+    property FolderSuffix: WideString read Get_FolderSuffix;
+    property TargetBrowser: MsoTargetBrowser read Get_TargetBrowser write Set_TargetBrowser;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _WebOptionsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {416ED4F6-AB31-11D1-BF72-0060083E43CF}
+// *********************************************************************//
+  _WebOptionsDisp = dispinterface
+    ['{416ED4F6-AB31-11D1-BF72-0060083E43CF}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property OrganizeInFolder: WordBool dispid 2284;
+    property UseLongFileNames: WordBool dispid 2285;
+    property DownloadComponents: WordBool dispid 2287;
+    property LocationOfComponents: WideString dispid 2288;
+    property Encoding: MsoEncoding dispid 2289;
+    property FolderSuffix: WideString readonly dispid 2307;
+    procedure UseDefaultFolderSuffix; dispid 2308;
+    property TargetBrowser: MsoTargetBrowser dispid 2331;
+  end;
+
+// *********************************************************************//
+// Interface: _DummyEvents
+// Flags:     (16) Hidden
+// GUID:      {58BF3100-B580-11CF-89A8-00A0C9054129}
+// *********************************************************************//
+  _DummyEvents = interface(IUnknown)
+    ['{58BF3100-B580-11CF-89A8-00A0C9054129}']
+    function Initialize: HResult; stdcall;
+    function Terminate: HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _Printer
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {DBC5175F-A8ED-11D3-A0DD-00C04F68712B}
+// *********************************************************************//
+  _Printer = interface(IDispatch)
+    ['{DBC5175F-A8ED-11D3-A0DD-00C04F68712B}']
+    function Get_ColorMode: AcPrintColor; safecall;
+    procedure Set_ColorMode(pRet: AcPrintColor); safecall;
+    function Get_Copies: Integer; safecall;
+    procedure Set_Copies(pRet: Integer); safecall;
+    function Get_DeviceName: WideString; safecall;
+    function Get_DriverName: WideString; safecall;
+    function Get_Duplex: AcPrintDuplex; safecall;
+    procedure Set_Duplex(pRet: AcPrintDuplex); safecall;
+    function Get_Orientation: AcPrintOrientation; safecall;
+    procedure Set_Orientation(pRet: AcPrintOrientation); safecall;
+    function Get_PaperBin: AcPrintPaperBin; safecall;
+    procedure Set_PaperBin(pRet: AcPrintPaperBin); safecall;
+    function Get_PaperSize: AcPrintPaperSize; safecall;
+    procedure Set_PaperSize(pRet: AcPrintPaperSize); safecall;
+    function Get_Port: WideString; safecall;
+    function Get_PrintQuality: AcPrintObjQuality; safecall;
+    procedure Set_PrintQuality(pRet: AcPrintObjQuality); safecall;
+    function Get_LeftMargin: Integer; safecall;
+    procedure Set_LeftMargin(pRet: Integer); safecall;
+    function Get_RightMargin: Integer; safecall;
+    procedure Set_RightMargin(pRet: Integer); safecall;
+    function Get_TopMargin: Integer; safecall;
+    procedure Set_TopMargin(pRet: Integer); safecall;
+    function Get_BottomMargin: Integer; safecall;
+    procedure Set_BottomMargin(pRet: Integer); safecall;
+    function Get_DataOnly: WordBool; safecall;
+    procedure Set_DataOnly(pRet: WordBool); safecall;
+    function Get_ItemsAcross: Integer; safecall;
+    procedure Set_ItemsAcross(pRet: Integer); safecall;
+    function Get_RowSpacing: Integer; safecall;
+    procedure Set_RowSpacing(pRet: Integer); safecall;
+    function Get_ColumnSpacing: Integer; safecall;
+    procedure Set_ColumnSpacing(pRet: Integer); safecall;
+    function Get_DefaultSize: WordBool; safecall;
+    procedure Set_DefaultSize(pRet: WordBool); safecall;
+    function Get_ItemSizeWidth: Integer; safecall;
+    procedure Set_ItemSizeWidth(pRet: Integer); safecall;
+    function Get_ItemSizeHeight: Integer; safecall;
+    procedure Set_ItemSizeHeight(pRet: Integer); safecall;
+    function Get_ItemLayout: AcPrintItemLayout; safecall;
+    procedure Set_ItemLayout(pRet: AcPrintItemLayout); safecall;
+    property ColorMode: AcPrintColor read Get_ColorMode write Set_ColorMode;
+    property Copies: Integer read Get_Copies write Set_Copies;
+    property DeviceName: WideString read Get_DeviceName;
+    property DriverName: WideString read Get_DriverName;
+    property Duplex: AcPrintDuplex read Get_Duplex write Set_Duplex;
+    property Orientation: AcPrintOrientation read Get_Orientation write Set_Orientation;
+    property PaperBin: AcPrintPaperBin read Get_PaperBin write Set_PaperBin;
+    property PaperSize: AcPrintPaperSize read Get_PaperSize write Set_PaperSize;
+    property Port: WideString read Get_Port;
+    property PrintQuality: AcPrintObjQuality read Get_PrintQuality write Set_PrintQuality;
+    property LeftMargin: Integer read Get_LeftMargin write Set_LeftMargin;
+    property RightMargin: Integer read Get_RightMargin write Set_RightMargin;
+    property TopMargin: Integer read Get_TopMargin write Set_TopMargin;
+    property BottomMargin: Integer read Get_BottomMargin write Set_BottomMargin;
+    property DataOnly: WordBool read Get_DataOnly write Set_DataOnly;
+    property ItemsAcross: Integer read Get_ItemsAcross write Set_ItemsAcross;
+    property RowSpacing: Integer read Get_RowSpacing write Set_RowSpacing;
+    property ColumnSpacing: Integer read Get_ColumnSpacing write Set_ColumnSpacing;
+    property DefaultSize: WordBool read Get_DefaultSize write Set_DefaultSize;
+    property ItemSizeWidth: Integer read Get_ItemSizeWidth write Set_ItemSizeWidth;
+    property ItemSizeHeight: Integer read Get_ItemSizeHeight write Set_ItemSizeHeight;
+    property ItemLayout: AcPrintItemLayout read Get_ItemLayout write Set_ItemLayout;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _PrinterDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {DBC5175F-A8ED-11D3-A0DD-00C04F68712B}
+// *********************************************************************//
+  _PrinterDisp = dispinterface
+    ['{DBC5175F-A8ED-11D3-A0DD-00C04F68712B}']
+    property ColorMode: AcPrintColor dispid 2342;
+    property Copies: Integer dispid 2343;
+    property DeviceName: WideString readonly dispid 2344;
+    property DriverName: WideString readonly dispid 2345;
+    property Duplex: AcPrintDuplex dispid 2346;
+    property Orientation: AcPrintOrientation dispid 2347;
+    property PaperBin: AcPrintPaperBin dispid 2348;
+    property PaperSize: AcPrintPaperSize dispid 2349;
+    property Port: WideString readonly dispid 2350;
+    property PrintQuality: AcPrintObjQuality dispid 2351;
+    property LeftMargin: Integer dispid 2352;
+    property RightMargin: Integer dispid 2353;
+    property TopMargin: Integer dispid 2354;
+    property BottomMargin: Integer dispid 2355;
+    property DataOnly: WordBool dispid 2356;
+    property ItemsAcross: Integer dispid 2357;
+    property RowSpacing: Integer dispid 2358;
+    property ColumnSpacing: Integer dispid 2359;
+    property DefaultSize: WordBool dispid 2360;
+    property ItemSizeWidth: Integer dispid 2361;
+    property ItemSizeHeight: Integer dispid 2362;
+    property ItemLayout: AcPrintItemLayout dispid 2363;
+  end;
+
+// *********************************************************************//
+// Interface: Printers
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DBC51760-A8ED-11D3-A0DD-00C04F68712B}
+// *********************************************************************//
+  Printers = interface(IDispatch)
+    ['{DBC51760-A8ED-11D3-A0DD-00C04F68712B}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(Index: OleVariant): _Printer; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[Index: OleVariant]: _Printer read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  PrintersDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DBC51760-A8ED-11D3-A0DD-00C04F68712B}
+// *********************************************************************//
+  PrintersDisp = dispinterface
+    ['{DBC51760-A8ED-11D3-A0DD-00C04F68712B}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[Index: OleVariant]: _Printer readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// ****

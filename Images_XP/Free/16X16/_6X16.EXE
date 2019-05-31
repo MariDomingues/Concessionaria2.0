@@ -1,0 +1,791 @@
+ Smallint; safecall;
+    procedure Set_Height(pRet: Smallint); safecall;
+    function Get_BackStyle: Byte; safecall;
+    procedure Set_BackStyle(pRet: Byte); safecall;
+    function Get_MultiRow: WordBool; safecall;
+    procedure Set_MultiRow(pRet: WordBool); safecall;
+    function Get_Style: Byte; safecall;
+    procedure Set_Style(pRet: Byte); safecall;
+    function Get_TabFixedHeight: Smallint; safecall;
+    procedure Set_TabFixedHeight(pRet: Smallint); safecall;
+    function Get_TabFixedWidth: Smallint; safecall;
+    procedure Set_TabFixedWidth(pRet: Smallint); safecall;
+    function Get_FontName: WideString; safecall;
+    procedure Set_FontName(const pRet: WideString); safecall;
+    function Get_FontSize: Smallint; safecall;
+    procedure Set_FontSize(pRet: Smallint); safecall;
+    function Get_FontWeight: Smallint; safecall;
+    procedure Set_FontWeight(pRet: Smallint); safecall;
+    function Get_FontItalic: WordBool; safecall;
+    procedure Set_FontItalic(pRet: WordBool); safecall;
+    function Get_FontUnderline: WordBool; safecall;
+    procedure Set_FontUnderline(pRet: WordBool); safecall;
+    function Get_TextFontCharSet: Byte; safecall;
+    procedure Set_TextFontCharSet(pRet: Byte); safecall;
+    function Get_FontBold: Smallint; safecall;
+    procedure Set_FontBold(pRet: Smallint); safecall;
+    function Get_ShortcutMenuBar: WideString; safecall;
+    procedure Set_ShortcutMenuBar(const pRet: WideString); safecall;
+    function Get_HelpContextId: Integer; safecall;
+    procedure Set_HelpContextId(pRet: Integer); safecall;
+    function Get_Section: Smallint; safecall;
+    procedure Set_Section(pRet: Smallint); safecall;
+    function Get_ControlName: WideString; safecall;
+    procedure Set_ControlName(const pRet: WideString); safecall;
+    function Get_Tag: WideString; safecall;
+    procedure Set_Tag(const pRet: WideString); safecall;
+    function Get_IsVisible: WordBool; safecall;
+    procedure Set_IsVisible(pRet: WordBool); safecall;
+    function Get_InSelection: WordBool; safecall;
+    procedure Set_InSelection(pRet: WordBool); safecall;
+    function Get_OnChange: WideString; safecall;
+    procedure Set_OnChange(const pRet: WideString); safecall;
+    function Get_OnClick: WideString; safecall;
+    procedure Set_OnClick(const pRet: WideString); safecall;
+    function Get_OnDblClick: WideString; safecall;
+    procedure Set_OnDblClick(const pRet: WideString); safecall;
+    function Get_OnMouseDown: WideString; safecall;
+    procedure Set_OnMouseDown(const pRet: WideString); safecall;
+    function Get_OnMouseMove: WideString; safecall;
+    procedure Set_OnMouseMove(const pRet: WideString); safecall;
+    function Get_OnMouseUp: WideString; safecall;
+    procedure Set_OnMouseUp(const pRet: WideString); safecall;
+    function Get_OnKeyDown: WideString; safecall;
+    procedure Set_OnKeyDown(const pRet: WideString); safecall;
+    function Get_OnKeyUp: WideString; safecall;
+    procedure Set_OnKeyUp(const pRet: WideString); safecall;
+    function Get_OnKeyPress: WideString; safecall;
+    procedure Set_OnKeyPress(const pRet: WideString); safecall;
+    function _NewEnum: IUnknown; safecall;
+    function Get_Name: WideString; safecall;
+    procedure Set_Name(const pbstrName: WideString); safecall;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property OldValue: OleVariant read Get_OldValue;
+    property Properties: Properties read Get_Properties;
+    property Pages: Pages read Get_Pages;
+    property Value: OleVariant read Get_Value write Set_Value;
+    property EventProcPrefix: WideString read Get_EventProcPrefix write Set_EventProcPrefix;
+    property _Name: WideString read Get__Name write Set__Name;
+    property ControlType: Byte read Get_ControlType write Set_ControlType;
+    property StatusBarText: WideString read Get_StatusBarText write Set_StatusBarText;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property DisplayWhen: Byte read Get_DisplayWhen write Set_DisplayWhen;
+    property Enabled: WordBool read Get_Enabled write Set_Enabled;
+    property TabStop: WordBool read Get_TabStop write Set_TabStop;
+    property TabIndex: Smallint read Get_TabIndex write Set_TabIndex;
+    property Left: Smallint read Get_Left write Set_Left;
+    property Top: Smallint read Get_Top write Set_Top;
+    property Width: Smallint read Get_Width write Set_Width;
+    property Height: Smallint read Get_Height write Set_Height;
+    property BackStyle: Byte read Get_BackStyle write Set_BackStyle;
+    property MultiRow: WordBool read Get_MultiRow write Set_MultiRow;
+    property Style: Byte read Get_Style write Set_Style;
+    property TabFixedHeight: Smallint read Get_TabFixedHeight write Set_TabFixedHeight;
+    property TabFixedWidth: Smallint read Get_TabFixedWidth write Set_TabFixedWidth;
+    property FontName: WideString read Get_FontName write Set_FontName;
+    property FontSize: Smallint read Get_FontSize write Set_FontSize;
+    property FontWeight: Smallint read Get_FontWeight write Set_FontWeight;
+    property FontItalic: WordBool read Get_FontItalic write Set_FontItalic;
+    property FontUnderline: WordBool read Get_FontUnderline write Set_FontUnderline;
+    property TextFontCharSet: Byte read Get_TextFontCharSet write Set_TextFontCharSet;
+    property FontBold: Smallint read Get_FontBold write Set_FontBold;
+    property ShortcutMenuBar: WideString read Get_ShortcutMenuBar write Set_ShortcutMenuBar;
+    property HelpContextId: Integer read Get_HelpContextId write Set_HelpContextId;
+    property Section: Smallint read Get_Section write Set_Section;
+    property ControlName: WideString read Get_ControlName write Set_ControlName;
+    property Tag: WideString read Get_Tag write Set_Tag;
+    property IsVisible: WordBool read Get_IsVisible write Set_IsVisible;
+    property InSelection: WordBool read Get_InSelection write Set_InSelection;
+    property OnChange: WideString read Get_OnChange write Set_OnChange;
+    property OnClick: WideString read Get_OnClick write Set_OnClick;
+    property OnDblClick: WideString read Get_OnDblClick write Set_OnDblClick;
+    property OnMouseDown: WideString read Get_OnMouseDown write Set_OnMouseDown;
+    property OnMouseMove: WideString read Get_OnMouseMove write Set_OnMouseMove;
+    property OnMouseUp: WideString read Get_OnMouseUp write Set_OnMouseUp;
+    property OnKeyDown: WideString read Get_OnKeyDown write Set_OnKeyDown;
+    property OnKeyUp: WideString read Get_OnKeyUp write Set_OnKeyUp;
+    property OnKeyPress: WideString read Get_OnKeyPress write Set_OnKeyPress;
+    property Name: WideString read Get_Name write Set_Name;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _TabControlDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E971-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _TabControlDisp = dispinterface
+    ['{3B06E971-E47C-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property OldValue: OleVariant readonly dispid 2102;
+    property Properties: Properties readonly dispid 2091;
+    procedure SizeToFit; dispid 2151;
+    property Pages: Pages readonly dispid 2180;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: {??PSafeArray}OleVariant): OleVariant; dispid -5;
+    property Value: OleVariant dispid 0;
+    property EventProcPrefix: WideString dispid 22;
+    property _Name: WideString dispid 20;
+    property ControlType: Byte dispid 21;
+    property StatusBarText: WideString dispid 135;
+    property Visible: WordBool dispid 148;
+    property DisplayWhen: Byte dispid 149;
+    property Enabled: WordBool dispid 25;
+    property TabStop: WordBool dispid 262;
+    property TabIndex: Smallint dispid 261;
+    property Left: Smallint dispid 54;
+    property Top: Smallint dispid 141;
+    property Width: Smallint dispid 150;
+    property Height: Smallint dispid 44;
+    property BackStyle: Byte dispid 29;
+    property MultiRow: WordBool dispid 348;
+    property Style: Byte dispid 349;
+    property TabFixedHeight: Smallint dispid 350;
+    property TabFixedWidth: Smallint dispid 351;
+    property FontName: WideString dispid 34;
+    property FontSize: Smallint dispid 35;
+    property FontWeight: Smallint dispid 37;
+    property FontItalic: WordBool dispid 33;
+    property FontUnderline: WordBool dispid 36;
+    property TextFontCharSet: Byte dispid 193;
+    property FontBold: Smallint dispid 32;
+    property ShortcutMenuBar: WideString dispid 304;
+    property HelpContextId: Integer dispid 219;
+    property Section: Smallint dispid 237;
+    property ControlName: WideString dispid 265;
+    property Tag: WideString dispid 266;
+    property IsVisible: WordBool dispid 140;
+    property InSelection: WordBool dispid 280;
+    property OnChange: WideString dispid 114;
+    property OnClick: WideString dispid 126;
+    property OnDblClick: WideString dispid 224;
+    property OnMouseDown: WideString dispid 107;
+    property OnMouseMove: WideString dispid 109;
+    property OnMouseUp: WideString dispid 108;
+    property OnKeyDown: WideString dispid 104;
+    property OnKeyUp: WideString dispid 105;
+    property OnKeyPress: WideString dispid 106;
+    function _NewEnum: IUnknown; dispid -4;
+    property Name: WideString dispid -2147418112;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); dispid 2328;
+    property accParent: IDispatch readonly dispid -5000;
+    property accChildCount: Integer readonly dispid -5001;
+    property accChild[varChild: OleVariant]: IDispatch readonly dispid -5002;
+    property accName[varChild: OleVariant]: WideString dispid -5003;
+    property accValue[varChild: OleVariant]: WideString dispid -5004;
+    property accDescription[varChild: OleVariant]: WideString readonly dispid -5005;
+    property accRole[varChild: OleVariant]: OleVariant readonly dispid -5006;
+    property accState[varChild: OleVariant]: OleVariant readonly dispid -5007;
+    property accHelp[varChild: OleVariant]: WideString readonly dispid -5008;
+    property accHelpTopic[out pszHelpFile: WideString; varChild: OleVariant]: Integer readonly dispid -5009;
+    property accKeyboardShortcut[varChild: OleVariant]: WideString readonly dispid -5010;
+    property accFocus: OleVariant readonly dispid -5011;
+    property accSelection: OleVariant readonly dispid -5012;
+    property accDefaultAction[varChild: OleVariant]: WideString readonly dispid -5013;
+    procedure accSelect(flagsSelect: Integer; varChild: OleVariant); dispid -5014;
+    procedure accLocation(out pxLeft: Integer; out pyTop: Integer; out pcxWidth: Integer; 
+                          out pcyHeight: Integer; varChild: OleVariant); dispid -5015;
+    function accNavigate(navDir: Integer; varStart: OleVariant): OleVariant; dispid -5016;
+    function accHitTest(xLeft: Integer; yTop: Integer): OleVariant; dispid -5017;
+    procedure accDoDefaultAction(varChild: OleVariant); dispid -5018;
+  end;
+
+// *********************************************************************//
+// Interface: _TabControlEvents
+// Flags:     (16) Hidden
+// GUID:      {3B06E972-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _TabControlEvents = interface(IUnknown)
+    ['{3B06E972-E47C-11CD-8701-00AA003F0F07}']
+    function Click: HResult; stdcall;
+    function DblClick(out Cancel: Smallint): HResult; stdcall;
+    function MouseDown(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseMove(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseUp(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function KeyDown(var KeyCode: Smallint; var Shift: Smallint): HResult; stdcall;
+    function KeyPress(var KeyAscii: Smallint): HResult; stdcall;
+    function KeyUp(var KeyCode: Smallint; var Shift: Smallint): HResult; stdcall;
+    function Change: HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _PageEvents
+// Flags:     (16) Hidden
+// GUID:      {3B06E975-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _PageEvents = interface(IUnknown)
+    ['{3B06E975-E47C-11CD-8701-00AA003F0F07}']
+    function Click: HResult; stdcall;
+    function DblClick(out Cancel: Smallint): HResult; stdcall;
+    function MouseDown(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseMove(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseUp(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _Section
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDCFC-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _Section = interface(IDispatch)
+    ['{331FDCFC-CF31-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Properties: Properties; safecall;
+    function Get_Controls: Children; safecall;
+    function Get_EventProcPrefix: WideString; safecall;
+    procedure Set_EventProcPrefix(const pRet: WideString); safecall;
+    function Get__Name: WideString; safecall;
+    procedure Set__Name(const pRet: WideString); safecall;
+    function Get_ForceNewPage: Byte; safecall;
+    procedure Set_ForceNewPage(pRet: Byte); safecall;
+    function Get_NewRowOrCol: Byte; safecall;
+    procedure Set_NewRowOrCol(pRet: Byte); safecall;
+    function Get_KeepTogether: WordBool; safecall;
+    procedure Set_KeepTogether(pRet: WordBool); safecall;
+    function Get_Visible: WordBool; safecall;
+    procedure Set_Visible(pRet: WordBool); safecall;
+    function Get_DisplayWhen: Byte; safecall;
+    procedure Set_DisplayWhen(pRet: Byte); safecall;
+    function Get_CanGrow: WordBool; safecall;
+    procedure Set_CanGrow(pRet: WordBool); safecall;
+    function Get_CanShrink: WordBool; safecall;
+    procedure Set_CanShrink(pRet: WordBool); safecall;
+    function Get_RepeatSection: WordBool; safecall;
+    procedure Set_RepeatSection(pRet: WordBool); safecall;
+    function Get_Height: Smallint; safecall;
+    procedure Set_Height(pRet: Smallint); safecall;
+    function Get_BackColor: Integer; safecall;
+    procedure Set_BackColor(pRet: Integer); safecall;
+    function Get_SpecialEffect: Byte; safecall;
+    procedure Set_SpecialEffect(pRet: Byte); safecall;
+    function Get_Tag: WideString; safecall;
+    procedure Set_Tag(const pRet: WideString); safecall;
+    function Get_OnFormat: WideString; safecall;
+    procedure Set_OnFormat(const pRet: WideString); safecall;
+    function Get_OnPrint: WideString; safecall;
+    procedure Set_OnPrint(const pRet: WideString); safecall;
+    function Get_OnRetreat: WideString; safecall;
+    procedure Set_OnRetreat(const pRet: WideString); safecall;
+    function Get_OnClick: WideString; safecall;
+    procedure Set_OnClick(const pRet: WideString); safecall;
+    function Get_OnDblClick: WideString; safecall;
+    procedure Set_OnDblClick(const pRet: WideString); safecall;
+    function Get_OnMouseDown: WideString; safecall;
+    procedure Set_OnMouseDown(const pRet: WideString); safecall;
+    function Get_OnMouseMove: WideString; safecall;
+    procedure Set_OnMouseMove(const pRet: WideString); safecall;
+    function Get_OnMouseUp: WideString; safecall;
+    procedure Set_OnMouseUp(const pRet: WideString); safecall;
+    function Get_HasContinued: WordBool; safecall;
+    procedure Set_HasContinued(pRet: WordBool); safecall;
+    function Get_WillContinue: WordBool; safecall;
+    procedure Set_WillContinue(pRet: WordBool); safecall;
+    function Get_InSelection: WordBool; safecall;
+    procedure Set_InSelection(pRet: WordBool); safecall;
+    function Get_Name: WideString; safecall;
+    procedure Set_Name(const pbstrName: WideString); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Properties: Properties read Get_Properties;
+    property Controls: Children read Get_Controls;
+    property EventProcPrefix: WideString read Get_EventProcPrefix write Set_EventProcPrefix;
+    property _Name: WideString read Get__Name write Set__Name;
+    property ForceNewPage: Byte read Get_ForceNewPage write Set_ForceNewPage;
+    property NewRowOrCol: Byte read Get_NewRowOrCol write Set_NewRowOrCol;
+    property KeepTogether: WordBool read Get_KeepTogether write Set_KeepTogether;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property DisplayWhen: Byte read Get_DisplayWhen write Set_DisplayWhen;
+    property CanGrow: WordBool read Get_CanGrow write Set_CanGrow;
+    property CanShrink: WordBool read Get_CanShrink write Set_CanShrink;
+    property RepeatSection: WordBool read Get_RepeatSection write Set_RepeatSection;
+    property Height: Smallint read Get_Height write Set_Height;
+    property BackColor: Integer read Get_BackColor write Set_BackColor;
+    property SpecialEffect: Byte read Get_SpecialEffect write Set_SpecialEffect;
+    property Tag: WideString read Get_Tag write Set_Tag;
+    property OnFormat: WideString read Get_OnFormat write Set_OnFormat;
+    property OnPrint: WideString read Get_OnPrint write Set_OnPrint;
+    property OnRetreat: WideString read Get_OnRetreat write Set_OnRetreat;
+    property OnClick: WideString read Get_OnClick write Set_OnClick;
+    property OnDblClick: WideString read Get_OnDblClick write Set_OnDblClick;
+    property OnMouseDown: WideString read Get_OnMouseDown write Set_OnMouseDown;
+    property OnMouseMove: WideString read Get_OnMouseMove write Set_OnMouseMove;
+    property OnMouseUp: WideString read Get_OnMouseUp write Set_OnMouseUp;
+    property HasContinued: WordBool read Get_HasContinued write Set_HasContinued;
+    property WillContinue: WordBool read Get_WillContinue write Set_WillContinue;
+    property InSelection: WordBool read Get_InSelection write Set_InSelection;
+    property Name: WideString read Get_Name write Set_Name;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _SectionDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDCFC-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _SectionDisp = dispinterface
+    ['{331FDCFC-CF31-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Properties: Properties readonly dispid 2091;
+    property Controls: Children readonly dispid 2190;
+    property EventProcPrefix: WideString dispid 22;
+    property _Name: WideString dispid 20;
+    property ForceNewPage: Byte dispid 151;
+    property NewRowOrCol: Byte dispid 231;
+    property KeepTogether: WordBool dispid 75;
+    property Visible: WordBool dispid 148;
+    property DisplayWhen: Byte dispid 149;
+    property CanGrow: WordBool dispid 14;
+    property CanShrink: WordBool dispid 16;
+    property RepeatSection: WordBool dispid 15;
+    property Height: Smallint dispid 44;
+    property BackColor: Integer dispid 28;
+    property SpecialEffect: Byte dispid 4;
+    property Tag: WideString dispid 266;
+    property OnFormat: WideString dispid 80;
+    property OnPrint: WideString dispid 82;
+    property OnRetreat: WideString dispid 84;
+    property OnClick: WideString dispid 126;
+    property OnDblClick: WideString dispid 224;
+    property OnMouseDown: WideString dispid 107;
+    property OnMouseMove: WideString dispid 109;
+    property OnMouseUp: WideString dispid 108;
+    property HasContinued: WordBool dispid 200;
+    property WillContinue: WordBool dispid 201;
+    property InSelection: WordBool dispid 280;
+    property Name: WideString dispid -2147418112;
+  end;
+
+// *********************************************************************//
+// Interface: _SectionEvents
+// Flags:     (16) Hidden
+// GUID:      {BC9E4353-F037-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _SectionEvents = interface(IUnknown)
+    ['{BC9E4353-F037-11CD-8701-00AA003F0F07}']
+    function Click: HResult; stdcall;
+    function DblClick(out Cancel: Smallint): HResult; stdcall;
+    function MouseDown(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseMove(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseUp(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _GroupLevel
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDD27-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _GroupLevel = interface(IDispatch)
+    ['{331FDD27-CF31-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Properties: Properties; safecall;
+    function Get_ControlSource: WideString; safecall;
+    procedure Set_ControlSource(const pRet: WideString); safecall;
+    function Get_SortOrder: WordBool; safecall;
+    procedure Set_SortOrder(pRet: WordBool); safecall;
+    function Get_GroupHeader: WordBool; safecall;
+    procedure Set_GroupHeader(pRet: WordBool); safecall;
+    function Get_GroupFooter: WordBool; safecall;
+    procedure Set_GroupFooter(pRet: WordBool); safecall;
+    function Get_GroupOn: Smallint; safecall;
+    procedure Set_GroupOn(pRet: Smallint); safecall;
+    function Get_GroupInterval: Integer; safecall;
+    procedure Set_GroupInterval(pRet: Integer); safecall;
+    function Get_KeepTogether: Byte; safecall;
+    procedure Set_KeepTogether(pRet: Byte); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Properties: Properties read Get_Properties;
+    property ControlSource: WideString read Get_ControlSource write Set_ControlSource;
+    property SortOrder: WordBool read Get_SortOrder write Set_SortOrder;
+    property GroupHeader: WordBool read Get_GroupHeader write Set_GroupHeader;
+    property GroupFooter: WordBool read Get_GroupFooter write Set_GroupFooter;
+    property GroupOn: Smallint read Get_GroupOn write Set_GroupOn;
+    property GroupInterval: Integer read Get_GroupInterval write Set_GroupInterval;
+    property KeepTogether: Byte read Get_KeepTogether write Set_KeepTogether;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _GroupLevelDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDD27-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _GroupLevelDisp = dispinterface
+    ['{331FDD27-CF31-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Properties: Properties readonly dispid 2091;
+    property ControlSource: WideString dispid 27;
+    property SortOrder: WordBool dispid 174;
+    property GroupHeader: WordBool dispid 175;
+    property GroupFooter: WordBool dispid 176;
+    property GroupOn: Smallint dispid 177;
+    property GroupInterval: Integer dispid 178;
+    property KeepTogether: Byte dispid 75;
+  end;
+
+// *********************************************************************//
+// Interface: _SectionInReportEvents
+// Flags:     (16) Hidden
+// GUID:      {BC9E4361-F037-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _SectionInReportEvents = interface(IUnknown)
+    ['{BC9E4361-F037-11CD-8701-00AA003F0F07}']
+    function Format(out Cancel: Smallint; var FormatCount: Smallint): HResult; stdcall;
+    function Print(out Cancel: Smallint; var PrintCount: Smallint): HResult; stdcall;
+    function Retreat: HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _PageHdrFtrInReportEvents
+// Flags:     (16) Hidden
+// GUID:      {7AD9E905-BAF8-11CE-A68A-00AA003F0F07}
+// *********************************************************************//
+  _PageHdrFtrInReportEvents = interface(IUnknown)
+    ['{7AD9E905-BAF8-11CE-A68A-00AA003F0F07}']
+    function Format(out Cancel: Smallint; var FormatCount: Smallint): HResult; stdcall;
+    function Print(out Cancel: Smallint; var PrintCount: Smallint): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: Module
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDCFE-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  Module = interface(IDispatch)
+    ['{331FDCFE-CF31-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    procedure InsertText(const Text: WideString); safecall;
+    function Get_Name: WideString; safecall;
+    procedure Set_Name(const pbstrName: WideString); safecall;
+    procedure AddFromString(const String_: WideString); safecall;
+    procedure AddFromFile(const FileName: WideString); safecall;
+    function Get_Lines(Line: Integer; NumLines: Integer): WideString; safecall;
+    function Get_CountOfLines: Integer; safecall;
+    procedure InsertLines(Line: Integer; const String_: WideString); safecall;
+    procedure DeleteLines(StartLine: Integer; Count: Integer); safecall;
+    procedure ReplaceLine(Line: Integer; const String_: WideString); safecall;
+    function Get_ProcStartLine(const ProcName: WideString; ProcKind: vbext_ProcKind): Integer; safecall;
+    function Get_ProcCountLines(const ProcName: WideString; ProcKind: vbext_ProcKind): Integer; safecall;
+    function Get_ProcBodyLine(const ProcName: WideString; ProcKind: vbext_ProcKind): Integer; safecall;
+    function Get_ProcOfLine(Line: Integer; out pprockind: vbext_ProcKind): WideString; safecall;
+    function Get_CountOfDeclarationLines: Integer; safecall;
+    function CreateEventProc(const EventName: WideString; const ObjectName: WideString): Integer; safecall;
+    function Find(const Target: WideString; var StartLine: Integer; var StartColumn: Integer; 
+                  var EndLine: Integer; var EndColumn: Integer; WholeWord: WordBool; 
+                  MatchCase: WordBool; PatternSearch: WordBool): WordBool; safecall;
+    function Get_type_: AcModuleType; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Name: WideString read Get_Name write Set_Name;
+    property Lines[Line: Integer; NumLines: Integer]: WideString read Get_Lines;
+    property CountOfLines: Integer read Get_CountOfLines;
+    property ProcStartLine[const ProcName: WideString; ProcKind: vbext_ProcKind]: Integer read Get_ProcStartLine;
+    property ProcCountLines[const ProcName: WideString; ProcKind: vbext_ProcKind]: Integer read Get_ProcCountLines;
+    property ProcBodyLine[const ProcName: WideString; ProcKind: vbext_ProcKind]: Integer read Get_ProcBodyLine;
+    property ProcOfLine[Line: Integer; out pprockind: vbext_ProcKind]: WideString read Get_ProcOfLine;
+    property CountOfDeclarationLines: Integer read Get_CountOfDeclarationLines;
+    property type_: AcModuleType read Get_type_;
+  end;
+
+// *********************************************************************//
+// DispIntf:  ModuleDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {331FDCFE-CF31-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  ModuleDisp = dispinterface
+    ['{331FDCFE-CF31-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    procedure InsertText(const Text: WideString); dispid 2093;
+    property Name: WideString dispid 0;
+    procedure AddFromString(const String_: WideString); dispid 1610743813;
+    procedure AddFromFile(const FileName: WideString); dispid 1610743814;
+    property Lines[Line: Integer; NumLines: Integer]: WideString readonly dispid 1610743815;
+    property CountOfLines: Integer readonly dispid 1610743816;
+    procedure InsertLines(Line: Integer; const String_: WideString); dispid 1610743817;
+    procedure DeleteLines(StartLine: Integer; Count: Integer); dispid 1610743818;
+    procedure ReplaceLine(Line: Integer; const String_: WideString); dispid 1610743819;
+    property ProcStartLine[const ProcName: WideString; ProcKind: vbext_ProcKind]: Integer readonly dispid 1610743820;
+    property ProcCountLines[const ProcName: WideString; ProcKind: vbext_ProcKind]: Integer readonly dispid 1610743821;
+    property ProcBodyLine[const ProcName: WideString; ProcKind: vbext_ProcKind]: Integer readonly dispid 1610743822;
+    property ProcOfLine[Line: Integer; out pprockind: vbext_ProcKind]: WideString readonly dispid 1610743823;
+    property CountOfDeclarationLines: Integer readonly dispid 1610743824;
+    function CreateEventProc(const EventName: WideString; const ObjectName: WideString): Integer; dispid 1610743825;
+    function Find(const Target: WideString; var StartLine: Integer; var StartColumn: Integer; 
+                  var EndLine: Integer; var EndColumn: Integer; WholeWord: WordBool; 
+                  MatchCase: WordBool; PatternSearch: WordBool): WordBool; dispid 1610743826;
+    property type_: AcModuleType readonly dispid 1610743827;
+  end;
+
+// *********************************************************************//
+// Interface: Modules
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9DD0AF42-6E28-11CF-9008-00AA0042B7CE}
+// *********************************************************************//
+  Modules = interface(IDispatch)
+    ['{9DD0AF42-6E28-11CF-9008-00AA0042B7CE}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(Index: OleVariant): Module; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[Index: OleVariant]: Module read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  ModulesDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9DD0AF42-6E28-11CF-9008-00AA0042B7CE}
+// *********************************************************************//
+  ModulesDisp = dispinterface
+    ['{9DD0AF42-6E28-11CF-9008-00AA0042B7CE}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[Index: OleVariant]: Module readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: _Form
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E5135D80-8F8D-101B-AF4E-00AA003F0F07}
+// *********************************************************************//
+  _Form = interface(IAccessible)
+    ['{E5135D80-8F8D-101B-AF4E-00AA003F0F07}']
+    function Get_FormName: WideString; safecall;
+    procedure Set_FormName(const pRet: WideString); safecall;
+    function Get_RecordSource: WideString; safecall;
+    procedure Set_RecordSource(const pRet: WideString); safecall;
+    function Get_Filter: WideString; safecall;
+    procedure Set_Filter(const pRet: WideString); safecall;
+    function Get_FilterOn: WordBool; safecall;
+    procedure Set_FilterOn(pRet: WordBool); safecall;
+    function Get_OrderBy: WideString; safecall;
+    procedure Set_OrderBy(const pRet: WideString); safecall;
+    function Get_OrderByOn: WordBool; safecall;
+    procedure Set_OrderByOn(pRet: WordBool); safecall;
+    function Get_AllowFilters: WordBool; safecall;
+    procedure Set_AllowFilters(pRet: WordBool); safecall;
+    function Get_Caption: WideString; safecall;
+    procedure Set_Caption(const pRet: WideString); safecall;
+    function Get_DefaultView: Byte; safecall;
+    procedure Set_DefaultView(pRet: Byte); safecall;
+    function Get_ViewsAllowed: Byte; safecall;
+    procedure Set_ViewsAllowed(pRet: Byte); safecall;
+    function Get_AllowEditing: WordBool; safecall;
+    procedure Set_AllowEditing(pRet: WordBool); safecall;
+    function Get_DefaultEditing: Smallint; safecall;
+    procedure Set_DefaultEditing(pRet: Smallint); safecall;
+    function Get_AllowEdits: WordBool; safecall;
+    procedure Set_AllowEdits(pRet: WordBool); safecall;
+    function Get_AllowDeletions: WordBool; safecall;
+    procedure Set_AllowDeletions(pRet: WordBool); safecall;
+    function Get_AllowAdditions: WordBool; safecall;
+    procedure Set_AllowAdditions(pRet: WordBool); safecall;
+    function Get_DataEntry: WordBool; safecall;
+    procedure Set_DataEntry(pRet: WordBool); safecall;
+    function Get_AllowUpdating: Byte; safecall;
+    procedure Set_AllowUpdating(pRet: Byte); safecall;
+    function Get_RecordsetType: Byte; safecall;
+    procedure Set_RecordsetType(pRet: Byte); safecall;
+    function Get_RecordLocks: Byte; safecall;
+    procedure Set_RecordLocks(pRet: Byte); safecall;
+    function Get_ScrollBars: Byte; safecall;
+    procedure Set_ScrollBars(pRet: Byte); safecall;
+    function Get_RecordSelectors: WordBool; safecall;
+    procedure Set_RecordSelectors(pRet: WordBool); safecall;
+    function Get_NavigationButtons: WordBool; safecall;
+    procedure Set_NavigationButtons(pRet: WordBool); safecall;
+    function Get_DividingLines: WordBool; safecall;
+    procedure Set_DividingLines(pRet: WordBool); safecall;
+    function Get_AutoResize: WordBool; safecall;
+    procedure Set_AutoResize(pRet: WordBool); safecall;
+    function Get_AutoCenter: WordBool; safecall;
+    procedure Set_AutoCenter(pRet: WordBool); safecall;
+    function Get_PopUp: WordBool; safecall;
+    procedure Set_PopUp(pRet: WordBool); safecall;
+    function Get_Modal: WordBool; safecall;
+    procedure Set_Modal(pRet: WordBool); safecall;
+    function Get_BorderStyle: Byte; safecall;
+    procedure Set_BorderStyle(pRet: Byte); safecall;
+    function Get_ControlBox: WordBool; safecall;
+    procedure Set_ControlBox(pRet: WordBool); safecall;
+    function Get_MinButton: WordBool; safecall;
+    procedure Set_MinButton(pRet: WordBool); safecall;
+    function Get_MaxButton: WordBool; safecall;
+    procedure Set_MaxButton(pRet: WordBool); safecall;
+    function Get_MinMaxButtons: Byte; safecall;
+    procedure Set_MinMaxButtons(pRet: Byte); safecall;
+    function Get_CloseButton: WordBool; safecall;
+    procedure Set_CloseButton(pRet: WordBool); safecall;
+    function Get_WhatsThisButton: WordBool; safecall;
+    procedure Set_WhatsThisButton(pRet: WordBool); safecall;
+    function Get_Width: Smallint; safecall;
+    procedure Set_Width(pRet: Smallint); safecall;
+    function Get_Picture: WideString; safecall;
+    procedure Set_Picture(const pRet: WideString); safecall;
+    function Get_PictureType: Byte; safecall;
+    procedure Set_PictureType(pRet: Byte); safecall;
+    function Get_PictureSizeMode: Byte; safecall;
+    procedure Set_PictureSizeMode(pRet: Byte); safecall;
+    function Get_PictureAlignment: Byte; safecall;
+    procedure Set_PictureAlignment(pRet: Byte); safecall;
+    function Get_PictureTiling: WordBool; safecall;
+    procedure Set_PictureTiling(pRet: WordBool); safecall;
+    function Get_Cycle: Byte; safecall;
+    procedure Set_Cycle(pRet: Byte); safecall;
+    function Get_MenuBar: WideString; safecall;
+    procedure Set_MenuBar(const pRet: WideString); safecall;
+    function Get_Toolbar: WideString; safecall;
+    procedure Set_Toolbar(const pRet: WideString); safecall;
+    function Get_ShortcutMenu: WordBool; safecall;
+    procedure Set_ShortcutMenu(pRet: WordBool); safecall;
+    function Get_ShortcutMenuBar: WideString; safecall;
+    procedure Set_ShortcutMenuBar(const pRet: WideString); safecall;
+    function Get_GridX: Smallint; safecall;
+    procedure Set_GridX(pRet: Smallint); safecall;
+    function Get_GridY: Smallint; safecall;
+    procedure Set_GridY(pRet: Smallint); safecall;
+    function Get_LayoutForPrint: WordBool; safecall;
+    procedure Set_LayoutForPrint(pRet: WordBool); safecall;
+    function Get_FastLaserPrinting: WordBool; safecall;
+    procedure Set_FastLaserPrinting(pRet: WordBool); safecall;
+    function Get_HelpFile: WideString; safecall;
+    procedure Set_HelpFile(const pRet: WideString); safecall;
+    function Get_HelpContextId: Integer; safecall;
+    procedure Set_HelpContextId(pRet: Integer); safecall;
+    function Get_RowHeight: Smallint; safecall;
+    procedure Set_RowHeight(pRet: Smallint); safecall;
+    function Get_DatasheetFontName: WideString; safecall;
+    procedure Set_DatasheetFontName(const pRet: WideString); safecall;
+    function Get_DatasheetFontHeight: Smallint; safecall;
+    procedure Set_DatasheetFontHeight(pRet: Smallint); safecall;
+    function Get_DatasheetFontWeight: Smallint; safecall;
+    procedure Set_DatasheetFontWeight(pRet: Smallint); safecall;
+    function Get_DatasheetFontItalic: WordBool; safecall;
+    procedure Set_DatasheetFontItalic(pRet: WordBool); safecall;
+    function Get_DatasheetFontUnderline: WordBool; safecall;
+    procedure Set_DatasheetFontUnderline(pRet: WordBool); safecall;
+    function Get_TabularCharSet: Byte; safecall;
+    procedure Set_TabularCharSet(pRet: Byte); safecall;
+    function Get_DatasheetGridlinesBehavior: Byte; safecall;
+    procedure Set_DatasheetGridlinesBehavior(pRet: Byte); safecall;
+    function Get_DatasheetGridlinesColor: Integer; safecall;
+    procedure Set_DatasheetGridlinesColor(pRet: Integer); safecall;
+    function Get_DatasheetCellsEffect: Byte; safecall;
+    procedure Set_DatasheetCellsEffect(pRet: Byte); safecall;
+    function Get_DatasheetForeColor: Integer; safecall;
+    procedure Set_DatasheetForeColor(pRet: Integer); safecall;
+    function Get_ShowGrid: WordBool; safecall;
+    procedure Set_ShowGrid(pRet: WordBool); safecall;
+    function Get_DatasheetBackColor: Integer; safecall;
+    procedure Set_DatasheetBackColor(pRet: Integer); safecall;
+    function Get_Hwnd: Integer; safecall;
+    procedure Set_Hwnd(pRet: Integer); safecall;
+    function Get_Count: Smallint; safecall;
+    procedure Set_Count(pRet: Smallint); safecall;
+    function Get_Page: Integer; safecall;
+    procedure Set_Page(pRet: Integer); safecall;
+    function Get_Pages: Smallint; safecall;
+    procedure Set_Pages(pRet: Smallint); safecall;
+    function Get_LogicalPageWidth: Integer; safecall;
+    procedure Set_LogicalPageWidth(pRet: Integer); safecall;
+    function Get_LogicalPageHeight: Integer; safecall;
+    procedure Set_LogicalPageHeight(pRet: Integer); safecall;
+    function Get_ZoomControl: Integer; safecall;
+    procedure Set_ZoomControl(pRet: Integer); safecall;
+    function Get_Visible: WordBool; safecall;
+    procedure Set_Visible(pRet: WordBool); safecall;
+    function Get_Painting: WordBool; safecall;
+    procedure Set_Painting(pRet: WordBool); safecall;
+    function Get_PrtMip: OleVariant; safecall;
+    procedure Set_PrtMip(pRet: OleVariant); safecall;
+    function Get_PrtDevMode: OleVariant; safecall;
+    procedure Set_PrtDevMode(pRet: OleVariant); safecall;
+    function Get_PrtDevNames: OleVariant; safecall;
+    procedure Set_PrtDevNames(pRet: OleVariant); safecall;
+    function Get_FrozenColumns: Smallint; safecall;
+    procedure Set_FrozenColumns(pRet: Smallint); safecall;
+    function Get_Bookmark: OleVariant; safecall;
+    procedure Set_Bookmark(pRet: OleVariant); safecall;
+    function Get_TabularFamily: Byte; safecall;
+    procedure Set_TabularFamily(pRet: Byte); safecall;
+    function Get__Name: WideString; safecall;
+    procedure Set__Name(const pRet: WideString); safecall;
+    function Get_PaletteSource: WideString; safecall;
+    procedure Set_PaletteSource(const pRet: WideString); safecall;
+    function Get_Tag: WideString; safecall;
+    procedure Set_Tag(const pRet: WideString); safecall;
+    function Get_PaintPalette: OleVariant; safecall;
+    procedure Set_PaintPalette(pRet: OleVariant); safecall;
+    function Get_OnMenu: WideString; safecall;
+    procedure Set_OnMenu(const pRet: WideString); safecall;
+    function Get_OpenArgs: OleVariant; safecall;
+    procedure Set_OpenArgs(pRet: OleVariant); safecall;
+    function Get_ConnectSynch: Smallint; safecall;
+    procedure Set_ConnectSynch(pRet: Smallint); safecall;
+    function Get_OnCurrent: WideString; safecall;
+    procedure Set_OnCurrent(const pRet: WideString); safecall;
+    function Get_OnInsert: WideString; safecall;
+    procedure Set_OnInsert(const pRet: WideString); safecall;
+    function Get_BeforeInsert: WideString; safecall;
+    procedure Set_BeforeInsert(const pRet: WideString); safecall;
+    function Get_AfterInsert: WideString; safecall;
+    procedure Set_AfterInsert(const pRet: WideString); safecall;
+    function Get_BeforeUpdate: WideString; safecall;
+    procedure Set_BeforeUpdate(const pRet: WideString); safecall;
+    function Get_AfterUpdate: WideString; safecall;
+    procedure Set_AfterUpdate(const pRet: WideString); safecall;
+    function Get_OnDirty: WideString; safecall;
+    procedure Set_OnDirty(const pRet: WideString); safecall;
+    function Get_OnDelete: WideString; safecall;
+    procedure Set_OnDelete(const pRet: WideString); safecall;
+    function Get_BeforeDelConfirm: WideString; safecall;
+    procedure Set_BeforeDelConfirm(const pRet: WideString); safecall;
+    function Get_AfterDelConfirm: WideString; safecall;
+    procedure Set_AfterDelConfirm(const pRet: WideString); safecall;
+    function Get_OnOpen: WideString; safecall;
+    procedure Set_OnOpen(const pRet: WideString); safecall;
+    function Get_OnLoad: WideString; safecall;
+    procedure Set_OnLoad(const pRet: WideString); safecall;
+    function Get_OnResize: WideString; safecall;
+    procedure Set_OnResize(const pRet: WideString); safecall;
+    function Get_OnUnload: WideString; safecall;
+    procedure Set_OnUnload(const pRet: WideString); safecall;
+    function Get_OnClose: WideString; safecall;
+    procedure Set_OnClose(const pRet: WideString); safecall;
+    function Get_OnActivate: WideString; safecall;
+    procedure Set_OnActivate(const pRet: WideString); safecall;
+    function Get_OnDeactivate: WideString; safecall;
+    procedure Set_OnDeactivate(const pRet: WideString); safecall;
+    function Get_OnGotFocus: WideString; safecall;
+    procedure Set_OnGotFocus(const pRet: WideString); safecall;
+    function Get_OnLostFocus: WideString; safecall;
+    procedure Set_OnLostFocus(const pRet: WideString); safecall;
+    function Get_OnClick: WideString; safecall;
+    procedure Set_OnClick(const pRet: WideString); safecall;
+    function Get_OnDblClick: WideString; safecall;
+    procedure Set_OnDblClick(const pRet: WideString); safecall;
+    function Get_OnMouseDown: WideString; safecall;
+    procedure Set_OnMouseDown(const pRet: WideString); safecall;
+    function Get_OnMouseMove: WideString; safecall;
+    procedure Set_OnMouseMove(const pRet: WideString); safecall;
+    function Get_OnMouseUp: WideString; safecall;
+    procedure Set_OnMouseUp(const pRet: WideString); safecall;
+    function Get_OnKeyDown: WideString; safecall;
+    procedure Set_OnKeyDown(const pRet: WideString); safecall;
+    function Get_OnKeyUp: WideString; safecall;
+    procedure Set_OnKeyUp(const pRet: WideString); safecall;
+    function Get_OnKeyPress: WideString; safecall;
+    procedure Set_OnKeyPress(const pRet: WideString); safecall;
+    function Get_KeyPreview: WordBool; safecall;
+    procedure Set_KeyPreview(pRet: WordBool); safecall;
+    function Get_OnE

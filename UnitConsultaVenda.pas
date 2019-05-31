@@ -1,0 +1,61 @@
+unit UnitConsultaVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UnitPadrao2, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ComCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFrmConsultaVenda = class(TFrmPadrao2)
+    FDTabelaConsultaCodigo: TFDAutoIncField;
+    FDTabelaConsultaCliente: TIntegerField;
+    FDTabelaConsultaFuncionario: TIntegerField;
+    FDTabelaConsultaDtVen: TSQLTimeStampField;
+    FDTabelaConsultaValTotal: TBCDField;
+    FDTabelaConsultaQtdParcela: TIntegerField;
+    FDTabelaConsultaStatus: TStringField;
+    FDQuery1: TFDQuery;
+    FDTabelaConsultaClienteNome: TStringField;
+    FDQuery2: TFDQuery;
+    FDTabelaConsultaFuncionarioNome: TStringField;
+    procedure FormActivate(Sender: TObject);
+    procedure FDTabelaConsultaStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmConsultaVenda: TFrmConsultaVenda;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDM;
+
+procedure TFrmConsultaVenda.FDTabelaConsultaStatusGetText(Sender: TField;
+  var Text: string; DisplayText: Boolean);
+begin
+  inherited;
+  if Sender.AsString <> '' then
+    if Sender.AsString = 'A' then
+      Text := 'Ativo'
+    else
+      Text := 'Inativo';
+end;
+
+procedure TFrmConsultaVenda.FormActivate(Sender: TObject);
+begin
+  inherited;
+  ShowScrollBar(DBGrid.Handle,SB_HORZ,true);
+end;
+
+end.

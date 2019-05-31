@@ -1,0 +1,1963 @@
+ssRectangle.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessRectangle.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+procedure TAccessRectangle.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+function TAccessRectangle._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessLine.InitControlData;
+const
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E94B-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '';
+    EventCount: 0;
+    EventDispIDs: nil;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+end;
+
+procedure TAccessLine.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _Line;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessLine.GetControlInterface: _Line;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessLine.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessLine.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessLine.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+procedure TAccessLine.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+function TAccessLine._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessImage.InitControlData;
+const
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E94D-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4344-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 0;
+    EventDispIDs: nil;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+end;
+
+procedure TAccessImage.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _Image;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessImage.GetControlInterface: _Image;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessImage.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessImage.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessImage.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessImage.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessImage.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessImage.Get_Hyperlink: _Hyperlink;
+begin
+    Result := DefaultInterface.Hyperlink;
+end;
+
+function TAccessImage.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessImage.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+function TAccessImage.Get_PictureData: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PictureData;
+end;
+
+procedure TAccessImage.Set_PictureData(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PictureData(pRet);
+end;
+
+function TAccessImage.Get_ObjectPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ObjectPalette;
+end;
+
+procedure TAccessImage.Set_ObjectPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_ObjectPalette(pRet);
+end;
+
+procedure TAccessImage.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessImage.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessImage.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessImage.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessImage._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessCommandButton.InitControlData;
+const
+  CEventDispIDs: array [0..3] of DWORD = (
+    $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E94F-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4345-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 4;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnEnter) - Cardinal(Self);
+end;
+
+procedure TAccessCommandButton.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _CommandButton;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessCommandButton.GetControlInterface: _CommandButton;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessCommandButton.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessCommandButton.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessCommandButton.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessCommandButton.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessCommandButton.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessCommandButton.Get_Hyperlink: _Hyperlink;
+begin
+    Result := DefaultInterface.Hyperlink;
+end;
+
+function TAccessCommandButton.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessCommandButton.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+function TAccessCommandButton.Get_PictureData: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PictureData;
+end;
+
+procedure TAccessCommandButton.Set_PictureData(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PictureData(pRet);
+end;
+
+function TAccessCommandButton.Get_ObjectPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ObjectPalette;
+end;
+
+procedure TAccessCommandButton.Set_ObjectPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_ObjectPalette(pRet);
+end;
+
+procedure TAccessCommandButton.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessCommandButton.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessCommandButton.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessCommandButton.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessCommandButton._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessOptionButton.InitControlData;
+const
+  CEventDispIDs: array [0..5] of DWORD = (
+    $0000080D, $0000080E, $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E951-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4346-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 6;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessOptionButton.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _OptionButton;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessOptionButton.GetControlInterface: _OptionButton;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessOptionButton.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessOptionButton.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessOptionButton.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessOptionButton.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessOptionButton.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessOptionButton.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessOptionButton.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessOptionButton.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessOptionButton.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessOptionButton.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessOptionButton.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessOptionButton._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessCheckBox.InitControlData;
+const
+  CEventDispIDs: array [0..5] of DWORD = (
+    $0000080D, $0000080E, $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E953-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4347-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 6;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessCheckBox.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _Checkbox;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessCheckBox.GetControlInterface: _Checkbox;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessCheckBox.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessCheckBox.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessCheckBox.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessCheckBox.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessCheckBox.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessCheckBox.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessCheckBox.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessCheckBox.Undo;
+begin
+  DefaultInterface.Undo;
+end;
+
+procedure TAccessCheckBox.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessCheckBox.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessCheckBox.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessCheckBox.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessCheckBox._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessOptionGroup.InitControlData;
+const
+  CEventDispIDs: array [0..3] of DWORD = (
+    $0000080D, $0000080E, $000007E3, $0000081B);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E955-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4348-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 4;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessOptionGroup.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _OptionGroup;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessOptionGroup.GetControlInterface: _OptionGroup;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessOptionGroup.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessOptionGroup.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessOptionGroup.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessOptionGroup.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessOptionGroup.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessOptionGroup.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessOptionGroup.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessOptionGroup.Undo;
+begin
+  DefaultInterface.Undo;
+end;
+
+procedure TAccessOptionGroup.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessOptionGroup.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessOptionGroup.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessOptionGroup.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessOptionGroup._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessBoundObjectFrame.InitControlData;
+const
+  CEventDispIDs: array [0..6] of DWORD = (
+    $0000081C, $0000080D, $0000080E, $000007E3, $0000081B, $00000819,
+    $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E957-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4349-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 7;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnUpdated) - Cardinal(Self);
+end;
+
+procedure TAccessBoundObjectFrame.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _BoundObjectFrame;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessBoundObjectFrame.GetControlInterface: _BoundObjectFrame;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessBoundObjectFrame.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessBoundObjectFrame.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessBoundObjectFrame.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessBoundObjectFrame.Get_Object_: IDispatch;
+begin
+    Result := DefaultInterface.Object_;
+end;
+
+function TAccessBoundObjectFrame.Get_ObjectVerbs(Index: Integer): WideString;
+begin
+    Result := DefaultInterface.ObjectVerbs[Index];
+end;
+
+function TAccessBoundObjectFrame.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessBoundObjectFrame.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessBoundObjectFrame.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessBoundObjectFrame.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+function TAccessBoundObjectFrame.Get_ObjectPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ObjectPalette;
+end;
+
+procedure TAccessBoundObjectFrame.Set_ObjectPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_ObjectPalette(pRet);
+end;
+
+procedure TAccessBoundObjectFrame.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessBoundObjectFrame.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessBoundObjectFrame.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessBoundObjectFrame.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessBoundObjectFrame._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessTextBox.InitControlData;
+const
+  CEventDispIDs: array [0..6] of DWORD = (
+    $0000080D, $0000080E, $0000081D, $000007E3, $0000081B, $00000819,
+    $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E945-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4340-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 7;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessTextBox.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _Textbox;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessTextBox.GetControlInterface: _Textbox;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessTextBox.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessTextBox.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessTextBox.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessTextBox.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessTextBox.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessTextBox.Get_Hyperlink: _Hyperlink;
+begin
+    Result := DefaultInterface.Hyperlink;
+end;
+
+function TAccessTextBox.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessTextBox.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessTextBox.Undo;
+begin
+  DefaultInterface.Undo;
+end;
+
+procedure TAccessTextBox.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessTextBox.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessTextBox.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessTextBox.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessTextBox._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessListBox.InitControlData;
+const
+  CEventDispIDs: array [0..5] of DWORD = (
+    $0000080D, $0000080E, $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E959-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E434B-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 6;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessListBox.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _ListBox;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessListBox.GetControlInterface: _ListBox;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessListBox.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessListBox.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessListBox.Get_Column(Index: Integer; Row: OleVariant): OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Column[Index, Row];
+end;
+
+function TAccessListBox.Get_Selected(lRow: Integer): Integer;
+begin
+    Result := DefaultInterface.Selected[lRow];
+end;
+
+procedure TAccessListBox.Set_Selected(lRow: Integer; pRet: Integer);
+begin
+  DefaultInterface.Selected[lRow] := pRet;
+end;
+
+function TAccessListBox.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessListBox.Get_ItemData(Index: Integer): OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ItemData[Index];
+end;
+
+function TAccessListBox.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessListBox.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessListBox.Get_ItemsSelected: _ItemsSelected;
+begin
+    Result := DefaultInterface.ItemsSelected;
+end;
+
+function TAccessListBox.Get_Hyperlink: _Hyperlink;
+begin
+    Result := DefaultInterface.Hyperlink;
+end;
+
+function TAccessListBox.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessListBox.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessListBox.Undo;
+begin
+  DefaultInterface.Undo;
+end;
+
+procedure TAccessListBox.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessListBox.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessListBox.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessListBox.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessListBox._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessComboBox.InitControlData;
+const
+  CEventDispIDs: array [0..7] of DWORD = (
+    $0000080D, $0000080E, $0000081D, $0000081E, $000007E3, $0000081B,
+    $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E95B-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E434C-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 8;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessComboBox.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _Combobox;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessComboBox.GetControlInterface: _Combobox;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessComboBox.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessComboBox.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessComboBox.Get_Column(Index: Integer; Row: OleVariant): OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Column[Index, Row];
+end;
+
+function TAccessComboBox.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessComboBox.Get_ItemData(Index: Integer): OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ItemData[Index];
+end;
+
+function TAccessComboBox.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessComboBox.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessComboBox.Get_Hyperlink: _Hyperlink;
+begin
+    Result := DefaultInterface.Hyperlink;
+end;
+
+function TAccessComboBox.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessComboBox.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessComboBox.Undo;
+begin
+  DefaultInterface.Undo;
+end;
+
+procedure TAccessComboBox.Dropdown;
+begin
+  DefaultInterface.Dropdown;
+end;
+
+procedure TAccessComboBox.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessComboBox.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessComboBox.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessComboBox.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessComboBox._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessObjectFrame.InitControlData;
+const
+  CEventDispIDs: array [0..4] of DWORD = (
+    $0000081C, $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E95D-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E434D-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 5;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnUpdated) - Cardinal(Self);
+end;
+
+procedure TAccessObjectFrame.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _ObjectFrame;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessObjectFrame.GetControlInterface: _ObjectFrame;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessObjectFrame.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessObjectFrame.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessObjectFrame.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessObjectFrame.Get_Object_: IDispatch;
+begin
+    Result := DefaultInterface.Object_;
+end;
+
+function TAccessObjectFrame.Get_ObjectVerbs(Index: Integer): WideString;
+begin
+    Result := DefaultInterface.ObjectVerbs[Index];
+end;
+
+function TAccessObjectFrame.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessObjectFrame.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessObjectFrame.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessObjectFrame.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+function TAccessObjectFrame.Get_OleData: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OleData;
+end;
+
+procedure TAccessObjectFrame.Set_OleData(pRet: OleVariant);
+begin
+  DefaultInterface.Set_OleData(pRet);
+end;
+
+function TAccessObjectFrame.Get_ObjectPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ObjectPalette;
+end;
+
+procedure TAccessObjectFrame.Set_ObjectPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_ObjectPalette(pRet);
+end;
+
+procedure TAccessObjectFrame.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessObjectFrame.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessObjectFrame.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessObjectFrame.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessObjectFrame._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessPageBreak.InitControlData;
+const
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E95F-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '';
+    EventCount: 0;
+    EventDispIDs: nil;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+end;
+
+procedure TAccessPageBreak.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _PageBreak;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessPageBreak.GetControlInterface: _PageBreak;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessPageBreak.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessPageBreak.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessPageBreak.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+procedure TAccessPageBreak.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+function TAccessPageBreak._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessToggleButton.InitControlData;
+const
+  CEventDispIDs: array [0..5] of DWORD = (
+    $0000080D, $0000080E, $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E961-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E434F-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 6;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessToggleButton.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _ToggleButton;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessToggleButton.GetControlInterface: _ToggleButton;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessToggleButton.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessToggleButton.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessToggleButton.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessToggleButton.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessToggleButton.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessToggleButton.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessToggleButton.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+function TAccessToggleButton.Get_PictureData: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PictureData;
+end;
+
+procedure TAccessToggleButton.Set_PictureData(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PictureData(pRet);
+end;
+
+function TAccessToggleButton.Get_ObjectPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ObjectPalette;
+end;
+
+procedure TAccessToggleButton.Set_ObjectPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_ObjectPalette(pRet);
+end;
+
+procedure TAccessToggleButton.Undo;
+begin
+  DefaultInterface.Undo;
+end;
+
+procedure TAccessToggleButton.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessToggleButton.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessToggleButton.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessToggleButton.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessToggleButton._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessPaletteButton.InitControlData;
+const
+  CEventDispIDs: array [0..5] of DWORD = (
+    $0000080D, $0000080E, $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{9CD4A762-A6A9-11CE-A686-00AA003F0F07}';
+    EventIID: '{A843CCD0-6E2C-11CF-A219-00A0C90542FF}';
+    EventCount: 6;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnBeforeUpdate) - Cardinal(Self);
+end;
+
+procedure TAccessPaletteButton.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _PaletteButton;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessPaletteButton.GetControlInterface: _PaletteButton;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessPaletteButton.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessPaletteButton.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessPaletteButton.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessPaletteButton.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessPaletteButton.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessPaletteButton.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessPaletteButton.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessPaletteButton.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessPaletteButton.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessPaletteButton.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessPaletteButton.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessPaletteButton._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessSubForm.InitControlData;
+const
+  CEventDispIDs: array [0..1] of DWORD = (
+    $000007E3, $0000081B);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E963-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4350-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 2;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnEnter) - Cardinal(Self);
+end;
+
+procedure TAccessSubForm.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _SubForm;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessSubForm.GetControlInterface: _SubForm;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessSubForm.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessSubForm.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessSubForm.Get_Form: AccessForm;
+begin
+    Result := DefaultInterface.Form;
+end;
+
+function TAccessSubForm.Get_Report: AccessReport;
+begin
+    Result := DefaultInterface.Report;
+end;
+
+function TAccessSubForm.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessSubForm.Get_Controls: Controls;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+procedure TAccessSubForm.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+function TAccessSubForm._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessSubForm.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessSubForm.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+procedure TAccessSubForm.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessSubReport.InitControlData;
+const
+  CEventDispIDs: array [0..1] of DWORD = (
+    $000007E3, $0000081B);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E965-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4351-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 2;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnEnter) - Cardinal(Self);
+end;
+
+procedure TAccessSubReport.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _SubReport;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessSubReport.GetControlInterface: _SubReport;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessSubReport.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessSubReport.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessSubReport.Get_Form: AccessForm;
+begin
+    Result := DefaultInterface.Form;
+end;
+
+function TAccessSubReport.Get_Report: AccessReport;
+begin
+    Result := DefaultInterface.Report;
+end;
+
+procedure TAccessCustomControl.InitControlData;
+const
+  CEventDispIDs: array [0..4] of DWORD = (
+    $0000081C, $000007E3, $0000081B, $00000819, $0000081A);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E967-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{BC9E4352-F037-11CD-8701-00AA003F0F07}';
+    EventCount: 5;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnUpdated) - Cardinal(Self);
+end;
+
+procedure TAccessCustomControl.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _CustomControl;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessCustomControl.GetControlInterface: _CustomControl;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessCustomControl.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessCustomControl.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessCustomControl.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessCustomControl.Get_Object_: IDispatch;
+begin
+    Result := DefaultInterface.Object_;
+end;
+
+function TAccessCustomControl.Get_ObjectVerbs(Index: Integer): WideString;
+begin
+    Result := DefaultInterface.ObjectVerbs[Index];
+end;
+
+function TAccessCustomControl.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessCustomControl.Get_Controls: Children;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+function TAccessCustomControl.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessCustomControl.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+function TAccessCustomControl.Get_OleData: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OleData;
+end;
+
+procedure TAccessCustomControl.Set_OleData(pRet: OleVariant);
+begin
+  DefaultInterface.Set_OleData(pRet);
+end;
+
+function TAccessCustomControl.Get_ObjectPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.ObjectPalette;
+end;
+
+procedure TAccessCustomControl.Set_ObjectPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_ObjectPalette(pRet);
+end;
+
+procedure TAccessCustomControl.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+procedure TAccessCustomControl.Requery;
+begin
+  DefaultInterface.Requery;
+end;
+
+procedure TAccessCustomControl.Goto_;
+begin
+  DefaultInterface.Goto_;
+end;
+
+procedure TAccessCustomControl.SetFocus;
+begin
+  DefaultInterface.SetFocus;
+end;
+
+function TAccessCustomControl._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessTabControl.InitControlData;
+const
+  CEventDispIDs: array [0..0] of DWORD = (
+    $0000081D);
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E970-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{3B06E972-E47C-11CD-8701-00AA003F0F07}';
+    EventCount: 1;
+    EventDispIDs: @CEventDispIDs;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+  TControlData2(CControlData).FirstEventOfs := Cardinal(@@FOnChange) - Cardinal(Self);
+end;
+
+procedure TAccessTabControl.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _TabControl;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessTabControl.GetControlInterface: _TabControl;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessTabControl.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessTabControl.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessTabControl.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessTabControl.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessTabControl.Get_Pages: Pages;
+begin
+    Result := DefaultInterface.Pages;
+end;
+
+function TAccessTabControl.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessTabControl.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+procedure TAccessTabControl.SizeToFit;
+begin
+  DefaultInterface.SizeToFit;
+end;
+
+function TAccessTabControl._Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant;
+begin
+  Result := DefaultInterface._Evaluate(bstrExpr, ppsa);
+end;
+
+procedure TAccessPage.InitControlData;
+const
+  CControlData: TControlData2 = (
+    ClassID: '{3B06E973-E47C-11CD-8701-00AA003F0F07}';
+    EventIID: '{3B06E975-E47C-11CD-8701-00AA003F0F07}';
+    EventCount: 0;
+    EventDispIDs: nil;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+end;
+
+procedure TAccessPage.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _Page;
+  end;
+
+begin
+  if FIntf

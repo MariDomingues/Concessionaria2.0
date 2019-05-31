@@ -1,0 +1,1257 @@
+tion TAccessReportProperties.Get_ScaleHeight: Single;
+begin
+    Result := DefaultInterface.ScaleHeight;
+end;
+
+procedure TAccessReportProperties.Set_ScaleHeight(pRet: Single);
+begin
+  DefaultInterface.Set_ScaleHeight(pRet);
+end;
+
+function TAccessReportProperties.Get_ScaleLeft: Single;
+begin
+    Result := DefaultInterface.ScaleLeft;
+end;
+
+procedure TAccessReportProperties.Set_ScaleLeft(pRet: Single);
+begin
+  DefaultInterface.Set_ScaleLeft(pRet);
+end;
+
+function TAccessReportProperties.Get_ScaleMode: Smallint;
+begin
+    Result := DefaultInterface.ScaleMode;
+end;
+
+procedure TAccessReportProperties.Set_ScaleMode(pRet: Smallint);
+begin
+  DefaultInterface.Set_ScaleMode(pRet);
+end;
+
+function TAccessReportProperties.Get_ScaleTop: Single;
+begin
+    Result := DefaultInterface.ScaleTop;
+end;
+
+procedure TAccessReportProperties.Set_ScaleTop(pRet: Single);
+begin
+  DefaultInterface.Set_ScaleTop(pRet);
+end;
+
+function TAccessReportProperties.Get_ScaleWidth: Single;
+begin
+    Result := DefaultInterface.ScaleWidth;
+end;
+
+procedure TAccessReportProperties.Set_ScaleWidth(pRet: Single);
+begin
+  DefaultInterface.Set_ScaleWidth(pRet);
+end;
+
+function TAccessReportProperties.Get_FontBold: Smallint;
+begin
+    Result := DefaultInterface.FontBold;
+end;
+
+procedure TAccessReportProperties.Set_FontBold(pRet: Smallint);
+begin
+  DefaultInterface.Set_FontBold(pRet);
+end;
+
+function TAccessReportProperties.Get_FontItalic: Smallint;
+begin
+    Result := DefaultInterface.FontItalic;
+end;
+
+procedure TAccessReportProperties.Set_FontItalic(pRet: Smallint);
+begin
+  DefaultInterface.Set_FontItalic(pRet);
+end;
+
+function TAccessReportProperties.Get_FontName: WideString;
+begin
+    Result := DefaultInterface.FontName;
+end;
+
+procedure TAccessReportProperties.Set_FontName(const pRet: WideString);
+  { Warning: The property FontName has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.FontName := pRet;
+end;
+
+function TAccessReportProperties.Get_FontSize: Smallint;
+begin
+    Result := DefaultInterface.FontSize;
+end;
+
+procedure TAccessReportProperties.Set_FontSize(pRet: Smallint);
+begin
+  DefaultInterface.Set_FontSize(pRet);
+end;
+
+function TAccessReportProperties.Get_FontUnderline: Smallint;
+begin
+    Result := DefaultInterface.FontUnderline;
+end;
+
+procedure TAccessReportProperties.Set_FontUnderline(pRet: Smallint);
+begin
+  DefaultInterface.Set_FontUnderline(pRet);
+end;
+
+function TAccessReportProperties.Get_DrawMode: Smallint;
+begin
+    Result := DefaultInterface.DrawMode;
+end;
+
+procedure TAccessReportProperties.Set_DrawMode(pRet: Smallint);
+begin
+  DefaultInterface.Set_DrawMode(pRet);
+end;
+
+function TAccessReportProperties.Get_DrawStyle: Smallint;
+begin
+    Result := DefaultInterface.DrawStyle;
+end;
+
+procedure TAccessReportProperties.Set_DrawStyle(pRet: Smallint);
+begin
+  DefaultInterface.Set_DrawStyle(pRet);
+end;
+
+function TAccessReportProperties.Get_DrawWidth: Smallint;
+begin
+    Result := DefaultInterface.DrawWidth;
+end;
+
+procedure TAccessReportProperties.Set_DrawWidth(pRet: Smallint);
+begin
+  DefaultInterface.Set_DrawWidth(pRet);
+end;
+
+function TAccessReportProperties.Get_FillColor: Integer;
+begin
+    Result := DefaultInterface.FillColor;
+end;
+
+procedure TAccessReportProperties.Set_FillColor(pRet: Integer);
+begin
+  DefaultInterface.Set_FillColor(pRet);
+end;
+
+function TAccessReportProperties.Get_FillStyle: Smallint;
+begin
+    Result := DefaultInterface.FillStyle;
+end;
+
+procedure TAccessReportProperties.Set_FillStyle(pRet: Smallint);
+begin
+  DefaultInterface.Set_FillStyle(pRet);
+end;
+
+function TAccessReportProperties.Get_Name: WideString;
+begin
+    Result := DefaultInterface.Name;
+end;
+
+procedure TAccessReportProperties.Set_Name(const pRet: WideString);
+  { Warning: The property Name has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Name := pRet;
+end;
+
+function TAccessReportProperties.Get_PaletteSource: WideString;
+begin
+    Result := DefaultInterface.PaletteSource;
+end;
+
+procedure TAccessReportProperties.Set_PaletteSource(const pRet: WideString);
+  { Warning: The property PaletteSource has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.PaletteSource := pRet;
+end;
+
+function TAccessReportProperties.Get_Tag: WideString;
+begin
+    Result := DefaultInterface.Tag;
+end;
+
+procedure TAccessReportProperties.Set_Tag(const pRet: WideString);
+  { Warning: The property Tag has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Tag := pRet;
+end;
+
+function TAccessReportProperties.Get_PaintPalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PaintPalette;
+end;
+
+procedure TAccessReportProperties.Set_PaintPalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PaintPalette(pRet);
+end;
+
+function TAccessReportProperties.Get_OnMenu: WideString;
+begin
+    Result := DefaultInterface.OnMenu;
+end;
+
+procedure TAccessReportProperties.Set_OnMenu(const pRet: WideString);
+  { Warning: The property OnMenu has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnMenu := pRet;
+end;
+
+function TAccessReportProperties.Get_OnOpen: WideString;
+begin
+    Result := DefaultInterface.OnOpen;
+end;
+
+procedure TAccessReportProperties.Set_OnOpen(const pRet: WideString);
+  { Warning: The property OnOpen has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnOpen := pRet;
+end;
+
+function TAccessReportProperties.Get_OnClose: WideString;
+begin
+    Result := DefaultInterface.OnClose;
+end;
+
+procedure TAccessReportProperties.Set_OnClose(const pRet: WideString);
+  { Warning: The property OnClose has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnClose := pRet;
+end;
+
+function TAccessReportProperties.Get_OnActivate: WideString;
+begin
+    Result := DefaultInterface.OnActivate;
+end;
+
+procedure TAccessReportProperties.Set_OnActivate(const pRet: WideString);
+  { Warning: The property OnActivate has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnActivate := pRet;
+end;
+
+function TAccessReportProperties.Get_OnDeactivate: WideString;
+begin
+    Result := DefaultInterface.OnDeactivate;
+end;
+
+procedure TAccessReportProperties.Set_OnDeactivate(const pRet: WideString);
+  { Warning: The property OnDeactivate has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnDeactivate := pRet;
+end;
+
+function TAccessReportProperties.Get_OnNoData: WideString;
+begin
+    Result := DefaultInterface.OnNoData;
+end;
+
+procedure TAccessReportProperties.Set_OnNoData(const pRet: WideString);
+  { Warning: The property OnNoData has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnNoData := pRet;
+end;
+
+function TAccessReportProperties.Get_OnPage: WideString;
+begin
+    Result := DefaultInterface.OnPage;
+end;
+
+procedure TAccessReportProperties.Set_OnPage(const pRet: WideString);
+  { Warning: The property OnPage has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnPage := pRet;
+end;
+
+function TAccessReportProperties.Get_OnError: WideString;
+begin
+    Result := DefaultInterface.OnError;
+end;
+
+procedure TAccessReportProperties.Set_OnError(const pRet: WideString);
+  { Warning: The property OnError has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.OnError := pRet;
+end;
+
+function TAccessReportProperties.Get_Dirty: WordBool;
+begin
+    Result := DefaultInterface.Dirty;
+end;
+
+procedure TAccessReportProperties.Set_Dirty(pRet: WordBool);
+begin
+  DefaultInterface.Set_Dirty(pRet);
+end;
+
+function TAccessReportProperties.Get_CurrentRecord: Integer;
+begin
+    Result := DefaultInterface.CurrentRecord;
+end;
+
+procedure TAccessReportProperties.Set_CurrentRecord(pRet: Integer);
+begin
+  DefaultInterface.Set_CurrentRecord(pRet);
+end;
+
+function TAccessReportProperties.Get_PictureData: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PictureData;
+end;
+
+procedure TAccessReportProperties.Set_PictureData(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PictureData(pRet);
+end;
+
+function TAccessReportProperties.Get_PicturePalette: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.PicturePalette;
+end;
+
+procedure TAccessReportProperties.Set_PicturePalette(pRet: OleVariant);
+begin
+  DefaultInterface.Set_PicturePalette(pRet);
+end;
+
+function TAccessReportProperties.Get_HasModule: WordBool;
+begin
+    Result := DefaultInterface.HasModule;
+end;
+
+procedure TAccessReportProperties.Set_HasModule(pRet: WordBool);
+begin
+  DefaultInterface.Set_HasModule(pRet);
+end;
+
+function TAccessReportProperties.Get_acHiddenCurrentPage: Integer;
+begin
+    Result := DefaultInterface.acHiddenCurrentPage;
+end;
+
+procedure TAccessReportProperties.Set_acHiddenCurrentPage(pRet: Integer);
+begin
+  DefaultInterface.Set_acHiddenCurrentPage(pRet);
+end;
+
+function TAccessReportProperties.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessReportProperties.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessReportProperties.Get_ActiveControl: AccessControl;
+begin
+    Result := DefaultInterface.ActiveControl;
+end;
+
+function TAccessReportProperties.Get_DefaultControl(ControlType: Integer): AccessControl;
+begin
+    Result := DefaultInterface.DefaultControl[ControlType];
+end;
+
+function TAccessReportProperties.Get_Section(Index: OleVariant): AccessSection;
+begin
+    Result := DefaultInterface.Section[Index];
+end;
+
+function TAccessReportProperties.Get_GroupLevel(Index: Integer): AccessGroupLevel;
+begin
+    Result := DefaultInterface.GroupLevel[Index];
+end;
+
+function TAccessReportProperties.Get_Report: AccessReport;
+begin
+    Result := DefaultInterface.Report;
+end;
+
+function TAccessReportProperties.Get_Module: Module;
+begin
+    Result := DefaultInterface.Module;
+end;
+
+function TAccessReportProperties.Get_Properties: Properties;
+begin
+    Result := DefaultInterface.Properties;
+end;
+
+function TAccessReportProperties.Get_Controls: Controls;
+begin
+    Result := DefaultInterface.Controls;
+end;
+
+{$ENDIF}
+
+class function CoAccessApplication.Create: _Application;
+begin
+  Result := CreateComObject(CLASS_AccessApplication) as _Application;
+end;
+
+class function CoAccessApplication.CreateRemote(const MachineName: string): _Application;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_AccessApplication) as _Application;
+end;
+
+procedure TAccessApplication.InitServerData;
+const
+  CServerData: TServerData = (
+    ClassID:   '{8CC49940-3146-11CF-97A1-00AA00424A9F}';
+    IntfIID:   '{68CCE6C0-6129-101B-AF4E-00AA003F0F07}';
+    EventIID:  '';
+    LicenseKey: nil;
+    Version: 500);
+begin
+  ServerData := @CServerData;
+end;
+
+procedure TAccessApplication.Connect;
+var
+  punk: IUnknown;
+begin
+  if FIntf = nil then
+  begin
+    punk := GetServer;
+    Fintf:= punk as _Application;
+  end;
+end;
+
+procedure TAccessApplication.ConnectTo(svrIntf: _Application);
+begin
+  Disconnect;
+  FIntf := svrIntf;
+end;
+
+procedure TAccessApplication.DisConnect;
+begin
+  if Fintf <> nil then
+  begin
+    FIntf := nil;
+  end;
+end;
+
+function TAccessApplication.GetDefaultInterface: _Application;
+begin
+  if FIntf = nil then
+    Connect;
+  Assert(FIntf <> nil, 'DefaultInterface is NULL. Component is not connected to Server. You must call ''Connect'' or ''ConnectTo'' before this operation');
+  Result := FIntf;
+end;
+
+constructor TAccessApplication.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps := TAccessApplicationProperties.Create(Self);
+{$ENDIF}
+end;
+
+destructor TAccessApplication.Destroy;
+begin
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps.Free;
+{$ENDIF}
+  inherited Destroy;
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+function TAccessApplication.GetServerProperties: TAccessApplicationProperties;
+begin
+  Result := FProps;
+end;
+{$ENDIF}
+
+function TAccessApplication.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessApplication.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessApplication.Get_CodeContextObject: IDispatch;
+begin
+    Result := DefaultInterface.CodeContextObject;
+end;
+
+function TAccessApplication.Get_MenuBar: WideString;
+begin
+    Result := DefaultInterface.MenuBar;
+end;
+
+procedure TAccessApplication.Set_MenuBar(const pRet: WideString);
+  { Warning: The property MenuBar has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.MenuBar := pRet;
+end;
+
+function TAccessApplication.Get_CurrentObjectType: Integer;
+begin
+    Result := DefaultInterface.CurrentObjectType;
+end;
+
+function TAccessApplication.Get_CurrentObjectName: WideString;
+begin
+    Result := DefaultInterface.CurrentObjectName;
+end;
+
+function TAccessApplication.Get_Forms: Forms;
+begin
+    Result := DefaultInterface.Forms;
+end;
+
+function TAccessApplication.Get_Reports: Reports;
+begin
+    Result := DefaultInterface.Reports;
+end;
+
+function TAccessApplication.Get_Screen: Screen;
+begin
+    Result := DefaultInterface.Screen;
+end;
+
+function TAccessApplication.Get_DoCmd: IDoCmd;
+begin
+    Result := DefaultInterface.DoCmd;
+end;
+
+function TAccessApplication.Get_ShortcutMenuBar: WideString;
+begin
+    Result := DefaultInterface.ShortcutMenuBar;
+end;
+
+procedure TAccessApplication.Set_ShortcutMenuBar(const pRet: WideString);
+  { Warning: The property ShortcutMenuBar has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.ShortcutMenuBar := pRet;
+end;
+
+function TAccessApplication.Get_Visible: WordBool;
+begin
+    Result := DefaultInterface.Visible;
+end;
+
+procedure TAccessApplication.Set_Visible(pfVisible: WordBool);
+begin
+  DefaultInterface.Set_Visible(pfVisible);
+end;
+
+function TAccessApplication.Get_UserControl: WordBool;
+begin
+    Result := DefaultInterface.UserControl;
+end;
+
+procedure TAccessApplication.Set_UserControl(pfUserCtrl: WordBool);
+begin
+  DefaultInterface.Set_UserControl(pfUserCtrl);
+end;
+
+function TAccessApplication.Get_DBEngine: DBEngine;
+begin
+    Result := DefaultInterface.DBEngine;
+end;
+
+function TAccessApplication.Get_CommandBars: CommandBars;
+begin
+    Result := DefaultInterface.CommandBars;
+end;
+
+function TAccessApplication.Get_Assistant: Assistant;
+begin
+    Result := DefaultInterface.Assistant;
+end;
+
+function TAccessApplication.Get_References: AccessReferences;
+begin
+    Result := DefaultInterface.References;
+end;
+
+function TAccessApplication.Get_Modules: Modules;
+begin
+    Result := DefaultInterface.Modules;
+end;
+
+function TAccessApplication.Get_FileSearch: FileSearch;
+begin
+    Result := DefaultInterface.FileSearch;
+end;
+
+function TAccessApplication.Get_IsCompiled: WordBool;
+begin
+    Result := DefaultInterface.IsCompiled;
+end;
+
+procedure TAccessApplication.NewCurrentDatabase(const filepath: WideString);
+begin
+  DefaultInterface.NewCurrentDatabase(filepath);
+end;
+
+procedure TAccessApplication.OpenCurrentDatabase(const filepath: WideString; Exclusive: WordBool);
+begin
+  DefaultInterface.OpenCurrentDatabase(filepath, Exclusive);
+end;
+
+function TAccessApplication.GetOption(const OptionName: WideString): OleVariant;
+begin
+  Result := DefaultInterface.GetOption(OptionName);
+end;
+
+procedure TAccessApplication.SetOption(const OptionName: WideString; Setting: OleVariant);
+begin
+  DefaultInterface.SetOption(OptionName, Setting);
+end;
+
+procedure TAccessApplication.Echo(EchoOn: Smallint; const bstrStatusBarText: WideString);
+begin
+  DefaultInterface.Echo(EchoOn, bstrStatusBarText);
+end;
+
+procedure TAccessApplication.CloseCurrentDatabase;
+begin
+  DefaultInterface.CloseCurrentDatabase;
+end;
+
+procedure TAccessApplication.Quit(Option: AcQuitOption);
+begin
+  DefaultInterface.Quit(Option);
+end;
+
+function TAccessApplication.SysCmd(Action: AcSysCmdAction): OleVariant;
+begin
+  Result := DefaultInterface.SysCmd(Action, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.SysCmd(Action: AcSysCmdAction; Argument2: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.SysCmd(Action, Argument2, EmptyParam);
+end;
+
+function TAccessApplication.SysCmd(Action: AcSysCmdAction; Argument2: OleVariant; 
+                                   Argument3: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.SysCmd(Action, Argument2, Argument3);
+end;
+
+function TAccessApplication.CreateForm: AccessForm;
+begin
+  Result := DefaultInterface.CreateForm(EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateForm(Database: OleVariant): AccessForm;
+begin
+  Result := DefaultInterface.CreateForm(Database, EmptyParam);
+end;
+
+function TAccessApplication.CreateForm(Database: OleVariant; FormTemplate: OleVariant): AccessForm;
+begin
+  Result := DefaultInterface.CreateForm(Database, FormTemplate);
+end;
+
+function TAccessApplication.CreateReport: AccessReport;
+begin
+  Result := DefaultInterface.CreateReport(EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateReport(Database: OleVariant): AccessReport;
+begin
+  Result := DefaultInterface.CreateReport(Database, EmptyParam);
+end;
+
+function TAccessApplication.CreateReport(Database: OleVariant; ReportTemplate: OleVariant): AccessReport;
+begin
+  Result := DefaultInterface.CreateReport(Database, ReportTemplate);
+end;
+
+function TAccessApplication.CreateControl(const FormName: WideString; ControlType: AcControlType; 
+                                          Section: AcSection): AccessControl;
+begin
+  Result := DefaultInterface.CreateControl(FormName, ControlType, Section, EmptyParam, EmptyParam, 
+                                           EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateControl(const FormName: WideString; ControlType: AcControlType; 
+                                          Section: AcSection; Parent: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateControl(FormName, ControlType, Section, Parent, EmptyParam, 
+                                           EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateControl(const FormName: WideString; ControlType: AcControlType; 
+                                          Section: AcSection; Parent: OleVariant; 
+                                          ColumnName: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateControl(FormName, ControlType, Section, Parent, ColumnName, 
+                                           EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateControl(const FormName: WideString; ControlType: AcControlType; 
+                                          Section: AcSection; Parent: OleVariant; 
+                                          ColumnName: OleVariant; Left: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateControl(FormName, ControlType, Section, Parent, ColumnName, 
+                                           Left, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateControl(const FormName: WideString; ControlType: AcControlType; 
+                                          Section: AcSection; Parent: OleVariant; 
+                                          ColumnName: OleVariant; Left: OleVariant; Top: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateControl(FormName, ControlType, Section, Parent, ColumnName, 
+                                           Left, Top, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateControl(const FormName: WideString; ControlType: AcControlType; 
+                                          Section: AcSection; Parent: OleVariant; 
+                                          ColumnName: OleVariant; Left: OleVariant; 
+                                          Top: OleVariant; Width: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateControl(FormName, ControlType, Section, Parent, ColumnName, 
+                                           Left, Top, Width, EmptyParam);
+end;
+
+function TAccessApplication.CreateControl(const FormName: WideString; ControlType: AcControlType; 
+                                          Section: AcSection; Parent: OleVariant; 
+                                          ColumnName: OleVariant; Left: OleVariant; 
+                                          Top: OleVariant; Width: OleVariant; Height: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateControl(FormName, ControlType, Section, Parent, ColumnName, 
+                                           Left, Top, Width, Height);
+end;
+
+function TAccessApplication.CreateReportControl(const ReportName: WideString; 
+                                                ControlType: AcControlType; Section: AcSection): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControl(ReportName, ControlType, Section, EmptyParam, 
+                                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                                 EmptyParam);
+end;
+
+function TAccessApplication.CreateReportControl(const ReportName: WideString; 
+                                                ControlType: AcControlType; Section: AcSection; 
+                                                Parent: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControl(ReportName, ControlType, Section, Parent, 
+                                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                                 EmptyParam);
+end;
+
+function TAccessApplication.CreateReportControl(const ReportName: WideString; 
+                                                ControlType: AcControlType; Section: AcSection; 
+                                                Parent: OleVariant; ColumnName: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControl(ReportName, ControlType, Section, Parent, 
+                                                 ColumnName, EmptyParam, EmptyParam, EmptyParam, 
+                                                 EmptyParam);
+end;
+
+function TAccessApplication.CreateReportControl(const ReportName: WideString; 
+                                                ControlType: AcControlType; Section: AcSection; 
+                                                Parent: OleVariant; ColumnName: OleVariant; 
+                                                Left: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControl(ReportName, ControlType, Section, Parent, 
+                                                 ColumnName, Left, EmptyParam, EmptyParam, 
+                                                 EmptyParam);
+end;
+
+function TAccessApplication.CreateReportControl(const ReportName: WideString; 
+                                                ControlType: AcControlType; Section: AcSection; 
+                                                Parent: OleVariant; ColumnName: OleVariant; 
+                                                Left: OleVariant; Top: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControl(ReportName, ControlType, Section, Parent, 
+                                                 ColumnName, Left, Top, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.CreateReportControl(const ReportName: WideString; 
+                                                ControlType: AcControlType; Section: AcSection; 
+                                                Parent: OleVariant; ColumnName: OleVariant; 
+                                                Left: OleVariant; Top: OleVariant; Width: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControl(ReportName, ControlType, Section, Parent, 
+                                                 ColumnName, Left, Top, Width, EmptyParam);
+end;
+
+function TAccessApplication.CreateReportControl(const ReportName: WideString; 
+                                                ControlType: AcControlType; Section: AcSection; 
+                                                Parent: OleVariant; ColumnName: OleVariant; 
+                                                Left: OleVariant; Top: OleVariant; 
+                                                Width: OleVariant; Height: OleVariant): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControl(ReportName, ControlType, Section, Parent, 
+                                                 ColumnName, Left, Top, Width, Height);
+end;
+
+function TAccessApplication.CreateControlEx(const FormName: WideString; ControlType: AcControlType; 
+                                            Section: AcSection; const Parent: WideString; 
+                                            const ControlSource: WideString; Left: Integer; 
+                                            Top: Integer; Width: Integer; Height: Integer): AccessControl;
+begin
+  Result := DefaultInterface.CreateControlEx(FormName, ControlType, Section, Parent, ControlSource, 
+                                             Left, Top, Width, Height);
+end;
+
+function TAccessApplication.CreateReportControlEx(const ReportName: WideString; 
+                                                  ControlType: AcControlType; Section: AcSection; 
+                                                  const Parent: WideString; 
+                                                  const ControlName: WideString; Left: Integer; 
+                                                  Top: Integer; Width: Integer; Height: Integer): AccessControl;
+begin
+  Result := DefaultInterface.CreateReportControlEx(ReportName, ControlType, Section, Parent, 
+                                                   ControlName, Left, Top, Width, Height);
+end;
+
+procedure TAccessApplication.DeleteControl(const FormName: WideString; const ControlName: WideString);
+begin
+  DefaultInterface.DeleteControl(FormName, ControlName);
+end;
+
+procedure TAccessApplication.DeleteReportControl(const ReportName: WideString; 
+                                                 const ControlName: WideString);
+begin
+  DefaultInterface.DeleteReportControl(ReportName, ControlName);
+end;
+
+function TAccessApplication.CreateGroupLevel(const ReportName: WideString; 
+                                             const Expression: WideString; Header: Smallint; 
+                                             Footer: Smallint): Integer;
+begin
+  Result := DefaultInterface.CreateGroupLevel(ReportName, Expression, Header, Footer);
+end;
+
+function TAccessApplication.DMin(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DMin(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DMin(const Expr: WideString; const Domain: WideString; 
+                                 Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DMin(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DMax(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DMax(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DMax(const Expr: WideString; const Domain: WideString; 
+                                 Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DMax(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DSum(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DSum(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DSum(const Expr: WideString; const Domain: WideString; 
+                                 Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DSum(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DAvg(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DAvg(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DAvg(const Expr: WideString; const Domain: WideString; 
+                                 Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DAvg(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DLookup(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DLookup(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DLookup(const Expr: WideString; const Domain: WideString; 
+                                    Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DLookup(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DLast(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DLast(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DLast(const Expr: WideString; const Domain: WideString; 
+                                  Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DLast(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DVar(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DVar(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DVar(const Expr: WideString; const Domain: WideString; 
+                                 Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DVar(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DVarP(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DVarP(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DVarP(const Expr: WideString; const Domain: WideString; 
+                                  Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DVarP(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DStDev(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DStDev(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DStDev(const Expr: WideString; const Domain: WideString; 
+                                   Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DStDev(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DStDevP(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DStDevP(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DStDevP(const Expr: WideString; const Domain: WideString; 
+                                    Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DStDevP(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DFirst(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DFirst(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DFirst(const Expr: WideString; const Domain: WideString; 
+                                   Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DFirst(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.DCount(const Expr: WideString; const Domain: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DCount(Expr, Domain, EmptyParam);
+end;
+
+function TAccessApplication.DCount(const Expr: WideString; const Domain: WideString; 
+                                   Criteria: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.DCount(Expr, Domain, Criteria);
+end;
+
+function TAccessApplication.Eval(const StringExpr: WideString): OleVariant;
+begin
+  Result := DefaultInterface.Eval(StringExpr);
+end;
+
+function TAccessApplication.CurrentUser: WideString;
+begin
+  Result := DefaultInterface.CurrentUser;
+end;
+
+function TAccessApplication.DDEInitiate(const Application: WideString; const Topic: WideString): OleVariant;
+begin
+  Result := DefaultInterface.DDEInitiate(Application, Topic);
+end;
+
+procedure TAccessApplication.DDEExecute(ChanNum: OleVariant; const Command: WideString);
+begin
+  DefaultInterface.DDEExecute(ChanNum, Command);
+end;
+
+procedure TAccessApplication.DDEPoke(ChanNum: OleVariant; const Item: WideString; 
+                                     const Data: WideString);
+begin
+  DefaultInterface.DDEPoke(ChanNum, Item, Data);
+end;
+
+function TAccessApplication.DDERequest(ChanNum: OleVariant; const Item: WideString): WideString;
+begin
+  Result := DefaultInterface.DDERequest(ChanNum, Item);
+end;
+
+procedure TAccessApplication.DDETerminate(ChanNum: OleVariant);
+begin
+  DefaultInterface.DDETerminate(ChanNum);
+end;
+
+procedure TAccessApplication.DDETerminateAll;
+begin
+  DefaultInterface.DDETerminateAll;
+end;
+
+function TAccessApplication.CurrentDb: Database;
+begin
+  Result := DefaultInterface.CurrentDb;
+end;
+
+function TAccessApplication.CodeDb: Database;
+begin
+  Result := DefaultInterface.CodeDb;
+end;
+
+procedure TAccessApplication.BeginUndoable(Hwnd: Integer);
+begin
+  DefaultInterface.BeginUndoable(Hwnd);
+end;
+
+procedure TAccessApplication.SetUndoRecording(yesno: Smallint);
+begin
+  DefaultInterface.SetUndoRecording(yesno);
+end;
+
+function TAccessApplication.BuildCriteria(const Field: WideString; FieldType: Smallint; 
+                                          const Expression: WideString): WideString;
+begin
+  Result := DefaultInterface.BuildCriteria(Field, FieldType, Expression);
+end;
+
+procedure TAccessApplication.InsertText(const Text: WideString; const ModuleName: WideString);
+begin
+  DefaultInterface.InsertText(Text, ModuleName);
+end;
+
+procedure TAccessApplication.ReloadAddIns;
+begin
+  DefaultInterface.ReloadAddIns;
+end;
+
+function TAccessApplication.DefaultWorkspaceClone: Workspace;
+begin
+  Result := DefaultInterface.DefaultWorkspaceClone;
+end;
+
+procedure TAccessApplication.RefreshTitleBar;
+begin
+  DefaultInterface.RefreshTitleBar;
+end;
+
+procedure TAccessApplication.AddAutoCorrect(const ChangeFrom: WideString; const ChangeTo: WideString);
+begin
+  DefaultInterface.AddAutoCorrect(ChangeFrom, ChangeTo);
+end;
+
+procedure TAccessApplication.DelAutoCorrect(const ChangeFrom: WideString);
+begin
+  DefaultInterface.DelAutoCorrect(ChangeFrom);
+end;
+
+function TAccessApplication.hWndAccessApp: SYSINT;
+begin
+  Result := DefaultInterface.hWndAccessApp;
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+               

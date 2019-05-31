@@ -1,0 +1,1184 @@
+2 not found
+//   Error creating palette bitmap of (TAccessTextBox) : Registry key CLSID\{3B06E945-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessListBox) : Registry key CLSID\{3B06E959-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessComboBox) : Registry key CLSID\{3B06E95B-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessObjectFrame) : Registry key CLSID\{3B06E95D-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessPageBreak) : Registry key CLSID\{3B06E95F-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessToggleButton) : Registry key CLSID\{3B06E961-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessPaletteButton) : Registry key CLSID\{9CD4A762-A6A9-11CE-A686-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessSubForm) : Registry key CLSID\{3B06E963-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessSubReport) : Registry key CLSID\{3B06E965-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessCustomControl) : Registry key CLSID\{3B06E967-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessTabControl) : Registry key CLSID\{3B06E970-E47C-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessSection) : Registry key CLSID\{BC9E4355-F037-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+//   Error creating palette bitmap of (TAccessGroupLevel) : Registry key CLSID\{BC9E4356-F037-11CD-8701-00AA003F0F07}\ToolboxBitmap32 not found
+// ************************************************************************ //
+// *************************************************************************//
+// NOTE:                                                                      
+// Items guarded by $IFDEF_LIVE_SERVER_AT_DESIGN_TIME are used by properties  
+// which return objects that may need to be explicitly created via a function 
+// call prior to any access via the property. These items have been disabled  
+// in order to prevent accidental use from within the object inspector. You   
+// may enable them by defining LIVE_SERVER_AT_DESIGN_TIME or by selectively   
+// removing them from the $IFDEF blocks. However, such items must still be    
+// programmatically created via a method of the appropriate CoClass before    
+// they can be used.                                                          
+{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
+{$WARN SYMBOL_PLATFORM OFF}
+{$WRITEABLECONST ON}
+{$VARPROPSETTER ON}
+interface
+
+uses Windows, ActiveX, ADODBXP, Classes, DAOXP, Graphics, OfficeXP, OleCtrls, 
+OleServer, OWC10XP, StdVCL, Variants, VBIDEXP;
+  
+
+// *********************************************************************//
+// GUIDS declared in the TypeLibrary. Following prefixes are used:        
+//   Type Libraries     : LIBID_xxxx                                      
+//   CoClasses          : CLASS_xxxx                                      
+//   DISPInterfaces     : DIID_xxxx                                       
+//   Non-DISP interfaces: IID_xxxx                                        
+// *********************************************************************//
+const
+  // TypeLibrary Major and minor versions
+  AccessMajorVersion = 9;
+  AccessMinorVersion = 0;
+
+  LIBID_Access: TGUID = '{4AFFC9A0-5F99-101B-AF4E-00AA003F0F07}';
+
+  IID_DoCmd: TGUID = '{C547E760-9658-101B-81EE-00AA004750E2}';
+  IID__RecordsetEvents: TGUID = '{45165490-EF32-11D0-86FB-006097C9818C}';
+  IID__AccessProperty: TGUID = '{331FDD00-CF31-11CD-8701-00AA003F0F07}';
+  IID_Properties: TGUID = '{331FDD02-CF31-11CD-8701-00AA003F0F07}';
+  IID__FormatCondition: TGUID = '{E27A992C-A330-11D0-81DD-00C04FC2F51B}';
+  CLASS_FormatCondition: TGUID = '{E27A992D-A330-11D0-81DD-00C04FC2F51B}';
+  IID_FormatConditions: TGUID = '{E27A992E-A330-11D0-81DD-00C04FC2F51B}';
+  IID__ItemsSelected: TGUID = '{31B09710-EADC-11CD-B9F7-00AA004753B5}';
+  IID_Children: TGUID = '{3B06E977-E47C-11CD-8701-00AA003F0F07}';
+  IID__AccessField: TGUID = '{B1C1EAC1-486F-11CE-A65D-00AA003F0F07}';
+  CLASS_AccessField: TGUID = '{044E54C5-B19B-11CE-A689-00AA003F0F07}';
+  IID___Help: TGUID = '{9CD4A761-A6A9-11CE-A686-00AA003F0F07}';
+  IID__Hyperlink: TGUID = '{50D56611-60AC-11CF-82C9-00AA004B9FE6}';
+  CLASS_AccessHyperlink: TGUID = '{50D56610-60AC-11CF-82C9-00AA004B9FE6}';
+  IID__Page: TGUID = '{3B06E974-E47C-11CD-8701-00AA003F0F07}';
+  IID_Pages: TGUID = '{3B06E978-E47C-11CD-8701-00AA003F0F07}';
+  IID__Control: TGUID = '{26B96540-8F8E-101B-AF4E-00AA003F0F07}';
+  CLASS_AccessControl: TGUID = '{02F92C80-8F8E-101B-AF4E-00AA003F0F07}';
+  IID___ControlInReportEvents: TGUID = '{90B322A5-F1D9-11CD-8701-00AA003F0F07}';
+  CLASS__ControlInReportEvents: TGUID = '{90B322A4-F1D9-11CD-8701-00AA003F0F07}';
+  IID_Controls: TGUID = '{5970C574-EB8C-11CD-8701-00AA003F0F07}';
+  IID__Label: TGUID = '{3B06E948-E47C-11CD-8701-00AA003F0F07}';
+  IID__LabelEvents: TGUID = '{BC9E4341-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessLabel: TGUID = '{3B06E947-E47C-11CD-8701-00AA003F0F07}';
+  IID__ChildLabelEvents: TGUID = '{BC9E4358-F037-11CD-8701-00AA003F0F07}';
+  CLASS__ChildLabel: TGUID = '{BC9E4359-F037-11CD-8701-00AA003F0F07}';
+  IID__Rectangle: TGUID = '{3B06E94A-E47C-11CD-8701-00AA003F0F07}';
+  IID__RectangleEvents: TGUID = '{BC9E4342-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessRectangle: TGUID = '{3B06E949-E47C-11CD-8701-00AA003F0F07}';
+  IID__Line: TGUID = '{3B06E94C-E47C-11CD-8701-00AA003F0F07}';
+  IID__LineEvents: TGUID = '{BC9E4343-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessLine: TGUID = '{3B06E94B-E47C-11CD-8701-00AA003F0F07}';
+  IID__Image: TGUID = '{3B06E94E-E47C-11CD-8701-00AA003F0F07}';
+  IID__ImageEvents: TGUID = '{BC9E4344-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessImage: TGUID = '{3B06E94D-E47C-11CD-8701-00AA003F0F07}';
+  IID__CommandButton: TGUID = '{3B06E950-E47C-11CD-8701-00AA003F0F07}';
+  IID__CommandButtonEvents: TGUID = '{BC9E4345-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessCommandButton: TGUID = '{3B06E94F-E47C-11CD-8701-00AA003F0F07}';
+  IID__OptionButton: TGUID = '{3B06E952-E47C-11CD-8701-00AA003F0F07}';
+  IID__OptionButtonEvents: TGUID = '{BC9E4346-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessOptionButton: TGUID = '{3B06E951-E47C-11CD-8701-00AA003F0F07}';
+  IID__OptionButtonInOptionEvents: TGUID = '{BC9E435B-F037-11CD-8701-00AA003F0F07}';
+  CLASS__OptionButtonInOption: TGUID = '{BC9E435A-F037-11CD-8701-00AA003F0F07}';
+  IID__Checkbox: TGUID = '{3B06E954-E47C-11CD-8701-00AA003F0F07}';
+  IID__CheckBoxEvents: TGUID = '{BC9E4347-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessCheckBox: TGUID = '{3B06E953-E47C-11CD-8701-00AA003F0F07}';
+  IID__CheckBoxInOptionEvents: TGUID = '{BC9E435D-F037-11CD-8701-00AA003F0F07}';
+  CLASS__CheckBoxInOption: TGUID = '{BC9E435C-F037-11CD-8701-00AA003F0F07}';
+  IID__OptionGroup: TGUID = '{3B06E956-E47C-11CD-8701-00AA003F0F07}';
+  IID__OptionGroupEvents: TGUID = '{BC9E4348-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessOptionGroup: TGUID = '{3B06E955-E47C-11CD-8701-00AA003F0F07}';
+  IID__BoundObjectFrame: TGUID = '{3B06E958-E47C-11CD-8701-00AA003F0F07}';
+  IID__BoundObjectFrameEvents: TGUID = '{BC9E4349-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessBoundObjectFrame: TGUID = '{3B06E957-E47C-11CD-8701-00AA003F0F07}';
+  IID__Textbox: TGUID = '{3B06E946-E47C-11CD-8701-00AA003F0F07}';
+  IID__TextBoxEvents: TGUID = '{BC9E4340-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessTextBox: TGUID = '{3B06E945-E47C-11CD-8701-00AA003F0F07}';
+  IID__ListBox: TGUID = '{3B06E95A-E47C-11CD-8701-00AA003F0F07}';
+  IID__ListBoxEvents: TGUID = '{BC9E434B-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessListBox: TGUID = '{3B06E959-E47C-11CD-8701-00AA003F0F07}';
+  IID__Combobox: TGUID = '{3B06E95C-E47C-11CD-8701-00AA003F0F07}';
+  IID__ComboBoxEvents: TGUID = '{BC9E434C-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessComboBox: TGUID = '{3B06E95B-E47C-11CD-8701-00AA003F0F07}';
+  IID__ObjectFrame: TGUID = '{3B06E95E-E47C-11CD-8701-00AA003F0F07}';
+  IID__ObjectFrameEvents: TGUID = '{BC9E434D-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessObjectFrame: TGUID = '{3B06E95D-E47C-11CD-8701-00AA003F0F07}';
+  IID__PageBreak: TGUID = '{3B06E960-E47C-11CD-8701-00AA003F0F07}';
+  IID__PageBreakEvents: TGUID = '{BC9E434E-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessPageBreak: TGUID = '{3B06E95F-E47C-11CD-8701-00AA003F0F07}';
+  IID__ToggleButton: TGUID = '{3B06E962-E47C-11CD-8701-00AA003F0F07}';
+  IID__ToggleButtonEvents: TGUID = '{BC9E434F-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessToggleButton: TGUID = '{3B06E961-E47C-11CD-8701-00AA003F0F07}';
+  IID__ToggleButtonInOptionEvents: TGUID = '{BC9E435F-F037-11CD-8701-00AA003F0F07}';
+  CLASS__ToggleButtonInOption: TGUID = '{BC9E435E-F037-11CD-8701-00AA003F0F07}';
+  IID__PaletteButton: TGUID = '{9CD4A760-A6A9-11CE-A686-00AA003F0F07}';
+  IID__PaletteButtonEvents: TGUID = '{A843CCD0-6E2C-11CF-A219-00A0C90542FF}';
+  CLASS_AccessPaletteButton: TGUID = '{9CD4A762-A6A9-11CE-A686-00AA003F0F07}';
+  IID__SubForm: TGUID = '{3B06E964-E47C-11CD-8701-00AA003F0F07}';
+  IID__SubFormEvents: TGUID = '{BC9E4350-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessSubForm: TGUID = '{3B06E963-E47C-11CD-8701-00AA003F0F07}';
+  IID__SubReport: TGUID = '{3B06E966-E47C-11CD-8701-00AA003F0F07}';
+  IID__SubReportEvents: TGUID = '{BC9E4351-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessSubReport: TGUID = '{3B06E965-E47C-11CD-8701-00AA003F0F07}';
+  IID__CustomControl: TGUID = '{3B06E968-E47C-11CD-8701-00AA003F0F07}';
+  IID__CustomControlEvents: TGUID = '{BC9E4352-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessCustomControl: TGUID = '{3B06E967-E47C-11CD-8701-00AA003F0F07}';
+  IID__CustomControlInReportEvents: TGUID = '{300471E2-7426-11CE-AB64-00AA0042B7CE}';
+  CLASS__CustomControlInReport: TGUID = '{300471E0-7426-11CE-AB63-00AA0042B7CE}';
+  IID__TabControl: TGUID = '{3B06E971-E47C-11CD-8701-00AA003F0F07}';
+  IID__TabControlEvents: TGUID = '{3B06E972-E47C-11CD-8701-00AA003F0F07}';
+  CLASS_AccessTabControl: TGUID = '{3B06E970-E47C-11CD-8701-00AA003F0F07}';
+  IID__PageEvents: TGUID = '{3B06E975-E47C-11CD-8701-00AA003F0F07}';
+  CLASS_AccessPage: TGUID = '{3B06E973-E47C-11CD-8701-00AA003F0F07}';
+  IID__Section: TGUID = '{331FDCFC-CF31-11CD-8701-00AA003F0F07}';
+  IID__SectionEvents: TGUID = '{BC9E4353-F037-11CD-8701-00AA003F0F07}';
+  CLASS_AccessSection: TGUID = '{BC9E4355-F037-11CD-8701-00AA003F0F07}';
+  IID__GroupLevel: TGUID = '{331FDD27-CF31-11CD-8701-00AA003F0F07}';
+  CLASS_AccessGroupLevel: TGUID = '{BC9E4356-F037-11CD-8701-00AA003F0F07}';
+  IID__SectionInReportEvents: TGUID = '{BC9E4361-F037-11CD-8701-00AA003F0F07}';
+  CLASS__SectionInReport: TGUID = '{BC9E4360-F037-11CD-8701-00AA003F0F07}';
+  IID__PageHdrFtrInReportEvents: TGUID = '{7AD9E905-BAF8-11CE-A68A-00AA003F0F07}';
+  CLASS__PageHdrFtrInReport: TGUID = '{7AD9E906-BAF8-11CE-A68A-00AA003F0F07}';
+  IID_Module: TGUID = '{331FDCFE-CF31-11CD-8701-00AA003F0F07}';
+  IID_Modules: TGUID = '{9DD0AF42-6E28-11CF-9008-00AA0042B7CE}';
+  IID__Form: TGUID = '{E5135D80-8F8D-101B-AF4E-00AA003F0F07}';
+  IID__FormEvents: TGUID = '{331FDCFB-CF31-11CD-8701-00AA003F0F07}';
+  CLASS_FormOld: TGUID = '{483615A0-74BE-101B-AF4E-00AA003F0F07}';
+  IID_Forms: TGUID = '{B1BB0E80-6128-101B-AF4E-00AA003F0F07}';
+  IID__Report: TGUID = '{3E8B6B00-91FF-101B-AF4E-00AA003F0F07}';
+  IID__ReportEvents: TGUID = '{BC9E4357-F037-11CD-8701-00AA003F0F07}';
+  CLASS_ReportOld: TGUID = '{27CE30A0-91FF-101B-AF4E-00AA003F0F07}';
+  IID_Reports: TGUID = '{D1523700-6128-101B-AF4E-00AA003F0F07}';
+  IID_Screen: TGUID = '{DC6B66C0-6128-101B-AF4E-00AA003F0F07}';
+  IID__Application: TGUID = '{68CCE6C0-6129-101B-AF4E-00AA003F0F07}';
+  CLASS_AccessApplication: TGUID = '{73A4C9C1-D68D-11D0-98BF-00A0C90DC8D9}';
+  IID_Reference: TGUID = '{EB106212-9C89-11CF-A2B3-00A0C90542FF}';
+  IID__References: TGUID = '{EB106213-9C89-11CF-A2B3-00A0C90542FF}';
+  DIID__References_Events: TGUID = '{F163F201-ADA2-11CF-89A9-00A0C9054129}';
+  CLASS_AccessReferences: TGUID = '{EB106214-9C89-11CF-A2B3-00A0C90542FF}';
+  IID__Dummy: TGUID = '{8B06E320-B23C-11CF-89A8-00A0C9054129}';
+  IID__DataAccessPage: TGUID = '{493D8A72-1DB1-11D1-98A2-006008197D41}';
+  CLASS_DataAccessPage: TGUID = '{493D8A73-1DB1-11D1-98A2-006008197D41}';
+  IID_DataAccessPages: TGUID = '{493D8A71-1DB1-11D1-98A2-006008197D41}';
+  IID_AllObjects: TGUID = '{DDBD4001-44D5-11D1-98C0-006008197D41}';
+  CLASS_AllForms: TGUID = '{08F6C813-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllReports: TGUID = '{08F6C814-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllMacros: TGUID = '{08F6C815-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllModules: TGUID = '{08F6C816-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllDataAccessPages: TGUID = '{08F6C818-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllTables: TGUID = '{08F6C81B-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllQueries: TGUID = '{08F6C81C-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllViews: TGUID = '{08F6C81E-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllStoredProcedures: TGUID = '{08F6C820-3CFD-11D1-98BC-006008197D41}';
+  CLASS_AllDatabaseDiagrams: TGUID = '{08F6C821-3CFD-11D1-98BC-006008197D41}';
+  IID_AccessObjectProperty: TGUID = '{1FE3E471-A7D0-11D1-9944-006008197D41}';
+  IID_AccessObjectProperties: TGUID = '{0921F331-A7C9-11D1-9944-006008197D41}';
+  IID__CurrentProject: TGUID = '{9212BA71-3E79-11D1-98BD-006008197D41}';
+  IID__CurrentData: TGUID = '{9212BA73-3E79-11D1-98BD-006008197D41}';
+  CLASS_CurrentProject: TGUID = '{08F6C811-3CFD-11D1-98BC-006008197D41}';
+  CLASS_CurrentData: TGUID = '{08F6C819-3CFD-11D1-98BC-006008197D41}';
+  CLASS_CodeProject: TGUID = '{9212BA72-3E79-11D1-98BD-006008197D41}';
+  CLASS_CodeData: TGUID = '{08F6C81A-3CFD-11D1-98BC-006008197D41}';
+  IID_AccessObject: TGUID = '{ABE316B1-3FF6-11D1-98BD-006008197D41}';
+  IID__WizHook: TGUID = '{CB9D3171-4728-11D1-8334-006008197CC8}';
+  CLASS_WizHook: TGUID = '{CB9D3172-4728-11D1-8334-006008197CC8}';
+  IID__DefaultWebOptions: TGUID = '{416ED4F0-AB31-11D1-BF72-0060083E43CF}';
+  CLASS_DefaultWebOptions: TGUID = '{416ED4F1-AB31-11D1-BF72-0060083E43CF}';
+  IID__WebOptions: TGUID = '{416ED4F6-AB31-11D1-BF72-0060083E43CF}';
+  CLASS_AccessWebOptions: TGUID = '{416ED4F7-AB31-11D1-BF72-0060083E43CF}';
+  IID__DummyEvents: TGUID = '{58BF3100-B580-11CF-89A8-00A0C9054129}';
+  CLASS_Class_: TGUID = '{8B06E321-B23C-11CF-89A8-00A0C9054129}';
+  IID__Printer: TGUID = '{DBC5175F-A8ED-11D3-A0DD-00C04F68712B}';
+  CLASS_Printer: TGUID = '{DBC5175E-A8ED-11D3-A0DD-00C04F68712B}';
+  IID_Printers: TGUID = '{DBC51760-A8ED-11D3-A0DD-00C04F68712B}';
+  IID__Form2: TGUID = '{3F4A878E-C395-11D3-8D1F-0050048383FB}';
+  CLASS_AccessForm: TGUID = '{483615A0-74BE-101B-AF4E-00AA003F0F08}';
+  IID__Report2: TGUID = '{32A1C62A-D374-11D3-8D21-0050048383FB}';
+  CLASS_AccessReport: TGUID = '{ECD1EADA-D373-11D3-8D21-0050048383FB}';
+  CLASS_AllFunctions: TGUID = '{08F6C822-3CFD-11D1-98BC-006008197D41}';
+
+// *********************************************************************//
+// Declaration of Enumerations defined in Type Library                    
+// *********************************************************************//
+// Constants for enum AcModuleType
+type
+  AcModuleType = TOleEnum;
+const
+  acStandardModule = $00000000;
+  acClassModule = $00000001;
+
+// Constants for enum AcCloseSave
+type
+  AcCloseSave = TOleEnum;
+const
+  acSavePrompt = $00000000;
+  acSaveYes = $00000001;
+  acSaveNo = $00000002;
+
+// Constants for enum AcQuitOption
+type
+  AcQuitOption = TOleEnum;
+const
+  acQuitPrompt = $00000000;
+  acQuitSaveAll = $00000001;
+  acQuitSaveNone = $00000002;
+
+// Constants for enum AcSection
+type
+  AcSection = TOleEnum;
+const
+  acDetail = $00000000;
+  acHeader = $00000001;
+  acFooter = $00000002;
+  acPageHeader = $00000003;
+  acPageFooter = $00000004;
+  acGroupLevel1Header = $00000005;
+  acGroupLevel1Footer = $00000006;
+  acGroupLevel2Header = $00000007;
+  acGroupLevel2Footer = $00000008;
+
+// Constants for enum AcControlType
+type
+  AcControlType = TOleEnum;
+const
+  acLabel = $00000064;
+  acRectangle = $00000065;
+  acLine = $00000066;
+  acImage = $00000067;
+  acCommandButton = $00000068;
+  acOptionButton = $00000069;
+  acCheckBox = $0000006A;
+  acOptionGroup = $0000006B;
+  acBoundObjectFrame = $0000006C;
+  acTextBox = $0000006D;
+  acListBox = $0000006E;
+  acComboBox = $0000006F;
+  acSubform = $00000070;
+  acObjectFrame = $00000072;
+  acPageBreak = $00000076;
+  acCustomControl = $00000077;
+  acToggleButton = $0000007A;
+  acTabCtl = $0000007B;
+  acPage = $0000007C;
+
+// Constants for enum AcDataObjectType
+type
+  AcDataObjectType = TOleEnum;
+const
+  acActiveDataObject = $FFFFFFFF;
+  acDataTable = $00000000;
+  acDataQuery = $00000001;
+  acDataForm = $00000002;
+  acDataServerView = $00000007;
+  acDataStoredProcedure = $00000009;
+  acDataFunction = $0000000A;
+
+// Constants for enum AcDataTransferType
+type
+  AcDataTransferType = TOleEnum;
+const
+  acImport = $00000000;
+  acExport = $00000001;
+  acLink = $00000002;
+
+// Constants for enum AcSendObjectType
+type
+  AcSendObjectType = TOleEnum;
+const
+  acSendNoObject = $FFFFFFFF;
+  acSendTable = $00000000;
+  acSendQuery = $00000001;
+  acSendForm = $00000002;
+  acSendReport = $00000003;
+  acSendModule = $00000005;
+  acSendDataAccessPage = $00000006;
+
+// Constants for enum AcObjectType
+type
+  AcObjectType = TOleEnum;
+const
+  acDefault = $FFFFFFFF;
+  acTable = $00000000;
+  acQuery = $00000001;
+  acForm = $00000002;
+  acReport = $00000003;
+  acMacro = $00000004;
+  acModule = $00000005;
+  acDataAccessPage = $00000006;
+  acServerView = $00000007;
+  acDiagram = $00000008;
+  acStoredProcedure = $00000009;
+  acFunction = $0000000A;
+
+// Constants for enum AcFindField
+type
+  AcFindField = TOleEnum;
+const
+  acCurrent = $FFFFFFFF;
+  acAll = $00000000;
+
+// Constants for enum AcFindMatch
+type
+  AcFindMatch = TOleEnum;
+const
+  acAnywhere = $00000000;
+  acEntire = $00000001;
+  acStart = $00000002;
+
+// Constants for enum AcFormView
+type
+  AcFormView = TOleEnum;
+const
+  acNormal = $00000000;
+  acDesign = $00000001;
+  acPreview = $00000002;
+  acFormDS = $00000003;
+  acFormPivotTable = $00000004;
+  acFormPivotChart = $00000005;
+
+// Constants for enum AcDataAccessPageView
+type
+  AcDataAccessPageView = TOleEnum;
+const
+  acDataAccessPageBrowse = $00000000;
+  acDataAccessPageDesign = $00000001;
+
+// Constants for enum AcOpenDataMode
+type
+  AcOpenDataMode = TOleEnum;
+const
+  acAdd = $00000000;
+  acEdit = $00000001;
+  acReadOnly = $00000002;
+
+// Constants for enum AcFormOpenDataMode
+type
+  AcFormOpenDataMode = TOleEnum;
+const
+  acFormPropertySettings = $FFFFFFFF;
+  acFormAdd = $00000000;
+  acFormEdit = $00000001;
+  acFormReadOnly = $00000002;
+
+// Constants for enum AcOutputObjectType
+type
+  AcOutputObjectType = TOleEnum;
+const
+  acOutputTable = $00000000;
+  acOutputQuery = $00000001;
+  acOutputForm = $00000002;
+  acOutputReport = $00000003;
+  acOutputModule = $00000005;
+  acOutputDataAccessPage = $00000006;
+  acOutputServerView = $00000007;
+  acOutputStoredProcedure = $00000009;
+  acOutputFunction = $0000000A;
+
+// Constants for enum AcPrintQuality
+type
+  AcPrintQuality = TOleEnum;
+const
+  acHigh = $00000000;
+  acMedium = $00000001;
+  acLow = $00000002;
+  acDraft = $00000003;
+
+// Constants for enum AcPrintRange
+type
+  AcPrintRange = TOleEnum;
+const
+  acPrintAll = $00000000;
+  acSelection = $00000001;
+  acPages = $00000002;
+
+// Constants for enum AcRecord
+type
+  AcRecord = TOleEnum;
+const
+  acPrevious = $00000000;
+  acNext = $00000001;
+  acFirst = $00000002;
+  acLast = $00000003;
+  acGoTo = $00000004;
+  acNewRec = $00000005;
+
+// Constants for enum AcSearchDirection
+type
+  AcSearchDirection = TOleEnum;
+const
+  acUp = $00000000;
+  acDown = $00000001;
+  acSearchAll = $00000002;
+
+// Constants for enum AcSysCmdAction
+type
+  AcSysCmdAction = TOleEnum;
+const
+  acSysCmdInitMeter = $00000001;
+  acSysCmdUpdateMeter = $00000002;
+  acSysCmdRemoveMeter = $00000003;
+  acSysCmdSetStatus = $00000004;
+  acSysCmdClearStatus = $00000005;
+  acSysCmdRuntime = $00000006;
+  acSysCmdAccessVer = $00000007;
+  acSysCmdIniFile = $00000008;
+  acSysCmdAccessDir = $00000009;
+  acSysCmdGetObjectState = $0000000A;
+  acSysCmdClearHelpTopic = $0000000B;
+  acSysCmdProfile = $0000000C;
+  acSysCmdGetWorkgroupFile = $0000000D;
+
+// Constants for enum AcTextTransferType
+type
+  AcTextTransferType = TOleEnum;
+const
+  acImportDelim = $00000000;
+  acImportFixed = $00000001;
+  acExportDelim = $00000002;
+  acExportFixed = $00000003;
+  acExportMerge = $00000004;
+  acLinkDelim = $00000005;
+  acLinkFixed = $00000006;
+  acImportHTML = $00000007;
+  acExportHTML = $00000008;
+  acLinkHTML = $00000009;
+
+// Constants for enum AcView
+type
+  AcView = TOleEnum;
+const
+  acViewNormal = $00000000;
+  acViewDesign = $00000001;
+  acViewPreview = $00000002;
+  acViewPivotTable = $00000003;
+  acViewPivotChart = $00000004;
+
+// Constants for enum AcWindowMode
+type
+  AcWindowMode = TOleEnum;
+const
+  acWindowNormal = $00000000;
+  acHidden = $00000001;
+  acIcon = $00000002;
+  acDialog = $00000003;
+
+// Constants for enum AcFilterType
+type
+  AcFilterType = TOleEnum;
+const
+  acFilterNormal = $00000000;
+  acServerFilter = $00000001;
+
+// Constants for enum AcSpreadSheetType
+type
+  AcSpreadSheetType = TOleEnum;
+const
+  acSpreadsheetTypeExcel3 = $00000000;
+  acSpreadsheetTypeLotusWK1 = $00000002;
+  acSpreadsheetTypeLotusWK3 = $00000003;
+  acSpreadsheetTypeLotusWJ2 = $00000004;
+  acSpreadsheetTypeExcel5 = $00000005;
+  acSpreadsheetTypeExcel7 = $00000005;
+  acSpreadsheetTypeExcel4 = $00000006;
+  acSpreadsheetTypeLotusWK4 = $00000007;
+  acSpreadsheetTypeExcel97 = $00000008;
+  acSpreadsheetTypeExcel8 = $00000008;
+  acSpreadsheetTypeExcel9 = $00000008;
+
+// Constants for enum AcImeMode
+type
+  AcImeMode = TOleEnum;
+const
+  acImeModeNoControl = $00000000;
+  acImeModeOn = $00000001;
+  acImeModeOff = $00000002;
+  acImeModeDisable = $00000003;
+  acImeModeHiragana = $00000004;
+  acImeModeKatakana = $00000005;
+  acImeModeKatakanaHalf = $00000006;
+  acImeModeAlphaFull = $00000007;
+  acImeModeAlpha = $00000008;
+  acImeModeHangulFull = $00000009;
+  acImeModeHangul = $0000000A;
+
+// Constants for enum AcImeSentenceMode
+type
+  AcImeSentenceMode = TOleEnum;
+const
+  acImeSentenceModePhrasePredict = $00000000;
+  acImeSentenceModePluralClause = $00000001;
+  acImeSentenceModeConversation = $00000002;
+  acImeSentenceModeNone = $00000003;
+
+// Constants for enum AcHyperlinkPart
+type
+  AcHyperlinkPart = TOleEnum;
+const
+  acDisplayedValue = $00000000;
+  acDisplayText = $00000001;
+  acAddress = $00000002;
+  acSubAddress = $00000003;
+  acScreenTip = $00000004;
+  acFullAddress = $00000005;
+
+// Constants for enum AcProjectType
+type
+  AcProjectType = TOleEnum;
+const
+  acNull = $00000000;
+  acADP = $00000001;
+  acMDB = $00000002;
+
+// Constants for enum AcCommand
+type
+  AcCommand = TOleEnum;
+const
+  acCmdWindowUnhide = $00000001;
+  acCmdWindowHide = $00000002;
+  acCmdExit = $00000003;
+  acCmdCompactDatabase = $00000004;
+  acCmdEncryptDecryptDatabase = $00000005;
+  acCmdRepairDatabase = $00000006;
+  acCmdMakeMDEFile = $00000007;
+  acCmdMoreWindows = $00000008;
+  acCmdAppRestore = $00000009;
+  acCmdAppMaximize = $0000000A;
+  acCmdAppMinimize = $0000000B;
+  acCmdAppMove = $0000000C;
+  acCmdAppSize = $0000000D;
+  acCmdDocRestore = $0000000E;
+  acCmdDocMaximize = $0000000F;
+  acCmdDocMove = $00000010;
+  acCmdDocSize = $00000011;
+  acCmdRefresh = $00000012;
+  acCmdFont = $00000013;
+  acCmdSave = $00000014;
+  acCmdSaveAs = $00000015;
+  acCmdWindowCascade = $00000016;
+  acCmdTileVertically = $00000017;
+  acCmdWindowArrangeIcons = $00000018;
+  acCmdOpenDatabase = $00000019;
+  acCmdNewDatabase = $0000001A;
+  acCmdOLEDDELinks = $0000001B;
+  acCmdRecordsGoToNew = $0000001C;
+  acCmdReplace = $0000001D;
+  acCmdFind = $0000001E;
+  acCmdRunMacro = $0000001F;
+  acCmdPageSetup = $00000020;
+  acCmdInsertObject = $00000021;
+  acCmdDuplicate = $00000022;
+  acCmdAboutMicrosoftAccess = $00000023;
+  acCmdFormHdrFtr = $00000024;
+  acCmdReportHdrFtr = $00000025;
+  acCmdPasteAppend = $00000026;
+  acCmdInsertFile = $00000027;
+  acCmdSelectForm = $00000028;
+  acCmdTabOrder = $00000029;
+  acCmdFieldList = $0000002A;
+  acCmdAlignLeft = $0000002B;
+  acCmdAlignRight = $0000002C;
+  acCmdAlignTop = $0000002D;
+  acCmdAlignBottom = $0000002E;
+  acCmdAlignToGrid = $0000002F;
+  acCmdSizeToGrid = $00000030;
+  acCmdOptions = $00000031;
+  acCmdSelectRecord = $00000032;
+  acCmdSortingAndGrouping = $00000033;
+  acCmdBringToFront = $00000034;
+  acCmdSendToBack = $00000035;
+  acCmdPrintPreview = $00000036;
+  acCmdApplyDefault = $00000037;
+  acCmdSetControlDefaults = $00000038;
+  acCmdOLEObjectDefaultVerb = $00000039;
+  acCmdClose = $0000003A;
+  acCmdSizeToFit = $0000003B;
+  acCmdDocMinimize = $0000003C;
+  acCmdViewRuler = $0000003D;
+  acCmdSnapToGrid = $0000003E;
+  acCmdViewGrid = $0000003F;
+  acCmdPasteSpecial = $00000040;
+  acCmdRecordsGoToNext = $00000041;
+  acCmdRecordsGoToPrevious = $00000042;
+  acCmdRecordsGoToFirst = $00000043;
+  acCmdRecordsGoToLast = $00000044;
+  acCmdSizeToFitForm = $00000045;
+  acCmdEditingAllowed = $00000046;
+  acCmdClearGrid = $00000047;
+  acCmdJoinProperties = $00000048;
+  acCmdQueryTotals = $00000049;
+  acCmdQueryTypeCrosstab = $0000004A;
+  acCmdTableNames = $0000004B;
+  acCmdQueryParameters = $0000004C;
+  acCmdFormatCells = $0000004D;
+  acCmdDataEntry = $0000004E;
+  acCmdHideColumns = $0000004F;
+  acCmdUnhideColumns = $00000050;
+  acCmdDeleteQueryColumn = $00000051;
+  acCmdInsertQueryColumn = $00000052;
+  acCmdRemoveTable = $00000054;
+  acCmdViewToolbox = $00000055;
+  acCmdMacroNames = $00000056;
+  acCmdMacroConditions = $00000057;
+  acCmdSingleStep = $00000058;
+  acCmdQueryTypeSelect = $00000059;
+  acCmdQueryTypeUpdate = $0000005A;
+  acCmdQueryTypeAppend = $0000005B;
+  acCmdQueryTypeDelete = $0000005C;
+  acCmdApplyFilterSort = $0000005D;
+  acCmdQueryTypeMakeTable = $0000005E;
+  acCmdLoadFromQuery = $0000005F;
+  acCmdSaveAsQuery = $00000060;
+  acCmdSaveRecord = $00000061;
+  acCmdAdvancedFilterSort = $00000063;
+  acCmdMicrosoftAccessHelpTopics = $00000064;
+  acCmdLinkTables = $00000066;
+  acCmdUserAndGroupPermissions = $00000067;
+  acCmdUserAndGroupAccounts = $00000068;
+  acCmdFreezeColumn = $00000069;
+  acCmdUnfreezeAllColumns = $0000006A;
+  acCmdPrimaryKey = $0000006B;
+  acCmdSubformDatasheet = $0000006C;
+  acCmdSelectAllRecords = $0000006D;
+  acCmdViewTables = $0000006E;
+  acCmdViewQueries = $0000006F;
+  acCmdViewForms = $00000070;
+  acCmdViewReports = $00000071;
+  acCmdViewMacros = $00000072;
+  acCmdViewModules = $00000073;
+  acCmdRowHeight = $00000074;
+  acCmdColumnWidth = $00000075;
+  acCmdInsertFileIntoModule = $00000076;
+  acCmdSaveModuleAsText = $00000077;
+  acCmdFindPrevious = $00000078;
+  acCmdWindowSplit = $00000079;
+  acCmdProcedureDefinition = $0000007A;
+  acCmdDebugWindow = $0000007B;
+  acCmdReset = $0000007C;
+  acCmdCompileAllModules = $0000007D;
+  acCmdCompileAndSaveAllModules = $0000007E;
+  acCmdGoContinue = $0000007F;
+  acCmdStepOver = $00000080;
+  acCmdSetNextStatement = $00000081;
+  acCmdShowNextStatement = $00000082;
+  acCmdToggleBreakpoint = $00000083;
+  acCmdClearAllBreakpoints = $00000084;
+  acCmdRelationships = $00000085;
+  acCmdNewObjectTable = $00000086;
+  acCmdNewObjectQuery = $00000087;
+  acCmdNewObjectForm = $00000088;
+  acCmdNewObjectReport = $00000089;
+  acCmdNewObjectMacro = $0000008A;
+  acCmdNewObjectModule = $0000008B;
+  acCmdNewObjectClassModule = $0000008C;
+  acCmdLayoutPreview = $0000008D;
+  acCmdSaveAsReport = $0000008E;
+  acCmdRename = $0000008F;
+  acCmdRemoveFilterSort = $00000090;
+  acCmdSaveLayout = $00000091;
+  acCmdClearAll = $00000092;
+  acCmdHideTable = $00000093;
+  acCmdShowDirectRelationships = $00000094;
+  acCmdShowAllRelationships = $00000095;
+  acCmdCreateRelationship = $00000096;
+  acCmdEditRelationship = $00000097;
+  acCmdIndexes = $00000098;
+  acCmdAlignToShortest = $00000099;
+  acCmdAlignToTallest = $0000009A;
+  acCmdSizeToNarrowest = $0000009B;
+  acCmdSizeToWidest = $0000009C;
+  acCmdHorizontalSpacingMakeEqual = $0000009D;
+  acCmdHorizontalSpacingDecrease = $0000009E;
+  acCmdHorizontalSpacingIncrease = $0000009F;
+  acCmdVerticalSpacingMakeEqual = $000000A0;
+  acCmdVerticalSpacingDecrease = $000000A1;
+  acCmdVerticalSpacingIncrease = $000000A2;
+  acCmdSortAscending = $000000A3;
+  acCmdSortDescending = $000000A4;
+  acCmdToolbarsCustomize = $000000A5;
+  acCmdOLEObjectConvert = $000000A7;
+  acCmdQueryTypeSQLDataDefinition = $000000A8;
+  acCmdQueryTypeSQLPassThrough = $000000A9;
+  acCmdViewCode = $000000AA;
+  acCmdConvertDatabase = $000000AB;
+  acCmdCallStack = $000000AC;
+  acCmdSend = $000000AD;
+  acCmdOutputToExcel = $000000AF;
+  acCmdOutputToRTF = $000000B0;
+  acCmdOutputToText = $000000B1;
+  acCmdInvokeBuilder = $000000B2;
+  acCmdZoomBox = $000000B3;
+  acCmdQueryTypeSQLUnion = $000000B4;
+  acCmdRun = $000000B5;
+  acCmdPageHdrFtr = $000000B6;
+  acCmdDesignView = $000000B7;
+  acCmdSQLView = $000000B8;
+  acCmdShowTable = $000000B9;
+  acCmdCloseWindow = $000000BA;
+  acCmdInsertRows = $000000BB;
+  acCmdDeleteRows = $000000BC;
+  acCmdCut = $000000BD;
+  acCmdCopy = $000000BE;
+  acCmdPaste = $000000BF;
+  acCmdAutoDial = $000000C0;
+  acCmdNewObjectAutoForm = $000000C1;
+  acCmdNewObjectAutoReport = $000000C2;
+  acCmdWordMailMerge = $000000C3;
+  acCmdTestValidationRules = $000000C4;
+  acCmdControlWizardsToggle = $000000C5;
+  acCmdEnd = $000000C6;
+  acCmdRedo = $000000C7;
+  acCmdObjectBrowser = $000000C8;
+  acCmdAddWatch = $000000C9;
+  acCmdEditWatch = $000000CA;
+  acCmdQuickWatch = $000000CB;
+  acCmdStepToCursor = $000000CC;
+  acCmdIndent = $000000CD;
+  acCmdOutdent = $000000CE;
+  acCmdFilterByForm = $000000CF;
+  acCmdFilterBySelection = $000000D0;
+  acCmdViewLargeIcons = $000000D1;
+  acCmdViewDetails = $000000D2;
+  acCmdViewSmallIcons = $000000D3;
+  acCmdViewList = $000000D4;
+  acCmdLineUpIcons = $000000D5;
+  acCmdArrangeIconsByName = $000000D6;
+  acCmdArrangeIconsByType = $000000D7;
+  acCmdArrangeIconsByCreated = $000000D8;
+  acCmdArrangeIconsByModified = $000000D9;
+  acCmdArrangeIconsAuto = $000000DA;
+  acCmdCreateShortcut = $000000DB;
+  acCmdToggleFilter = $000000DC;
+  acCmdOpenTable = $000000DD;
+  acCmdInsertPicture = $000000DE;
+  acCmdDeleteRecord = $000000DF;
+  acCmdStartupProperties = $000000E0;
+  acCmdPageNumber = $000000E1;
+  acCmdDateAndTime = $000000E2;
+  acCmdChangeToTextBox = $000000E3;
+  acCmdChangeToLabel = $000000E4;
+  acCmdChangeToListBox = $000000E5;
+  acCmdChangeToComboBox = $000000E6;
+  acCmdChangeToCheckBox = $000000E7;
+  acCmdChangeToToggleButton = $000000E8;
+  acCmdChangeToOptionButton = $000000E9;
+  acCmdChangeToImage = $000000EA;
+  acCmdAnswerWizard = $000000EB;
+  acCmdMicrosoftOnTheWeb = $000000EC;
+  acCmdClearItemDefaults = $000000ED;
+  acCmdZoom200 = $000000EE;
+  acCmdZoom150 = $000000EF;
+  acCmdZoom100 = $000000F0;
+  acCmdZoom75 = $000000F1;
+  acCmdZoom50 = $000000F2;
+  acCmdZoom25 = $000000F3;
+  acCmdZoom10 = $000000F4;
+  acCmdFitToWindow = $000000F5;
+  acCmdPreviewOnePage = $000000F6;
+  acCmdPreviewTwoPages = $000000F7;
+  acCmdPreviewFourPages = $000000F8;
+  acCmdPreviewEightPages = $000000F9;
+  acCmdPreviewTwelvePages = $000000FA;
+  acCmdOpenURL = $000000FB;
+  acCmdOpenStartPage = $000000FC;
+  acCmdOpenSearchPage = $000000FD;
+  acCmdRegisterActiveXControls = $000000FE;
+  acCmdDeleteTab = $000000FF;
+  acCmdDatabaseProperties = $00000100;
+  acCmdImport = $00000101;
+  acCmdInsertActiveXControl = $00000102;
+  acCmdInsertHyperlink = $00000103;
+  acCmdReferences = $00000104;
+  acCmdAutoCorrect = $00000105;
+  acCmdInsertProcedure = $00000106;
+  acCmdCreateReplica = $00000107;
+  acCmdSynchronizeNow = $00000108;
+  acCmdRecoverDesignMaster = $00000109;
+  acCmdResolveConflicts = $0000010A;
+  acCmdDeleteWatch = $0000010B;
+  acCmdSpelling = $0000010D;
+  acCmdAutoFormat = $0000010E;
+  acCmdDeleteTableColumn = $0000010F;
+  acCmdInsertTableColumn = $00000110;
+  acCmdInsertLookupColumn = $00000111;
+  acCmdRenameColumn = $00000112;
+  acCmdSetDatabasePassword = $00000113;
+  acCmdUserLevelSecurityWizard = $00000114;
+  acCmdFilterExcludingSelection = $00000115;
+  acCmdQuickPrint = $00000116;
+  acCmdConvertMacrosToVisualBasic = $00000117;
+  acCmdSaveAllModules = $00000118;
+  acCmdFormView = $00000119;
+  acCmdDatasheetView = $0000011A;
+  acCmdAnalyzePerformance = $0000011B;
+  acCmdAnalyzeTable = $0000011C;
+  acCmdDocumenter = $0000011D;
+  acCmdTileHorizontally = $0000011E;
+  acCmdProperties = $0000011F;
+  acCmdTransparentBackground = $00000120;
+  acCmdTransparentBorder = $00000121;
+  acCmdCompileLoadedModules = $00000122;
+  acCmdInsertLookupField = $00000123;
+  acCmdUndo = $00000124;
+  acCmdInsertChart = $00000125;
+  acCmdGoBack = $00000126;
+  acCmdGoForward = $00000127;
+  acCmdStopLoadingPage = $00000128;
+  acCmdRefreshPage = $00000129;
+  acCmdFavoritesOpen = $0000012A;
+  acCmdFavoritesAddTo = $0000012B;
+  acCmdShowOnlyWebToolbar = $0000012C;
+  acCmdToolbarControlProperties = $0000012D;
+  acCmdShowMembers = $0000012E;
+  acCmdListConstants = $0000012F;
+  acCmdQuickInfo = $00000130;
+  acCmdParameterInfo = $00000131;
+  acCmdCompleteWord = $00000132;
+  acCmdBookmarksToggle = $00000133;
+  acCmdBookmarksNext = $00000134;
+  acCmdBookmarksPrevious = $00000135;
+  acCmdBookmarksClearAll = $00000136;
+  acCmdStepOut = $00000137;
+  acCmdFindPrevWordUnderCursor = $00000138;
+  acCmdFindNextWordUnderCursor = $00000139;
+  acCmdObjBrwFindWholeWordOnly = $0000013A;
+  acCmdObjBrwShowHiddenMembers = $0000013B;
+  acCmdObjBrwHelp = $0000013C;
+  acCmdObjBrwViewDefinition = $0000013D;
+  acCmdObjBrwGroupMembers = $0000013E;
+  acCmdSelectReport = $0000013F;
+  acCmdPublish = $00000140;
+  acCmdSaveAsHTML = $00000141;
+  acCmdSaveAsIDC = $00000142;
+  acCmdSaveAsASP = $00000143;
+  acCmdPublishDefaults = $00000144;
+  acCmdEditHyperlink = $00000145;
+  acCmdOpenHyperlink = $00000146;
+  acCmdOpenNewHyperlink = $00000147;
+  acCmdCopyHyperlink = $00000148;
+  acCmdHyperlinkDisplayText = $00000149;
+  acCmdTabControlPageOrder = $0000014A;
+  acCmdInsertPage = $0000014B;
+  acCmdDeletePage = $0000014C;
+  acCmdSelectAll = $0000014D;
+  acCmdCreateMenuFromMacro = $0000014E;
+  acCmdCreateToolbarFromMacro = $0000014F;
+  acCmdCreateShortcutMenuFromMacro = $00000150;
+  acCmdDelete = $00000151;
+  acCmdRunOpenMacro = $00000152;
+  acCmdLastPosition = $00000153;
+  acCmdPrint = $00000154;
+  acCmdFindNext = $00000155;
+  acCmdStepInto = $00000156;
+  acCmdClearHyperlink = $00000157;
+  acCmdDataAccessPageBrowse = $00000158;
+  acCmdNewObjectDataAccessPage = $0000015A;
+  acCmdSelectDataAccessPage = $0000015B;
+  acCmdViewDataAccessPages = $0000015D;
+  acCmdNewObjectView = $0000015E;
+  acCmdNewObjectStoredProcedure = $0000015F;
+  acCmdNewObjectDiagram = $00000160;
+  acCmdViewFieldList = $00000161;
+  acCmdViewDiagrams = $00000162;
+  acCmdViewStoredProcedures = $00000163;
+  acCmdViewViews = $00000164;
+  acCmdViewShowPaneSQL = $00000165;
+  acCmdViewShowPaneDiagram = $00000166;
+  acCmdViewShowPaneGrid = $00000167;
+  acCmdViewVerifySQL = $00000168;
+  acCmdQueryGroupBy = $00000169;
+  acCmdQueryAddToOutput = $0000016A;
+  acCmdViewTableColumnNames = $0000016B;
+  acCmdViewTableNameOnly = $0000016C;
+  acCmdHidePane = $0000016D;
+  acCmdRemove = $0000016E;
+  acCmdViewTableColumnProperties = $00000170;
+  acCmdViewTableKeys = $00000171;
+  acCmdViewTableUserView = $00000172;
+  acCmdZoomSelection = $00000173;
+  acCmdDiagramNewLabel = $00000174;
+  acCmdDiagramAddRelatedTables = $00000175;
+  acCmdDiagramShowRelationshipLabels = $00000176;
+  acCmdDiagramModifyUserDefinedView = $00000177;
+  acCmdDiagramViewPageBreaks = $00000178;
+  acCmdDiagramRecalculatePageBreaks = $00000179;
+  acCmdDiagramAutosizeSelectedTables = $0000017A;
+  acCmdDiagramLayoutSelection = $0000017B;
+  acCmdDiagramLayoutDiagram = $0000017C;
+  acCmdDiagramNewTable = $0000017D;
+  acCmdDiagramDeleteRelationship = $0000017E;
+  acCmdConnection = $0000017F;
+  acCmdEditTriggers = $00000180;
+  acCmdDataAccessPageDesignView = $00000181;
+  acCmdPromote = $00000182;
+  acCmdGroupByTable = $00000183;
+  acCmdDemote = $00000184;
+  acCmdSaveAsDataAccessPage = $00000185;
+  acCmdMicrosoftScriptEditor = $00000186;
+  acCmdWorkgroupAdministrator = $00000187;
+  acCmdNewObjectFunction = $0000018A;
+  acCmdViewFunctions = $0000018B;
+  acCmdPivotTableView = $0000018C;
+  acCmdPivotChartView = $0000018D;
+  acCmdPivotAutoFilter = $0000018E;
+  acCmdPivotTableSubtotal = $0000018F;
+  acCmdPivotCollapse = $00000190;
+  acCmdPivotExpand = $00000191;
+  acCmdPivotTableHideDetails = $00000192;
+  acCmdPivotTableShowDetails = $00000193;
+  acCmdPivotRefresh = $00000194;
+  acCmdPivotTableExportToExcel = $00000195;
+  acCmdPivotTableMoveToRowArea = $00000196;
+  acCmdPivotTableMoveToColumnArea = $00000197;
+  acCmdPivotTableMoveToFilterArea = $00000198;
+  acCmdPivotTableMoveToDetailArea = $00000199;
+  acCmdPivotTablePromote = $0000019A;
+  acCmdPivotTableDemote = $0000019B;
+  acCmdPivotAutoSum = $0000019C;
+  acCmdPivotAutoCount = $0000019D;
+  acCmdPivotAutoMin = $0000019E;
+  acCmdPivotAutoMax = $0000019F;
+  acCmdPivotAutoAverage = $000001A0;
+  acCmdPivotAutoStdDev = $000001A1;
+  acCmdPivotAutoVar = $000001A2;
+  acCmdPivotAutoStdDevP = $000001A3;
+  acCmdPivotAutoVarP = $000001A4;
+  acCmdPivotShowTop1 = $000001A5;
+  acCmdPivotShowTop2 = $000001A6;
+  acCmdPivotShowTop5 = $000001A7;
+  acCmdPivotShowTop10 = $000001A8;
+  acCmdPivotShowTop25 = $000001A9;
+  acCmdPivotShowTop1Percent = $000001AA;
+  acCmdPivotShowTop2Percent = $000001AB;
+  acCmdPivotShowTop5Percent = $000001AC;
+  acCmdPivotShowTop10Percent = $000001AD;
+  acCmdPivotShowTop25Percent = $000001AE;
+  acCmdPivotShowTopOther = $000001AF;
+  acCmdPivotShowBottom1 = $000001B0;
+  acCmdPivotShowBottom2 = $000001B1;
+  acCmdPivotShowBottom5 = $000001B2;
+  acCmdPivotShowBottom10 = $000001B3;
+  acCmdPivotShowBottom25 = $000001B4;
+  acCmdPivotShowBottom1Percent = $000001B5;
+  acCmdPivotShowBottom2Percent = $000001B6;
+  acCmdPivotShowBottom5Percent = $000001B7;
+  acCmdPivotShowBottom10Percent = $000001B8;
+  acCmdPivotShowBottom25Percent = $000001B9;
+  acCmdPivotShowBottomOther = $000001BA;
+  acCmdPivotTableCreateCalcTotal = $000001BB;
+  acCmdPivotTableCreateCalcField = $000001BC;
+  acCmdPivotTableShowAsNormal = $000001BD;
+  acCmdPivotTablePercentRowTotal = $000001BE;
+  acCmdPivotTablePercentColumnTotal = $000001BF;
+  acCmdPivotTablePercentParentRowItem = $000001C0;
+  acCmdPivotTablePercentParentColumnItem = $000001C1;
+  acCmdPivotTablePercentGrandTotal = $000001C2;
+  acCmdPivotTableExpandIndicators = $000001C3;
+  acCmdPivotDropAreas = $000001C4;
+  acCmdPivotChartType = $000001C5;
+  acCmdPivotDelete = $000001C6;
+  acCmdPivotChartShowLegend = $000001C7;
+  acCmdPivotChartByRowByColumn = $000001C8;
+  acCmdPivotChartDrillInto = $000001C9;
+  acCmdPivotChartMultiplePlots = $000001CA;
+  acCmdPivotChartMultiplePlotsUnifiedScale = $000001CB;
+  acCmdPivotChartUndo = $000001CC;
+  acCmdPivotShowAll = $000001CD;
+  acCmdSubformFormView = $000001CE;
+  acCmdSubformDatasheetView = $000001CF;
+  acCmdSubformPivotTableView = $000001D0;
+  acCmdSubformPivotChartView = $000001D1;
+  acCmdWebPagePreview = $000001D2;
+  acCmdPageProperties = $000001D3;
+  acCmdDataOutline = $000001D4;
+  acCmdInsertMovieFromFile = $000001D5;
+  acCmdInsertPivotTable = $000001D6;
+  acCmdInsertSpreadsheet = $000001D7;
+  acCmdInsertUnboundSection = $000001D8;
+  acCmdWebTheme = $000001D9;
+  acCmdBackgroundPicture = $000001DA;
+  acCmdBackgroundSound = $000001DB;
+  acCmdAlignMiddle = $000001DC;
+  acCmdAlignCenter = $000001DD;
+  acCmdAlignmentAndSizing = $000001DE;
+  acCmdDataAccessPageFieldListRefresh = $000001DF;
+  acCmdDataAccessPageAddToPage = $000001E0;
+  acCmdZoom500 = $000001E1;
+  acCmdZoom1000 = $000001E2;
+  acCmdPrintRelationships = $000001E3;
+  acCmdGroupControls = $000001E4;
+  acCmdUngroupControls = $000001E5;
+  acCmdWebPageProperties = $000001E6;
+  acCmdExport = $000001E7;
+  acCmdOfficeClipboard = $000001E8;
+  acCmdDeleteTable = $000001E9;
+  acCmdPasteAsHyperlink = $000001EA;
+  acCmdNewGroup = $000001EB;
+  acCmdRenameGroup = $000001EC;
+  acCmdDeleteGroup = $000001ED;
+  acCmdAddToNewGroup = $000001EE;
+  acCmdSubformInNewWindow = $000001EF;
+  acCmdServerProperties = $000001F0;
+  acCmdTableCustomView = $000001F1;
+  acCmdTableAddTable = $000001F2;
+  acCmdInsertSubdatasheet = $000001F3;
+  acCmdConditionalFormatting = $000001F4;
+  acCmdChangeToCommandButton = $000001F5;
+  acCmdSubdatasheetExpandAll = $000001F8;
+  acCmdSubdatasheetCollapseAll = $000001F9;
+  acCmdSubdatasheetRemove = $000001FA;
+  acCmdServerFilterByForm = $000001FB;
+  acCmdMaximiumRecords = $000001FC;
+  acCmdSpeech = $000001FF;
+  acCmdBackup = $00000201;
+  acCmdRestore = $00000202;
+  acCmdTransferSQLDatabase = $00000203;
+  acCmdCopyDatabaseFile = $00000204;
+  acCmdDropSQLDatabase = $00000205;
+  acCmdLinkedTableManager = $00000207;
+  acCmdDatabaseSplitter = $00000208;
+  acCmdSwitchboardManager = $00000209;
+  acCmdUpsizingWizard = $0000020A;
+  acCmdPartialReplicaWizard = $0000020C;
+  acCmdVisualBasicEditor = $0000020D;
+  acCmdAddInManager = $0000020E;
+  acCmdPivotTableClearCustomOrdering = $0000020F;
+  acCmdPivotTableFilterBySelection = $00000210;
+  acCmdPivotTableRemove = $00000211;
+  acCmdPivotTableGroupItems = $00000212;
+  acCmdPivotTableUngroupItems = $00000213;
+  acCmdPivotChartDrillOut = $00000214;
+  acCmdShowEnvelope = $00000215;
+  acCmdPivotChartSortAscByTotal = $00000216;
+  acCmdPivotChartSortDescByTotal = $00000217;
+
+// Constants for enum AcShowToolbar
+type
+  AcShowToolbar = TOleEnum;
+const
+  acToolbarYes = $00000000;
+  acToolbarWhereApprop = $00000001;
+  acToolbarNo = $00000002;
+
+// Constants for enum AcFormatConditionType
+type
+  AcFormatConditionType = TOleEnum;
+const
+  acFieldValue = $00000000;
+  acExpression = $00000001;
+  acFieldHasFocus = $00000002;
+
+// Constants for enum AcFormatConditionOperator
+type
+  AcFormatConditionOperator = TOleEnum;
+const
+  acBetween = $00000000;
+  acNotBetween = $00000001;
+  acEqual = $00000002;
+  acNotEqual = $00000003;
+  acGreaterThan = $00000004;
+  acLessThan = $00000005;
+  acGreaterThanOrEqual = $00000006;
+  acLessThanOrEqual = $00000007;
+
+// Constants for enum AcColorIndex
+type
+  AcColorIndex = TOleEnum;
+const
+  acColorIndexBlack = $00000000;
+  acColorIndexMaroon = $00000001;
+  acColorIndexGreen = $00000002;
+  acColorIndexOlive = $00000003;
+  acColorIndexDarkBlue = $00000004;
+  acColorIndexViolet = $00000005;
+  acColorIndexTeal = $00000006;
+  acColorIndexGray = $00000007;
+  acColorIndexSilver = $00000008;
+  acColorIndexRed = $00000009;
+  acColorIndexBrightGreen = $0000000A;
+  acColorIndexYellow = $0000000B;
+  acColorIndexBlue = $0000000C;
+  acColorIndexFuschia = $0000000D;
+  acColorIndexAqua = $0000000E;
+  acColorIndexWhite = $0000000F;
+
+// Constants for enum RefKind
+type
+  RefKind = TOleEnum;
+const
+  TypeLib = $00000000;
+  Project = $00000001;
+
+// Constants for enum ProcKind
+type
+  ProcKind = TOleEnum;
+const
+  Proc = $00000000;
+  Let = $00000001;
+  Set_ = $00000002;
+  Get = $00000003;
+
+// Constants for enum AcDefView
+type
+  AcDefView = TOleEnum;
+const
+  acDefViewSingle = $00000000;
+  acDefViewContinuous = $00000001;
+  acDefViewDatasheet = $00000002;
+  acDefViewPivotTable = $00000003;
+  acDefViewPivotChart = $00000004;
+
+// Constants for enum AcCurrentView
+type
+  AcCurrentView = TOleEnum;
+const
+  acCurViewDesign = $00000000;
+  acCurViewFormBrowse = $00000001;
+  acCurViewDatasheet = $00000002;
+  acCurViewPivotTable = $00000003;
+  acCurViewPivotChart = $00000004;
+  acCurViewPreview = $00000005;
+
+// Constants for enum AcFileFormat
+type
+  AcFileFormat = TOleEnum;
+const
+  acFileFormatAccess2 = $00000002;
+  acFileFormatAccess95 = $00000007;
+  acFileFormatAccess97 = $00000008;
+  acFileFormatAccess2000 = $00000009;
+  acFileFormatAccess2002 = $0000000A;
+
+// Constants for enum AcExportXMLObjectType
+type
+  AcExportXMLObjectType = TOleEnum;
+const
+  acExportTable = $00000000;
+  acExportQuery = $00000001;
+  acExportForm = $00000002;
+  acExportReport = $00000003;
+  acExportServerView = $00000007;
+  acExportStoredProcedure = $00000009;
+  acExportFunction = $0000000A;
+
+// Constants for enum AcExportXMLSchemaFormat
+type
+  AcExportXMLSchemaFormat = TOleEnum;
+const
+  acSchemaNone = $00000000;
+  acSchemaXSD = $00000001;
+
+// Constants for enum AcExportXMLEncoding
+type
+  AcExportXMLEncoding = TOleEnum;
+const
+  acUTF8

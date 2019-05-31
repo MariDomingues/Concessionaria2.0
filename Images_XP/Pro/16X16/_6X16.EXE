@@ -1,0 +1,971 @@
+g6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; var Arg15: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; var Arg17: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; var Arg19: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; var Arg21: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, EmptyParam, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; var Arg23: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; 
+                                var Arg23: OleVariant; var Arg24: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, EmptyParam, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; 
+                                var Arg23: OleVariant; var Arg24: OleVariant; var Arg25: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, Arg25, EmptyParam, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; 
+                                var Arg23: OleVariant; var Arg24: OleVariant; 
+                                var Arg25: OleVariant; var Arg26: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, Arg25, Arg26, 
+                                 EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; 
+                                var Arg23: OleVariant; var Arg24: OleVariant; 
+                                var Arg25: OleVariant; var Arg26: OleVariant; var Arg27: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, Arg25, Arg26, Arg27, 
+                                 EmptyParam, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; 
+                                var Arg23: OleVariant; var Arg24: OleVariant; 
+                                var Arg25: OleVariant; var Arg26: OleVariant; 
+                                var Arg27: OleVariant; var Arg28: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, Arg25, Arg26, Arg27, 
+                                 Arg28, EmptyParam, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; 
+                                var Arg23: OleVariant; var Arg24: OleVariant; 
+                                var Arg25: OleVariant; var Arg26: OleVariant; 
+                                var Arg27: OleVariant; var Arg28: OleVariant; var Arg29: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, Arg25, Arg26, Arg27, 
+                                 Arg28, Arg29, EmptyParam);
+end;
+
+function TAccessApplication.Run(const Procedure_: WideString; var Arg1: OleVariant; 
+                                var Arg2: OleVariant; var Arg3: OleVariant; var Arg4: OleVariant; 
+                                var Arg5: OleVariant; var Arg6: OleVariant; var Arg7: OleVariant; 
+                                var Arg8: OleVariant; var Arg9: OleVariant; var Arg10: OleVariant; 
+                                var Arg11: OleVariant; var Arg12: OleVariant; 
+                                var Arg13: OleVariant; var Arg14: OleVariant; 
+                                var Arg15: OleVariant; var Arg16: OleVariant; 
+                                var Arg17: OleVariant; var Arg18: OleVariant; 
+                                var Arg19: OleVariant; var Arg20: OleVariant; 
+                                var Arg21: OleVariant; var Arg22: OleVariant; 
+                                var Arg23: OleVariant; var Arg24: OleVariant; 
+                                var Arg25: OleVariant; var Arg26: OleVariant; 
+                                var Arg27: OleVariant; var Arg28: OleVariant; 
+                                var Arg29: OleVariant; var Arg30: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Run(Procedure_, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, 
+                                 Arg10, Arg11, Arg12, Arg13, Arg14, Arg15, Arg16, Arg17, Arg18, 
+                                 Arg19, Arg20, Arg21, Arg22, Arg23, Arg24, Arg25, Arg26, Arg27, 
+                                 Arg28, Arg29, Arg30);
+end;
+
+function TAccessApplication.Nz(Value: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Nz(Value, EmptyParam);
+end;
+
+function TAccessApplication.Nz(Value: OleVariant; ValueIfNull: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.Nz(Value, ValueIfNull);
+end;
+
+function TAccessApplication.LoadPicture(const FileName: WideString): IDispatch;
+begin
+  Result := DefaultInterface.LoadPicture(FileName);
+end;
+
+procedure TAccessApplication.ReplaceModule(objtyp: Integer; const ModuleName: WideString; 
+                                           const FileName: WideString; token: Integer);
+begin
+  DefaultInterface.ReplaceModule(objtyp, ModuleName, FileName, token);
+end;
+
+function TAccessApplication.AccessError(ErrorNumber: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.AccessError(ErrorNumber);
+end;
+
+function TAccessApplication.BuilderString: OleVariant;
+begin
+  Result := DefaultInterface.BuilderString;
+end;
+
+function TAccessApplication.StringFromGUID(Guid: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.StringFromGUID(Guid);
+end;
+
+function TAccessApplication.GUIDFromString(String_: OleVariant): OleVariant;
+begin
+  Result := DefaultInterface.GUIDFromString(String_);
+end;
+
+function TAccessApplication.AppLoadString(id: Integer): OleVariant;
+begin
+  Result := DefaultInterface.AppLoadString(id);
+end;
+
+procedure TAccessApplication.FollowHyperlink(const Address: WideString; 
+                                             const SubAddress: WideString; NewWindow: WordBool; 
+                                             AddHistory: WordBool; ExtraInfo: OleVariant; 
+                                             Method: MsoExtraInfoMethod; 
+                                             const HeaderInfo: WideString);
+begin
+  DefaultInterface.FollowHyperlink(Address, SubAddress, NewWindow, AddHistory, ExtraInfo, Method, 
+                                   HeaderInfo);
+end;
+
+procedure TAccessApplication.SaveAsText(ObjectType: Integer; const ObjectName: WideString; 
+                                        const FileName: WideString);
+begin
+  DefaultInterface.SaveAsText(ObjectType, ObjectName, FileName);
+end;
+
+procedure TAccessApplication.LoadFromText(ObjectType: Integer; const ObjectName: WideString; 
+                                          const FileName: WideString);
+begin
+  DefaultInterface.LoadFromText(ObjectType, ObjectName, FileName);
+end;
+
+procedure TAccessApplication.AddToFavorites;
+begin
+  DefaultInterface.AddToFavorites;
+end;
+
+procedure TAccessApplication.RefreshDatabaseWindow;
+begin
+  DefaultInterface.RefreshDatabaseWindow;
+end;
+
+procedure TAccessApplication.RunCommand(Command: AcCommand);
+begin
+  DefaultInterface.RunCommand(Command);
+end;
+
+function TAccessApplication.HyperlinkPart(Hyperlink: OleVariant; Part: AcHyperlinkPart): WideString;
+begin
+  Result := DefaultInterface.HyperlinkPart(Hyperlink, Part);
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+constructor TAccessApplicationProperties.Create(AServer: TAccessApplication);
+begin
+  inherited Create;
+  FServer := AServer;
+end;
+
+function TAccessApplicationProperties.GetDefaultInterface: _Application;
+begin
+  Result := FServer.DefaultInterface;
+end;
+
+function TAccessApplicationProperties.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessApplicationProperties.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessApplicationProperties.Get_CodeContextObject: IDispatch;
+begin
+    Result := DefaultInterface.CodeContextObject;
+end;
+
+function TAccessApplicationProperties.Get_MenuBar: WideString;
+begin
+    Result := DefaultInterface.MenuBar;
+end;
+
+procedure TAccessApplicationProperties.Set_MenuBar(const pRet: WideString);
+  { Warning: The property MenuBar has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.MenuBar := pRet;
+end;
+
+function TAccessApplicationProperties.Get_CurrentObjectType: Integer;
+begin
+    Result := DefaultInterface.CurrentObjectType;
+end;
+
+function TAccessApplicationProperties.Get_CurrentObjectName: WideString;
+begin
+    Result := DefaultInterface.CurrentObjectName;
+end;
+
+function TAccessApplicationProperties.Get_Forms: Forms;
+begin
+    Result := DefaultInterface.Forms;
+end;
+
+function TAccessApplicationProperties.Get_Reports: Reports;
+begin
+    Result := DefaultInterface.Reports;
+end;
+
+function TAccessApplicationProperties.Get_Screen: Screen;
+begin
+    Result := DefaultInterface.Screen;
+end;
+
+function TAccessApplicationProperties.Get_DoCmd: IDoCmd;
+begin
+    Result := DefaultInterface.DoCmd;
+end;
+
+function TAccessApplicationProperties.Get_ShortcutMenuBar: WideString;
+begin
+    Result := DefaultInterface.ShortcutMenuBar;
+end;
+
+procedure TAccessApplicationProperties.Set_ShortcutMenuBar(const pRet: WideString);
+  { Warning: The property ShortcutMenuBar has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.ShortcutMenuBar := pRet;
+end;
+
+function TAccessApplicationProperties.Get_Visible: WordBool;
+begin
+    Result := DefaultInterface.Visible;
+end;
+
+procedure TAccessApplicationProperties.Set_Visible(pfVisible: WordBool);
+begin
+  DefaultInterface.Set_Visible(pfVisible);
+end;
+
+function TAccessApplicationProperties.Get_UserControl: WordBool;
+begin
+    Result := DefaultInterface.UserControl;
+end;
+
+procedure TAccessApplicationProperties.Set_UserControl(pfUserCtrl: WordBool);
+begin
+  DefaultInterface.Set_UserControl(pfUserCtrl);
+end;
+
+function TAccessApplicationProperties.Get_DBEngine: DBEngine;
+begin
+    Result := DefaultInterface.DBEngine;
+end;
+
+function TAccessApplicationProperties.Get_CommandBars: CommandBars;
+begin
+    Result := DefaultInterface.CommandBars;
+end;
+
+function TAccessApplicationProperties.Get_Assistant: Assistant;
+begin
+    Result := DefaultInterface.Assistant;
+end;
+
+function TAccessApplicationProperties.Get_References: AccessReferences;
+begin
+    Result := DefaultInterface.References;
+end;
+
+function TAccessApplicationProperties.Get_Modules: Modules;
+begin
+    Result := DefaultInterface.Modules;
+end;
+
+function TAccessApplicationProperties.Get_FileSearch: FileSearch;
+begin
+    Result := DefaultInterface.FileSearch;
+end;
+
+function TAccessApplicationProperties.Get_IsCompiled: WordBool;
+begin
+    Result := DefaultInterface.IsCompiled;
+end;
+
+{$ENDIF}
+
+class function CoAccessReferences.Create: _References;
+begin
+  Result := CreateComObject(CLASS_AccessReferences) as _References;
+end;
+
+class function CoAccessReferences.CreateRemote(const MachineName: string): _References;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_AccessReferences) as _References;
+end;
+
+procedure TAccessReferences.InitServerData;
+const
+  CServerData: TServerData = (
+    ClassID:   '{EB106214-9C89-11CF-A2B3-00A0C90542FF}';
+    IntfIID:   '{EB106213-9C89-11CF-A2B3-00A0C90542FF}';
+    EventIID:  '{F163F201-ADA2-11CF-89A9-00A0C9054129}';
+    LicenseKey: nil;
+    Version: 500);
+begin
+  ServerData := @CServerData;
+end;
+
+procedure TAccessReferences.Connect;
+var
+  punk: IUnknown;
+begin
+  if FIntf = nil then
+  begin
+    punk := GetServer;
+    ConnectEvents(punk);
+    Fintf:= punk as _References;
+  end;
+end;
+
+procedure TAccessReferences.ConnectTo(svrIntf: _References);
+begin
+  Disconnect;
+  FIntf := svrIntf;
+  ConnectEvents(FIntf);
+end;
+
+procedure TAccessReferences.DisConnect;
+begin
+  if Fintf <> nil then
+  begin
+    DisconnectEvents(FIntf);
+    FIntf := nil;
+  end;
+end;
+
+function TAccessReferences.GetDefaultInterface: _References;
+begin
+  if FIntf = nil then
+    Connect;
+  Assert(FIntf <> nil, 'DefaultInterface is NULL. Component is not connected to Server. You must call ''Connect'' or ''ConnectTo'' before this operation');
+  Result := FIntf;
+end;
+
+constructor TAccessReferences.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps := TAccessReferencesProperties.Create(Self);
+{$ENDIF}
+end;
+
+destructor TAccessReferences.Destroy;
+begin
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps.Free;
+{$ENDIF}
+  inherited Destroy;
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+function TAccessReferences.GetServerProperties: TAccessReferencesProperties;
+begin
+  Result := FProps;
+end;
+{$ENDIF}
+
+procedure TAccessReferences.InvokeEvent(DispID: TDispID; var Params: TVariantArray);
+begin
+  case DispID of
+    -1: Exit;  // DISPID_UNKNOWN
+    0: if Assigned(FOnItemAdded) then
+         FOnItemAdded(Self, IUnknown(TVarData(Params[0]).VPointer) as Reference {const Reference});
+    1: if Assigned(FOnItemRemoved) then
+         FOnItemRemoved(Self, IUnknown(TVarData(Params[0]).VPointer) as Reference {const Reference});
+  end; {case DispID}
+end;
+
+function TAccessReferences.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessReferences.Get_Count: Integer;
+begin
+    Result := DefaultInterface.Count;
+end;
+
+function TAccessReferences.Item(var_: OleVariant): Reference;
+begin
+  Result := DefaultInterface.Item(var_);
+end;
+
+function TAccessReferences._NewEnum: IUnknown;
+begin
+  Result := DefaultInterface._NewEnum;
+end;
+
+function TAccessReferences.AddFromGuid(const Guid: WideString; Major: Integer; Minor: Integer): Reference;
+begin
+  Result := DefaultInterface.AddFromGuid(Guid, Major, Minor);
+end;
+
+function TAccessReferences.AddFromFile(const FileName: WideString): Reference;
+begin
+  Result := DefaultInterface.AddFromFile(FileName);
+end;
+
+procedure TAccessReferences.Remove(const Reference: Reference);
+begin
+  DefaultInterface.Remove(Reference);
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+constructor TAccessReferencesProperties.Create(AServer: TAccessReferences);
+begin
+  inherited Create;
+  FServer := AServer;
+end;
+
+function TAccessReferencesProperties.GetDefaultInterface: _References;
+begin
+  Result := FServer.DefaultInterface;
+end;
+
+function TAccessReferencesProperties.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessReferencesProperties.Get_Count: Integer;
+begin
+    Result := DefaultInterface.Count;
+end;
+
+{$ENDIF}
+
+class function CoClass_.Create: _Dummy;
+begin
+  Result := CreateComObject(CLASS_Class_) as _Dummy;
+end;
+
+class function CoClass_.CreateRemote(const MachineName: string): _Dummy;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_Class_) as _Dummy;
+end;
+
+procedure TClass_.InitServerData;
+const
+  CServerData: TServerData = (
+    ClassID:   '{8B06E321-B23C-11CF-89A8-00A0C9054129}';
+    IntfIID:   '{8B06E320-B23C-11CF-89A8-00A0C9054129}';
+    EventIID:  '{58BF3100-B580-11CF-89A8-00A0C9054129}';
+    LicenseKey: nil;
+    Version: 500);
+begin
+  ServerData := @CServerData;
+end;
+
+procedure TClass_.Connect;
+var
+  punk: IUnknown;
+begin
+  if FIntf = nil then
+  begin
+    punk := GetServer;
+    ConnectEvents(punk);
+    Fintf:= punk as _Dummy;
+  end;
+end;
+
+procedure TClass_.ConnectTo(svrIntf: _Dummy);
+begin
+  Disconnect;
+  FIntf := svrIntf;
+  ConnectEvents(FIntf);
+end;
+
+procedure TClass_.DisConnect;
+begin
+  if Fintf <> nil then
+  begin
+    DisconnectEvents(FIntf);
+    FIntf := nil;
+  end;
+end;
+
+function TClass_.GetDefaultInterface: _Dummy;
+begin
+  if FIntf = nil then
+    Connect;
+  Assert(FIntf <> nil, 'DefaultInterface is NULL. Component is not connected to Server. You must call ''Connect'' or ''ConnectTo'' before this operation');
+  Result := FIntf;
+end;
+
+constructor TClass_.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps := TClass_Properties.Create(Self);
+{$ENDIF}
+end;
+
+destructor TClass_.Destroy;
+begin
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps.Free;
+{$ENDIF}
+  inherited Destroy;
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+function TClass_.GetServerProperties: TClass_Properties;
+begin
+  Result := FProps;
+end;
+{$ENDIF}
+
+procedure TClass_.InvokeEvent(DispID: TDispID; var Params: TVariantArray);
+begin
+  case DispID of
+    -1: Exit;  // DISPID_UNKNOWN
+    -6: if Assigned(FOnInitialize) then
+         FOnInitialize(Self);
+    -7: if Assigned(FOnTerminate) then
+         FOnTerminate(Self);
+  end; {case DispID}
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+constructor TClass_Properties.Create(AServer: TClass_);
+begin
+  inherited Create;
+  FServer := AServer;
+end;
+
+function TClass_Properties.GetDefaultInterface: _Dummy;
+begin
+  Result := FServer.DefaultInterface;
+end;
+
+{$ENDIF}
+
+class function Co___CodeModule.Create: ___IVbaModule;
+begin
+  Result := CreateComObject(CLASS____CodeModule) as ___IVbaModule;
+end;
+
+class function Co___CodeModule.CreateRemote(const MachineName: string): ___IVbaModule;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS____CodeModule) as ___IVbaModule;
+end;
+
+class function Co___Editors.Create: ___IVbaEditors;
+begin
+  Result := CreateComObject(CLASS____Editors) as ___IVbaEditors;
+end;
+
+class function Co___Editors.CreateRemote(const MachineName: string): ___IVbaEditors;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS____Editors) as ___IVbaEditors;
+end;
+
+class function Co___Editor.Create: ___IVbaEditor;
+begin
+  Result := CreateComObject(CLASS____Editor) as ___IVbaEditor;
+end;
+
+class function Co___Editor.CreateRemote(const MachineName: string): ___IVbaEditor;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS____Editor) as ___IVbaEditor;
+end;
+
+class function Co___References.Create: IVbaReferences;
+begin
+  Result := CreateComObject(CLASS____References) as IVbaReferences;
+end;
+
+class function Co___References.CreateRemote(const MachineName: string): IVbaReferences;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS____References) as IVbaReferences;
+end;
+
+end.
+                                      unit AccessXP;
+
+// ************************************************************************ //
+// WARNING                                                                    
+// -------                                                                    
+// The types declared in this file were generated from data read from a       
+// Type Library. If this type library is explicitly or indirectly (via        
+// another type library referring to this type library) re-imported, or the   
+// 'Refresh' command of the Type Library Editor activated while editing the   
+// Type Library, the contents of this file will be regenerated and all        
+// manual modifications will be lost.                                         
+// ************************************************************************ //
+
+// PASTLWTR : 1.2
+// File generated on 6/19/2002 4:58:07 PM from Type Library described below.
+
+// ************************************************************************  //
+// Type Lib: h:\typelib\typelib\typelibraries\OfficeXP\msacc.olb (1)
+// LIBID: {4AFFC9A0-5F99-101B-AF4E-00AA003F0F07}
+// LCID: 0
+// Helpfile: h:\typelib\typelib\typelibraries\OfficeXP\vbaac10.chm
+// HelpString: Microsoft Access 10.0 Object Library
+// DepndLst: 
+//   (1) v2.0 stdole, (C:\WINNT\System32\stdole2.tlb)
+//   (2) v5.0 DAO, (C:\Program Files\Common Files\Microsoft Shared\DAO\dao360.dll)
+//   (3) v2.2 Office, (C:\Program Files\Common Files\Microsoft Shared\Office10\MSO.DLL)
+//   (4) v2.5 ADODB, (C:\Program Files\Common Files\System\ado\msado25.tlb)
+//   (5) v5.3 VBIDE, (C:\Program Files\Common Files\Microsoft Shared\VBA\VBA6\VBE6EXT.OLB)
+//   (6) v1.0 OWC10, (C:\Program Files\Common Files\Microsoft Shared\Web Components\10\OWC10.DLL)
+// Errors:
+//   Hint: Symbol 'Hyperlink' renamed to 'AccessHyperlink'
+//   Hint: Symbol 'Page' renamed to 'AccessPage'
+//   Hint: Symbol 'Control' renamed to 'AccessControl'
+//   Hint: Symbol 'Label' renamed to 'AccessLabel'
+//   Hint: Symbol 'Rectangle' renamed to 'AccessRectangle'
+//   Hint: Symbol 'Line' renamed to 'AccessLine'
+//   Hint: Symbol 'Image' renamed to 'AccessImage'
+//   Hint: Symbol 'CommandButton' renamed to 'AccessCommandButton'
+//   Hint: Symbol 'OptionButton' renamed to 'AccessOptionButton'
+//   Hint: Symbol 'CheckBox' renamed to 'AccessCheckBox'
+//   Hint: Symbol 'OptionGroup' renamed to 'AccessOptionGroup'
+//   Hint: Symbol 'BoundObjectFrame' renamed to 'AccessBoundObjectFrame'
+//   Hint: Symbol 'TextBox' renamed to 'AccessTextBox'
+//   Hint: Symbol 'ListBox' renamed to 'AccessListBox'
+//   Hint: Symbol 'ComboBox' renamed to 'AccessComboBox'
+//   Hint: Symbol 'ObjectFrame' renamed to 'AccessObjectFrame'
+//   Hint: Symbol 'PageBreak' renamed to 'AccessPageBreak'
+//   Hint: Symbol 'ToggleButton' renamed to 'AccessToggleButton'
+//   Hint: Symbol 'PaletteButton' renamed to 'AccessPaletteButton'
+//   Hint: Symbol 'SubForm' renamed to 'AccessSubForm'
+//   Hint: Symbol 'SubReport' renamed to 'AccessSubReport'
+//   Hint: Symbol 'CustomControl' renamed to 'AccessCustomControl'
+//   Hint: Symbol 'TabControl' renamed to 'AccessTabControl'
+//   Hint: Symbol 'Section' renamed to 'AccessSection'
+//   Hint: Symbol 'GroupLevel' renamed to 'AccessGroupLevel'
+//   Hint: Symbol 'Application' renamed to 'AccessApplication'
+//   Hint: Symbol 'References' renamed to 'AccessReferences'
+//   Hint: Symbol 'WebOptions' renamed to 'AccessWebOptions'
+//   Hint: TypeInfo 'Class' changed to 'Class_'
+//   Hint: Symbol 'Form' renamed to 'AccessForm'
+//   Hint: Symbol 'Report' renamed to 'AccessReport'
+//   Hint: Parameter 'Record' of DoCmd.GoToRecord changed to 'Record_'
+//   Hint: Parameter 'To' of DoCmd.SendObject changed to 'To_'
+//   Hint: Symbol 'Type' renamed to 'type_'
+//   Hint: Parameter 'Type' of _FormatCondition.Modify changed to 'Type_'
+//   Hint: Parameter 'Type' of FormatConditions.Add changed to 'Type_'
+//   Hint: Member 'Object' of '_Control' changed to 'Object_'
+//   Hint: Member 'Goto' of '_Control' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_Image' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_CommandButton' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_OptionButton' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_Checkbox' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_OptionGroup' changed to 'Goto_'
+//   Hint: Member 'Object' of '_BoundObjectFrame' changed to 'Object_'
+//   Hint: Member 'Goto' of '_BoundObjectFrame' changed to 'Goto_'
+//   Hint: Member 'Class' of '_BoundObjectFrame' changed to 'Class_'
+//   Hint: Member 'Goto' of '_Textbox' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_ListBox' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_Combobox' changed to 'Goto_'
+//   Hint: Member 'Object' of '_ObjectFrame' changed to 'Object_'
+//   Hint: Member 'Goto' of '_ObjectFrame' changed to 'Goto_'
+//   Hint: Member 'Class' of '_ObjectFrame' changed to 'Class_'
+//   Hint: Member 'Goto' of '_ToggleButton' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_PaletteButton' changed to 'Goto_'
+//   Hint: Member 'Goto' of '_SubForm' changed to 'Goto_'
+//   Hint: Member 'Object' of '_CustomControl' changed to 'Object_'
+//   Hint: Member 'Goto' of '_CustomControl' changed to 'Goto_'
+//   Hint: Member 'Class' of '_CustomControl' changed to 'Class_'
+//   Hint: Member 'Goto' of '_Page' changed to 'Goto_'
+//   Hint: Enum Member 'Set' of 'ProcKind' changed to 'Set_'
+//   Hint: Parameter 'String' of Module.AddFromString changed to 'String_'
+//   Hint: Parameter 'String' of Module.Lines changed to 'String_'
+//   Hint: Parameter 'String' of Module.InsertLines changed to 'String_'
+//   Hint: Parameter 'String' of Module.ReplaceLine changed to 'String_'
+//   Hint: Symbol 'Type' renamed to 'type_'
+//   Hint: Parameter 'end' of _Report.Circle changed to 'end_'
+//   Hint: Parameter 'Procedure' of _Application.Run changed to 'Procedure_'
+//   Hint: Parameter 'String' of _Application.GUIDFromString changed to 'String_'
+//   Hint: Parameter 'var' of _References.Item changed to 'var_'
+//   Hint: Parameter 'var' of DataAccessPages.Item changed to 'var_'
+//   Hint: Parameter 'var' of AllObjects.Item changed to 'var_'
+//   Hint: Symbol 'Type' renamed to 'type_'
+//   Hint: Parameter 'Label' of _WizHook.OpenScript changed to 'Label_'
+//   Hint: Parameter 'String' of _WizHook.BracketString changed to 'String_'
+//   Hint: Parameter 'File' of _WizHook.OpenPictureFile changed to 'File_'
+//   Hint: Parameter 'In' of _WizHook.EnglishPictToLocal changed to 'In_'
+//   Hint: Parameter 'In' of _WizHook.TranslateExpression changed to 'In_'
+//   Hint: Parameter 'File' of _WizHook.FileExists changed to 'File_'
+//   Hint: Parameter 'File' of _WizHook.SplitPath changed to 'File_'
+//   Hint: Parameter 'Array' of _WizHook.SortStringArray changed to 'Array_'
+//   Hint: Parameter 'File' of _WizHook.GetFileName changed to 'File_'
+//   Hint: Parameter 'File' of _WizHook.GetFileName2 changed to 'File_'
+//   Hint: Parameter 'end' of _Report2.Circle changed to 'end_'
+//   Hint: Symbol 'Hyperlink' renamed to 'AccessHyperlink'
+//   Hint: Symbol 'Page' renamed to 'AccessPage'
+//   Hint: Symbol 'Control' renamed to 'AccessControl'
+//   Hint: Symbol 'Label' renamed to 'AccessLabel'
+//   Hint: Symbol 'Rectangle' renamed to 'AccessRectangle'
+//   Hint: Symbol 'Line' renamed to 'AccessLine'
+//   Hint: Symbol 'Image' renamed to 'AccessImage'
+//   Hint: Symbol 'CommandButton' renamed to 'AccessCommandButton'
+//   Hint: Symbol 'OptionButton' renamed to 'AccessOptionButton'
+//   Hint: Symbol 'CheckBox' renamed to 'AccessCheckBox'
+//   Hint: Symbol 'OptionGroup' renamed to 'AccessOptionGroup'
+//   Hint: Symbol 'BoundObjectFrame' renamed to 'AccessBoundObjectFrame'
+//   Hint: Symbol 'TextBox' renamed to 'AccessTextBox'
+//   Hint: Symbol 'ListBox' renamed to 'AccessListBox'
+//   Hint: Symbol 'ComboBox' renamed to 'AccessComboBox'
+//   Hint: Symbol 'ObjectFrame' renamed to 'AccessObjectFrame'
+//   Hint: Symbol 'PageBreak' renamed to 'AccessPageBreak'
+//   Hint: Symbol 'ToggleButton' renamed to 'AccessToggleButton'
+//   Hint: Symbol 'PaletteButton' renamed to 'AccessPaletteButton'
+//   Hint: Symbol 'SubForm' renamed to 'AccessSubForm'
+//   Hint: Symbol 'SubReport' renamed to 'AccessSubReport'
+//   Hint: Symbol 'CustomControl' renamed to 'AccessCustomControl'
+//   Hint: Symbol 'TabControl' renamed to 'AccessTabControl'
+//   Hint: Symbol 'Section' renamed to 'AccessSection'
+//   Hint: Symbol 'GroupLevel' renamed to 'AccessGroupLevel'
+//   Hint: Symbol 'Application' renamed to 'AccessApplicati

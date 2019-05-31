@@ -1,0 +1,1270 @@
+leVariant; 
+                 var Arg24: OleVariant; var Arg25: OleVariant; var Arg26: OleVariant; 
+                 var Arg27: OleVariant; var Arg28: OleVariant; var Arg29: OleVariant; 
+                 var Arg30: OleVariant): OleVariant; overload;
+    function Nz(Value: OleVariant): OleVariant; overload;
+    function Nz(Value: OleVariant; ValueIfNull: OleVariant): OleVariant; overload;
+    function LoadPicture(const FileName: WideString): IDispatch;
+    procedure ReplaceModule(objtyp: Integer; const ModuleName: WideString; 
+                            const FileName: WideString; token: Integer);
+    function AccessError(ErrorNumber: OleVariant): OleVariant;
+    function BuilderString: OleVariant;
+    function StringFromGUID(Guid: OleVariant): OleVariant;
+    function GUIDFromString(String_: OleVariant): OleVariant;
+    function AppLoadString(id: Integer): OleVariant;
+    procedure FollowHyperlink(const Address: WideString; const SubAddress: WideString; 
+                              NewWindow: WordBool; AddHistory: WordBool; ExtraInfo: OleVariant; 
+                              Method: MsoExtraInfoMethod; const HeaderInfo: WideString);
+    procedure SaveAsText(ObjectType: Integer; const ObjectName: WideString; 
+                         const FileName: WideString);
+    procedure LoadFromText(ObjectType: Integer; const ObjectName: WideString; 
+                           const FileName: WideString);
+    procedure AddToFavorites;
+    procedure RefreshDatabaseWindow;
+    procedure RunCommand(Command: AcCommand);
+    function HyperlinkPart(Hyperlink: OleVariant; Part: AcHyperlinkPart): WideString;
+    property DefaultInterface: _Application read GetDefaultInterface;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property CodeContextObject: IDispatch read Get_CodeContextObject;
+    property CurrentObjectType: Integer read Get_CurrentObjectType;
+    property CurrentObjectName: WideString read Get_CurrentObjectName;
+    property Forms: Forms read Get_Forms;
+    property Reports: Reports read Get_Reports;
+    property Screen: Screen read Get_Screen;
+    property DoCmd: IDoCmd read Get_DoCmd;
+    property DBEngine: DBEngine read Get_DBEngine;
+    property CommandBars: CommandBars read Get_CommandBars;
+    property Assistant: Assistant read Get_Assistant;
+    property References: AccessReferences read Get_References;
+    property Modules: Modules read Get_Modules;
+    property FileSearch: FileSearch read Get_FileSearch;
+    property IsCompiled: WordBool read Get_IsCompiled;
+    property MenuBar: WideString read Get_MenuBar write Set_MenuBar;
+    property ShortcutMenuBar: WideString read Get_ShortcutMenuBar write Set_ShortcutMenuBar;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property UserControl: WordBool read Get_UserControl write Set_UserControl;
+  published
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    property Server: TAccessApplicationProperties read GetServerProperties;
+{$ENDIF}
+  end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+// *********************************************************************//
+// OLE Server Properties Proxy Class
+// Server Object    : TAccessApplication
+// (This object is used by the IDE's Property Inspector to allow editing
+//  of the properties of this server)
+// *********************************************************************//
+ TAccessApplicationProperties = class(TPersistent)
+  private
+    FServer:    TAccessApplication;
+    function    GetDefaultInterface: _Application;
+    constructor Create(AServer: TAccessApplication);
+  protected
+    function Get_Application: AccessApplication;
+    function Get_Parent: IDispatch;
+    function Get_CodeContextObject: IDispatch;
+    function Get_MenuBar: WideString;
+    procedure Set_MenuBar(const pRet: WideString);
+    function Get_CurrentObjectType: Integer;
+    function Get_CurrentObjectName: WideString;
+    function Get_Forms: Forms;
+    function Get_Reports: Reports;
+    function Get_Screen: Screen;
+    function Get_DoCmd: IDoCmd;
+    function Get_ShortcutMenuBar: WideString;
+    procedure Set_ShortcutMenuBar(const pRet: WideString);
+    function Get_Visible: WordBool;
+    procedure Set_Visible(pfVisible: WordBool);
+    function Get_UserControl: WordBool;
+    procedure Set_UserControl(pfUserCtrl: WordBool);
+    function Get_DBEngine: DBEngine;
+    function Get_CommandBars: CommandBars;
+    function Get_Assistant: Assistant;
+    function Get_References: AccessReferences;
+    function Get_Modules: Modules;
+    function Get_FileSearch: FileSearch;
+    function Get_IsCompiled: WordBool;
+  public
+    property DefaultInterface: _Application read GetDefaultInterface;
+  published
+    property MenuBar: WideString read Get_MenuBar write Set_MenuBar;
+    property ShortcutMenuBar: WideString read Get_ShortcutMenuBar write Set_ShortcutMenuBar;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property UserControl: WordBool read Get_UserControl write Set_UserControl;
+  end;
+{$ENDIF}
+
+
+// *********************************************************************//
+// The Class CoAccessReferences provides a Create and CreateRemote method to          
+// create instances of the default interface _References exposed by              
+// the CoClass AccessReferences. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoAccessReferences = class
+    class function Create: _References;
+    class function CreateRemote(const MachineName: string): _References;
+  end;
+
+  TAccessReferencesItemAdded = procedure(ASender: TObject; const Reference: Reference) of object;
+  TAccessReferencesItemRemoved = procedure(ASender: TObject; const Reference: Reference) of object;
+
+
+// *********************************************************************//
+// OLE Server Proxy class declaration
+// Server Object    : TAccessReferences
+// Help String      : 
+// Default Interface: _References
+// Def. Intf. DISP? : No
+// Event   Interface: _References_Events
+// TypeFlags        : (2) CanCreate
+// *********************************************************************//
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  TAccessReferencesProperties= class;
+{$ENDIF}
+  TAccessReferences = class(TOleServer)
+  private
+    FOnItemAdded: TAccessReferencesItemAdded;
+    FOnItemRemoved: TAccessReferencesItemRemoved;
+    FIntf:        _References;
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    FProps:       TAccessReferencesProperties;
+    function      GetServerProperties: TAccessReferencesProperties;
+{$ENDIF}
+    function      GetDefaultInterface: _References;
+  protected
+    procedure InitServerData; override;
+    procedure InvokeEvent(DispID: TDispID; var Params: TVariantArray); override;
+    function Get_Parent: IDispatch;
+    function Get_Count: Integer;
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor  Destroy; override;
+    procedure Connect; override;
+    procedure ConnectTo(svrIntf: _References);
+    procedure Disconnect; override;
+    function Item(var_: OleVariant): Reference;
+    function _NewEnum: IUnknown;
+    function AddFromGuid(const Guid: WideString; Major: Integer; Minor: Integer): Reference;
+    function AddFromFile(const FileName: WideString): Reference;
+    procedure Remove(const Reference: Reference);
+    property DefaultInterface: _References read GetDefaultInterface;
+    property Parent: IDispatch read Get_Parent;
+    property Count: Integer read Get_Count;
+  published
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    property Server: TAccessReferencesProperties read GetServerProperties;
+{$ENDIF}
+    property OnItemAdded: TAccessReferencesItemAdded read FOnItemAdded write FOnItemAdded;
+    property OnItemRemoved: TAccessReferencesItemRemoved read FOnItemRemoved write FOnItemRemoved;
+  end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+// *********************************************************************//
+// OLE Server Properties Proxy Class
+// Server Object    : TAccessReferences
+// (This object is used by the IDE's Property Inspector to allow editing
+//  of the properties of this server)
+// *********************************************************************//
+ TAccessReferencesProperties = class(TPersistent)
+  private
+    FServer:    TAccessReferences;
+    function    GetDefaultInterface: _References;
+    constructor Create(AServer: TAccessReferences);
+  protected
+    function Get_Parent: IDispatch;
+    function Get_Count: Integer;
+  public
+    property DefaultInterface: _References read GetDefaultInterface;
+  published
+  end;
+{$ENDIF}
+
+
+// *********************************************************************//
+// The Class CoClass_ provides a Create and CreateRemote method to          
+// create instances of the default interface _Dummy exposed by              
+// the CoClass Class_. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoClass_ = class
+    class function Create: _Dummy;
+    class function CreateRemote(const MachineName: string): _Dummy;
+  end;
+
+
+// *********************************************************************//
+// OLE Server Proxy class declaration
+// Server Object    : TClass_
+// Help String      : 
+// Default Interface: _Dummy
+// Def. Intf. DISP? : No
+// Event   Interface: _DummyEvents
+// TypeFlags        : (18) CanCreate Hidden
+// *********************************************************************//
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  TClass_Properties= class;
+{$ENDIF}
+  TClass_ = class(TOleServer)
+  private
+    FOnInitialize: TNotifyEvent;
+    FOnTerminate: TNotifyEvent;
+    FIntf:        _Dummy;
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    FProps:       TClass_Properties;
+    function      GetServerProperties: TClass_Properties;
+{$ENDIF}
+    function      GetDefaultInterface: _Dummy;
+  protected
+    procedure InitServerData; override;
+    procedure InvokeEvent(DispID: TDispID; var Params: TVariantArray); override;
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor  Destroy; override;
+    procedure Connect; override;
+    procedure ConnectTo(svrIntf: _Dummy);
+    procedure Disconnect; override;
+    property DefaultInterface: _Dummy read GetDefaultInterface;
+  published
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+    property Server: TClass_Properties read GetServerProperties;
+{$ENDIF}
+    property OnInitialize: TNotifyEvent read FOnInitialize write FOnInitialize;
+    property OnTerminate: TNotifyEvent read FOnTerminate write FOnTerminate;
+  end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+// *********************************************************************//
+// OLE Server Properties Proxy Class
+// Server Object    : TClass_
+// (This object is used by the IDE's Property Inspector to allow editing
+//  of the properties of this server)
+// *********************************************************************//
+ TClass_Properties = class(TPersistent)
+  private
+    FServer:    TClass_;
+    function    GetDefaultInterface: _Dummy;
+    constructor Create(AServer: TClass_);
+  protected
+  public
+    property DefaultInterface: _Dummy read GetDefaultInterface;
+  published
+  end;
+{$ENDIF}
+
+
+// *********************************************************************//
+// The Class Co___CodeModule provides a Create and CreateRemote method to          
+// create instances of the default interface ___IVbaModule exposed by              
+// the CoClass ___CodeModule. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  Co___CodeModule = class
+    class function Create: ___IVbaModule;
+    class function CreateRemote(const MachineName: string): ___IVbaModule;
+  end;
+
+// *********************************************************************//
+// The Class Co___Editors provides a Create and CreateRemote method to          
+// create instances of the default interface ___IVbaEditors exposed by              
+// the CoClass ___Editors. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  Co___Editors = class
+    class function Create: ___IVbaEditors;
+    class function CreateRemote(const MachineName: string): ___IVbaEditors;
+  end;
+
+// *********************************************************************//
+// The Class Co___Editor provides a Create and CreateRemote method to          
+// create instances of the default interface ___IVbaEditor exposed by              
+// the CoClass ___Editor. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  Co___Editor = class
+    class function Create: ___IVbaEditor;
+    class function CreateRemote(const MachineName: string): ___IVbaEditor;
+  end;
+
+// *********************************************************************//
+// The Class Co___References provides a Create and CreateRemote method to          
+// create instances of the default interface IVbaReferences exposed by              
+// the CoClass ___References. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  Co___References = class
+    class function Create: IVbaReferences;
+    class function CreateRemote(const MachineName: string): IVbaReferences;
+  end;
+
+implementation
+
+uses ComObj;
+
+class function CoDoCmd.Create: IDoCmd;
+begin
+  Result := CreateComObject(CLASS_DoCmd) as IDoCmd;
+end;
+
+class function CoDoCmd.CreateRemote(const MachineName: string): IDoCmd;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_DoCmd) as IDoCmd;
+end;
+
+procedure TDoCmd.InitServerData;
+const
+  CServerData: TServerData = (
+    ClassID:   '{C547E761-9658-101B-81EE-00AA004750E2}';
+    IntfIID:   '{C547E760-9658-101B-81EE-00AA004750E2}';
+    EventIID:  '';
+    LicenseKey: nil;
+    Version: 500);
+begin
+  ServerData := @CServerData;
+end;
+
+procedure TDoCmd.Connect;
+var
+  punk: IUnknown;
+begin
+  if FIntf = nil then
+  begin
+    punk := GetServer;
+    Fintf:= punk as IDoCmd;
+  end;
+end;
+
+procedure TDoCmd.ConnectTo(svrIntf: IDoCmd);
+begin
+  Disconnect;
+  FIntf := svrIntf;
+end;
+
+procedure TDoCmd.DisConnect;
+begin
+  if Fintf <> nil then
+  begin
+    FIntf := nil;
+  end;
+end;
+
+function TDoCmd.GetDefaultInterface: IDoCmd;
+begin
+  if FIntf = nil then
+    Connect;
+  Assert(FIntf <> nil, 'DefaultInterface is NULL. Component is not connected to Server. You must call ''Connect'' or ''ConnectTo'' before this operation');
+  Result := FIntf;
+end;
+
+constructor TDoCmd.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps := TDoCmdProperties.Create(Self);
+{$ENDIF}
+end;
+
+destructor TDoCmd.Destroy;
+begin
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps.Free;
+{$ENDIF}
+  inherited Destroy;
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+function TDoCmd.GetServerProperties: TDoCmdProperties;
+begin
+  Result := FProps;
+end;
+{$ENDIF}
+
+procedure TDoCmd.AddMenu(MenuName: OleVariant; MenuMacroName: OleVariant; StatusBarText: OleVariant);
+begin
+  DefaultInterface.AddMenu(MenuName, MenuMacroName, StatusBarText);
+end;
+
+procedure TDoCmd.ApplyFilter;
+begin
+  DefaultInterface.ApplyFilter(EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.ApplyFilter(FilterName: OleVariant);
+begin
+  DefaultInterface.ApplyFilter(FilterName, EmptyParam);
+end;
+
+procedure TDoCmd.ApplyFilter(FilterName: OleVariant; WhereCondition: OleVariant);
+begin
+  DefaultInterface.ApplyFilter(FilterName, WhereCondition);
+end;
+
+procedure TDoCmd.Beep;
+begin
+  DefaultInterface.Beep;
+end;
+
+procedure TDoCmd.CancelEvent;
+begin
+  DefaultInterface.CancelEvent;
+end;
+
+procedure TDoCmd.Close(ObjectType: AcObjectType; ObjectName: OleVariant; Save: AcCloseSave);
+begin
+  DefaultInterface.Close(ObjectType, ObjectName, Save);
+end;
+
+procedure TDoCmd.CopyObject(DestinationDatabase: OleVariant; NewName: OleVariant; 
+                            SourceObjectType: AcObjectType; SourceObjectName: OleVariant);
+begin
+  DefaultInterface.CopyObject(DestinationDatabase, NewName, SourceObjectType, SourceObjectName);
+end;
+
+procedure TDoCmd.DoMenuItem(MenuBar: OleVariant; MenuName: OleVariant; Command: OleVariant);
+begin
+  DefaultInterface.DoMenuItem(MenuBar, MenuName, Command, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.DoMenuItem(MenuBar: OleVariant; MenuName: OleVariant; Command: OleVariant; 
+                            Subcommand: OleVariant);
+begin
+  DefaultInterface.DoMenuItem(MenuBar, MenuName, Command, Subcommand, EmptyParam);
+end;
+
+procedure TDoCmd.DoMenuItem(MenuBar: OleVariant; MenuName: OleVariant; Command: OleVariant; 
+                            Subcommand: OleVariant; Version: OleVariant);
+begin
+  DefaultInterface.DoMenuItem(MenuBar, MenuName, Command, Subcommand, Version);
+end;
+
+procedure TDoCmd.Echo(EchoOn: OleVariant);
+begin
+  DefaultInterface.Echo(EchoOn, EmptyParam);
+end;
+
+procedure TDoCmd.Echo(EchoOn: OleVariant; StatusBarText: OleVariant);
+begin
+  DefaultInterface.Echo(EchoOn, StatusBarText);
+end;
+
+procedure TDoCmd.FindNext;
+begin
+  DefaultInterface.FindNext;
+end;
+
+procedure TDoCmd.FindRecord(FindWhat: OleVariant; Match: AcFindMatch; MatchCase: OleVariant; 
+                            Search: AcSearchDirection; SearchAsFormatted: OleVariant; 
+                            OnlyCurrentField: AcFindField; FindFirst: OleVariant);
+begin
+  DefaultInterface.FindRecord(FindWhat, Match, MatchCase, Search, SearchAsFormatted, 
+                              OnlyCurrentField, FindFirst);
+end;
+
+procedure TDoCmd.GoToControl(ControlName: OleVariant);
+begin
+  DefaultInterface.GoToControl(ControlName);
+end;
+
+procedure TDoCmd.GoToPage(PageNumber: OleVariant);
+begin
+  DefaultInterface.GoToPage(PageNumber, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.GoToPage(PageNumber: OleVariant; Right: OleVariant);
+begin
+  DefaultInterface.GoToPage(PageNumber, Right, EmptyParam);
+end;
+
+procedure TDoCmd.GoToPage(PageNumber: OleVariant; Right: OleVariant; Down: OleVariant);
+begin
+  DefaultInterface.GoToPage(PageNumber, Right, Down);
+end;
+
+procedure TDoCmd.GoToRecord(ObjectType: AcDataObjectType; ObjectName: OleVariant; 
+                            Record_: AcRecord; Offset: OleVariant);
+begin
+  DefaultInterface.GoToRecord(ObjectType, ObjectName, Record_, Offset);
+end;
+
+procedure TDoCmd.Hourglass(HourglassOn: OleVariant);
+begin
+  DefaultInterface.Hourglass(HourglassOn);
+end;
+
+procedure TDoCmd.Maximize;
+begin
+  DefaultInterface.Maximize;
+end;
+
+procedure TDoCmd.Minimize;
+begin
+  DefaultInterface.Minimize;
+end;
+
+procedure TDoCmd.MoveSize;
+begin
+  DefaultInterface.MoveSize(EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.MoveSize(Right: OleVariant);
+begin
+  DefaultInterface.MoveSize(Right, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.MoveSize(Right: OleVariant; Down: OleVariant);
+begin
+  DefaultInterface.MoveSize(Right, Down, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.MoveSize(Right: OleVariant; Down: OleVariant; Width: OleVariant);
+begin
+  DefaultInterface.MoveSize(Right, Down, Width, EmptyParam);
+end;
+
+procedure TDoCmd.MoveSize(Right: OleVariant; Down: OleVariant; Width: OleVariant; Height: OleVariant);
+begin
+  DefaultInterface.MoveSize(Right, Down, Width, Height);
+end;
+
+procedure TDoCmd.OpenForm(FormName: OleVariant; View: AcFormView; FilterName: OleVariant; 
+                          WhereCondition: OleVariant; DataMode: AcFormOpenDataMode; 
+                          WindowMode: AcWindowMode; OpenArgs: OleVariant);
+begin
+  DefaultInterface.OpenForm(FormName, View, FilterName, WhereCondition, DataMode, WindowMode, 
+                            OpenArgs);
+end;
+
+procedure TDoCmd.OpenQuery(QueryName: OleVariant; View: AcView; DataMode: AcOpenDataMode);
+begin
+  DefaultInterface.OpenQuery(QueryName, View, DataMode);
+end;
+
+procedure TDoCmd.OpenTable(TableName: OleVariant; View: AcView; DataMode: AcOpenDataMode);
+begin
+  DefaultInterface.OpenTable(TableName, View, DataMode);
+end;
+
+procedure TDoCmd.PrintOut(PrintRange: AcPrintRange; PageFrom: OleVariant; PageTo: OleVariant; 
+                          PrintQuality: AcPrintQuality; Copies: OleVariant; 
+                          CollateCopies: OleVariant);
+begin
+  DefaultInterface.PrintOut(PrintRange, PageFrom, PageTo, PrintQuality, Copies, CollateCopies);
+end;
+
+procedure TDoCmd.Quit(Options: AcQuitOption);
+begin
+  DefaultInterface.Quit(Options);
+end;
+
+procedure TDoCmd.Requery;
+begin
+  DefaultInterface.Requery(EmptyParam);
+end;
+
+procedure TDoCmd.Requery(ControlName: OleVariant);
+begin
+  DefaultInterface.Requery(ControlName);
+end;
+
+procedure TDoCmd.RepaintObject(ObjectType: AcObjectType);
+begin
+  DefaultInterface.RepaintObject(ObjectType, EmptyParam);
+end;
+
+procedure TDoCmd.RepaintObject(ObjectType: AcObjectType; ObjectName: OleVariant);
+begin
+  DefaultInterface.RepaintObject(ObjectType, ObjectName);
+end;
+
+procedure TDoCmd.Rename(NewName: OleVariant; ObjectType: AcObjectType);
+begin
+  DefaultInterface.Rename(NewName, ObjectType, EmptyParam);
+end;
+
+procedure TDoCmd.Rename(NewName: OleVariant; ObjectType: AcObjectType; OldName: OleVariant);
+begin
+  DefaultInterface.Rename(NewName, ObjectType, OldName);
+end;
+
+procedure TDoCmd.Restore;
+begin
+  DefaultInterface.Restore;
+end;
+
+procedure TDoCmd.RunMacro(MacroName: OleVariant);
+begin
+  DefaultInterface.RunMacro(MacroName, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.RunMacro(MacroName: OleVariant; RepeatCount: OleVariant);
+begin
+  DefaultInterface.RunMacro(MacroName, RepeatCount, EmptyParam);
+end;
+
+procedure TDoCmd.RunMacro(MacroName: OleVariant; RepeatCount: OleVariant; 
+                          RepeatExpression: OleVariant);
+begin
+  DefaultInterface.RunMacro(MacroName, RepeatCount, RepeatExpression);
+end;
+
+procedure TDoCmd.RunSQL(SQLStatement: OleVariant);
+begin
+  DefaultInterface.RunSQL(SQLStatement, EmptyParam);
+end;
+
+procedure TDoCmd.RunSQL(SQLStatement: OleVariant; UseTransaction: OleVariant);
+begin
+  DefaultInterface.RunSQL(SQLStatement, UseTransaction);
+end;
+
+procedure TDoCmd.SelectObject(ObjectType: AcObjectType);
+begin
+  DefaultInterface.SelectObject(ObjectType, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SelectObject(ObjectType: AcObjectType; ObjectName: OleVariant);
+begin
+  DefaultInterface.SelectObject(ObjectType, ObjectName, EmptyParam);
+end;
+
+procedure TDoCmd.SelectObject(ObjectType: AcObjectType; ObjectName: OleVariant; 
+                              InDatabaseWindow: OleVariant);
+begin
+  DefaultInterface.SelectObject(ObjectType, ObjectName, InDatabaseWindow);
+end;
+
+procedure TDoCmd.SetWarnings(WarningsOn: OleVariant);
+begin
+  DefaultInterface.SetWarnings(WarningsOn);
+end;
+
+procedure TDoCmd.ShowAllRecords;
+begin
+  DefaultInterface.ShowAllRecords;
+end;
+
+procedure TDoCmd.OpenReport(ReportName: OleVariant; View: AcView);
+begin
+  DefaultInterface.OpenReport(ReportName, View, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.OpenReport(ReportName: OleVariant; View: AcView; FilterName: OleVariant);
+begin
+  DefaultInterface.OpenReport(ReportName, View, FilterName, EmptyParam);
+end;
+
+procedure TDoCmd.OpenReport(ReportName: OleVariant; View: AcView; FilterName: OleVariant; 
+                            WhereCondition: OleVariant);
+begin
+  DefaultInterface.OpenReport(ReportName, View, FilterName, WhereCondition);
+end;
+
+procedure TDoCmd.TransferDatabase(TransferType: AcDataTransferType; DatabaseType: OleVariant; 
+                                  DatabaseName: OleVariant; ObjectType: AcObjectType; 
+                                  Source: OleVariant; Destination: OleVariant; 
+                                  StructureOnly: OleVariant; StoreLogin: OleVariant);
+begin
+  DefaultInterface.TransferDatabase(TransferType, DatabaseType, DatabaseName, ObjectType, Source, 
+                                    Destination, StructureOnly, StoreLogin);
+end;
+
+procedure TDoCmd.TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                     SpreadsheetType: AcSpreadSheetType);
+begin
+  DefaultInterface.TransferSpreadsheet(TransferType, SpreadsheetType, EmptyParam, EmptyParam, 
+                                       EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                     SpreadsheetType: AcSpreadSheetType; TableName: OleVariant);
+begin
+  DefaultInterface.TransferSpreadsheet(TransferType, SpreadsheetType, TableName, EmptyParam, 
+                                       EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                     SpreadsheetType: AcSpreadSheetType; TableName: OleVariant; 
+                                     FileName: OleVariant);
+begin
+  DefaultInterface.TransferSpreadsheet(TransferType, SpreadsheetType, TableName, FileName, 
+                                       EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                     SpreadsheetType: AcSpreadSheetType; TableName: OleVariant; 
+                                     FileName: OleVariant; HasFieldNames: OleVariant);
+begin
+  DefaultInterface.TransferSpreadsheet(TransferType, SpreadsheetType, TableName, FileName, 
+                                       HasFieldNames, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                     SpreadsheetType: AcSpreadSheetType; TableName: OleVariant; 
+                                     FileName: OleVariant; HasFieldNames: OleVariant; 
+                                     Range: OleVariant);
+begin
+  DefaultInterface.TransferSpreadsheet(TransferType, SpreadsheetType, TableName, FileName, 
+                                       HasFieldNames, Range, EmptyParam);
+end;
+
+procedure TDoCmd.TransferSpreadsheet(TransferType: AcDataTransferType; 
+                                     SpreadsheetType: AcSpreadSheetType; TableName: OleVariant; 
+                                     FileName: OleVariant; HasFieldNames: OleVariant; 
+                                     Range: OleVariant; UseOA: OleVariant);
+begin
+  DefaultInterface.TransferSpreadsheet(TransferType, SpreadsheetType, TableName, FileName, 
+                                       HasFieldNames, Range, UseOA);
+end;
+
+procedure TDoCmd.TransferText(TransferType: AcTextTransferType);
+begin
+  DefaultInterface.TransferText(TransferType, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                                EmptyParam);
+end;
+
+procedure TDoCmd.TransferText(TransferType: AcTextTransferType; SpecificationName: OleVariant);
+begin
+  DefaultInterface.TransferText(TransferType, SpecificationName, EmptyParam, EmptyParam, 
+                                EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.TransferText(TransferType: AcTextTransferType; SpecificationName: OleVariant; 
+                              TableName: OleVariant);
+begin
+  DefaultInterface.TransferText(TransferType, SpecificationName, TableName, EmptyParam, EmptyParam, 
+                                EmptyParam);
+end;
+
+procedure TDoCmd.TransferText(TransferType: AcTextTransferType; SpecificationName: OleVariant; 
+                              TableName: OleVariant; FileName: OleVariant);
+begin
+  DefaultInterface.TransferText(TransferType, SpecificationName, TableName, FileName, EmptyParam, 
+                                EmptyParam);
+end;
+
+procedure TDoCmd.TransferText(TransferType: AcTextTransferType; SpecificationName: OleVariant; 
+                              TableName: OleVariant; FileName: OleVariant; HasFieldNames: OleVariant);
+begin
+  DefaultInterface.TransferText(TransferType, SpecificationName, TableName, FileName, 
+                                HasFieldNames, EmptyParam);
+end;
+
+procedure TDoCmd.TransferText(TransferType: AcTextTransferType; SpecificationName: OleVariant; 
+                              TableName: OleVariant; FileName: OleVariant; 
+                              HasFieldNames: OleVariant; HTMLTableName: OleVariant);
+begin
+  DefaultInterface.TransferText(TransferType, SpecificationName, TableName, FileName, 
+                                HasFieldNames, HTMLTableName);
+end;
+
+procedure TDoCmd.OutputTo(ObjectType: AcOutputObjectType);
+begin
+  DefaultInterface.OutputTo(ObjectType, EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.OutputTo(ObjectType: AcOutputObjectType; ObjectName: OleVariant);
+begin
+  DefaultInterface.OutputTo(ObjectType, ObjectName, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.OutputTo(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                          OutputFormat: OleVariant);
+begin
+  DefaultInterface.OutputTo(ObjectType, ObjectName, OutputFormat, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.OutputTo(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                          OutputFormat: OleVariant; OutputFile: OleVariant);
+begin
+  DefaultInterface.OutputTo(ObjectType, ObjectName, OutputFormat, OutputFile, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.OutputTo(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                          OutputFormat: OleVariant; OutputFile: OleVariant; AutoStart: OleVariant);
+begin
+  DefaultInterface.OutputTo(ObjectType, ObjectName, OutputFormat, OutputFile, AutoStart, EmptyParam);
+end;
+
+procedure TDoCmd.OutputTo(ObjectType: AcOutputObjectType; ObjectName: OleVariant; 
+                          OutputFormat: OleVariant; OutputFile: OleVariant; AutoStart: OleVariant; 
+                          TemplateFile: OleVariant);
+begin
+  DefaultInterface.OutputTo(ObjectType, ObjectName, OutputFormat, OutputFile, AutoStart, 
+                            TemplateFile);
+end;
+
+procedure TDoCmd.DeleteObject(ObjectType: AcObjectType);
+begin
+  DefaultInterface.DeleteObject(ObjectType, EmptyParam);
+end;
+
+procedure TDoCmd.DeleteObject(ObjectType: AcObjectType; ObjectName: OleVariant);
+begin
+  DefaultInterface.DeleteObject(ObjectType, ObjectName);
+end;
+
+procedure TDoCmd.OpenModule;
+begin
+  DefaultInterface.OpenModule(EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.OpenModule(ModuleName: OleVariant);
+begin
+  DefaultInterface.OpenModule(ModuleName, EmptyParam);
+end;
+
+procedure TDoCmd.OpenModule(ModuleName: OleVariant; ProcedureName: OleVariant);
+begin
+  DefaultInterface.OpenModule(ModuleName, ProcedureName);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType);
+begin
+  DefaultInterface.SendObject(ObjectType, EmptyParam, EmptyParam, EmptyParam, EmptyParam, 
+                              EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, EmptyParam, EmptyParam, EmptyParam, 
+                              EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, EmptyParam, EmptyParam, 
+                              EmptyParam, EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant; To_: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, To_, EmptyParam, EmptyParam, 
+                              EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, To_, Cc, EmptyParam, 
+                              EmptyParam, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant; 
+                            Bcc: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, To_, Cc, Bcc, EmptyParam, 
+                              EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant; 
+                            Bcc: OleVariant; Subject: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, To_, Cc, Bcc, Subject, 
+                              EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant; 
+                            Bcc: OleVariant; Subject: OleVariant; MessageText: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, To_, Cc, Bcc, Subject, 
+                              MessageText, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant; 
+                            Bcc: OleVariant; Subject: OleVariant; MessageText: OleVariant; 
+                            EditMessage: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, To_, Cc, Bcc, Subject, 
+                              MessageText, EditMessage, EmptyParam);
+end;
+
+procedure TDoCmd.SendObject(ObjectType: AcSendObjectType; ObjectName: OleVariant; 
+                            OutputFormat: OleVariant; To_: OleVariant; Cc: OleVariant; 
+                            Bcc: OleVariant; Subject: OleVariant; MessageText: OleVariant; 
+                            EditMessage: OleVariant; TemplateFile: OleVariant);
+begin
+  DefaultInterface.SendObject(ObjectType, ObjectName, OutputFormat, To_, Cc, Bcc, Subject, 
+                              MessageText, EditMessage, TemplateFile);
+end;
+
+procedure TDoCmd.ShowToolbar(ToolbarName: OleVariant);
+begin
+  DefaultInterface.ShowToolbar(ToolbarName, EmptyParam);
+end;
+
+procedure TDoCmd.ShowToolbar(ToolbarName: OleVariant; Show: OleVariant);
+begin
+  DefaultInterface.ShowToolbar(ToolbarName, Show);
+end;
+
+procedure TDoCmd.Save(ObjectType: AcObjectType);
+begin
+  DefaultInterface.Save(ObjectType, EmptyParam);
+end;
+
+procedure TDoCmd.Save(ObjectType: AcObjectType; ObjectName: OleVariant);
+begin
+  DefaultInterface.Save(ObjectType, ObjectName);
+end;
+
+procedure TDoCmd.SetMenuItem(MenuIndex: OleVariant);
+begin
+  DefaultInterface.SetMenuItem(MenuIndex, EmptyParam, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SetMenuItem(MenuIndex: OleVariant; CommandIndex: OleVariant);
+begin
+  DefaultInterface.SetMenuItem(MenuIndex, CommandIndex, EmptyParam, EmptyParam);
+end;
+
+procedure TDoCmd.SetMenuItem(MenuIndex: OleVariant; CommandIndex: OleVariant; 
+                             SubcommandIndex: OleVariant);
+begin
+  DefaultInterface.SetMenuItem(MenuIndex, CommandIndex, SubcommandIndex, EmptyParam);
+end;
+
+procedure TDoCmd.SetMenuItem(MenuIndex: OleVariant; CommandIndex: OleVariant; 
+                             SubcommandIndex: OleVariant; Flag: OleVariant);
+begin
+  DefaultInterface.SetMenuItem(MenuIndex, CommandIndex, SubcommandIndex, Flag);
+end;
+
+procedure TDoCmd.RunCommand(Command: AcCommand);
+begin
+  DefaultInterface.RunCommand(Command);
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+constructor TDoCmdProperties.Create(AServer: TDoCmd);
+begin
+  inherited Create;
+  FServer := AServer;
+end;
+
+function TDoCmdProperties.GetDefaultInterface: IDoCmd;
+begin
+  Result := FServer.DefaultInterface;
+end;
+
+{$ENDIF}
+
+procedure TAccessField.InitControlData;
+const
+  CControlData: TControlData2 = (
+    ClassID: '{044E54C5-B19B-11CE-A689-00AA003F0F07}';
+    EventIID: '';
+    EventCount: 0;
+    EventDispIDs: nil;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+end;
+
+procedure TAccessField.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _AccessField;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessField.GetControlInterface: _AccessField;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessField.Get_Value: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Value;
+end;
+
+procedure TAccessField.Set_Value(pRet: OleVariant);
+begin
+  DefaultInterface.Set_Value(pRet);
+end;
+
+class function CoAccessHyperlink.Create: _Hyperlink;
+begin
+  Result := CreateComObject(CLASS_AccessHyperlink) as _Hyperlink;
+end;
+
+class function CoAccessHyperlink.CreateRemote(const MachineName: string): _Hyperlink;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_AccessHyperlink) as _Hyperlink;
+end;
+
+procedure TAccessHyperlink.InitServerData;
+const
+  CServerData: TServerData = (
+    ClassID:   '{50D56610-60AC-11CF-82C9-00AA004B9FE6}';
+    IntfIID:   '{50D56611-60AC-11CF-82C9-00AA004B9FE6}';
+    EventIID:  '';
+    LicenseKey: nil;
+    Version: 500);
+begin
+  ServerData := @CServerData;
+end;
+
+procedure TAccessHyperlink.Connect;
+var
+  punk: IUnknown;
+begin
+  if FIntf = nil then
+  begin
+    punk := GetServer;
+    Fintf:= punk as _Hyperlink;
+  end;
+end;
+
+procedure TAccessHyperlink.ConnectTo(svrIntf: _Hyperlink);
+begin
+  Disconnect;
+  FIntf := svrIntf;
+end;
+
+procedure TAccessHyperlink.DisConnect;
+begin
+  if Fintf <> nil then
+  begin
+    FIntf := nil;
+  end;
+end;
+
+function TAccessHyperlink.GetDefaultInterface: _Hyperlink;
+begin
+  if FIntf = nil then
+    Connect;
+  Assert(FIntf <> nil, 'DefaultInterface is NULL. Component is not connected to Server. You must call ''Connect'' or ''ConnectTo'' before this operation');
+  Result := FIntf;
+end;
+
+constructor TAccessHyperlink.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps := TAccessHyperlinkProperties.Create(Self);
+{$ENDIF}
+end;
+
+destructor TAccessHyperlink.Destroy;
+begin
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+  FProps.Free;
+{$ENDIF}
+  inherited Destroy;
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+function TAccessHyperlink.GetServerProperties: TAccessHyperlinkProperties;
+begin
+  Result := FProps;
+end;
+{$ENDIF}
+
+function TAccessHyperlink.Get_SubAddress: WideString;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.SubAddress;
+end;
+
+procedure TAccessHyperlink.Set_SubAddress(pbstrResult: OleVariant);
+  { Warning: The property SubAddress has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.SubAddress := pbstrResult;
+end;
+
+function TAccessHyperlink.Get_Address: WideString;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Address;
+end;
+
+procedure TAccessHyperlink.Set_Address(pbstrResult: OleVariant);
+  { Warning: The property Address has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Address := pbstrResult;
+end;
+
+procedure TAccessHyperlink.AddToFavorites;
+begin
+  DefaultInterface.AddToFavorites;
+end;
+
+procedure TAccessHyperlink.Follow(NewWindow: WordBool; AddHistory: WordBool; ExtraInfo: OleVariant; 
+                                  Method: MsoExtraInfoMethod; const HeaderInfo: WideString);
+begin
+  DefaultInterface.Follow(NewWindow, AddHistory, ExtraInfo, Method, HeaderInfo);
+end;
+
+{$IFDEF LIVE_SERVER_AT_DESIGN_TIME}
+constructor TAccessHyperlinkProperties.Create(AServer: TAccessHyperlink);
+begin
+  inherited Create;
+  FServer := AServer;
+end;
+
+function TAccessHyperlinkProperties.GetDefaultInterface: _Hyperlink;
+begin
+  Result := FServer.DefaultInterface;
+end;
+
+function TAccessHyperlinkProperties.Get_SubAddress: WideString;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.SubAddress;
+end;
+
+procedure TAccessHyperlinkProperties.Set_SubAddress(pbstrResult: OleVariant);
+  { Warning: The property SubAddress has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.SubAddress := pbstrResult;
+end;
+
+function TAccessHyperlinkProperties.Get_Address: WideString;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Address;
+end;
+
+procedure TAccessHyperlinkProperties.Set_Address(pbstrResult: OleVariant);
+  { Warning: The property Address has a setter and a getter whose
+    types do not match. Delphi was unable to generate a property of
+    this sort and so is using a Variant as a passthrough. }
+var
+  InterfaceVariant: OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  InterfaceVariant.Address := pbstrResult;
+end;
+
+{$ENDIF}
+
+procedure TAccessControl.InitControlData;
+const
+  CControlData: TControlData2 = (
+    ClassID: '{02F92C80-8F8E-101B-AF4E-00AA003F0F07}';
+    EventIID: '';
+    EventCount: 0;
+    EventDispIDs: nil;
+    LicenseKey: nil (*HR:$80040154*);
+    Flags: $00000000;
+    Version: 401);
+begin
+  ControlData := @CControlData;
+end;
+
+procedure TAccessControl.CreateControl;
+
+  procedure DoCreate;
+  begin
+    FIntf := IUnknown(OleObject) as _Control;
+  end;
+
+begin
+  if FIntf = nil then DoCreate;
+end;
+
+function TAccessControl.GetControlInterface: _Control;
+begin
+  CreateControl;
+  Result := FIntf;
+end;
+
+function TAccessControl.Get_Application: AccessApplication;
+begin
+    Result := DefaultInterface.Application;
+end;
+
+function TAccessControl.Get_Parent: IDispatch;
+begin
+    Result := DefaultInterface.Parent;
+end;
+
+function TAccessControl.Get_Column(Index: Integer; Row: OleVariant): OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.Column[Index, Row];
+end;
+
+function TAccessControl.Get_Selected(lRow: Integer): Integer;
+begin
+    Result := DefaultInterface.Selected[lRow];
+end;
+
+procedure TAccessControl.Set_Selected(lRow: Integer; pRet: Integer);
+begin
+  DefaultInterface.Selected[lRow] := pRet;
+end;
+
+function TAccessControl.Get_OldValue: OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := DefaultInterface;
+  Result := InterfaceVariant.OldValue;
+end;
+
+function TAccessControl.Get_Form: AccessForm;
+begin
+    Result := DefaultInterface.Form;
+end;
+
+function TAccessControl.Get_Report: AccessReport;
+begin
+    Result := DefaultInterface.Report;
+end;
+
+function TAccessControl.Get_ItemData(Index: Integer): OleVariant;
+var
+  InterfaceVariant : OleVariant;
+begin
+  InterfaceVariant := Default

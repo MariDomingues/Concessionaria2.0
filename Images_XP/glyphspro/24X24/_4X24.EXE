@@ -1,0 +1,800 @@
+t: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Properties: Properties read Get_Properties;
+    property Controls: Children read Get_Controls;
+    property EventProcPrefix: WideString read Get_EventProcPrefix write Set_EventProcPrefix;
+    property _Name: WideString read Get__Name write Set__Name;
+    property ControlType: Byte read Get_ControlType write Set_ControlType;
+    property Caption: WideString read Get_Caption write Set_Caption;
+    property Picture: WideString read Get_Picture write Set_Picture;
+    property PictureType: Byte read Get_PictureType write Set_PictureType;
+    property PageIndex: Smallint read Get_PageIndex write Set_PageIndex;
+    property StatusBarText: WideString read Get_StatusBarText write Set_StatusBarText;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property Enabled: WordBool read Get_Enabled write Set_Enabled;
+    property Left: Smallint read Get_Left write Set_Left;
+    property Top: Smallint read Get_Top write Set_Top;
+    property Width: Smallint read Get_Width write Set_Width;
+    property Height: Smallint read Get_Height write Set_Height;
+    property ShortcutMenuBar: WideString read Get_ShortcutMenuBar write Set_ShortcutMenuBar;
+    property ControlTipText: WideString read Get_ControlTipText write Set_ControlTipText;
+    property HelpContextId: Integer read Get_HelpContextId write Set_HelpContextId;
+    property Section: Smallint read Get_Section write Set_Section;
+    property ControlName: WideString read Get_ControlName write Set_ControlName;
+    property Tag: WideString read Get_Tag write Set_Tag;
+    property IsVisible: WordBool read Get_IsVisible write Set_IsVisible;
+    property InSelection: WordBool read Get_InSelection write Set_InSelection;
+    property OnClick: WideString read Get_OnClick write Set_OnClick;
+    property OnDblClick: WideString read Get_OnDblClick write Set_OnDblClick;
+    property OnMouseDown: WideString read Get_OnMouseDown write Set_OnMouseDown;
+    property OnMouseMove: WideString read Get_OnMouseMove write Set_OnMouseMove;
+    property OnMouseUp: WideString read Get_OnMouseUp write Set_OnMouseUp;
+    property PictureData: OleVariant read Get_PictureData write Set_PictureData;
+    property Name: WideString read Get_Name write Set_Name;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _PageDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E974-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _PageDisp = dispinterface
+    ['{3B06E974-E47C-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Properties: Properties readonly dispid 2091;
+    procedure SizeToFit; dispid 2151;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: {??PSafeArray}OleVariant): OleVariant; dispid -5;
+    procedure Requery; dispid 2018;
+    procedure Goto_; dispid 2023;
+    procedure SetFocus; dispid 2022;
+    property Controls: Children readonly dispid 2190;
+    property EventProcPrefix: WideString dispid 22;
+    property _Name: WideString dispid 20;
+    property ControlType: Byte dispid 21;
+    property Caption: WideString dispid 17;
+    property Picture: WideString dispid 7;
+    property PictureType: Byte dispid 341;
+    property PageIndex: Smallint dispid 352;
+    property StatusBarText: WideString dispid 135;
+    property Visible: WordBool dispid 148;
+    property Enabled: WordBool dispid 25;
+    property Left: Smallint dispid 54;
+    property Top: Smallint dispid 141;
+    property Width: Smallint dispid 150;
+    property Height: Smallint dispid 44;
+    property ShortcutMenuBar: WideString dispid 304;
+    property ControlTipText: WideString dispid 317;
+    property HelpContextId: Integer dispid 219;
+    property Section: Smallint dispid 237;
+    property ControlName: WideString dispid 265;
+    property Tag: WideString dispid 266;
+    property IsVisible: WordBool dispid 140;
+    property InSelection: WordBool dispid 280;
+    property OnClick: WideString dispid 126;
+    property OnDblClick: WideString dispid 224;
+    property OnMouseDown: WideString dispid 107;
+    property OnMouseMove: WideString dispid 109;
+    property OnMouseUp: WideString dispid 108;
+    property PictureData: OleVariant dispid 188;
+    property Name: WideString dispid -2147418112;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); dispid 2328;
+    property accParent: IDispatch readonly dispid -5000;
+    property accChildCount: Integer readonly dispid -5001;
+    property accChild[varChild: OleVariant]: IDispatch readonly dispid -5002;
+    property accName[varChild: OleVariant]: WideString dispid -5003;
+    property accValue[varChild: OleVariant]: WideString dispid -5004;
+    property accDescription[varChild: OleVariant]: WideString readonly dispid -5005;
+    property accRole[varChild: OleVariant]: OleVariant readonly dispid -5006;
+    property accState[varChild: OleVariant]: OleVariant readonly dispid -5007;
+    property accHelp[varChild: OleVariant]: WideString readonly dispid -5008;
+    property accHelpTopic[out pszHelpFile: WideString; varChild: OleVariant]: Integer readonly dispid -5009;
+    property accKeyboardShortcut[varChild: OleVariant]: WideString readonly dispid -5010;
+    property accFocus: OleVariant readonly dispid -5011;
+    property accSelection: OleVariant readonly dispid -5012;
+    property accDefaultAction[varChild: OleVariant]: WideString readonly dispid -5013;
+    procedure accSelect(flagsSelect: Integer; varChild: OleVariant); dispid -5014;
+    procedure accLocation(out pxLeft: Integer; out pyTop: Integer; out pcxWidth: Integer; 
+                          out pcyHeight: Integer; varChild: OleVariant); dispid -5015;
+    function accNavigate(navDir: Integer; varStart: OleVariant): OleVariant; dispid -5016;
+    function accHitTest(xLeft: Integer; yTop: Integer): OleVariant; dispid -5017;
+    procedure accDoDefaultAction(varChild: OleVariant); dispid -5018;
+  end;
+
+// *********************************************************************//
+// Interface: Pages
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E978-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  Pages = interface(IDispatch)
+    ['{3B06E978-E47C-11CD-8701-00AA003F0F07}']
+    function Get_Item(Index: OleVariant): AccessPage; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    function Add(Before: OleVariant): AccessPage; safecall;
+    procedure Remove(Item: OleVariant); safecall;
+    property Item[Index: OleVariant]: AccessPage read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  PagesDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E978-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  PagesDisp = dispinterface
+    ['{3B06E978-E47C-11CD-8701-00AA003F0F07}']
+    property Item[Index: OleVariant]: AccessPage readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+    function Add(Before: OleVariant): AccessPage; dispid 2191;
+    procedure Remove(Item: OleVariant); dispid 2192;
+  end;
+
+// *********************************************************************//
+// Interface: _Control
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {26B96540-8F8E-101B-AF4E-00AA003F0F07}
+// *********************************************************************//
+  _Control = interface(IDispatch)
+    ['{26B96540-8F8E-101B-AF4E-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    procedure Undo; safecall;
+    procedure Dropdown; safecall;
+    function Get_Column(Index: Integer; Row: OleVariant): OleVariant; safecall;
+    function Get_Selected(lRow: Integer): Integer; safecall;
+    procedure Set_Selected(lRow: Integer; pRet: Integer); safecall;
+    function Get_OldValue: OleVariant; safecall;
+    function Get_Form: AccessForm; safecall;
+    function Get_Report: AccessReport; safecall;
+    function Get_ItemData(Index: Integer): OleVariant; safecall;
+    function Get_Object_: IDispatch; safecall;
+    function Get_ObjectVerbs(Index: Integer): WideString; safecall;
+    function Get_Properties: Properties; safecall;
+    procedure Requery; safecall;
+    procedure SizeToFit; safecall;
+    procedure Goto_; safecall;
+    function Get_ItemsSelected: _ItemsSelected; safecall;
+    procedure SetFocus; safecall;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant; safecall;
+    function Get_Pages: Pages; safecall;
+    function Get_Controls: Children; safecall;
+    function Get_Hyperlink: _Hyperlink; safecall;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Column[Index: Integer; Row: OleVariant]: OleVariant read Get_Column;
+    property Selected[lRow: Integer]: Integer read Get_Selected write Set_Selected;
+    property OldValue: OleVariant read Get_OldValue;
+    property Form: AccessForm read Get_Form;
+    property Report: AccessReport read Get_Report;
+    property ItemData[Index: Integer]: OleVariant read Get_ItemData;
+    property Object_: IDispatch read Get_Object_;
+    property ObjectVerbs[Index: Integer]: WideString read Get_ObjectVerbs;
+    property Properties: Properties read Get_Properties;
+    property ItemsSelected: _ItemsSelected read Get_ItemsSelected;
+    property Pages: Pages read Get_Pages;
+    property Controls: Children read Get_Controls;
+    property Hyperlink: _Hyperlink read Get_Hyperlink;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _ControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {26B96540-8F8E-101B-AF4E-00AA003F0F07}
+// *********************************************************************//
+  _ControlDisp = dispinterface
+    ['{26B96540-8F8E-101B-AF4E-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    procedure Undo; dispid 2144;
+    procedure Dropdown; dispid 2143;
+    property Column[Index: Integer; Row: OleVariant]: OleVariant readonly dispid 2101;
+    property Selected[lRow: Integer]: Integer dispid 2113;
+    property OldValue: OleVariant readonly dispid 2102;
+    property Form: AccessForm readonly dispid 2089;
+    property Report: AccessReport readonly dispid 2097;
+    property ItemData[Index: Integer]: OleVariant readonly dispid 2103;
+    property Object_: IDispatch readonly dispid 2104;
+    property ObjectVerbs[Index: Integer]: WideString readonly dispid 2105;
+    property Properties: Properties readonly dispid 2091;
+    procedure Requery; dispid 2018;
+    procedure SizeToFit; dispid 2151;
+    procedure Goto_; dispid 2023;
+    property ItemsSelected: _ItemsSelected readonly dispid 2137;
+    procedure SetFocus; dispid 2022;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: {??PSafeArray}OleVariant): OleVariant; dispid -5;
+    property Pages: Pages readonly dispid 2180;
+    property Controls: Children readonly dispid 2190;
+    property Hyperlink: _Hyperlink readonly dispid 2181;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); dispid 2328;
+  end;
+
+// *********************************************************************//
+// Interface: __ControlInReportEvents
+// Flags:     (16) Hidden
+// GUID:      {90B322A5-F1D9-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  __ControlInReportEvents = interface(IUnknown)
+    ['{90B322A5-F1D9-11CD-8701-00AA003F0F07}']
+  end;
+
+// *********************************************************************//
+// Interface: Controls
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {5970C574-EB8C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  Controls = interface(IDispatch)
+    ['{5970C574-EB8C-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Item(Index: OleVariant): IDispatch; safecall;
+    function Get_Count: Integer; safecall;
+    function _NewEnum: IUnknown; safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Item[Index: OleVariant]: IDispatch read Get_Item; default;
+    property Count: Integer read Get_Count;
+  end;
+
+// *********************************************************************//
+// DispIntf:  ControlsDisp
+// Flags:     (4544) Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {5970C574-EB8C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  ControlsDisp = dispinterface
+    ['{5970C574-EB8C-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Item[Index: OleVariant]: IDispatch readonly dispid 0; default;
+    property Count: Integer readonly dispid 2001;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+
+// *********************************************************************//
+// Interface: _Label
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E948-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _Label = interface(IAccessible)
+    ['{3B06E948-E47C-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Properties: Properties; safecall;
+    procedure SizeToFit; safecall;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant; safecall;
+    function Get_Hyperlink: _Hyperlink; safecall;
+    function Get_EventProcPrefix: WideString; safecall;
+    procedure Set_EventProcPrefix(const pRet: WideString); safecall;
+    function Get__Name: WideString; safecall;
+    procedure Set__Name(const pRet: WideString); safecall;
+    function Get_ControlType: Byte; safecall;
+    procedure Set_ControlType(pRet: Byte); safecall;
+    function Get_Caption: WideString; safecall;
+    procedure Set_Caption(const pRet: WideString); safecall;
+    function Get_HyperlinkAddress: WideString; safecall;
+    procedure Set_HyperlinkAddress(const pRet: WideString); safecall;
+    function Get_HyperlinkSubAddress: WideString; safecall;
+    procedure Set_HyperlinkSubAddress(const pRet: WideString); safecall;
+    function Get_Visible: WordBool; safecall;
+    procedure Set_Visible(pRet: WordBool); safecall;
+    function Get_DisplayWhen: Byte; safecall;
+    procedure Set_DisplayWhen(pRet: Byte); safecall;
+    function Get_Vertical: WordBool; safecall;
+    procedure Set_Vertical(pRet: WordBool); safecall;
+    function Get_Left: Smallint; safecall;
+    procedure Set_Left(pRet: Smallint); safecall;
+    function Get_Top: Smallint; safecall;
+    procedure Set_Top(pRet: Smallint); safecall;
+    function Get_Width: Smallint; safecall;
+    procedure Set_Width(pRet: Smallint); safecall;
+    function Get_Height: Smallint; safecall;
+    procedure Set_Height(pRet: Smallint); safecall;
+    function Get_BackStyle: Byte; safecall;
+    procedure Set_BackStyle(pRet: Byte); safecall;
+    function Get_BackColor: Integer; safecall;
+    procedure Set_BackColor(pRet: Integer); safecall;
+    function Get_SpecialEffect: Byte; safecall;
+    procedure Set_SpecialEffect(pRet: Byte); safecall;
+    function Get_BorderStyle: Byte; safecall;
+    procedure Set_BorderStyle(pRet: Byte); safecall;
+    function Get_OldBorderStyle: Byte; safecall;
+    procedure Set_OldBorderStyle(pRet: Byte); safecall;
+    function Get_BorderColor: Integer; safecall;
+    procedure Set_BorderColor(pRet: Integer); safecall;
+    function Get_BorderWidth: Byte; safecall;
+    procedure Set_BorderWidth(pRet: Byte); safecall;
+    function Get_BorderLineStyle: Byte; safecall;
+    procedure Set_BorderLineStyle(pRet: Byte); safecall;
+    function Get_ForeColor: Integer; safecall;
+    procedure Set_ForeColor(pRet: Integer); safecall;
+    function Get_FontName: WideString; safecall;
+    procedure Set_FontName(const pRet: WideString); safecall;
+    function Get_FontSize: Smallint; safecall;
+    procedure Set_FontSize(pRet: Smallint); safecall;
+    function Get_FontWeight: Smallint; safecall;
+    procedure Set_FontWeight(pRet: Smallint); safecall;
+    function Get_FontItalic: WordBool; safecall;
+    procedure Set_FontItalic(pRet: WordBool); safecall;
+    function Get_FontUnderline: WordBool; safecall;
+    procedure Set_FontUnderline(pRet: WordBool); safecall;
+    function Get_TextFontCharSet: Byte; safecall;
+    procedure Set_TextFontCharSet(pRet: Byte); safecall;
+    function Get_TextAlign: Byte; safecall;
+    procedure Set_TextAlign(pRet: Byte); safecall;
+    function Get_FontBold: Smallint; safecall;
+    procedure Set_FontBold(pRet: Smallint); safecall;
+    function Get_ControlTipText: WideString; safecall;
+    procedure Set_ControlTipText(const pRet: WideString); safecall;
+    function Get_HelpContextId: Integer; safecall;
+    procedure Set_HelpContextId(pRet: Integer); safecall;
+    function Get_Section: Smallint; safecall;
+    procedure Set_Section(pRet: Smallint); safecall;
+    function Get_ControlName: WideString; safecall;
+    procedure Set_ControlName(const pRet: WideString); safecall;
+    function Get_IsVisible: WordBool; safecall;
+    procedure Set_IsVisible(pRet: WordBool); safecall;
+    function Get_InSelection: WordBool; safecall;
+    procedure Set_InSelection(pRet: WordBool); safecall;
+    function Get_OnClick: WideString; safecall;
+    procedure Set_OnClick(const pRet: WideString); safecall;
+    function Get_OnDblClick: WideString; safecall;
+    procedure Set_OnDblClick(const pRet: WideString); safecall;
+    function Get_OnMouseDown: WideString; safecall;
+    procedure Set_OnMouseDown(const pRet: WideString); safecall;
+    function Get_OnMouseMove: WideString; safecall;
+    procedure Set_OnMouseMove(const pRet: WideString); safecall;
+    function Get_OnMouseUp: WideString; safecall;
+    procedure Set_OnMouseUp(const pRet: WideString); safecall;
+    function Get_ShortcutMenuBar: WideString; safecall;
+    procedure Set_ShortcutMenuBar(const pRet: WideString); safecall;
+    function Get_Tag: WideString; safecall;
+    procedure Set_Tag(const pRet: WideString); safecall;
+    function Get_ReadingOrder: Byte; safecall;
+    procedure Set_ReadingOrder(pRet: Byte); safecall;
+    function Get_NumeralShapes: Byte; safecall;
+    procedure Set_NumeralShapes(pRet: Byte); safecall;
+    function Get_Name: WideString; safecall;
+    procedure Set_Name(const pbstrName: WideString); safecall;
+    function Get_LeftMargin: Smallint; safecall;
+    procedure Set_LeftMargin(pRet: Smallint); safecall;
+    function Get_TopMargin: Smallint; safecall;
+    procedure Set_TopMargin(pRet: Smallint); safecall;
+    function Get_LineSpacing: Smallint; safecall;
+    procedure Set_LineSpacing(pRet: Smallint); safecall;
+    function Get_RightMargin: Smallint; safecall;
+    procedure Set_RightMargin(pRet: Smallint); safecall;
+    function Get_BottomMargin: Smallint; safecall;
+    procedure Set_BottomMargin(pRet: Smallint); safecall;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Properties: Properties read Get_Properties;
+    property Hyperlink: _Hyperlink read Get_Hyperlink;
+    property EventProcPrefix: WideString read Get_EventProcPrefix write Set_EventProcPrefix;
+    property _Name: WideString read Get__Name write Set__Name;
+    property ControlType: Byte read Get_ControlType write Set_ControlType;
+    property Caption: WideString read Get_Caption write Set_Caption;
+    property HyperlinkAddress: WideString read Get_HyperlinkAddress write Set_HyperlinkAddress;
+    property HyperlinkSubAddress: WideString read Get_HyperlinkSubAddress write Set_HyperlinkSubAddress;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property DisplayWhen: Byte read Get_DisplayWhen write Set_DisplayWhen;
+    property Vertical: WordBool read Get_Vertical write Set_Vertical;
+    property Left: Smallint read Get_Left write Set_Left;
+    property Top: Smallint read Get_Top write Set_Top;
+    property Width: Smallint read Get_Width write Set_Width;
+    property Height: Smallint read Get_Height write Set_Height;
+    property BackStyle: Byte read Get_BackStyle write Set_BackStyle;
+    property BackColor: Integer read Get_BackColor write Set_BackColor;
+    property SpecialEffect: Byte read Get_SpecialEffect write Set_SpecialEffect;
+    property BorderStyle: Byte read Get_BorderStyle write Set_BorderStyle;
+    property OldBorderStyle: Byte read Get_OldBorderStyle write Set_OldBorderStyle;
+    property BorderColor: Integer read Get_BorderColor write Set_BorderColor;
+    property BorderWidth: Byte read Get_BorderWidth write Set_BorderWidth;
+    property BorderLineStyle: Byte read Get_BorderLineStyle write Set_BorderLineStyle;
+    property ForeColor: Integer read Get_ForeColor write Set_ForeColor;
+    property FontName: WideString read Get_FontName write Set_FontName;
+    property FontSize: Smallint read Get_FontSize write Set_FontSize;
+    property FontWeight: Smallint read Get_FontWeight write Set_FontWeight;
+    property FontItalic: WordBool read Get_FontItalic write Set_FontItalic;
+    property FontUnderline: WordBool read Get_FontUnderline write Set_FontUnderline;
+    property TextFontCharSet: Byte read Get_TextFontCharSet write Set_TextFontCharSet;
+    property TextAlign: Byte read Get_TextAlign write Set_TextAlign;
+    property FontBold: Smallint read Get_FontBold write Set_FontBold;
+    property ControlTipText: WideString read Get_ControlTipText write Set_ControlTipText;
+    property HelpContextId: Integer read Get_HelpContextId write Set_HelpContextId;
+    property Section: Smallint read Get_Section write Set_Section;
+    property ControlName: WideString read Get_ControlName write Set_ControlName;
+    property IsVisible: WordBool read Get_IsVisible write Set_IsVisible;
+    property InSelection: WordBool read Get_InSelection write Set_InSelection;
+    property OnClick: WideString read Get_OnClick write Set_OnClick;
+    property OnDblClick: WideString read Get_OnDblClick write Set_OnDblClick;
+    property OnMouseDown: WideString read Get_OnMouseDown write Set_OnMouseDown;
+    property OnMouseMove: WideString read Get_OnMouseMove write Set_OnMouseMove;
+    property OnMouseUp: WideString read Get_OnMouseUp write Set_OnMouseUp;
+    property ShortcutMenuBar: WideString read Get_ShortcutMenuBar write Set_ShortcutMenuBar;
+    property Tag: WideString read Get_Tag write Set_Tag;
+    property ReadingOrder: Byte read Get_ReadingOrder write Set_ReadingOrder;
+    property NumeralShapes: Byte read Get_NumeralShapes write Set_NumeralShapes;
+    property Name: WideString read Get_Name write Set_Name;
+    property LeftMargin: Smallint read Get_LeftMargin write Set_LeftMargin;
+    property TopMargin: Smallint read Get_TopMargin write Set_TopMargin;
+    property LineSpacing: Smallint read Get_LineSpacing write Set_LineSpacing;
+    property RightMargin: Smallint read Get_RightMargin write Set_RightMargin;
+    property BottomMargin: Smallint read Get_BottomMargin write Set_BottomMargin;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _LabelDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E948-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _LabelDisp = dispinterface
+    ['{3B06E948-E47C-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Properties: Properties readonly dispid 2091;
+    procedure SizeToFit; dispid 2151;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: {??PSafeArray}OleVariant): OleVariant; dispid -5;
+    property Hyperlink: _Hyperlink readonly dispid 2181;
+    property EventProcPrefix: WideString dispid 22;
+    property _Name: WideString dispid 20;
+    property ControlType: Byte dispid 21;
+    property Caption: WideString dispid 17;
+    property HyperlinkAddress: WideString dispid 343;
+    property HyperlinkSubAddress: WideString dispid 347;
+    property Visible: WordBool dispid 148;
+    property DisplayWhen: Byte dispid 149;
+    property Vertical: WordBool dispid 355;
+    property Left: Smallint dispid 54;
+    property Top: Smallint dispid 141;
+    property Width: Smallint dispid 150;
+    property Height: Smallint dispid 44;
+    property BackStyle: Byte dispid 29;
+    property BackColor: Integer dispid 28;
+    property SpecialEffect: Byte dispid 4;
+    property BorderStyle: Byte dispid 9;
+    property OldBorderStyle: Byte dispid 329;
+    property BorderColor: Integer dispid 8;
+    property BorderWidth: Byte dispid 10;
+    property BorderLineStyle: Byte dispid 11;
+    property ForeColor: Integer dispid 204;
+    property FontName: WideString dispid 34;
+    property FontSize: Smallint dispid 35;
+    property FontWeight: Smallint dispid 37;
+    property FontItalic: WordBool dispid 33;
+    property FontUnderline: WordBool dispid 36;
+    property TextFontCharSet: Byte dispid 193;
+    property TextAlign: Byte dispid 136;
+    property FontBold: Smallint dispid 32;
+    property ControlTipText: WideString dispid 317;
+    property HelpContextId: Integer dispid 219;
+    property Section: Smallint dispid 237;
+    property ControlName: WideString dispid 265;
+    property IsVisible: WordBool dispid 140;
+    property InSelection: WordBool dispid 280;
+    property OnClick: WideString dispid 126;
+    property OnDblClick: WideString dispid 224;
+    property OnMouseDown: WideString dispid 107;
+    property OnMouseMove: WideString dispid 109;
+    property OnMouseUp: WideString dispid 108;
+    property ShortcutMenuBar: WideString dispid 304;
+    property Tag: WideString dispid 266;
+    property ReadingOrder: Byte dispid 367;
+    property NumeralShapes: Byte dispid 372;
+    property Name: WideString dispid -2147418112;
+    property LeftMargin: Smallint dispid 384;
+    property TopMargin: Smallint dispid 385;
+    property LineSpacing: Smallint dispid 386;
+    property RightMargin: Smallint dispid 388;
+    property BottomMargin: Smallint dispid 389;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); dispid 2328;
+    property accParent: IDispatch readonly dispid -5000;
+    property accChildCount: Integer readonly dispid -5001;
+    property accChild[varChild: OleVariant]: IDispatch readonly dispid -5002;
+    property accName[varChild: OleVariant]: WideString dispid -5003;
+    property accValue[varChild: OleVariant]: WideString dispid -5004;
+    property accDescription[varChild: OleVariant]: WideString readonly dispid -5005;
+    property accRole[varChild: OleVariant]: OleVariant readonly dispid -5006;
+    property accState[varChild: OleVariant]: OleVariant readonly dispid -5007;
+    property accHelp[varChild: OleVariant]: WideString readonly dispid -5008;
+    property accHelpTopic[out pszHelpFile: WideString; varChild: OleVariant]: Integer readonly dispid -5009;
+    property accKeyboardShortcut[varChild: OleVariant]: WideString readonly dispid -5010;
+    property accFocus: OleVariant readonly dispid -5011;
+    property accSelection: OleVariant readonly dispid -5012;
+    property accDefaultAction[varChild: OleVariant]: WideString readonly dispid -5013;
+    procedure accSelect(flagsSelect: Integer; varChild: OleVariant); dispid -5014;
+    procedure accLocation(out pxLeft: Integer; out pyTop: Integer; out pcxWidth: Integer; 
+                          out pcyHeight: Integer; varChild: OleVariant); dispid -5015;
+    function accNavigate(navDir: Integer; varStart: OleVariant): OleVariant; dispid -5016;
+    function accHitTest(xLeft: Integer; yTop: Integer): OleVariant; dispid -5017;
+    procedure accDoDefaultAction(varChild: OleVariant); dispid -5018;
+  end;
+
+// *********************************************************************//
+// Interface: _LabelEvents
+// Flags:     (16) Hidden
+// GUID:      {BC9E4341-F037-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _LabelEvents = interface(IUnknown)
+    ['{BC9E4341-F037-11CD-8701-00AA003F0F07}']
+    function Click: HResult; stdcall;
+    function DblClick(out Cancel: Smallint): HResult; stdcall;
+    function MouseDown(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseMove(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseUp(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _ChildLabelEvents
+// Flags:     (16) Hidden
+// GUID:      {BC9E4358-F037-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _ChildLabelEvents = interface(IUnknown)
+    ['{BC9E4358-F037-11CD-8701-00AA003F0F07}']
+  end;
+
+// *********************************************************************//
+// Interface: _Rectangle
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E94A-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _Rectangle = interface(IDispatch)
+    ['{3B06E94A-E47C-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Properties: Properties; safecall;
+    procedure SizeToFit; safecall;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant; safecall;
+    function Get_EventProcPrefix: WideString; safecall;
+    procedure Set_EventProcPrefix(const pRet: WideString); safecall;
+    function Get__Name: WideString; safecall;
+    procedure Set__Name(const pRet: WideString); safecall;
+    function Get_ControlType: Byte; safecall;
+    procedure Set_ControlType(pRet: Byte); safecall;
+    function Get_Visible: WordBool; safecall;
+    procedure Set_Visible(pRet: WordBool); safecall;
+    function Get_DisplayWhen: Byte; safecall;
+    procedure Set_DisplayWhen(pRet: Byte); safecall;
+    function Get_Left: Smallint; safecall;
+    procedure Set_Left(pRet: Smallint); safecall;
+    function Get_Top: Smallint; safecall;
+    procedure Set_Top(pRet: Smallint); safecall;
+    function Get_Width: Smallint; safecall;
+    procedure Set_Width(pRet: Smallint); safecall;
+    function Get_Height: Smallint; safecall;
+    procedure Set_Height(pRet: Smallint); safecall;
+    function Get_BackStyle: Byte; safecall;
+    procedure Set_BackStyle(pRet: Byte); safecall;
+    function Get_BackColor: Integer; safecall;
+    procedure Set_BackColor(pRet: Integer); safecall;
+    function Get_SpecialEffect: Byte; safecall;
+    procedure Set_SpecialEffect(pRet: Byte); safecall;
+    function Get_BorderStyle: Byte; safecall;
+    procedure Set_BorderStyle(pRet: Byte); safecall;
+    function Get_OldBorderStyle: Byte; safecall;
+    procedure Set_OldBorderStyle(pRet: Byte); safecall;
+    function Get_BorderColor: Integer; safecall;
+    procedure Set_BorderColor(pRet: Integer); safecall;
+    function Get_BorderWidth: Byte; safecall;
+    procedure Set_BorderWidth(pRet: Byte); safecall;
+    function Get_BorderLineStyle: Byte; safecall;
+    procedure Set_BorderLineStyle(pRet: Byte); safecall;
+    function Get_Section: Smallint; safecall;
+    procedure Set_Section(pRet: Smallint); safecall;
+    function Get_ControlName: WideString; safecall;
+    procedure Set_ControlName(const pRet: WideString); safecall;
+    function Get_Tag: WideString; safecall;
+    procedure Set_Tag(const pRet: WideString); safecall;
+    function Get_IsVisible: WordBool; safecall;
+    procedure Set_IsVisible(pRet: WordBool); safecall;
+    function Get_InSelection: WordBool; safecall;
+    procedure Set_InSelection(pRet: WordBool); safecall;
+    function Get_OnClick: WideString; safecall;
+    procedure Set_OnClick(const pRet: WideString); safecall;
+    function Get_OnDblClick: WideString; safecall;
+    procedure Set_OnDblClick(const pRet: WideString); safecall;
+    function Get_OnMouseDown: WideString; safecall;
+    procedure Set_OnMouseDown(const pRet: WideString); safecall;
+    function Get_OnMouseMove: WideString; safecall;
+    procedure Set_OnMouseMove(const pRet: WideString); safecall;
+    function Get_OnMouseUp: WideString; safecall;
+    procedure Set_OnMouseUp(const pRet: WideString); safecall;
+    function Get_Name: WideString; safecall;
+    procedure Set_Name(const pbstrName: WideString); safecall;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Properties: Properties read Get_Properties;
+    property EventProcPrefix: WideString read Get_EventProcPrefix write Set_EventProcPrefix;
+    property _Name: WideString read Get__Name write Set__Name;
+    property ControlType: Byte read Get_ControlType write Set_ControlType;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property DisplayWhen: Byte read Get_DisplayWhen write Set_DisplayWhen;
+    property Left: Smallint read Get_Left write Set_Left;
+    property Top: Smallint read Get_Top write Set_Top;
+    property Width: Smallint read Get_Width write Set_Width;
+    property Height: Smallint read Get_Height write Set_Height;
+    property BackStyle: Byte read Get_BackStyle write Set_BackStyle;
+    property BackColor: Integer read Get_BackColor write Set_BackColor;
+    property SpecialEffect: Byte read Get_SpecialEffect write Set_SpecialEffect;
+    property BorderStyle: Byte read Get_BorderStyle write Set_BorderStyle;
+    property OldBorderStyle: Byte read Get_OldBorderStyle write Set_OldBorderStyle;
+    property BorderColor: Integer read Get_BorderColor write Set_BorderColor;
+    property BorderWidth: Byte read Get_BorderWidth write Set_BorderWidth;
+    property BorderLineStyle: Byte read Get_BorderLineStyle write Set_BorderLineStyle;
+    property Section: Smallint read Get_Section write Set_Section;
+    property ControlName: WideString read Get_ControlName write Set_ControlName;
+    property Tag: WideString read Get_Tag write Set_Tag;
+    property IsVisible: WordBool read Get_IsVisible write Set_IsVisible;
+    property InSelection: WordBool read Get_InSelection write Set_InSelection;
+    property OnClick: WideString read Get_OnClick write Set_OnClick;
+    property OnDblClick: WideString read Get_OnDblClick write Set_OnDblClick;
+    property OnMouseDown: WideString read Get_OnMouseDown write Set_OnMouseDown;
+    property OnMouseMove: WideString read Get_OnMouseMove write Set_OnMouseMove;
+    property OnMouseUp: WideString read Get_OnMouseUp write Set_OnMouseUp;
+    property Name: WideString read Get_Name write Set_Name;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _RectangleDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E94A-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _RectangleDisp = dispinterface
+    ['{3B06E94A-E47C-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Properties: Properties readonly dispid 2091;
+    procedure SizeToFit; dispid 2151;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: {??PSafeArray}OleVariant): OleVariant; dispid -5;
+    property EventProcPrefix: WideString dispid 22;
+    property _Name: WideString dispid 20;
+    property ControlType: Byte dispid 21;
+    property Visible: WordBool dispid 148;
+    property DisplayWhen: Byte dispid 149;
+    property Left: Smallint dispid 54;
+    property Top: Smallint dispid 141;
+    property Width: Smallint dispid 150;
+    property Height: Smallint dispid 44;
+    property BackStyle: Byte dispid 29;
+    property BackColor: Integer dispid 28;
+    property SpecialEffect: Byte dispid 4;
+    property BorderStyle: Byte dispid 9;
+    property OldBorderStyle: Byte dispid 329;
+    property BorderColor: Integer dispid 8;
+    property BorderWidth: Byte dispid 10;
+    property BorderLineStyle: Byte dispid 11;
+    property Section: Smallint dispid 237;
+    property ControlName: WideString dispid 265;
+    property Tag: WideString dispid 266;
+    property IsVisible: WordBool dispid 140;
+    property InSelection: WordBool dispid 280;
+    property OnClick: WideString dispid 126;
+    property OnDblClick: WideString dispid 224;
+    property OnMouseDown: WideString dispid 107;
+    property OnMouseMove: WideString dispid 109;
+    property OnMouseUp: WideString dispid 108;
+    property Name: WideString dispid -2147418112;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); dispid 2328;
+  end;
+
+// *********************************************************************//
+// Interface: _RectangleEvents
+// Flags:     (16) Hidden
+// GUID:      {BC9E4342-F037-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _RectangleEvents = interface(IUnknown)
+    ['{BC9E4342-F037-11CD-8701-00AA003F0F07}']
+    function Click: HResult; stdcall;
+    function DblClick(out Cancel: Smallint): HResult; stdcall;
+    function MouseDown(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseMove(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+    function MouseUp(var Button: Smallint; var Shift: Smallint; var X: Single; var Y: Single): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: _Line
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E94C-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _Line = interface(IDispatch)
+    ['{3B06E94C-E47C-11CD-8701-00AA003F0F07}']
+    function Get_Application: AccessApplication; safecall;
+    function Get_Parent: IDispatch; safecall;
+    function Get_Properties: Properties; safecall;
+    procedure SizeToFit; safecall;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: PSafeArray): OleVariant; safecall;
+    function Get_EventProcPrefix: WideString; safecall;
+    procedure Set_EventProcPrefix(const pRet: WideString); safecall;
+    function Get__Name: WideString; safecall;
+    procedure Set__Name(const pRet: WideString); safecall;
+    function Get_ControlType: Byte; safecall;
+    procedure Set_ControlType(pRet: Byte); safecall;
+    function Get_LineSlant: WordBool; safecall;
+    procedure Set_LineSlant(pRet: WordBool); safecall;
+    function Get_Visible: WordBool; safecall;
+    procedure Set_Visible(pRet: WordBool); safecall;
+    function Get_DisplayWhen: Byte; safecall;
+    procedure Set_DisplayWhen(pRet: Byte); safecall;
+    function Get_Left: Smallint; safecall;
+    procedure Set_Left(pRet: Smallint); safecall;
+    function Get_Top: Smallint; safecall;
+    procedure Set_Top(pRet: Smallint); safecall;
+    function Get_Width: Smallint; safecall;
+    procedure Set_Width(pRet: Smallint); safecall;
+    function Get_Height: Smallint; safecall;
+    procedure Set_Height(pRet: Smallint); safecall;
+    function Get_SpecialEffect: Byte; safecall;
+    procedure Set_SpecialEffect(pRet: Byte); safecall;
+    function Get_BorderStyle: Byte; safecall;
+    procedure Set_BorderStyle(pRet: Byte); safecall;
+    function Get_OldBorderStyle: Byte; safecall;
+    procedure Set_OldBorderStyle(pRet: Byte); safecall;
+    function Get_BorderColor: Integer; safecall;
+    procedure Set_BorderColor(pRet: Integer); safecall;
+    function Get_BorderWidth: Byte; safecall;
+    procedure Set_BorderWidth(pRet: Byte); safecall;
+    function Get_BorderLineStyle: Byte; safecall;
+    procedure Set_BorderLineStyle(pRet: Byte); safecall;
+    function Get_Section: Smallint; safecall;
+    procedure Set_Section(pRet: Smallint); safecall;
+    function Get_ControlName: WideString; safecall;
+    procedure Set_ControlName(const pRet: WideString); safecall;
+    function Get_Tag: WideString; safecall;
+    procedure Set_Tag(const pRet: WideString); safecall;
+    function Get_IsVisible: WordBool; safecall;
+    procedure Set_IsVisible(pRet: WordBool); safecall;
+    function Get_InSelection: WordBool; safecall;
+    procedure Set_InSelection(pRet: WordBool); safecall;
+    function Get_Name: WideString; safecall;
+    procedure Set_Name(const pbstrName: WideString); safecall;
+    procedure Move(Left: OleVariant; Top: OleVariant; Width: OleVariant; Height: OleVariant); safecall;
+    property Application: AccessApplication read Get_Application;
+    property Parent: IDispatch read Get_Parent;
+    property Properties: Properties read Get_Properties;
+    property EventProcPrefix: WideString read Get_EventProcPrefix write Set_EventProcPrefix;
+    property _Name: WideString read Get__Name write Set__Name;
+    property ControlType: Byte read Get_ControlType write Set_ControlType;
+    property LineSlant: WordBool read Get_LineSlant write Set_LineSlant;
+    property Visible: WordBool read Get_Visible write Set_Visible;
+    property DisplayWhen: Byte read Get_DisplayWhen write Set_DisplayWhen;
+    property Left: Smallint read Get_Left write Set_Left;
+    property Top: Smallint read Get_Top write Set_Top;
+    property Width: Smallint read Get_Width write Set_Width;
+    property Height: Smallint read Get_Height write Set_Height;
+    property SpecialEffect: Byte read Get_SpecialEffect write Set_SpecialEffect;
+    property BorderStyle: Byte read Get_BorderStyle write Set_BorderStyle;
+    property OldBorderStyle: Byte read Get_OldBorderStyle write Set_OldBorderStyle;
+    property BorderColor: Integer read Get_BorderColor write Set_BorderColor;
+    property BorderWidth: Byte read Get_BorderWidth write Set_BorderWidth;
+    property BorderLineStyle: Byte read Get_BorderLineStyle write Set_BorderLineStyle;
+    property Section: Smallint read Get_Section write Set_Section;
+    property ControlName: WideString read Get_ControlName write Set_ControlName;
+    property Tag: WideString read Get_Tag write Set_Tag;
+    property IsVisible: WordBool read Get_IsVisible write Set_IsVisible;
+    property InSelection: WordBool read Get_InSelection write Set_InSelection;
+    property Name: WideString read Get_Name write Set_Name;
+  end;
+
+// *********************************************************************//
+// DispIntf:  _LineDisp
+// Flags:     (4560) Hidden Dual NonExtensible OleAutomation Dispatchable
+// GUID:      {3B06E94C-E47C-11CD-8701-00AA003F0F07}
+// *********************************************************************//
+  _LineDisp = dispinterface
+    ['{3B06E94C-E47C-11CD-8701-00AA003F0F07}']
+    property Application: AccessApplication readonly dispid 2005;
+    property Parent: IDispatch readonly dispid 2087;
+    property Properties: Properties readonly dispid 2091;
+    procedure SizeToFit; dispid 2151;
+    function _Evaluate(const bstrExpr: WideString; var ppsa: {??PSafeArray}OleVariant): OleVariant; dispid -5;
+    property EventProcPrefix: WideString dispid 22;
+    property _Name: WideString dispid 20;
+    property ControlType: Byte dispid 21;
+    property LineSlant: WordBool dispid 55;
+    property Visible: WordBool dispid 148;
+    property DisplayWhen: Byte dispid 149;
+    property Left: Smallint dispid 54;
