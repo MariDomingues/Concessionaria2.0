@@ -241,7 +241,6 @@ begin
   inherited;
 //  Executar := exibePanels;
 //  FDTabela.FieldByName('DtVen').AsString := formatdatetime('dd\mm\yyyy', now);
-  ShowMessage(FDTabela.FieldByName('codigo').AsString);
   PnlItens.Enabled := False;
 end;
 

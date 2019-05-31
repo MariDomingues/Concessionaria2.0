@@ -224,7 +224,7 @@ begin
   //Botoes e barra de status
   Executar := desabilitaBotoes;
   StatusBar1.Panels[2].Text := 'Inclusão de novo registro';
-  Executar := exibePanels; -
+  Executar := exibePanels;
 
   operacaoIncluir := 0;
 end;

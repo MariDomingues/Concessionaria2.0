@@ -137,7 +137,7 @@ begin
   inherited;
    if DBLookupComboBox3.Text = '' then
     begin
-      Application.MessageBox('O campo "VeÃ­culo" nÃ£o pode ficar em branco.','Aviso',MB_OK+MB_ICONWARNING);
+      Application.MessageBox('O campo "Veículo" não pode ficar em branco.','Aviso',MB_OK+MB_ICONWARNING);
       DBLookupComboBox3.SetFocus;
       Abort;
     end;
@@ -228,7 +228,7 @@ begin
 
   if FDQRY_Geral.FieldByName('Total').AsInteger > 0 then
     begin
-      Application.MessageBox('Pedido de Venda com Itens adicionados. NÃ£o Ã© possÃ­vel excluir.','Aviso',MB_OK+MB_ICONERROR);
+      Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
       Operacao:= 1;
       //Botoes(True);
       exit;
@@ -241,6 +241,7 @@ begin
   inherited;
 //  Executar := exibePanels;
 //  FDTabela.FieldByName('DtVen').AsString := formatdatetime('dd\mm\yyyy', now);
+  ShowMessage(FDTabela.FieldByName('codigo').AsString);
   PnlItens.Enabled := False;
 end;
 
@@ -274,7 +275,7 @@ begin
   inherited;
   if varisnull(DBLookupComboBox1.KeyValue)  then
     begin
-      Application.MessageBox('O campo "Cliente" Ã© de preenchimento obrigatÃ³rio.', 'AtenÃ§Ã£o', MB_OK + MB_ICONERROR);
+      Application.MessageBox('O campo "Cliente" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
       DBLookupComboBox1.SetFocus;
       Abort;
     end;
@@ -285,7 +286,7 @@ begin
   inherited;
   if varisnull(DBLookupComboBox2.KeyValue)  then
     begin
-      Application.MessageBox('O campo "Vendedor" Ã© de preenchimento obrigatÃ³rio.', 'AtenÃ§Ã£o', MB_OK + MB_ICONERROR);
+      Application.MessageBox('O campo "Vendedor" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
       DBLookupComboBox2.SetFocus;
       Abort;
     end;
