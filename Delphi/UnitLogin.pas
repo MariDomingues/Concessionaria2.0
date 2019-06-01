@@ -57,7 +57,7 @@ begin
   ValorSenha.Enabled := False;
   BitBtn2.Enabled    := False;
 
-  Sleep(3000);
+  Sleep(1000);
 
   StrSql := 'SELECT L.*, P.* '+
             'FROM LOGIN L INNER JOIN PERFIL P '+
