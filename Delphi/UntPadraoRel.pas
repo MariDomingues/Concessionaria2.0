@@ -19,6 +19,8 @@ type
     BitBtn2: TBitBtn;
     StatusBar1: TStatusBar;
     FDQuery1: TFDQuery;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
   private
     { Private declarations }
   public

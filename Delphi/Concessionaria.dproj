@@ -162,6 +162,14 @@
             <Form>FrmConsultaVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="UntPadraoRel.pas">
+            <Form>FrmPadraoRel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UntRelCadastros.pas">
+            <Form>FrmRelCadastros</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

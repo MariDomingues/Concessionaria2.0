@@ -15,8 +15,6 @@ type
   TFrmVenda = class(TFrmPadrao1)
     Label1: TLabel;
     DBText1: TDBText;
-    Label3: TLabel;
-    DBText2: TDBText;
     DBLookupComboBox1: TDBLookupComboBox;
     Label4: TLabel;
     Label5: TLabel;
@@ -41,7 +39,7 @@ type
     Label6: TLabel;
     DBText3: TDBText;
     DataSource2: TDataSource;
-    DS_Delete: TDataSource;
+    DS_Geral: TDataSource;
     DS_Vendedor: TDataSource;
     DS_Veiculo: TDataSource;
     DS_Cliente: TDataSource;
@@ -69,13 +67,6 @@ type
     FDQuery1Email: TStringField;
     FDQuery1Nome_1: TStringField;
     FDAtualiza: TFDCommand;
-    FDTabelaCodigo: TFDAutoIncField;
-    FDTabelaCliente: TIntegerField;
-    FDTabelaFuncionario: TIntegerField;
-    FDTabelaDtVen: TSQLTimeStampField;
-    FDTabelaValTotal: TBCDField;
-    FDTabelaQtdParcela: TIntegerField;
-    FDTabelaStatus: TStringField;
     FDTabelaItens: TFDTable;
     FDTabelaItensVenda: TIntegerField;
     FDTabelaItensVeiculo: TIntegerField;
@@ -85,6 +76,21 @@ type
     FDTabelaItensValorUnit: TFloatField;
     FDTabelaItensCodigo: TFDAutoIncField;
     SpeedButton2: TSpeedButton;
+    FDTabelaCodigo: TFDAutoIncField;
+    FDTabelaCliente: TIntegerField;
+    FDTabelaFuncionario: TIntegerField;
+    FDTabelaDtVen: TSQLTimeStampField;
+    FDTabelaValTotal: TBCDField;
+    FDTabelaQtdParcela: TIntegerField;
+    FDTabelaStatus: TStringField;
+    DataSource3: TDataSource;
+    FDQuery2Codigo: TFDAutoIncField;
+    FDQuery2Venda: TIntegerField;
+    FDQuery2Veiculo: TIntegerField;
+    FDQuery2ValTotVei: TBCDField;
+    FDQuery2DescUnit: TBCDField;
+    FDQuery2Valor: TBCDField;
+    FDQuery2Placa: TStringField;
     procedure Bbt_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -250,6 +256,7 @@ begin
   FDTabela.Post;
 end;
 
+
 procedure TFrmVenda.DBEdit2Exit(Sender: TObject);
 var Desconto : real;
 begin
@@ -342,6 +349,7 @@ end;
 procedure TFrmVenda.SpeedButton2Click(Sender: TObject);
 begin
   inherited;
+  Application.CreateForm(TFrmConsultaVenda, FrmConsultaVenda);
   FrmConsultaVenda.ShowModal;
 end;
 

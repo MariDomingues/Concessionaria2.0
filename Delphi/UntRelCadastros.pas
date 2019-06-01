@@ -17,12 +17,18 @@ type
     edtNomeDe: TLabeledEdit;
     edtNomeAte: TLabeledEdit;
     edtCidade: TLabeledEdit;
+    RelClientes: TfrxReport;
     RadioGroup1: TRadioGroup;
+    RelFabricantes: TfrxReport;
     RadioGroup2: TRadioGroup;
+    RelUsuarios: TfrxReport;
     DataSource1: TDataSource;
     FDQryDetalhe: TFDQuery;
+    frxDBDSDetalhe: TfrxDBDataset;
+    RelFuncionarios: TfrxReport;
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure RadioGroup2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +53,7 @@ end;
 procedure TFrmRelCadastros.BitBtn2Click(Sender: TObject);
 var Strliga : String;
     tab : String;
+    nome : String;
 begin
   inherited;
   FDQuery1.close;
@@ -56,10 +63,19 @@ begin
     FDQuery1.SQL.Clear;
     FDQryDetalhe.SQL.Clear;
     tab := '';
+    nome := '';
 
     case RadioGroup2.ItemIndex of
-      0: tab := 'Funcionario';
-      1: tab := 'Cliente';
+      0:
+      begin
+        tab := 'Funcionario';
+        nome := 'Nome';
+      end;
+      1:
+      begin
+        tab := 'Cliente';
+        nome := 'Nome';
+      end;
       2:
       begin
         tab := 'Perfil';
@@ -67,10 +83,13 @@ begin
             +' inner Join Funcionario F on L.Funcionario = F.Codigo'
             +' inner Join Cargo C on F.Cargo = C.Codigo'
             +' Where L.Perfil = :Codigo');
+        nome := 'Usuario';
       end;
-      3: tab := 'Fabricante';
-      4: tab := 'Veiculo';
-      5: tab := 'Vendas';
+      3:
+      begin
+        tab := 'Fabricante';
+        nome := 'RazaoSocial';
+      end;
     end;
 
     if tab <> '' then FDQuery1.SQL.Add('select * from ' + tab);
@@ -93,12 +112,12 @@ begin
 
         if edtNomeDe.Text <> '' then
         begin
-          Add(Strliga + 'Nome >= '''+edtNomeDe.Text+'''');
+          Add(Strliga + nome + ' >= '''+edtNomeDe.Text+'''');
           StrLiga := ' and ';
         end;
         if edtNomeAte.Text <> '' then
         begin
-          Add(Strliga + 'Nome <= '''+edtNomeAte.Text+'zzz''');
+          Add(Strliga + nome +  ' <= '''+edtNomeAte.Text+'zzz''');
           StrLiga := ' and ';
         end;
 
@@ -110,8 +129,12 @@ begin
 
         case RadioGroup1.ItemIndex of
           0: Add(' order by Codigo');
-          1: Add(' order by Nome');
-          2: Add(' order by Cidade');
+          1: Add(' order by' + nome);
+          2:
+          begin
+            if RadioGroup2.ItemIndex <> 2 then Add(' order by Cidade')
+            else ShowMessage('Ordenação não permitida para essa Tabela ['+ tab +']!');
+          end;
         end;
 
     end;
@@ -119,16 +142,46 @@ begin
   FDQuery1.Open();
 
   case RadioGroup2.ItemIndex of
-      0: tab := 'Funcionario';
+      0: RelFuncionarios.ShowReport();
       1: RelClientes.ShowReport();
       2:
       begin
         FDQryDetalhe.Open();
         RelUsuarios.ShowReport();
       end;
-      3: tab := 'Fabricante';
-      4: tab := 'Veiculo';
-      5: tab := 'Vendas';
+      3: RelFabricantes.ShowReport();
+  end;
+end;
+
+procedure TFrmRelCadastros.RadioGroup2Click(Sender: TObject);
+begin
+  inherited;
+
+  case RadioGroup2.ItemIndex of
+      0:
+      begin
+        edtNomeDe.EditLabel.Caption := 'Nome De:';
+        edtNomeAte.EditLabel.Caption := 'Nome Até:';
+        edtCidade.Enabled := True;
+      end;
+      1:
+      begin
+        edtNomeDe.EditLabel.Caption := 'Nome De:';
+        edtNomeAte.EditLabel.Caption := 'Nome Até:';
+        edtCidade.Enabled := True;
+      end;
+      2:
+      begin
+        edtNomeDe.EditLabel.Caption := 'Nome Usuário De:';
+        edtNomeAte.EditLabel.Caption := 'Nome Usuário Até:';
+        edtCidade.Enabled := False;
+      end;
+      3:
+      begin
+        edtNomeDe.EditLabel.Caption := 'Razão Social De:';
+        edtNomeAte.EditLabel.Caption := 'Razão Social Até:';
+        edtCidade.Enabled := True;
+      end;
   end;
 end;
 

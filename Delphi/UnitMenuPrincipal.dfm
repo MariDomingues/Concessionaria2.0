@@ -18286,14 +18286,11 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
         Page = RibbonPage3
       end
       item
-        Caption = 'Gr'#225'fico'
-        Page = RibbonPage4
-      end
-      item
         Caption = 'Ferramentas'
         Page = RibbonPage5
       end>
-    TabIndex = 4
+    TabIndex = 3
+    ExplicitTop = -6
     DesignSize = (
       989
       143)
@@ -18404,14 +18401,15 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       Height = 93
       Caption = 'Relat'#243'rio'
       Index = 2
-    end
-    object RibbonPage4: TRibbonPage
-      Left = 0
-      Top = 50
-      Width = 988
-      Height = 93
-      Caption = 'Gr'#225'fico'
-      Index = 3
+      object RibbonGroup11: TRibbonGroup
+        Left = 4
+        Top = 3
+        Width = 129
+        Height = 86
+        ActionManager = ActionManager1
+        Caption = 'GERAR'
+        GroupIndex = 0
+      end
     end
     object RibbonPage5: TRibbonPage
       Left = 0
@@ -18420,7 +18418,7 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
       Height = 93
       BiDiMode = bdLeftToRight
       Caption = 'Ferramentas'
-      Index = 4
+      Index = 3
       ParentBiDiMode = False
       object RibbonGroup1: TRibbonGroup
         Left = 4
@@ -18738,6 +18736,14 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
             ImageIndex = 0
           end>
         ActionBar = RibbonGroup10
+      end
+      item
+        Items = <
+          item
+            Action = Action3
+            Caption = '&Abrir Tela de Relat'#243'rios'
+          end>
+        ActionBar = RibbonGroup11
       end>
     Images = ImageList1
     Left = 304
@@ -18757,7 +18763,8 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
     end
     object Action3: TAction
       Category = 'Relat'#243'rio'
-      Caption = 'Action3'
+      Caption = 'Abrir Tela de Relat'#243'rios'
+      OnExecute = Action3Execute
     end
     object Action4: TAction
       Category = 'Gr'#225'fico'
@@ -18823,7 +18830,7 @@ object FrmMenuPrincipal: TFrmMenuPrincipal
     Left = 304
     Top = 208
     Bitmap = {
-      494C01010A00C800A80018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010A00C800B00018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000060000000480000000100200000000000006C
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

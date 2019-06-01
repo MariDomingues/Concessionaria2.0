@@ -204,10 +204,13 @@ begin
   Acao := 'I';
   operacaoIncluir := 1;
 
+  FDTabela.Close;
   if FDTabela.Active = False then
     begin
       FDTabela.Open();
+      FDTabela.Refresh;
     end;
+
 
   FDTabela.Insert;
 

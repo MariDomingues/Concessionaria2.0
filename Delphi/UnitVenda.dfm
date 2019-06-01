@@ -1,22 +1,13 @@
 inherited FrmVenda: TFrmVenda
   Caption = 'Venda Ve'#237'culos'
-  ClientHeight = 488
+  ClientHeight = 482
   OnClose = FormClose
-  ExplicitHeight = 519
+  ExplicitTop = -53
+  ExplicitHeight = 512
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ToolBar1: TToolBar
-    inherited btn_Salvar: TToolButton [11]
-      Left = 577
-      ExplicitLeft = 577
-    end
-    inherited Separador3: TToolButton [12]
-      Left = 636
-      ExplicitLeft = 636
-    end
-  end
   inherited StatusBar1: TStatusBar
-    Top = 469
+    Top = 463
     ExplicitTop = 469
   end
   inherited PanelEntrada: TPanel
@@ -25,7 +16,7 @@ inherited FrmVenda: TFrmVenda
     end
   end
   inherited PnlFicha: TPanel
-    Height = 371
+    Height = 365
     ExplicitHeight = 371
     object Label1: TLabel
       Left = 35
@@ -40,21 +31,6 @@ inherited FrmVenda: TFrmVenda
       Width = 65
       Height = 17
       DataField = 'Codigo'
-      DataSource = DataSource1
-    end
-    object Label3: TLabel
-      Left = 556
-      Top = 5
-      Width = 75
-      Height = 13
-      Caption = 'Data da Venda:'
-    end
-    object DBText2: TDBText
-      Left = 647
-      Top = 5
-      Width = 65
-      Height = 17
-      DataField = 'DtVen'
       DataSource = DataSource1
     end
     object Label4: TLabel
@@ -83,8 +59,8 @@ inherited FrmVenda: TFrmVenda
       Top = 346
       Width = 65
       Height = 17
-      DataField = 'ValTotal'
-      DataSource = DataSource1
+      DataField = 'ValTotVei'
+      DataSource = DSItens
     end
     object SpeedButton2: TSpeedButton
       Left = 729
@@ -293,8 +269,8 @@ inherited FrmVenda: TFrmVenda
         OnClick = Bbt_ExcluirClick
       end
       object Bbt_Confirma: TBitBtn
-        Left = 506
-        Top = 70
+        Left = 503
+        Top = 73
         Width = 75
         Height = 19
         Caption = '&Confirmar'
@@ -316,13 +292,13 @@ inherited FrmVenda: TFrmVenda
         Width = 655
         Height = 155
         Align = alBottom
-        DataSource = DSItens
+        DataSource = DataSource3
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Yu Gothic UI'
         Font.Style = []
-        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgRowLines, dgTabs, dgRowSelect, dgTitleClick, dgTitleHotTrack]
         ParentFont = False
         ReadOnly = True
         TabOrder = 5
@@ -353,7 +329,7 @@ inherited FrmVenda: TFrmVenda
           item
             Alignment = taCenter
             Expanded = False
-            FieldName = 'ValorUnit'
+            FieldName = 'Valor'
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -374,13 +350,13 @@ inherited FrmVenda: TFrmVenda
             Expanded = False
             FieldName = 'DescUnit'
             Title.Alignment = taCenter
-            Title.Caption = 'Desconto'
+            Title.Caption = 'Desconto(%)'
             Title.Font.Charset = ANSI_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -12
             Title.Font.Name = 'Yu Gothic UI'
             Title.Font.Style = [fsBold]
-            Width = 60
+            Width = 80
             Visible = True
           end
           item
@@ -404,7 +380,7 @@ inherited FrmVenda: TFrmVenda
     Left = 104
     Top = 397
     Bitmap = {
-      494C010104000800800010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104000800880010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -679,7 +655,7 @@ inherited FrmVenda: TFrmVenda
     Left = 80
     Top = 400
     Bitmap = {
-      494C01010D001800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000824B
@@ -1878,7 +1854,7 @@ inherited FrmVenda: TFrmVenda
     Left = 48
     Top = 400
     Bitmap = {
-      494C01010D001800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000008080
@@ -3077,7 +3053,7 @@ inherited FrmVenda: TFrmVenda
     Left = 16
     Top = 400
     Bitmap = {
-      494C01010D001800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D001800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000009A66
@@ -4277,8 +4253,12 @@ inherited FrmVenda: TFrmVenda
     Top = 397
   end
   inherited FDStatus: TFDCommand
-    Left = 720
-    Top = 218
+    Left = 768
+    Top = 250
+  end
+  inherited PopupMenu2: TPopupMenu
+    Left = 608
+    Top = 71
   end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'Codigo'
@@ -4307,8 +4287,6 @@ inherited FrmVenda: TFrmVenda
     object FDTabelaValTotal: TBCDField
       FieldName = 'ValTotal'
       Origin = 'ValTotal'
-      DisplayFormat = 'R$###,###,##0.00'
-      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -4324,23 +4302,23 @@ inherited FrmVenda: TFrmVenda
     end
   end
   inherited DataSource1: TDataSource
-    Left = 136
-    Top = 400
+    Left = 576
+    Top = 144
   end
   object DataSource2: TDataSource
     DataSet = FDQuery1
     Left = 288
     Top = 352
   end
-  object DS_Delete: TDataSource
+  object DS_Geral: TDataSource
     DataSet = FDQRY_Geral
-    Left = 760
-    Top = 418
+    Left = 792
+    Top = 386
   end
   object DS_Vendedor: TDataSource
     DataSet = FDQRY_Vendedor
-    Left = 512
-    Top = 290
+    Left = 488
+    Top = 298
   end
   object DS_Veiculo: TDataSource
     DataSet = FDQRY_Veiculo
@@ -4349,19 +4327,20 @@ inherited FrmVenda: TFrmVenda
   end
   object DS_Cliente: TDataSource
     DataSet = FDQRY_Cliente
-    Left = 168
-    Top = 314
+    Left = 128
+    Top = 306
   end
   object DSItens: TDataSource
     DataSet = FDTabelaItens
-    Left = 792
+    Left = 768
     Top = 170
   end
   object FDQRY_Veiculo: TFDQuery
+    Active = True
     Connection = DM.FDConnection1
     SQL.Strings = (
       'SELECT Codigo, Placa, Valor FROM Veiculo WHERE Status = '#39'A'#39';')
-    Left = 735
+    Left = 767
     Top = 317
     object FDQRY_VeiculoCodigo: TFDAutoIncField
       FieldName = 'Codigo'
@@ -4385,15 +4364,15 @@ inherited FrmVenda: TFrmVenda
   end
   object FDQRY_Geral: TFDQuery
     Connection = DM.FDConnection1
-    Left = 727
-    Top = 421
+    Left = 791
+    Top = 389
   end
   object FDQRY_Vendedor: TFDQuery
     Connection = DM.FDConnection1
     SQL.Strings = (
       'select Codigo, Nome from Funcionario where Status <> '#39'I'#39)
-    Left = 479
-    Top = 293
+    Left = 487
+    Top = 301
   end
   object FDQuery1: TFDQuery
     Active = True
@@ -4407,8 +4386,8 @@ inherited FrmVenda: TFrmVenda
       'FROM Venda '
       'LEFT JOIN Cliente ON Venda.Cliente = Cliente.Codigo '
       'LEFT JOIN Funcionario ON Venda.Funcionario = Funcionario.Codigo')
-    Left = 383
-    Top = 373
+    Left = 335
+    Top = 333
     object FDQuery1Codigo: TFDAutoIncField
       FieldName = 'Codigo'
       Origin = 'Codigo'
@@ -4474,33 +4453,74 @@ inherited FrmVenda: TFrmVenda
     end
   end
   object FDQuery2: TFDQuery
+    MasterSource = DataSource1
+    MasterFields = 'Codigo'
     Connection = DM.FDConnection1
     SQL.Strings = (
-      
-        'SELECT Venda_Itens.ValTotVei, Venda_Itens.DescUnit, Veiculo.Valo' +
-        'r, Veiculo.Placa, Venda_Itens.Veiculo'
+      'SELECT Venda_Itens.*, Veiculo.Valor, Veiculo.Placa'
       'FROM Venda_Itens '
       'LEFT JOIN Veiculo ON Venda_Itens.Veiculo = Veiculo.Codigo'
-      'WHERE  Venda_Itens.Codigo = :Codigo')
-    Left = 376
-    Top = 418
+      'WHERE  Venda_Itens.Venda = :Codigo')
+    Left = 496
+    Top = 386
     ParamData = <
       item
         Name = 'CODIGO'
+        DataType = ftInteger
         ParamType = ptInput
+        Value = Null
       end>
+    object FDQuery2Codigo: TFDAutoIncField
+      FieldName = 'Codigo'
+      Origin = 'Codigo'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQuery2Venda: TIntegerField
+      FieldName = 'Venda'
+      Origin = 'Venda'
+      Required = True
+    end
+    object FDQuery2Veiculo: TIntegerField
+      FieldName = 'Veiculo'
+      Origin = 'Veiculo'
+      Required = True
+    end
+    object FDQuery2ValTotVei: TBCDField
+      FieldName = 'ValTotVei'
+      Origin = 'ValTotVei'
+      Precision = 9
+      Size = 2
+    end
+    object FDQuery2DescUnit: TBCDField
+      FieldName = 'DescUnit'
+      Origin = 'DescUnit'
+      Precision = 5
+      Size = 2
+    end
+    object FDQuery2Valor: TBCDField
+      FieldName = 'Valor'
+      Origin = 'Valor'
+      Precision = 9
+      Size = 2
+    end
+    object FDQuery2Placa: TStringField
+      FieldName = 'Placa'
+      Origin = 'Placa'
+      Size = 8
+    end
   end
   object FDQRY_Cliente: TFDQuery
     Connection = DM.FDConnection1
     SQL.Strings = (
       'SELECT Codigo, Nome FROM  Cliente WHERE  Status <> '#39'I'#39';')
-    Left = 136
+    Left = 152
     Top = 312
   end
   object FDAtualiza: TFDCommand
     Connection = DM.FDConnection1
-    Left = 688
-    Top = 217
+    Left = 736
+    Top = 249
   end
   object FDTabelaItens: TFDTable
     IndexFieldNames = 'Venda'
@@ -4541,7 +4561,7 @@ inherited FrmVenda: TFrmVenda
     object FDTabelaItensPlaca: TStringField
       FieldKind = fkLookup
       FieldName = 'Placa'
-      LookupDataSet = FDQRY_Veiculo
+      LookupDataSet = FDQuery2
       LookupKeyFields = 'Codigo'
       LookupResultField = 'Placa'
       KeyFields = 'Veiculo'
@@ -4554,6 +4574,7 @@ inherited FrmVenda: TFrmVenda
       LookupKeyFields = 'Codigo'
       LookupResultField = 'Valor'
       KeyFields = 'Veiculo'
+      Origin = 'ValorUnit'
       DisplayFormat = 'R$###,###,##0.00'
       EditFormat = 'R$###,###,##0.00'
       Lookup = True
@@ -4564,5 +4585,10 @@ inherited FrmVenda: TFrmVenda
       ProviderFlags = [pfInWhere, pfInKey]
       ReadOnly = True
     end
+  end
+  object DataSource3: TDataSource
+    DataSet = FDQuery2
+    Left = 424
+    Top = 392
   end
 end

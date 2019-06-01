@@ -18,7 +18,9 @@ uses
   UnitVenda in 'UnitVenda.pas' {FrmVenda},
   UntPesqString in 'UntPesqString.pas' {PesqString},
   UnitPadrao2 in 'UnitPadrao2.pas' {FrmPadrao2},
-  UnitConsultaVenda in 'UnitConsultaVenda.pas' {FrmConsultaVenda};
+  UnitConsultaVenda in 'UnitConsultaVenda.pas' {FrmConsultaVenda},
+  UntPadraoRel in 'UntPadraoRel.pas' {FrmPadraoRel},
+  UntRelCadastros in 'UntRelCadastros.pas' {FrmRelCadastros};
 
 {$R *.res}
 
@@ -42,5 +44,7 @@ begin
   Application.CreateForm(TPesqString, PesqString);
   Application.CreateForm(TFrmPadrao2, FrmPadrao2);
   Application.CreateForm(TFrmConsultaVenda, FrmConsultaVenda);
+  Application.CreateForm(TFrmPadraoRel, FrmPadraoRel);
+  Application.CreateForm(TFrmRelCadastros, FrmRelCadastros);
   Application.Run;
 end.

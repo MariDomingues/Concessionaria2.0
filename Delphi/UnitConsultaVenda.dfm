@@ -3,11 +3,12 @@ inherited FrmConsultaVenda: TFrmConsultaVenda
   ClientHeight = 285
   ClientWidth = 945
   ExplicitWidth = 953
-  ExplicitHeight = 316
+  ExplicitHeight = 315
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 945
+    ExplicitWidth = 945
     inherited Label1: TLabel
       Left = 411
       ExplicitLeft = 411
@@ -51,20 +52,6 @@ inherited FrmConsultaVenda: TFrmConsultaVenda
         Title.Font.Name = 'Yu Gothic UI'
         Title.Font.Style = [fsBold]
         Width = 300
-        Visible = True
-      end
-      item
-        Alignment = taCenter
-        Expanded = False
-        FieldName = 'DtVen'
-        Title.Alignment = taCenter
-        Title.Caption = 'Data Venda'
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 70
         Visible = True
       end
       item
@@ -122,6 +109,9 @@ inherited FrmConsultaVenda: TFrmConsultaVenda
       item
         Width = 50
       end>
+    ExplicitLeft = 0
+    ExplicitTop = 266
+    ExplicitWidth = 945
   end
   inherited FDTabelaConsulta: TFDTable
     IndexFieldNames = 'Codigo'
